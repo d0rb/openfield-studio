@@ -1,0 +1,10 @@
+{
+  "name": "soul-id-multi-angle",
+  "source_video": "examples/input_phone_clip.mp4",
+  "references": ["examples/character_reference.png"],
+  "backend": "qwen",
+  "mode": "multi_angle",
+  "duration_seconds": 5,
+  "preserve_audio": true,
+  "prompt": "Create a consistent three-quarter re-shoot of the same fictional character and scene."
+}

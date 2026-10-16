@@ -1,0 +1,14 @@
+{
+  "name": "cinema-rig-orbit",
+  "subject_prompt": "A glass perfume bottle on a marble table at blue hour",
+  "rig": {
+    "sensor": "35mm_film",
+    "lens": "anamorphic",
+    "focal_length_mm": 50,
+    "aperture": "f4",
+    "lighting": "contre_jour",
+    "movement": "orbit_360",
+    "duration_seconds": 5,
+    "speed": "linear"
+  }
+}

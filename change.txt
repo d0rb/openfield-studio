@@ -1,0 +1,35 @@
+2026-10-16 13:00
+
+What changed
+- Created the public-safe OpenField Studio repository skeleton.
+- Added package metadata, MIT license, README, execution-mode policy, and
+  initial service boundaries.
+
+Why
+- The contest requires a runnable open-source creative app, not a private
+  collection of fleet and security tooling.
+
+2026-10-16 13:20
+
+What changed
+- Added the Cinema rig compiler with 35 movement presets and anti-drift rules.
+- Added LTX and MiniMax H3 OpenJutsu workflow contracts.
+- Added the Comfy SDK/local/Router execution boundary with open-weights policy.
+- Added FastAPI endpoints, dashboard controls, job store, optional identity gate,
+  CLI dry-run, and offline tests.
+
+Why
+- These are the contest-facing seams needed to turn the existing studio logic
+  into one safe, inspectable, forkable application.
+
+2026-10-16 13:30
+
+What changed
+- Added example showcase inputs, submission storyboard, and live
+  `/object_info` capability preflight.
+- Added a synced before/after video comparator and OpenJutsu workspace to the
+  dashboard.
+
+Why
+- The submission needs reproducible evidence and a judge-friendly path from
+  workflow compilation to capability validation.

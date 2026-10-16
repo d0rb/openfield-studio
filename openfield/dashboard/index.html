@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenField Studio</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; background:#101216; color:#f5f7fa; }
+    body { margin:0; padding:32px; max-width:1100px; margin-inline:auto; }
+    header { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #30343d; padding-bottom:20px; }
+    h1 { margin:0; font-size:26px; } h2 { margin-top:28px; font-size:18px; }
+    nav button { background:#1b2029; color:#fff; border:1px solid #454c59; border-radius:6px; padding:9px 13px; margin-left:6px; cursor:pointer; }
+    nav button.active { background:#9bd4ff; color:#0e1720; border-color:#9bd4ff; }
+    .panel { margin-top:22px; border:1px solid #30343d; border-radius:8px; padding:20px; background:#15181e; }
+    label { display:block; color:#aab3c2; font-size:13px; margin:14px 0 6px; }
+    input, textarea, select { width:100%; box-sizing:border-box; background:#0e1014; color:#fff; border:1px solid #454c59; border-radius:5px; padding:10px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .wide { grid-column:1/-1; }
+    .rail { display:grid; grid-template-columns:repeat(6,1fr); gap:5px; margin-top:20px; }
+    .bead { padding:10px 4px; text-align:center; border-top:3px solid #49515f; color:#aab3c2; font-size:12px; }
+    .bead.active { border-color:#9bd4ff; color:#fff; }
+    button.primary { margin-top:18px; padding:11px 18px; border:0; border-radius:5px; background:#9bd4ff; color:#0e1720; font-weight:700; cursor:pointer; }
+    pre { white-space:pre-wrap; color:#bce6c4; }
+    .compare { position:relative; overflow:hidden; min-height:220px; background:#0e1014; border:1px solid #454c59; }
+    .compare video { display:block; width:100%; min-height:220px; object-fit:contain; }
+    #after { position:absolute; inset:0; clip-path:inset(0 0 0 50%); }
+    #split { position:absolute; inset:calc(100% - 22px) 12px auto; width:calc(100% - 24px); }
+  </style>
+</head>
+<body>
+  <header><h1>OpenField Studio</h1><nav>
+    <button class="tab active" data-tab="cinema">Cinema Rig</button>
+    <button class="tab" data-tab="openjutsu">OpenJutsu</button>
+    <button class="tab" data-tab="soul">Soul ID</button>
+  </nav></header>
+  <div class="rail"><div class="bead active">INPUT</div><div class="bead">QUEUE</div><div class="bead">GENERATE</div><div class="bead">SFACE GATE</div><div class="bead">EDIT</div><div class="bead">EXPORT</div></div>
+  <section id="cinema" class="panel">
+    <h2>Deterministic Cinema Studio</h2>
+    <div class="grid">
+      <div><label>Sensor</label><select id="sensor"><option>modern_digital</option><option>35mm_film</option><option>8mm_film</option><option>dv_camcorder</option></select></div>
+      <div><label>Lens</label><select id="lens"><option>clean_sharp</option><option>anamorphic</option><option>vintage_anamorphic</option><option>halation_vintage</option></select></div>
+      <div><label>Movement</label><select id="movement"><option>orbit_360</option><option>dolly_in</option><option>optical_zoom_in</option><option>track_left</option><option>static</option></select></div>
+      <div><label>Lighting</label><select id="lighting"><option>soft_cross</option><option>contre_jour</option><option>practicals</option><option>window</option></select></div>
+      <div><label>Focal length</label><input id="focal_length_mm" type="number" value="35"></div>
+      <div><label>Aperture</label><select id="aperture"><option>f1.4</option><option selected>f4</option><option>f11</option></select></div>
+      <div class="wide"><label>Subject prompt</label><textarea id="subject_prompt">A dancer in a red coat crossing a rain-soaked neon street</textarea></div>
+    </div><button class="primary" id="compile">Compile rig</button><pre id="result"></pre>
+  </section>
+  <section id="openjutsu" class="panel" hidden><h2>OpenJutsu: same motion, new reality</h2><label>Source video path</label><input id="video" value="source.mp4"><label>Reference image paths (one per line)</label><textarea id="refs">character.png</textarea><label>Prompt</label><textarea id="ojprompt">Recast the subject and location while preserving camera motion, timing, cuts, and audio.</textarea><button class="primary" id="ojcompile">Compile motion-transfer graph</button><pre id="ojresult"></pre><h2>Same take, two realities</h2><div class="compare"><video id="before" controls muted loop></video><video id="after" controls muted loop></video><input id="split" type="range" min="0" max="100" value="50" aria-label="comparison split"></div></section>
+  <section id="soul" class="panel" hidden><h2>Soul ID & Elements</h2><p>Reference vault and SFace gate are explicit workflow stages. A missing optional OpenCV model never becomes a false identity match.</p><pre id="soulresult">Gate status: checking…</pre></section>
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(b => b.onclick = () => { tabs.forEach(x => x.classList.remove('active')); b.classList.add('active'); document.querySelectorAll('.panel').forEach(x => x.hidden = x.id !== b.dataset.tab); });
+    document.querySelector('#compile').onclick = async () => {
+      const rig = {}; ['sensor','lens','movement','lighting','focal_length_mm','aperture'].forEach(k => rig[k] = document.querySelector('#'+k).value);
+      rig.focal_length_mm = Number(rig.focal_length_mm);
+      const r = await fetch('/api/cinema/compile', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({subject_prompt:document.querySelector('#subject_prompt').value, rig})});
+      document.querySelector('#result').textContent = JSON.stringify(await r.json(), null, 2);
+    };
+    document.querySelector('#ojcompile').onclick = async () => {
+      const r = await fetch('/api/openjutsu/compile', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({source_video:document.querySelector('#video').value, references:document.querySelector('#refs').value.split('\\n').filter(Boolean), prompt:document.querySelector('#ojprompt').value})});
+      document.querySelector('#ojresult').textContent = JSON.stringify(await r.json(), null, 2);
+    };
+    document.querySelector('#split').oninput = e => document.querySelector('#after').style.clipPath = `inset(0 0 0 ${e.target.value}%)`;
+    document.querySelector('#before').onplay = () => document.querySelector('#after').play();
+    document.querySelector('#after').onplay = () => document.querySelector('#before').play();
+    fetch('/api/health').then(r=>r.json()).then(x => document.querySelector('#soulresult').textContent = 'Execution: ' + x.mode + '\\nOpen weights only: ' + x.open_weights_only);
+  </script>
+</body>
+</html>
