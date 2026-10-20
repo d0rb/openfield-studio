@@ -4,20 +4,54 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "openfield-studio"
-version = "0.1.0"
-description = "Open-source cinematic direction, motion transfer, and identity-safe media workflows for ComfyUI."
+version = "0.2.0"
+description = "Open-weights cinematic direction, motion transfer and provenance receipts, built on the Comfy Developer Platform."
+readme = "README.md"
+license = { text = "MIT" }
 requires-python = ">=3.10"
 dependencies = [
+  "comfy-sdk>=0.5,<0.6",
   "fastapi>=0.115",
   "uvicorn[standard]>=0.32",
   "pydantic>=2",
-  "requests>=2.32",
+  "httpx>=0.27",
+  "python-multipart>=0.0.9",
   "Pillow>=10",
+  "numpy>=1.26",
+  # <5: the pinned YuNet/SFace ONNX files (2023mar / 2021dec) are fixed-shape and tested on 4.x
+  "opencv-python-headless>=4.10,<5",
+  "imageio-ffmpeg>=0.5",
 ]
 
 [project.optional-dependencies]
-platform = ["comfy-sdk>=0.5"]
-identity = ["opencv-python>=4.10", "numpy>=1.26"]
+dev = [
+  "pytest>=8",
+  "pytest-asyncio>=0.24",
+  "respx>=0.21",
+  "ruff>=0.6",
+]
 
-[tool.setuptools]
-packages = ["openfield", "openfield.services"]
+[project.scripts]
+openfield = "openfield.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["openfield*"]
+
+[tool.setuptools.package-data]
+openfield = ["web/**/*", "workflows/*.json", "workflows/LICENSE*", "workflows/README.md", "engine/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-q"
+# the tests render real media: do not keep a finished run's folders around (a full run is about 100 MB)
+tmp_path_retention_policy = "failed"
+tmp_path_retention_count = 1
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501", "B008"]  # B008: FastAPI's File()/Form()/Depends() defaults are the idiom

@@ -1,0 +1,3657 @@
+{
+ "arc_left|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "arc_left|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "arc_left|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "arc_left|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "arc_left|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "arc_left|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "arc_left|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "arc_left|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "arc_left|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "arc_left|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "arc_right|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "arc_right|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "arc_right|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "arc_right|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "arc_right|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "arc_right|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "arc_right|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "arc_right|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "arc_right|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "arc_right|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "crane_down|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "crane_down|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "crane_down|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "crane_down|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "crane_down|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "crane_down|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "crane_down|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "crane_down|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "crane_down|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "crane_down|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "crane_up|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "crane_up|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "crane_up|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "crane_up|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "crane_up|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "crane_up|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "crane_up|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "crane_up|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "crane_up|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "crane_up|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "dolly_in|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "dolly_in|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "dolly_in|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "dolly_in|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "dolly_in|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "dolly_in|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "dolly_in|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "dolly_in|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "dolly_in|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "dolly_in|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "dolly_out|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "dolly_out|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "dolly_out|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "dolly_out|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "dolly_out|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "dolly_out|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "dolly_out|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "dolly_out|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "dolly_out|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "dolly_out|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "fpv_drone|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "fpv_drone|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "fpv_drone|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "fpv_drone|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "fpv_drone|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "fpv_drone|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "fpv_drone|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "fpv_drone|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "fpv_drone|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "fpv_drone|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "handheld|10|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "handheld|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "handheld|2|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "handheld|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "handheld|3|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "handheld|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "handheld|5|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "handheld|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "handheld|7|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "handheld|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "helicopter|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "helicopter|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "helicopter|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "helicopter|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "helicopter|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "helicopter|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "helicopter|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "helicopter|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "helicopter|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "helicopter|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "low_angle|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "low_angle|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "low_angle|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "low_angle|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "low_angle|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "low_angle|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "low_angle|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "low_angle|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "low_angle|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "low_angle|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "optical_zoom_in|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "optical_zoom_in|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "optical_zoom_in|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "optical_zoom_in|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "optical_zoom_in|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "optical_zoom_in|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "optical_zoom_in|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "optical_zoom_in|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "optical_zoom_in|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "optical_zoom_in|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "optical_zoom_out|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "optical_zoom_out|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "optical_zoom_out|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "optical_zoom_out|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "optical_zoom_out|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "optical_zoom_out|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "optical_zoom_out|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "optical_zoom_out|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "optical_zoom_out|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "optical_zoom_out|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "orbit_180|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit"
+  ],
+  "segments": [
+   5,
+   5
+  ],
+  "total": 10
+ },
+ "orbit_180|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "orbit_180|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit"
+  ],
+  "segments": [
+   2,
+   2
+  ],
+  "total": 4
+ },
+ "orbit_180|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "orbit_180|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit"
+  ],
+  "segments": [
+   2,
+   2
+  ],
+  "total": 4
+ },
+ "orbit_180|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "orbit_180|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit"
+  ],
+  "segments": [
+   2,
+   2
+  ],
+  "total": 4
+ },
+ "orbit_180|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "orbit_180|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit"
+  ],
+  "segments": [
+   4,
+   4
+  ],
+  "total": 8
+ },
+ "orbit_180|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "orbit_360|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit",
+   "edit",
+   "repeat_hero"
+  ],
+  "segments": [
+   2,
+   2,
+   2,
+   2
+  ],
+  "total": 8
+ },
+ "orbit_360|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "orbit_360|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit",
+   "edit",
+   "repeat_hero"
+  ],
+  "segments": [
+   2,
+   2,
+   2,
+   2
+  ],
+  "total": 8
+ },
+ "orbit_360|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "orbit_360|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit",
+   "edit",
+   "repeat_hero"
+  ],
+  "segments": [
+   2,
+   2,
+   2,
+   2
+  ],
+  "total": 8
+ },
+ "orbit_360|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "orbit_360|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit",
+   "edit",
+   "repeat_hero"
+  ],
+  "segments": [
+   2,
+   2,
+   2,
+   2
+  ],
+  "total": 8
+ },
+ "orbit_360|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "orbit_360|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit",
+   "edit",
+   "edit",
+   "repeat_hero"
+  ],
+  "segments": [
+   2,
+   2,
+   2,
+   2
+  ],
+  "total": 8
+ },
+ "orbit_360|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "orbit_90|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "orbit_90|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "orbit_90|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "orbit_90|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "orbit_90|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "orbit_90|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "orbit_90|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "orbit_90|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "orbit_90|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "orbit_90|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "over_shoulder|10|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "over_shoulder|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "over_shoulder|2|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "over_shoulder|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "over_shoulder|3|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "over_shoulder|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "over_shoulder|5|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "over_shoulder|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "over_shoulder|7|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "over_shoulder|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pan_left|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pan_left|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pan_left|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pan_left|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pan_left|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pan_left|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pan_left|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pan_left|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pan_left|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pan_left|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pan_right|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pan_right|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pan_right|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pan_right|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pan_right|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pan_right|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pan_right|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pan_right|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pan_right|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pan_right|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pedestal_down|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pedestal_down|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pedestal_down|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pedestal_down|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pedestal_down|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pedestal_down|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pedestal_down|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pedestal_down|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pedestal_down|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pedestal_down|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pedestal_up|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pedestal_up|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pedestal_up|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pedestal_up|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pedestal_up|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pedestal_up|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pedestal_up|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pedestal_up|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pedestal_up|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pedestal_up|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pull_out|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pull_out|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "pull_out|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pull_out|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "pull_out|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pull_out|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "pull_out|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pull_out|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "pull_out|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "pull_out|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "push_in|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "push_in|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "push_in|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "push_in|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "push_in|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "push_in|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "push_in|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "push_in|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "push_in|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "push_in|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "rack_focus|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "rack_focus|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "rack_focus|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "rack_focus|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "rack_focus|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "rack_focus|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "rack_focus|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "rack_focus|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "rack_focus|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "rack_focus|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "reveal|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "reveal|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "reveal|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "reveal|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "reveal|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "reveal|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "reveal|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "reveal|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "reveal|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "reveal|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "robot_arm|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "robot_arm|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "robot_arm|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "robot_arm|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "robot_arm|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "robot_arm|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "robot_arm|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "robot_arm|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "robot_arm|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "robot_arm|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "static|10|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "static|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "static|2|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "static|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "static|3|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "static|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "static|5|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "static|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "static|7|full": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "static|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "tilt_down|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "tilt_down|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "tilt_down|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "tilt_down|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "tilt_down|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "tilt_down|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "tilt_down|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "tilt_down|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "tilt_down|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "tilt_down|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "tilt_up|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "tilt_up|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "tilt_up|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "tilt_up|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "tilt_up|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "tilt_up|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "tilt_up|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "tilt_up|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "tilt_up|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "tilt_up|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "top_down|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "top_down|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "top_down|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "top_down|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "top_down|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "top_down|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "top_down|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "top_down|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "top_down|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "top_down|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "track_left|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "track_left|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "track_left|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "track_left|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "track_left|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "track_left|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "track_left|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "track_left|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "track_left|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "track_left|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "track_right|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "track_right|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "track_right|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "track_right|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "track_right|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "track_right|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "track_right|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "track_right|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "track_right|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "track_right|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "truck_left|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "truck_left|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "truck_left|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "truck_left|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "truck_left|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "truck_left|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "truck_left|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "truck_left|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "truck_left|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "truck_left|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "truck_right|10|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "truck_right|10|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "truck_right|2|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "truck_right|2|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "truck_right|3|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "truck_right|3|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "truck_right|5|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "truck_right|5|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "truck_right|7|full": {
+  "mode": "keyframed",
+  "roles": [
+   "hero",
+   "edit"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "truck_right|7|quick": {
+  "mode": "prompt_only",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "vertigo|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "vertigo|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "vertigo|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "vertigo|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "vertigo|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "vertigo|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "vertigo|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "vertigo|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "vertigo|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "vertigo|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "whip_pan|10|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "whip_pan|10|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   10
+  ],
+  "total": 10
+ },
+ "whip_pan|2|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "whip_pan|2|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   2
+  ],
+  "total": 2
+ },
+ "whip_pan|3|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "whip_pan|3|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   3
+  ],
+  "total": 3
+ },
+ "whip_pan|5|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "whip_pan|5|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   5
+  ],
+  "total": 5
+ },
+ "whip_pan|7|full": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ },
+ "whip_pan|7|quick": {
+  "mode": "experimental",
+  "roles": [
+   "hero"
+  ],
+  "segments": [
+   7
+  ],
+  "total": 7
+ }
+}

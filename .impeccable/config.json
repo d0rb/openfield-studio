@@ -1,0 +1,15 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-17T08:49:02.660Z",
+        "reason": "Agent: an Operate surface in the category-standard direction the user chose (sits beside Frame.io, Linear, Runway, Resolve). Inter is the workhorse UI face of that category, a variable file with tabular numerals for timecodes and scores. Used for UI text only, never as a display voice. Swapping it is one file."
+      }
+    ]
+  }
+}

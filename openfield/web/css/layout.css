@@ -1,0 +1,322 @@
+/* The shell: a 52px top bar over a 64px station rail, the workspace, and a 360px settings dock. */
+
+.skip {
+  position: absolute;
+  left: var(--s3);
+  top: -48px;
+  z-index: 60;
+  padding: var(--s2) var(--s3);
+  background: var(--raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-s);
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+.skip:focus {
+  top: var(--s3);
+}
+
+.app {
+  display: grid;
+  height: 100%;
+  grid-template-columns: var(--rail-w) minmax(0, 1fr) var(--dock-w);
+  grid-template-rows: var(--topbar-h) minmax(0, 1fr);
+  grid-template-areas:
+    "top top top"
+    "rail stage dock";
+}
+.app[data-dock="closed"] {
+  grid-template-columns: var(--rail-w) minmax(0, 1fr) 0;
+}
+
+/* -- top bar -------------------------------------------------------------------------------- */
+.topbar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding-right: var(--s4);
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding-left: 18px;
+  min-width: 0;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--control-line);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.wordmark {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  color: var(--text-2);
+  font-size: var(--fs-md);
+  white-space: nowrap;
+}
+.crumb .icon {
+  color: var(--text-3);
+}
+.crumb b {
+  font-weight: 500;
+  color: var(--text);
+}
+.topbar .grow {
+  flex: 1;
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.backend-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  height: var(--control-h);
+  padding: 0 var(--s3);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--raised);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  max-width: 440px;
+}
+.backend-btn:hover {
+  background: var(--hover);
+}
+.backend-btn .label-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-3);
+  flex: none;
+}
+.status-dot[data-tone="green"] {
+  background: var(--green);
+}
+.status-dot[data-tone="amber"] {
+  background: var(--amber);
+}
+.status-dot[data-tone="red"] {
+  background: var(--red);
+}
+
+/* -- rail ----------------------------------------------------------------------------------- */
+.rail {
+  grid-area: rail;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  padding: var(--s2) 4px;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+}
+.rail-item {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 4px;
+  height: 56px;
+  border-radius: var(--radius-s);
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.rail-item .icon {
+  width: 20px;
+  height: 20px;
+}
+.rail-item:hover {
+  background: var(--raised);
+  color: var(--text);
+}
+.rail-item[aria-current="page"] {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.rail-item .count {
+  display: none;
+}
+
+/* -- stage (the centre column) --------------------------------------------------------------- */
+.stage {
+  grid-area: stage;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  min-width: 0;
+  min-height: 0;
+  padding: var(--s4);
+  overflow-y: auto;
+  background: var(--ground);
+}
+.station {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+.station-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+}
+.station-head h1 {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.station-head p {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+/* -- dock ----------------------------------------------------------------------------------- */
+.dock {
+  grid-area: dock;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  overflow: hidden;
+}
+.app[data-dock="closed"] .dock {
+  visibility: hidden;
+}
+.dock-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.dock-pane {
+  display: grid;
+  align-content: start;
+}
+.dock-pane[hidden] {
+  display: none;
+}
+.dock-foot {
+  display: flex;
+  gap: var(--s2);
+  padding: var(--s3) var(--s4);
+  border-top: 1px solid var(--line);
+}
+
+/* A narrower window: the dock floats over the workspace instead of squeezing the monitor. */
+@media (max-width: 1179px) {
+  .app,
+  .app[data-dock="closed"] {
+    grid-template-columns: var(--rail-w) minmax(0, 1fr);
+    grid-template-areas:
+      "top top"
+      "rail stage";
+  }
+  .dock {
+    position: fixed;
+    z-index: 20;
+    top: var(--topbar-h);
+    right: 0;
+    bottom: 0;
+    width: min(var(--dock-w), 100vw);
+    box-shadow: var(--shadow-float);
+    translate: 0 0;
+    transition: translate var(--t-base) var(--ease), visibility 0s;
+  }
+  .app[data-dock="closed"] .dock {
+    translate: 100% 0;
+    visibility: hidden;
+    transition: translate var(--t-base) var(--ease), visibility 0s var(--t-base);
+    box-shadow: none;
+  }
+}
+
+/* A phone: the rail moves to the bottom and the dock takes the full width. */
+@media (max-width: 719px) {
+  :root {
+    --topbar-h: 48px;
+  }
+  .app,
+  .app[data-dock="closed"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: var(--topbar-h) minmax(0, 1fr) 56px;
+    grid-template-areas:
+      "top"
+      "stage"
+      "rail";
+  }
+  .rail {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 4px var(--s2);
+    border-right: 0;
+    border-top: 1px solid var(--line);
+  }
+  .rail-item {
+    flex: 1;
+    height: 48px;
+  }
+  .brand {
+    padding-left: var(--s4);
+  }
+  .crumb,
+  .wordmark {
+    display: none;
+  }
+  .stage {
+    padding: var(--s3);
+    gap: var(--s3);
+  }
+  .dock {
+    width: 100vw;
+    bottom: 56px;
+  }
+  .backend-btn {
+    max-width: 150px;
+    padding: 0 var(--s2);
+  }
+  .topbar {
+    gap: var(--s2);
+    padding-right: var(--s3);
+  }
+  .topbar-actions {
+    gap: var(--s1);
+  }
+  .btn-label {
+    display: none;
+  }
+  .topbar-actions .btn.secondary {
+    width: var(--control-h);
+    padding: 0;
+  }
+}

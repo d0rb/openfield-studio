@@ -1,0 +1,537 @@
+{
+  "source": {
+    "repo": "Comfy-Org/workflow_templates",
+    "ref": "04a508b31bec1818e48122ca0761c1de4140a234",
+    "generated": "2026-10-16"
+  },
+  "templates": {
+    "video_ltx2_5_flf2v": {
+      "group": "ltx",
+      "sha256": "d8107deef9a9b005a3eff41e12520225a344b65381d74686ac22dc4e65d19c21",
+      "bytes": 108932,
+      "node_types": [
+        "CLIPLoader",
+        "CLIPTextEncode",
+        "ComfyMathExpression",
+        "ComfySwitchNode",
+        "CreateVideo",
+        "EmptyLTXVLatentVideo",
+        "GetImageSize",
+        "LTXVAddGuide",
+        "LTXVAudioVAEDecode",
+        "LTXVConcatAVLatent",
+        "LTXVConditioning",
+        "LTXVCropGuides",
+        "LTXVDualCFGGuider",
+        "LTXVEmptyLatentAudio",
+        "LTXVPreprocess",
+        "LTXVSeparateAVLatent",
+        "LoadImage",
+        "ManualSigmas",
+        "PreviewAny",
+        "PrimitiveBoolean",
+        "PrimitiveInt",
+        "PrimitiveStringMultiline",
+        "RandomNoise",
+        "ResizeImageMaskNode",
+        "SamplerCustomAdvanced",
+        "SamplerEulerAncestral",
+        "SaveVideo",
+        "TextGenerateLTX2Prompt",
+        "UNETLoader",
+        "VAEDecodeTiled",
+        "VAELoader"
+      ],
+      "models": [
+        "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "gemma4_e2b_it_int8_convrot.safetensors",
+        "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "ltx-2.5-audio-vae-bf16.safetensors",
+        "ltx-2.5-video-vae-bf16.safetensors"
+      ]
+    },
+    "video_ltx2_5_i2v": {
+      "group": "ltx",
+      "sha256": "03b136ba0ad752c1e91e496a23fa4f4826ef881777d591dc9129c459922e7dac",
+      "bytes": 128819,
+      "node_types": [
+        "CLIPLoader",
+        "CLIPTextEncode",
+        "ComfyMathExpression",
+        "ComfySwitchNode",
+        "CreateVideo",
+        "EmptyLTXVLatentVideo",
+        "KSamplerSelect",
+        "LTXVAudioVAEDecode",
+        "LTXVConcatAVLatent",
+        "LTXVConditioning",
+        "LTXVDualCFGGuider",
+        "LTXVEmptyLatentAudio",
+        "LTXVImgToVideoInplace",
+        "LTXVLatentUpsampler",
+        "LTXVPreprocess",
+        "LTXVSeparateAVLatent",
+        "LatentUpscaleModelLoader",
+        "LoadImage",
+        "ManualSigmas",
+        "PreviewAny",
+        "PrimitiveBoolean",
+        "PrimitiveInt",
+        "PrimitiveStringMultiline",
+        "RandomNoise",
+        "ResizeImageMaskNode",
+        "ResolutionSelector",
+        "SamplerCustomAdvanced",
+        "SaveVideo",
+        "TextGenerateLTX2Prompt",
+        "UNETLoader",
+        "VAEDecodeTiled",
+        "VAELoader"
+      ],
+      "models": [
+        "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+        "gemma4_e2b_it_int8_convrot.safetensors",
+        "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+        "ltx-2.5-audio-vae-bf16.safetensors",
+        "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+        "ltx-2.5-video-vae-bf16.safetensors"
+      ]
+    },
+    "image_qwen_image_2_1_image_edit": {
+      "group": "qwen",
+      "sha256": "c1e6551759de131f083a040da072ac6f032c3c8401ceca202412cd912897d0fc",
+      "bytes": 96740,
+      "node_types": [
+        "BatchImagesNode",
+        "CLIPLoader",
+        "ComfySwitchNode",
+        "EmptyLatentImage",
+        "ImageCompare",
+        "KSampler",
+        "LoadImage",
+        "PreviewAny",
+        "PrimitiveStringMultiline",
+        "QwenImage21Cache",
+        "SaveImageAdvanced",
+        "TextEncodeQwenImage21",
+        "TextGenerate",
+        "UNETLoader",
+        "VAEDecode",
+        "VAELoader"
+      ],
+      "models": [
+        "qwen3.5_9b_qwen_image_2.1_pe_i2i.int8_convrot.safetensors",
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image_2.1_int8_convrot.safetensors",
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ]
+    },
+    "image_qwen_image_2_1_t2i": {
+      "group": "qwen",
+      "sha256": "5f2b50eeaf27e56a45456681ad5319df1ae51243d9653ac3f92c7dc05d1e1503",
+      "bytes": 78494,
+      "node_types": [
+        "CLIPLoader",
+        "ComfySwitchNode",
+        "EmptyLatentImage",
+        "KSampler",
+        "PreviewAny",
+        "PrimitiveStringMultiline",
+        "QwenImage21Cache",
+        "ResolutionSelector",
+        "SaveImageAdvanced",
+        "TextEncodeQwenImage21",
+        "TextGenerate",
+        "UNETLoader",
+        "VAEDecode",
+        "VAELoader"
+      ],
+      "models": [
+        "qwen3.5_9b_qwen_image_2.1_pe_t2i.int8_convrot.safetensors",
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image_2.1_int8_convrot.safetensors",
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ]
+    },
+    "video_wan_animate2": {
+      "group": "wan",
+      "sha256": "951fb2140c55ef8011a1ddc60639b0c76a5bd99a77212a7ef587af1b7df74652",
+      "bytes": 164665,
+      "node_types": [
+        "BasicScheduler",
+        "CLIPLoader",
+        "CLIPTextEncode",
+        "CLIPVisionEncode",
+        "CLIPVisionLoader",
+        "ComfyMathExpression",
+        "ComfySwitchNode",
+        "ContextWindowsManual",
+        "CreateList",
+        "CreateVideo",
+        "EndLoop",
+        "GetImageSize",
+        "GetItemFromList",
+        "GetVideoComponents",
+        "ImageFromBatch",
+        "ImageStitch",
+        "KSamplerSelect",
+        "LoadImage",
+        "LoadVideo",
+        "LoraLoaderModelOnly",
+        "ModelSamplingSD3",
+        "PrimitiveInt",
+        "RebatchImages",
+        "ResizeImageMaskNode",
+        "SamplerCustom",
+        "SaveVideo",
+        "StartLoop",
+        "TrimVideoLatent",
+        "UNETLoader",
+        "VAEDecode",
+        "VAELoader",
+        "WanAnimate2Cache",
+        "WanAnimate2ToVideo"
+      ],
+      "models": [
+        "Wan2_1_VAE_bf16.safetensors",
+        "clip_vision_h.safetensors",
+        "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan_animate_2_int8_convrot.safetensors"
+      ]
+    }
+  },
+  "models": [
+    {
+      "name": "clip_vision_h.safetensors",
+      "directory": "clip_vision",
+      "repo": "Comfy-Org/Wan-Animate-2",
+      "revision": "main",
+      "path": "clip_vision/clip_vision_h.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/clip_vision/clip_vision_h.safetensors",
+      "optional": false,
+      "templates": [
+        "video_wan_animate2"
+      ],
+      "required": true,
+      "used_by": [
+        "wan_animate2"
+      ]
+    },
+    {
+      "name": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "directory": "diffusion_models",
+      "repo": "Lightricks/LTX-2.5",
+      "revision": "main",
+      "path": "diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "optional": false,
+      "templates": [
+        "video_ltx2_5_flf2v",
+        "video_ltx2_5_i2v"
+      ],
+      "required": true,
+      "used_by": [
+        "ltx25_flf2v",
+        "ltx25_i2v"
+      ]
+    },
+    {
+      "name": "qwen_image_2.1_int8_convrot.safetensors",
+      "directory": "diffusion_models",
+      "repo": "Comfy-Org/Qwen-Image-2.1",
+      "revision": "main",
+      "path": "diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "optional": false,
+      "templates": [
+        "image_qwen_image_2_1_image_edit",
+        "image_qwen_image_2_1_t2i"
+      ],
+      "required": true,
+      "used_by": [
+        "qwen21_edit",
+        "qwen21_t2i"
+      ]
+    },
+    {
+      "name": "wan_animate_2_int8_convrot.safetensors",
+      "directory": "diffusion_models",
+      "repo": "Comfy-Org/Wan-Animate-2",
+      "revision": "main",
+      "path": "diffusion_models/wan_animate_2_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/diffusion_models/wan_animate_2_int8_convrot.safetensors",
+      "optional": false,
+      "templates": [
+        "video_wan_animate2"
+      ],
+      "required": true,
+      "used_by": [
+        "wan_animate2"
+      ]
+    },
+    {
+      "name": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "directory": "latent_upscale_models",
+      "repo": "Lightricks/LTX-2.5",
+      "revision": "main",
+      "path": "latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "optional": false,
+      "templates": [
+        "video_ltx2_5_i2v"
+      ],
+      "required": true,
+      "used_by": [
+        "ltx25_i2v"
+      ]
+    },
+    {
+      "name": "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "directory": "loras",
+      "repo": "Comfy-Org/Wan-Animate-2",
+      "revision": "main",
+      "path": "loras/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/loras/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "optional": false,
+      "templates": [
+        "video_wan_animate2"
+      ],
+      "required": true,
+      "used_by": [
+        "wan_animate2"
+      ]
+    },
+    {
+      "name": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "directory": "text_encoders",
+      "repo": "Lightricks/LTX-2.5",
+      "revision": "main",
+      "path": "text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "optional": false,
+      "templates": [
+        "video_ltx2_5_flf2v",
+        "video_ltx2_5_i2v"
+      ],
+      "required": true,
+      "used_by": [
+        "ltx25_flf2v",
+        "ltx25_i2v"
+      ]
+    },
+    {
+      "name": "gemma4_e2b_it_int8_convrot.safetensors",
+      "directory": "text_encoders",
+      "repo": "Comfy-Org/gemma-4",
+      "revision": "main",
+      "path": "text_encoders/gemma4_e2b_it_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/gemma-4/resolve/main/text_encoders/gemma4_e2b_it_int8_convrot.safetensors",
+      "optional": true,
+      "templates": [
+        "video_ltx2_5_flf2v",
+        "video_ltx2_5_i2v"
+      ],
+      "required": false,
+      "used_by": []
+    },
+    {
+      "name": "qwen3.5_9b_qwen_image_2.1_pe_i2i.int8_convrot.safetensors",
+      "directory": "text_encoders",
+      "repo": "Comfy-Org/Qwen-Image-2.1",
+      "revision": "main",
+      "path": "text_encoders/qwen3.5_9b_qwen_image_2.1_pe_i2i.int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3.5_9b_qwen_image_2.1_pe_i2i.int8_convrot.safetensors",
+      "optional": true,
+      "templates": [
+        "image_qwen_image_2_1_image_edit"
+      ],
+      "required": false,
+      "used_by": []
+    },
+    {
+      "name": "qwen3.5_9b_qwen_image_2.1_pe_t2i.int8_convrot.safetensors",
+      "directory": "text_encoders",
+      "repo": "Comfy-Org/Qwen-Image-2.1",
+      "revision": "main",
+      "path": "text_encoders/qwen3.5_9b_qwen_image_2.1_pe_t2i.int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3.5_9b_qwen_image_2.1_pe_t2i.int8_convrot.safetensors",
+      "optional": true,
+      "templates": [
+        "image_qwen_image_2_1_t2i"
+      ],
+      "required": false,
+      "used_by": []
+    },
+    {
+      "name": "qwen3vl_8b_int8_convrot.safetensors",
+      "directory": "text_encoders",
+      "repo": "Comfy-Org/Qwen-Image-2.1",
+      "revision": "main",
+      "path": "text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "optional": false,
+      "templates": [
+        "image_qwen_image_2_1_image_edit",
+        "image_qwen_image_2_1_t2i"
+      ],
+      "required": true,
+      "used_by": [
+        "qwen21_edit",
+        "qwen21_t2i"
+      ]
+    },
+    {
+      "name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "directory": "text_encoders",
+      "repo": "Comfy-Org/Wan-Animate-2",
+      "revision": "main",
+      "path": "text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "optional": false,
+      "templates": [
+        "video_wan_animate2"
+      ],
+      "required": true,
+      "used_by": [
+        "wan_animate2"
+      ]
+    },
+    {
+      "name": "Wan2_1_VAE_bf16.safetensors",
+      "directory": "vae",
+      "repo": "Comfy-Org/Wan-Animate-2",
+      "revision": "main",
+      "path": "vae/Wan2_1_VAE_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/vae/Wan2_1_VAE_bf16.safetensors",
+      "optional": false,
+      "templates": [
+        "video_wan_animate2"
+      ],
+      "required": true,
+      "used_by": [
+        "wan_animate2"
+      ]
+    },
+    {
+      "name": "ltx-2.5-audio-vae-bf16.safetensors",
+      "directory": "vae",
+      "repo": "Lightricks/LTX-2.5",
+      "revision": "main",
+      "path": "vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "optional": false,
+      "templates": [
+        "video_ltx2_5_flf2v",
+        "video_ltx2_5_i2v"
+      ],
+      "required": true,
+      "used_by": [
+        "ltx25_flf2v",
+        "ltx25_i2v"
+      ]
+    },
+    {
+      "name": "ltx-2.5-video-vae-bf16.safetensors",
+      "directory": "vae",
+      "repo": "Lightricks/LTX-2.5",
+      "revision": "main",
+      "path": "vae/ltx-2.5-video-vae-bf16.safetensors",
+      "url": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "optional": false,
+      "templates": [
+        "video_ltx2_5_flf2v",
+        "video_ltx2_5_i2v"
+      ],
+      "required": true,
+      "used_by": [
+        "ltx25_flf2v",
+        "ltx25_i2v"
+      ]
+    },
+    {
+      "name": "qwen_image_2.1_vae_bf16.safetensors",
+      "directory": "vae",
+      "repo": "Comfy-Org/Qwen-Image-2.1",
+      "revision": "main",
+      "path": "vae/qwen_image_2.1_vae_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "optional": false,
+      "templates": [
+        "image_qwen_image_2_1_image_edit",
+        "image_qwen_image_2_1_t2i"
+      ],
+      "required": true,
+      "used_by": [
+        "qwen21_edit",
+        "qwen21_t2i"
+      ]
+    }
+  ],
+  "allowed_node_types": [
+    "BasicScheduler",
+    "BatchImagesNode",
+    "CLIPLoader",
+    "CLIPTextEncode",
+    "CLIPVisionEncode",
+    "CLIPVisionLoader",
+    "ComfyMathExpression",
+    "ComfySwitchNode",
+    "ContextWindowsManual",
+    "CreateList",
+    "CreateVideo",
+    "EmptyLTXVLatentVideo",
+    "EmptyLatentImage",
+    "EndLoop",
+    "GetImageSize",
+    "GetItemFromList",
+    "GetVideoComponents",
+    "ImageCompare",
+    "ImageFromBatch",
+    "ImageStitch",
+    "KSampler",
+    "KSamplerSelect",
+    "LTXVAddGuide",
+    "LTXVAudioVAEDecode",
+    "LTXVConcatAVLatent",
+    "LTXVConditioning",
+    "LTXVCropGuides",
+    "LTXVDualCFGGuider",
+    "LTXVEmptyLatentAudio",
+    "LTXVImgToVideoInplace",
+    "LTXVLatentUpsampler",
+    "LTXVPreprocess",
+    "LTXVSeparateAVLatent",
+    "LatentUpscaleModelLoader",
+    "LoadImage",
+    "LoadVideo",
+    "LoraLoaderModelOnly",
+    "ManualSigmas",
+    "ModelSamplingSD3",
+    "PreviewAny",
+    "PrimitiveBoolean",
+    "PrimitiveInt",
+    "PrimitiveStringMultiline",
+    "QwenImage21Cache",
+    "RandomNoise",
+    "RebatchImages",
+    "ResizeImageMaskNode",
+    "ResolutionSelector",
+    "SamplerCustom",
+    "SamplerCustomAdvanced",
+    "SamplerEulerAncestral",
+    "SaveImageAdvanced",
+    "SaveVideo",
+    "StartLoop",
+    "TextEncodeQwenImage21",
+    "TextGenerate",
+    "TextGenerateLTX2Prompt",
+    "TrimVideoLatent",
+    "UNETLoader",
+    "VAEDecode",
+    "VAEDecodeTiled",
+    "VAELoader",
+    "WanAnimate2Cache",
+    "WanAnimate2ToVideo"
+  ]
+}

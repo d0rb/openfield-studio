@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T12:00:00Z",
+  "title": "Design System: OpenField Studio",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "canonical": "#0f1115",
+        "tonalRamp": [
+          "#090b0f",
+          "#14161a",
+          "#1f2226",
+          "#2c2e32",
+          "#45484d",
+          "#6f7277",
+          "#abaeb4",
+          "#ebeef5"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#14171c",
+        "tonalRamp": []
+      },
+      "raised": {
+        "role": "neutral",
+        "displayName": "Raised",
+        "canonical": "#1a1d23",
+        "tonalRamp": []
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "Hover",
+        "canonical": "#21252d",
+        "tonalRamp": []
+      },
+      "pressed": {
+        "role": "neutral",
+        "displayName": "Pressed",
+        "canonical": "#272c35",
+        "tonalRamp": []
+      },
+      "screen": {
+        "role": "neutral",
+        "displayName": "Screen",
+        "canonical": "#08090b",
+        "tonalRamp": []
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#262b34",
+        "tonalRamp": []
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "#323844",
+        "tonalRamp": []
+      },
+      "control-line": {
+        "role": "neutral",
+        "displayName": "Control Edge",
+        "canonical": "#667080",
+        "tonalRamp": []
+      },
+      "control-line-hover": {
+        "role": "neutral",
+        "displayName": "Control Edge Hover",
+        "canonical": "#7a8494",
+        "tonalRamp": []
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text",
+        "canonical": "#e6e8eb",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#202224",
+          "#393b3d",
+          "#545558",
+          "#7e8083",
+          "#a3a5a7",
+          "#c9cbcd",
+          "#edeff2"
+        ]
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Text 2",
+        "canonical": "#a6adb9",
+        "tonalRamp": []
+      },
+      "text-3": {
+        "role": "neutral",
+        "displayName": "Text 3",
+        "canonical": "#8d95a3",
+        "tonalRamp": []
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Signal Indigo",
+        "canonical": "oklch(64% 0.193 275)",
+        "tonalRamp": [
+          "#14005b",
+          "#1a007b",
+          "#281a9b",
+          "#3c3fbd",
+          "#626ff1",
+          "#8395ff",
+          "#a7bdff",
+          "#c9e2ff"
+        ]
+      },
+      "accent-fill": {
+        "role": "primary",
+        "displayName": "Indigo Fill",
+        "canonical": "#5667f0",
+        "tonalRamp": []
+      },
+      "accent-fill-hover": {
+        "role": "primary",
+        "displayName": "Indigo Fill Hover",
+        "canonical": "#4f5fe8",
+        "tonalRamp": []
+      },
+      "accent-fill-press": {
+        "role": "primary",
+        "displayName": "Indigo Fill Pressed",
+        "canonical": "#4a5ae0",
+        "tonalRamp": []
+      },
+      "accent-text": {
+        "role": "primary",
+        "displayName": "Indigo Text",
+        "canonical": "#8e9bff",
+        "tonalRamp": []
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Indigo Wash",
+        "canonical": "rgb(109 124 255 / 0.14)",
+        "tonalRamp": []
+      },
+      "green": {
+        "role": "state",
+        "displayName": "Pass Green",
+        "canonical": "oklch(73% 0.136 159)",
+        "tonalRamp": [
+          "#001700",
+          "#003203",
+          "#004e1e",
+          "#006a38",
+          "#069862",
+          "#46be85",
+          "#71e6aa",
+          "#97ffce"
+        ]
+      },
+      "green-soft": {
+        "role": "state",
+        "displayName": "Pass Green Wash",
+        "canonical": "rgb(76 195 138 / 0.14)",
+        "tonalRamp": []
+      },
+      "amber": {
+        "role": "state",
+        "displayName": "Replay Amber",
+        "canonical": "oklch(76% 0.136 79)",
+        "tonalRamp": [
+          "#250000",
+          "#420e00",
+          "#5f2b00",
+          "#7d4800",
+          "#ab7400",
+          "#d2992b",
+          "#fabf58",
+          "#ffe37e"
+        ]
+      },
+      "amber-soft": {
+        "role": "state",
+        "displayName": "Replay Amber Wash",
+        "canonical": "rgb(224 166 60 / 0.14)",
+        "tonalRamp": []
+      },
+      "red": {
+        "role": "state",
+        "displayName": "Fault Red",
+        "canonical": "oklch(71% 0.158 18)",
+        "tonalRamp": [
+          "#350000",
+          "#560001",
+          "#780019",
+          "#991e33",
+          "#cd515c",
+          "#f7777f",
+          "#ff9da4",
+          "#ffc1c7"
+        ]
+      },
+      "red-soft": {
+        "role": "state",
+        "displayName": "Fault Red Wash",
+        "canonical": "rgb(242 114 123 / 0.14)",
+        "tonalRamp": []
+      },
+      "danger-fill": {
+        "role": "state",
+        "displayName": "Danger Fill",
+        "canonical": "#c73e49",
+        "tonalRamp": []
+      },
+      "danger-fill-hover": {
+        "role": "state",
+        "displayName": "Danger Fill Hover",
+        "canonical": "#b5353f",
+        "tonalRamp": []
+      },
+      "on-fill": {
+        "role": "neutral",
+        "displayName": "On Fill",
+        "canonical": "#ffffff",
+        "tonalRamp": []
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The running-render name only (22px, 600)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Station, monitor, empty-state and approval headings (18px, 600)."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Take header in the details dock; prompt field text (16px)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default UI text (14px, 1.4286)."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, inputs, tabs, dock section heads (13px, 500)."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Field labels, segmented options, pills, hints. 12px floor."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Seeds, hashes and timecodes only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "float",
+        "value": "0 6px 16px rgb(0 0 0 / 0.5), 0 1px 3px rgb(0 0 0 / 0.4)",
+        "purpose": "The only shadow: menu, notices, floating dock below 1180px, sticky reel bar."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every state transition."
+      },
+      {
+        "name": "t-fast",
+        "value": "120ms",
+        "purpose": "Hover, colour and border changes."
+      },
+      {
+        "name": "t-base",
+        "value": "180ms",
+        "purpose": "Switches, dock slide, chevrons, path draw, play-button fade."
+      },
+      {
+        "name": "progress",
+        "value": "400ms",
+        "purpose": "Progress bar fill."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.001ms",
+        "purpose": "Under prefers-reduced-motion all durations collapse."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "dock-floats",
+        "value": "1179px",
+        "purpose": "Max width at which the dock floats over the workspace."
+      },
+      {
+        "name": "phone",
+        "value": "719px",
+        "purpose": "Max width for the bottom station bar and full-width sheet."
+      },
+      {
+        "name": "short-viewport",
+        "value": "760px height",
+        "purpose": "Compacts the filmstrip at 720px wide and up."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action per region: Shoot, Recreate, Approve.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Shoot</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: 6px; font-family: var(--font, Inter, system-ui, sans-serif); font-size: 0.8125rem; font-weight: 500; line-height: 1; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary { background: #5667f0; color: #fff; } .ds-btn-primary:hover { background: #4f5fe8; } .ds-btn-primary:active { background: #4a5ae0; } .ds-btn:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Default button for everything that is not the main action.",
+      "html": "<button class=\"ds-btn ds-btn-secondary\">Open in ComfyUI</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: 6px; font-family: var(--font, Inter, system-ui, sans-serif); font-size: 0.8125rem; font-weight: 500; line-height: 1; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary { background: #1a1d23; color: #e6e8eb; border-color: #323844; } .ds-btn-secondary:hover { background: #21252d; border-color: #667080; } .ds-btn-secondary:active { background: #272c35; } .ds-btn:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Ground well with a 3:1 control edge; focus is an accent ring.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-label\">Seed</span><input class=\"ds-input\" value=\"48213\"></label>",
+      "css": ".ds-field { display: grid; gap: 4px; } .ds-label { font-size: 0.75rem; font-weight: 500; color: #a6adb9; } .ds-input { height: 32px; padding: 0 10px; background: #0f1115; border: 1px solid #667080; border-radius: 6px; color: #e6e8eb; font-size: 0.8125rem; font-family: ui-monospace, Consolas, monospace; } .ds-input:hover { border-color: #7a8494; } .ds-input:focus-visible { outline: 2px solid #6d7cff; outline-offset: 0; border-color: #6d7cff; }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "custom",
+      "refersTo": "segmented",
+      "description": "Pick-one among a few options; selected fills Pressed with a strong inset ring.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button role=\"radio\" aria-checked=\"true\">5 s</button><button role=\"radio\" aria-checked=\"false\">8 s</button><button role=\"radio\" aria-checked=\"false\">10 s</button></div>",
+      "css": ".ds-seg { display: flex; gap: 2px; padding: 2px; background: #0f1115; border: 1px solid #667080; border-radius: 6px; } .ds-seg > button { flex: 1; height: 26px; padding: 0 8px; border: 0; border-radius: 4px; background: transparent; color: #a6adb9; font-family: inherit; font-size: 0.75rem; font-weight: 500; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-seg > button:hover:not([aria-checked=\"true\"]) { background: #1a1d23; color: #e6e8eb; } .ds-seg > button[aria-checked=\"true\"] { background: #272c35; color: #e6e8eb; box-shadow: inset 0 0 0 1px #323844; } .ds-seg > button:focus-visible { outline: 2px solid #6d7cff; }"
+    },
+    {
+      "name": "Status Pills",
+      "kind": "chip",
+      "refersTo": "pill",
+      "description": "20px pills; amber Replay, accent Recorded take, green verified.",
+      "html": "<span class=\"ds-pill ds-pill-amber\"><i></i>Replay</span> <span class=\"ds-pill ds-pill-accent\">Recorded take</span> <span class=\"ds-pill ds-pill-green\"><i></i>Open weights</span>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 6px; height: 20px; padding: 0 8px; border-radius: 999px; font-family: inherit; font-size: 0.75rem; font-weight: 500; line-height: 1; white-space: nowrap; } .ds-pill i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; } .ds-pill-amber { background: rgb(224 166 60 / 0.14); color: #e0a63c; } .ds-pill-accent { background: rgb(109 124 255 / 0.14); color: #8e9bff; } .ds-pill-green { background: rgb(76 195 138 / 0.14); color: #4cc38a; }"
+    },
+    {
+      "name": "Prompt Bar",
+      "kind": "custom",
+      "refersTo": "prompt-bar",
+      "description": "Raised bar with the subject field, the plan line and the large Shoot button.",
+      "html": "<div class=\"ds-prompt\"><div class=\"ds-prompt-text\">A lighthouse keeper climbing at dusk</div><div class=\"ds-prompt-foot\"><p class=\"ds-plan\"><b>Dolly in</b><span>/</span>Stills first<span>/</span>2 stills + 1 shot, 5 s</p><button class=\"ds-shoot\">Shoot</button></div></div>",
+      "css": ".ds-prompt { display: grid; gap: 8px; padding: 12px 12px 12px 16px; background: #1a1d23; border: 1px solid #323844; border-radius: 10px; font-family: inherit; color: #e6e8eb; } .ds-prompt:hover { border-color: #667080; } .ds-prompt:focus-within { border-color: #6d7cff; outline: 1px solid #6d7cff; } .ds-prompt-text { font-size: 1rem; line-height: 1.5; min-height: 48px; } .ds-prompt-foot { display: flex; align-items: center; gap: 12px; } .ds-plan { flex: 1; margin: 0; font-size: 0.8125rem; line-height: 1.4; color: #a6adb9; } .ds-plan b { font-weight: 600; color: #e6e8eb; } .ds-plan span { margin: 0 8px; color: #8d95a3; } .ds-shoot { height: 40px; padding: 0 16px; border: 0; border-radius: 6px; background: #5667f0; color: #fff; font: 500 0.875rem Inter, system-ui, sans-serif; cursor: pointer; } .ds-shoot:hover { background: #4f5fe8; } .ds-shoot:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Move Pad Tile",
+      "kind": "custom",
+      "refersTo": "move-tile",
+      "description": "Camera move as a path glyph over its name; selected takes the accent border and wash.",
+      "html": "<button class=\"ds-move\" aria-checked=\"false\"><svg viewBox=\"0 0 36 36\" width=\"36\" height=\"36\"><circle cx=\"18\" cy=\"10\" r=\"3\" fill=\"#8d95a3\"/><path d=\"M10 30 L18 20\" fill=\"none\" stroke=\"#a6adb9\" stroke-width=\"2.5\" stroke-linecap=\"round\"/></svg>Dolly in</button> <button class=\"ds-move\" aria-checked=\"true\"><svg viewBox=\"0 0 36 36\" width=\"36\" height=\"36\"><circle cx=\"18\" cy=\"10\" r=\"3\" fill=\"#8d95a3\"/><path d=\"M26 30 L18 20\" fill=\"none\" stroke=\"#8e9bff\" stroke-width=\"2.5\" stroke-linecap=\"round\"/></svg>Orbit</button>",
+      "css": ".ds-move { display: inline-grid; justify-items: center; gap: 4px; width: 76px; min-height: 64px; padding: 6px 0 5px; background: #1a1d23; border: 1px solid #323844; border-radius: 6px; color: #a6adb9; font-family: inherit; font-size: 0.75rem; font-weight: 500; line-height: 1.2; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-move:hover { background: #21252d; color: #e6e8eb; } .ds-move[aria-checked=\"true\"] { border-color: #6d7cff; background: rgb(109 124 255 / 0.14); color: #e6e8eb; } .ds-move:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Filmstrip Tile",
+      "kind": "card",
+      "refersTo": "filmstrip-tile",
+      "description": "132px 16:9 take thumbnail with a flag, badge and progress bar; current take is ringed in accent.",
+      "html": "<button class=\"ds-tile\" aria-current=\"true\"><span class=\"ds-tile-frame\"><span class=\"ds-tile-flag\">Recorded</span><span class=\"ds-tile-badge\">0:05</span></span><span class=\"ds-tile-name\">Lighthouse dolly</span></button>",
+      "css": ".ds-tile { display: grid; gap: 4px; width: 132px; padding: 0; background: none; border: 0; text-align: left; color: #e6e8eb; font-family: inherit; cursor: pointer; } .ds-tile-frame { position: relative; display: block; aspect-ratio: 16 / 9; background: #08090b; border: 1px solid #262b34; border-radius: 6px; overflow: hidden; } .ds-tile:hover .ds-tile-frame { border-color: #667080; } .ds-tile[aria-current=\"true\"] .ds-tile-frame { border-color: #6d7cff; box-shadow: 0 0 0 1px #6d7cff; } .ds-tile-flag, .ds-tile-badge { position: absolute; padding: 1px 6px; border-radius: 4px; background: rgb(8 9 11 / 0.82); font-size: 0.75rem; font-weight: 500; } .ds-tile-flag { left: 6px; top: 6px; color: #8e9bff; } .ds-tile-badge { right: 6px; bottom: 6px; color: #e6e8eb; font-variant-numeric: tabular-nums; } .ds-tile-name { font-size: 0.75rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-tile:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; border-radius: 6px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Edit Bay",
+    "overview": "OpenField Studio is the category standard played straight: a dark, colour-neutral AI-video workbench in the lineage of Frame.io (how footage is shown and judged), Linear (controls, density, states), Runway (the category itself) and DaVinci Resolve (panels around a viewer). Convention is the commitment. A 52px top bar, a 64px icon rail, a centre column with a prompt bar over a 16:9 monitor over a filmstrip, and a 360px settings dock: someone who has used any of those tools can operate it cold.\n\nThe interface stays quiet so the footage is the only saturated thing on screen. Surfaces step through six near-neutral blue-greys; text is cool grey; a single indigo accent marks the primary action, selection, focus and progress and nothing else. What the system owns is provenance without friction: the receipt, the open-weights audit and the identity score sit one click from every take, and Replay never dresses up as a render.\n\nThe recorded visual rejections are ornament, gimmick and irony: no gradients, glass, glow or kickers, and no quirk smuggled in to be memorable. The memorable moment is functional: choosing a camera move draws its path with numbered anchors while the plan line recounts the real renders.",
+    "keyCharacteristics": [
+      "Dark neutral ground, tonal layering instead of shadows; one floating-layer shadow.",
+      "One accent (indigo), spent on action, selection, focus and progress only.",
+      "One family (Inter), one control vocabulary (segmented, slider, select, switch), one icon stroke (Lucide, 1.5px).",
+      "4/8-point spacing, 6px control radius, 10px container radius, 1px hairlines.",
+      "Motion shows state only, 120 to 400 ms, none on load, reduced motion honoured.",
+      "Honest provenance: Replay is amber and says \"a recording played back\"."
+    ],
+    "rules": [
+      {
+        "name": "The Footage-Only Saturation Rule",
+        "body": "Nothing in the chrome is saturated except the footage and the single accent. State hues appear as small pills, dots and arcs, never as panels.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Accent Rule",
+        "body": "Indigo means act, selected, focused or in progress. A decorative use is a defect.",
+        "section": "colors"
+      },
+      {
+        "name": "The Replay Is Amber Rule",
+        "body": "A replayed run always carries the amber Replay pill and the words \"a recording played back\"; a real recorded render carries the accent \"Recorded take\" pill. They are never the same colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Twelve Floor Rule",
+        "body": "No text under 12px (--fs-xs). Smaller is a defect.",
+        "section": "typography"
+      },
+      {
+        "name": "The Numerals Stay Still Rule",
+        "body": "Numbers that change (timecodes, scores, counts, slider values) use tabular numerals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Labels are sentence case at rest. No uppercase, no tracked small caps, no kickers above headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Until-Floating Rule",
+        "body": "A surface that sits in the layout has no shadow. A surface that overlaps other content has the Float shadow and a line-strong border. No hard offset shadows, no glow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the footage as the only saturated thing: chrome is the six-step neutral ladder plus one indigo.",
+      "Do use the accent for the primary action, selection, focus and progress only, and the lighter accent-text for text on dark.",
+      "Do show Replay as an amber pill with \"a recording played back\"; use \"Recorded take\" in the accent for real recorded renders; say \"Nothing was rendered just now\" where it applies.",
+      "Do keep text at 12px or larger and interactive targets at 24px or larger (controls are 26 to 40px).",
+      "Do give every control a visible 2px accent focus ring and keep control edges at 3:1 (control-line).",
+      "Do animate only to show state, 120 to 400 ms with the cubic-bezier(0.16, 1, 0.3, 1) ease: 120 ms for hover and color, 180 ms for toggles, panels and path draws, 400 ms for progress. Nothing animates on load. Honour prefers-reduced-motion.",
+      "Do spend cheap before expensive: stills for approval before video, and let the plan line count real renders.",
+      "Do keep content-safety and consent copy plain, complete and in the interface, in Text colour.",
+      "Do say what is missing and how to fix it in notices and empty states; never fake a render, a price or a count.",
+      "Do size the Monitor to the footage's aspect ratio, and use tabular numerals for anything that changes."
+    ],
+    "donts": [
+      "Don't add gradients, glass, blur, glow, or decorative colour to the chrome.",
+      "Don't add kickers, eyebrows, uppercase tracked labels or glyph-as-icon decoration; icons are Lucide SVGs at one stroke weight.",
+      "Don't use a second accent, or colour a panel with a state hue; state is a pill, dot or arc.",
+      "Don't put a shadow on anything that does not overlap other content, and never a hard offset shadow.",
+      "Don't introduce a display face or a second sans family; mono is for seeds, hashes and timecodes only.",
+      "Don't let Replay read as a render: no spinner, no \"Rendering\", no accent colour on a replayed run.",
+      "Don't use native controls where the vocabulary exists; pick-one is segmented, a value is a slider with a number box, an option is a switch.",
+      "Don't put pure white anywhere but on text over an accent or danger fill and on the comparator divider."
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "engine": "ltx-2.5",
+  "source_template": "video_ltx2_5_i2v",
+  "note": "Image to video with synced audio, in two stages: the first at half size, then a x2 latent upscale. Width and height therefore snap to multiples of 64. The prompt enhancer is removed and text-to-video stays off; width and height replace the resolution selector. Stage two keeps the template's fixed noise seed.",
+  "slots": {
+    "prompt": {"node": "398:376", "input": "value", "kind": "text"},
+    "seed": {"node": "398:339", "input": "noise_seed", "kind": "seed"},
+    "duration": {"node": "398:362", "input": "value", "kind": "int", "min": 2, "max": 10, "default": 5},
+    "width": {"node": "398:372", "input": "value", "kind": "int", "unlink": true,
+              "multiple_of": 64, "min": 512, "max": 1920, "default": 1280},
+    "height": {"node": "398:360", "input": "value", "kind": "int", "unlink": true,
+               "multiple_of": 64, "min": 512, "max": 1920, "default": 704},
+    "first_frame": {"node": "395", "input": "image", "kind": "image"}
+  },
+  "fixed": [
+    {"node": "398:383", "input": "value", "value": false},
+    {"node": "398:363", "input": "value", "value": false},
+    {"node": "398:382", "input": "on_true", "value": "", "unlink": true}
+  ],
+  "outputs": {"video": "75"}
+}

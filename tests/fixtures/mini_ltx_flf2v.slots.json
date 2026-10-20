@@ -1,0 +1,16 @@
+{
+  "engine": "ltx-2.5",
+  "source_template": "video_ltx2_5_flf2v",
+  "note": "Synthetic miniature of the official FLF2V template used by the unit tests; same node classes, compound ids and slot shapes. The real exported graph is committed under openfield/workflows/.",
+  "slots": {
+    "prompt": {"node": "251:252", "input": "value", "kind": "text"},
+    "duration": {"node": "251:198", "input": "value", "kind": "int", "min": 2, "max": 10, "default": 5},
+    "width": {"node": "251:215", "input": "value", "kind": "int", "min": 512, "max": 1920, "multiple_of": 32, "default": 1280},
+    "height": {"node": "251:216", "input": "value", "kind": "int", "min": 512, "max": 1920, "multiple_of": 32, "default": 704},
+    "seed": {"node": "251:196", "input": "noise_seed", "kind": "seed", "min": 0, "default": 0},
+    "first_frame": {"node": "31", "input": "image", "kind": "image"},
+    "last_frame": {"node": "39", "input": "image", "kind": "image"}
+  },
+  "fixed": [{"node": "251:250", "input": "value", "value": false}],
+  "outputs": {"video": "68"}
+}

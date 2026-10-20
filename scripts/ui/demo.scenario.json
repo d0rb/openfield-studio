@@ -1,0 +1,40 @@
+{
+  "title": "OpenField Studio: a two-minute walk",
+  "_comment": "An example scenario for the hosted Replay (recorded takes, no backend). Re-take it with: python scripts/record_demo.py --url <the Replay site> --scenario scripts/ui/demo.scenario.json. When real renders exist, adjust the take names and the waits to match them. Narration cues (say) are timed in the finished video and written to cues.txt.",
+  "steps": [
+    { "do": "goto", "route": "reshoot" },
+    { "do": "say", "text": "Same motion, a new character. This is a re-shoot: the clip's movement, a different person." },
+    { "do": "hold", "ms": 1800 },
+    { "do": "drag", "selector": "[data-station=reshoot] .split-handle", "by": [240, 0] },
+    { "do": "hold", "ms": 700 },
+    { "do": "drag", "selector": "[data-station=reshoot] .split-handle", "by": [-420, 0] },
+    { "do": "click", "selector": "[data-station=reshoot] .big-play" },
+    { "do": "hold", "ms": 3000 },
+
+    { "do": "goto", "route": "cast" },
+    { "do": "say", "text": "Characters are invented or consented: consent comes first, and a face check runs on your own computer." },
+    { "do": "hold", "ms": 2200 },
+
+    { "do": "goto", "route": "direct" },
+    { "do": "say", "text": "Direct a shot. The Move Pad draws the camera path, and the plan counts every render before anything is spent." },
+    { "do": "click", "selector": ".move-tile", "text": "Orbit 180" },
+    { "do": "ring", "selector": "[data-station=direct] .plan", "ms": 1800 },
+    { "do": "click", "selector": ".move-tile", "text": "Dolly in" },
+    { "do": "hold", "ms": 1200 },
+
+    { "do": "say", "text": "In Replay, Recreate plays back a recorded run, step by step. Nothing renders here." },
+    { "do": "click", "selector": "[data-station=direct] .prompt .btn.primary" },
+    { "do": "until", "expr": "document.querySelector('[data-station=direct] .screen[data-mode=ready] video.player')", "timeout": 60000, "speed": 1, "label": "the recorded run" },
+    { "do": "hold", "ms": 1500 },
+
+    { "do": "say", "text": "Every take carries a receipt: identity result, open-weights audit, models and licences, and the exact workflow." },
+    { "do": "click", "selector": "[data-station=direct] .monitor-head .btn:last-child" },
+    { "do": "ring", "selector": ".audit-head", "ms": 2200 },
+    { "do": "scroll", "selector": ".dock-body", "to": 400 },
+    { "do": "hold", "ms": 1500 },
+
+    { "do": "goto", "route": "takes" },
+    { "do": "say", "text": "Takes keeps everything, with exports under the take they came from." },
+    { "do": "hold", "ms": 2200 }
+  ]
+}

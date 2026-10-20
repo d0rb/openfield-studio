@@ -1,0 +1,18 @@
+{
+  "engine": "wan-animate-2",
+  "source_template": "video_wan_animate2",
+  "note": "Motion transfer: the reference image's character performs the source clip's movement. 'prompt' describes the new character and background; 'motion_prompt' describes what happens in the source clip. The template resizes the source to 482x854 (portrait) by default; width and height let a landscape clip keep its framing. The output with the side-by-side comparison is not used.",
+  "slots": {
+    "prompt": {"node": "672:582", "input": "text", "kind": "text"},
+    "motion_prompt": {"node": "672:585", "input": "text", "kind": "text", "required": false,
+                      "default": "A person moving naturally, following the motion in the video."},
+    "seed": {"node": "672:597", "input": "noise_seed", "kind": "seed"},
+    "reference_image": {"node": "189", "input": "image", "kind": "image"},
+    "pose_video": {"node": "240", "input": "file", "kind": "video"},
+    "width": {"node": "672:600", "input": "resize_type.width", "kind": "int", "required": false,
+              "min": 256, "max": 1280, "default": 482},
+    "height": {"node": "672:600", "input": "resize_type.height", "kind": "int", "required": false,
+               "min": 256, "max": 1280, "default": 854}
+  },
+  "outputs": {"video": "246"}
+}

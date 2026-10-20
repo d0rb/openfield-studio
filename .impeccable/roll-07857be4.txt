@@ -1,0 +1,13 @@
+Evidence for the seed key recorded in the direction contract (FORM block).
+
+Output of `impeccable concept-seed --scope direction --mode operate`, printed in the build session of 2026-10-16/17
+(tool result, first line):
+
+  DIRECTION CONCEPT SEED (key: 07857be4; mode: operate; source: api; approved pool: c3b204a1eed6;
+  306/564 human-approved; rerun with --scope direction --mode operate --from 07857be4 --candidate-count 7
+  to reproduce this roll against this catalog revision)
+  ASSIGNED INDEX: 4
+
+The assigned index 4 pointed into my ordered list of seven candidate directions. The owner was shown the dealt roll
+and the category-standard "canon" card on the decision page and chose the canon card; the seed key is unchanged.
+An earlier unscoped roll, key 8c9613c9, was a slip and was not used.

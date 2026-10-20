@@ -1,0 +1,27 @@
+{
+ "link": "eNqlj0FOAzEMRa8y8rqCUgkhZscBOAGqRu7E7ZgmcZQ401ZV744tNuzJKvp-_v_7DpxL1wbjHbAHFhjhgis12MCMTV3PmMjkT6xoaqWj0V-w_eeD_WMDSYJblyqp6CQ53ixBKlNWVJbsM6lakdWj-eR9ImVrAGi9pJaFZ3CjlZJtmS71wDq9b8H8G1GA8c0-_fBNs48_hsinRRfpjQbUIfR2dvTM2VAIXJ37rRb90r1tzwsldO9C-cgUw5NRXOj5Bf6EKKUSUf2iqNfd68S7FR4_XG5shw",
+ "recipe": {
+  "inputs": {
+   "audio": "waves",
+   "cast": {
+    "name": "Mara",
+    "refs": [
+     "0000000000000000000000000000000000000000000000000000000000000000"
+    ]
+   },
+   "mode": "prompt_only",
+   "orientation": "portrait",
+   "rig": {
+    "lens": "anamorphic",
+    "movement": "orbit_90"
+   },
+   "seed": 7,
+   "subject": "A lighthouse at dusk"
+  },
+  "kind": "direct",
+  "models": [],
+  "schema": "openfield.recipe/1",
+  "seed": 7,
+  "template": "ltx25_i2v"
+ }
+}

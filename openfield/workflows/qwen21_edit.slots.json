@@ -1,0 +1,22 @@
+{
+  "engine": "qwen-image-2.1",
+  "source_template": "image_qwen_image_2_1_image_edit",
+  "note": "Image edit with up to ten reference images (base + nine). The prompt enhancer is removed; custom_size selects an empty latent of width x height instead of the base image's own size.",
+  "slots": {
+    "prompt": {"node": "459:484", "input": "on_false", "kind": "text"},
+    "seed": {"node": "459:458", "input": "seed", "kind": "seed"},
+    "base_image": {"node": "470", "input": "image", "kind": "image"},
+    "refs": {"node": "459:474", "kind": "image_list", "required": false, "loader": "475",
+             "pattern": "images.image_{i}", "start": 2, "limit": 9},
+    "custom_size": {"node": "459:468", "input": "switch", "kind": "bool", "default": false},
+    "width": {"node": "459:456", "input": "width", "kind": "int",
+              "multiple_of": 16, "min": 512, "max": 2048, "default": 1344},
+    "height": {"node": "459:456", "input": "height", "kind": "int",
+               "multiple_of": 16, "min": 512, "max": 2048, "default": 768}
+  },
+  "fixed": [
+    {"node": "459:484", "input": "switch", "value": false},
+    {"node": "459:484", "input": "on_true", "value": "", "unlink": true}
+  ],
+  "outputs": {"image": "461"}
+}

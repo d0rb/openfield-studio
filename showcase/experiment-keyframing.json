@@ -1,0 +1,33 @@
+{
+  "_comment": "Day-1 experiment: does planning anchor stills (keyframed, first-and-last-frame video) look better than one still and a camera instruction (prompt only)? Five moves, two characters, both ways with the same seeds: 20 takes. Judge side by side, then mark only the moves that win in rig.VALIDATED. Run: openfield showcase --spec showcase/experiment-keyframing.json --out data-showcase/experiment",
+  "casts": [
+    {"name": "Mara", "description": "a woman in her late twenties with short dark hair, freckles and a yellow rain jacket", "count": 2, "pick": 1, "seed": 101},
+    {"name": "Oskar", "description": "an elderly man with a white beard, weathered skin and a navy knit cap", "count": 2, "pick": 1, "seed": 202}
+  ],
+  "takes": [
+    {"name": "mara-dolly-in-keyframed", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "dolly_in", "duration_seconds": 5}, "seed": 1},
+    {"name": "mara-dolly-in-prompt", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "dolly_in", "duration_seconds": 5}, "seed": 1, "prompt_only": true},
+    {"name": "oskar-dolly-in-keyframed", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "dolly_in", "duration_seconds": 5}, "seed": 2},
+    {"name": "oskar-dolly-in-prompt", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "dolly_in", "duration_seconds": 5}, "seed": 2, "prompt_only": true},
+
+    {"name": "mara-orbit-90-keyframed", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "orbit_90", "duration_seconds": 5}, "seed": 3},
+    {"name": "mara-orbit-90-prompt", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "orbit_90", "duration_seconds": 5}, "seed": 3, "prompt_only": true},
+    {"name": "oskar-orbit-90-keyframed", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "orbit_90", "duration_seconds": 5}, "seed": 4},
+    {"name": "oskar-orbit-90-prompt", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "orbit_90", "duration_seconds": 5}, "seed": 4, "prompt_only": true},
+
+    {"name": "mara-crane-up-keyframed", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "crane_up", "duration_seconds": 5}, "seed": 5},
+    {"name": "mara-crane-up-prompt", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "crane_up", "duration_seconds": 5}, "seed": 5, "prompt_only": true},
+    {"name": "oskar-crane-up-keyframed", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "crane_up", "duration_seconds": 5}, "seed": 6},
+    {"name": "oskar-crane-up-prompt", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "crane_up", "duration_seconds": 5}, "seed": 6, "prompt_only": true},
+
+    {"name": "mara-arc-left-keyframed", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "arc_left", "duration_seconds": 5}, "seed": 7},
+    {"name": "mara-arc-left-prompt", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "arc_left", "duration_seconds": 5}, "seed": 7, "prompt_only": true},
+    {"name": "oskar-arc-left-keyframed", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "arc_left", "duration_seconds": 5}, "seed": 8},
+    {"name": "oskar-arc-left-prompt", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "arc_left", "duration_seconds": 5}, "seed": 8, "prompt_only": true},
+
+    {"name": "mara-track-right-keyframed", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "track_right", "duration_seconds": 5}, "seed": 9},
+    {"name": "mara-track-right-prompt", "kind": "direct", "cast": "Mara", "subject": "Mara stands in a sunlit train station hall", "rig": {"movement": "track_right", "duration_seconds": 5}, "seed": 9, "prompt_only": true},
+    {"name": "oskar-track-right-keyframed", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "track_right", "duration_seconds": 5}, "seed": 10},
+    {"name": "oskar-track-right-prompt", "kind": "direct", "cast": "Oskar", "subject": "Oskar sits on a harbour bench at dawn", "rig": {"movement": "track_right", "duration_seconds": 5}, "seed": 10, "prompt_only": true}
+  ]
+}

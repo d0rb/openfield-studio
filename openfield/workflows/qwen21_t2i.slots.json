@@ -1,0 +1,18 @@
+{
+  "engine": "qwen-image-2.1",
+  "source_template": "image_qwen_image_2_1_t2i",
+  "note": "Text to image. The template's prompt enhancer is removed; width and height replace the resolution selector.",
+  "slots": {
+    "prompt": {"node": "459:474", "input": "on_false", "kind": "text"},
+    "seed": {"node": "459:458", "input": "seed", "kind": "seed"},
+    "width": {"node": "459:456", "input": "width", "kind": "int", "unlink": true,
+              "multiple_of": 16, "min": 512, "max": 2048, "default": 1344},
+    "height": {"node": "459:456", "input": "height", "kind": "int", "unlink": true,
+               "multiple_of": 16, "min": 512, "max": 2048, "default": 768}
+  },
+  "fixed": [
+    {"node": "459:474", "input": "switch", "value": false},
+    {"node": "459:474", "input": "on_true", "value": "", "unlink": true}
+  ],
+  "outputs": {"image": "461"}
+}

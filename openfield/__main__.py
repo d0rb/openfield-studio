@@ -1,8 +1,3 @@
-import uvicorn
+from .cli import main
 
-from .app import app
-from .config import settings
-
-
-if __name__ == "__main__":
-    uvicorn.run(app, host=settings.host, port=settings.port)
+raise SystemExit(main())

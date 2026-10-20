@@ -1,0 +1,12 @@
+# Text files are LF in the repository and in every checkout, including on Windows: the pod script is
+# copied to a Linux box and a CRLF there is a syntax error. Git detects binary files itself.
+* text=auto eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.mp4 binary
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary
+*.onnx binary
+*.safetensors binary

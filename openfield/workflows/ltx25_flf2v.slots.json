@@ -1,0 +1,19 @@
+{
+  "engine": "ltx-2.5",
+  "source_template": "video_ltx2_5_flf2v",
+  "note": "First-and-last-frame to video with synced audio. The prompt enhancer is removed. Frame count is duration x 24 + 1 (a multiple of 8, plus one), as LTX requires.",
+  "slots": {
+    "prompt": {"node": "251:252", "input": "value", "kind": "text"},
+    "seed": {"node": "251:196", "input": "noise_seed", "kind": "seed"},
+    "duration": {"node": "251:198", "input": "value", "kind": "int", "min": 2, "max": 10, "default": 5},
+    "width": {"node": "251:215", "input": "value", "kind": "int", "multiple_of": 16, "min": 512, "max": 1920, "default": 1280},
+    "height": {"node": "251:216", "input": "value", "kind": "int", "multiple_of": 16, "min": 512, "max": 1920, "default": 720},
+    "first_frame": {"node": "31", "input": "image", "kind": "image"},
+    "last_frame": {"node": "39", "input": "image", "kind": "image"}
+  },
+  "fixed": [
+    {"node": "251:250", "input": "value", "value": false},
+    {"node": "251:248", "input": "on_true", "value": "", "unlink": true}
+  ],
+  "outputs": {"video": "68"}
+}
