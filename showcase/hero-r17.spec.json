@@ -1,0 +1,24 @@
+{
+  "_comment": "Round 17 (Oct 29): the Lobby's opening shot, rendered from a still the studio already has rather than a new one, so only the LTX models are needed. `source` is runs/01_hero/image.png of tk_20261020_150711_c874 (Mara on the rooftop at sunrise), and the move is a crane up: the camera rises off her and the city opens out behind, which is what a trailer should open on. Run with COMFY_BASE_URL pointing at a box that has the ltx set: python -m openfield showcase --spec showcase/hero-r17.spec.json --out <takes> --work-dir <work>",
+  "casts": [],
+  "takes": [
+    {
+      "name": "r17-hero-rooftop-crane-up",
+      "kind": "direct",
+      "source": "../openfield/web/showcase/takes/tk_20261020_150711_c874/runs/01_hero/image.png",
+      "subject": "A woman in a yellow jacket on a city rooftop at sunrise, the low sun behind her, the city going back to the horizon in haze",
+      "action": "The camera rises slowly off her and keeps rising, so she drops to the bottom of the frame and the city opens out behind her to the horizon, the light widening as it goes.",
+      "rig": {
+        "movement": "crane_up",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals"
+      },
+      "seed": 1701,
+      "quality": "standard",
+      "audio": "wind across the roof, the city faint and far below, no music",
+      "prompt_only": true
+    }
+  ]
+}
