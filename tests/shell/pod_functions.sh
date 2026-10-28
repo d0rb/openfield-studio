@@ -27,6 +27,9 @@ cp "$(command -v sleep)" "$WORKDIR/comfy-api-proxy"
 "$WORKDIR/comfy-api-proxy" 30 &
 service=$!
 echo "$service" >"$WORKDIR/proxy.pid"
+# a background job is forked before it is exec'd, so /proc/<pid>/cmdline still names bash for a moment: wait for the
+# exec rather than race it. A CI runner lost this race every time while it passed here.
+for _ in $(seq 1 50); do is_ours "$service" "comfy-api-proxy" && break; sleep 0.1; done
 is_ours "$service" "comfy-api-proxy" || fail "is_ours does not recognise a running service"
 status >/dev/null 2>&1
 stop_services quiet
