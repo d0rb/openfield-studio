@@ -80,7 +80,9 @@ def stream_stat(path: Path, stream: str) -> tuple[int | None, float]:
     person: whether it is written at all, and in what shape, varies between builds. A Linux CI runner printed none
     of it and every count here came back None while the same code passed on Windows.
     """
-    probe = video.ffprobe_exe()
+    # REAL_FFPROBE, not video.ffprobe_exe: the autouse fixture above nulls that one on purpose, so the code under
+    # test runs without ffprobe. This helper only measures the result, so it may use whatever the machine has.
+    probe = REAL_FFPROBE()
     if probe and stream == "v":
         counted = subprocess.run(  # noqa: S603
             [probe, "-v", "error", "-select_streams", "v:0", "-count_packets",
