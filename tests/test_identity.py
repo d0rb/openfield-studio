@@ -121,8 +121,13 @@ def test_cosine_similarity_ignores_scale_and_shape_and_leaves_inputs_alone():
 @pytest.mark.parametrize("seed", [0, 1, 4])
 def test_cosine_similarity_stays_within_bounds_despite_rounding(seed):
     v = np.random.default_rng(seed).normal(size=128).astype(np.float32)
-    assert cosine_similarity(v, v) == 1.0
-    assert cosine_similarity(v, -v) == -1.0
+    # the promise is the bound, not the exact number: dot(v, v) / norm**2 is 1 in arithmetic but lands a bit either
+    # side of it in floating point, and the clamp can only pull a value back from outside the range, never up to it.
+    # A CI runner on other hardware returned 0.9999999999999999 here, which is the function working as written.
+    same, opposite = cosine_similarity(v, v), cosine_similarity(v, -v)
+    assert -1.0 <= opposite <= same <= 1.0
+    assert same == pytest.approx(1.0)
+    assert opposite == pytest.approx(-1.0)
 
 
 @pytest.mark.parametrize("bad", [[0.0, 0.0, 0.0], [np.nan, 1.0, 0.0], [np.inf, 1.0, 0.0], []])
