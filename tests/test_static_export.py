@@ -476,5 +476,5 @@ def test_the_password_gate_carries_only_a_hash_and_is_absent_without_one(world):
     page = (locked / "index.html").read_text(encoding="utf-8")
     assert 'id="gate"' in page
     assert "a velvet rope" not in page, "the password itself must never ship"
-    assert hashlib.sha256("a velvet rope".encode("utf-8")).hexdigest() in page
+    assert hashlib.sha256(b"a velvet rope").hexdigest() in page
     assert "documentElement.appendChild(gate)" in page, "the app replaces the body's children, so the gate leaves it"
