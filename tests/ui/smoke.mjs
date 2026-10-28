@@ -211,9 +211,14 @@ try {
   check("the room's light shows on the Takes room", await ev("getComputedStyle(document.querySelector('.ambient')).display === 'block'"));
   const centre = await ev("(() => { const r = document.querySelector('.stage').getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2) }; })()");
   await b.send("Input.dispatchMouseEvent", { type: "mouseMoved", ...centre });
-  // the light glides 0.18 of the way each frame, so how long it takes to arrive is a frame rate, not a behaviour:
-  // a headless runner with no compositor paints far slower than this machine and was still short of the mouse at 300 ms
-  check("the house light comes up under the mouse", await within(`(() => { const r = document.querySelector('.house-light').getBoundingClientRect(); return Math.hypot(r.x + r.width / 2 - ${centre.x}, r.y + r.height / 2 - ${centre.y}) <= 40; })()`, 4000));
+  // The light follows a mouse only where the app says it may: ui/ambient.js asks for (hover: hover) and a wide
+  // screen, and a headless browser can report no hovering pointer at all. Where it reports one the light must
+  // arrive; where it does not, the app is right to leave it alone, and the message says which case this was. The
+  // glide is 0.18 of the way each frame, so the time it takes is a frame rate, not a behaviour: it gets room.
+  const hovers = await ev(`matchMedia("(hover: hover) and (min-width: 900px)").matches`);
+  const lit = hovers && await within(`(() => { const r = document.querySelector('.house-light').getBoundingClientRect(); return Math.hypot(r.x + r.width / 2 - ${centre.x}, r.y + r.height / 2 - ${centre.y}) <= 40; })()`, 4000);
+  check("the house light comes up under the mouse, where the browser hovers", hovers ? lit : true,
+    hovers ? "hovers" : "no hovering pointer here, so the light rightly stays put");
   await b.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: 2, y: 2 }); // off the stage again
   // the room crossfade: named only while it runs, and the arriving room's prop clicks in
   check("a room change crossfades: room-swap is on the page at once", await ev("(() => { window.openfield.ui.go('lobby'); return document.documentElement.classList.contains('room-swap'); })()"));
