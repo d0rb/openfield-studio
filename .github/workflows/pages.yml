@@ -60,3 +60,5 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+# Registered with GitHub Actions on the first push of this repository (2026-10-28).
