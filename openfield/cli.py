@@ -165,7 +165,8 @@ def cmd_export_static(args: argparse.Namespace) -> int:
     settings = get_settings()
     try:
         result = export_static(settings, Path(args.out), takes_root=Path(args.takes) if args.takes else None,
-                               site_url=args.site_url, repo_url=args.repo_url)
+                               site_url=args.site_url, repo_url=args.repo_url,
+                               password=args.password or os.environ.get("OPENFIELD_SITE_PASSWORD") or None)
     except StaticExportError as exc:
         print(f"export-static: {exc}", file=sys.stderr)
         return 1
@@ -291,6 +292,9 @@ def main(argv: list[str] | None = None) -> int:
     export.add_argument("--takes", help="folder of recorded takes (default: the bundled showcase)")
     export.add_argument("--site-url", help="public URL of the site: adds social tags and absolute media URLs")
     export.add_argument("--repo-url", help="repository URL to record in static/site.json")
+    export.add_argument("--password", help="ask for this password at the front door. A static host serves files to "
+                                           "anyone who asks, so the media stays reachable by URL: this keeps a "
+                                           "passer-by off the page, it is not access control")
     export.set_defaults(func=cmd_export_static)
 
     showcase = sub.add_parser(

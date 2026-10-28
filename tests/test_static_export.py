@@ -414,3 +414,67 @@ def test_the_showcase_gpu_total_is_read_again_only_when_the_takes_change(tmp_pat
     os.utime(takes, ns=(later, later))  # a coarse clock must not hide the new take
     assert replay.showcase_gpu(tmp_path / "showcase") == {"takes": 2, "seconds": 1049.0}
     assert replay.showcase_gpu(tmp_path / "nowhere") is None
+
+
+def test_the_stills_ship_as_webp_while_the_receipt_and_the_shot_stay_byte_for_byte(world):
+    """A take's stills are photographs kept as PNG and cost about twenty times their weight, so the hosted copy
+    ships them as WebP. What a receipt stands behind must not move with them: receipt.json is never rewritten,
+    take.mp4 is the file it hashes, and inputs/ holds the person's own photo exactly as they gave it.
+    """
+    tmp_path, web, root = world
+    folder = root / GOOD
+    # the fixture writes stand-in bytes, which cannot be opened as pictures; these are real ones, so the export converts
+    Image.new("RGB", (64, 48), (180, 90, 20)).save(folder / "poster.png")
+    Image.new("RGB", (64, 48), (20, 90, 180)).save(folder / "runs" / "01_hero" / "image.png")
+    Image.new("RGB", (32, 32), (10, 10, 10)).save(folder / "inputs" / "reference.png")
+    # a recorded take names its poster among its outputs, the way the pipeline writes it; the fixture keeps only the video
+    take_record = json.loads((folder / "take.json").read_text(encoding="utf-8"))
+    take_record["outputs"].append({"role": "poster", "file": "poster.png", "kind": "image",
+                                   "content_type": "image/png"})
+    write_json(folder / "take.json", take_record)
+    before = {name: (folder / name).read_bytes() for name in ("receipt.json", "take.mp4")}
+    kept = (folder / "inputs" / "reference.png").read_bytes()
+
+    out = tmp_path / "site"
+    export_static(settings_for(tmp_path, web, tmp_path / "unused"), out, takes_root=root, web_dir=web)
+    shipped = out / MEDIA_BASE.format(id=GOOD)
+
+    assert (shipped / "poster.webp").is_file(), "the poster ships as WebP"
+    assert not (shipped / "poster.png").exists(), "and the PNG is not shipped beside it"
+    assert (shipped / "runs" / "01_hero" / "image.webp").is_file()
+    assert not (shipped / "runs" / "01_hero" / "image.png").exists()
+
+    # what the site reads names the copies, so nothing asks for a file that is no longer there
+    take = json.loads((shipped / "take.json").read_text(encoding="utf-8"))
+    poster = next(o for o in take["outputs"] if o["role"] == "poster")
+    assert poster["file"] == "poster.webp"
+    assert poster.get("content_type") in (None, "image/webp")
+    view = json.loads((shipped / "receipt.view.json").read_text(encoding="utf-8"))
+    for anchor in view.get("inputs", {}).get("anchors", []):
+        assert (shipped / anchor["file"]).is_file(), anchor["file"]
+
+    # the evidence is untouched
+    for name, raw in before.items():
+        assert (shipped / name).read_bytes() == raw, f"{name} must survive the export byte for byte"
+    assert (shipped / "inputs" / "reference.png").read_bytes() == kept, "the person's own photo is left as given"
+
+
+def test_the_password_gate_carries_only_a_hash_and_is_absent_without_one(world):
+    """`--password` puts a latch on the front door: the page asks before it shows. The word itself never ships, only
+    the SHA-256 the answer is checked against, and the gate moves out of <body> because the app mounts there.
+    """
+    import hashlib
+
+    tmp_path, web, root = world
+    plain = tmp_path / "plain"
+    export_static(settings_for(tmp_path, web, tmp_path / "unused"), plain, takes_root=root, web_dir=web)
+    assert 'id="gate"' not in (plain / "index.html").read_text(encoding="utf-8"), "no password, no gate"
+
+    locked = tmp_path / "locked"
+    export_static(settings_for(tmp_path, web, tmp_path / "unused"), locked, takes_root=root, web_dir=web,
+                  password="a velvet rope")
+    page = (locked / "index.html").read_text(encoding="utf-8")
+    assert 'id="gate"' in page
+    assert "a velvet rope" not in page, "the password itself must never ship"
+    assert hashlib.sha256("a velvet rope".encode("utf-8")).hexdigest() in page
+    assert "documentElement.appendChild(gate)" in page, "the app replaces the body's children, so the gate leaves it"

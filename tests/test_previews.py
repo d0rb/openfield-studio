@@ -371,7 +371,9 @@ def test_the_export_ships_the_still_copies(world):
     export_static(_settings(tmp_path), out, takes_root=takes, web_dir=tmp_path / "web")
     assert (out / "showcase" / "previews" / f"{ids['static']}-s1.jpg").is_file()
     shipped = json.loads((out / "showcase" / "previews.json").read_text(encoding="utf-8"))
-    assert shipped["takes"][ids["static"]]["stills"] == {"runs/01_hero/image.png": f"showcase/previews/{ids['static']}-s1.jpg"}
+    # a small copy is keyed by the still it was cut from, and the hosted copy ships that still as WebP
+    # (static_export.py), so the key follows it: the page looks the copy up by the name the take now gives it
+    assert shipped["takes"][ids["static"]]["stills"] == {"runs/01_hero/image.webp": f"showcase/previews/{ids['static']}-s1.jpg"}
 
 
 def test_the_export_ships_every_file_the_builder_cuts(world):

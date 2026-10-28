@@ -41,6 +41,11 @@ jobs:
       - uses: actions/configure-pages@v5
         id: pages
       - name: Build the hosted Replay
+        # OPENFIELD_SITE_PASSWORD puts a password in front of the page. Set it as a repository secret named
+        # SITE_PASSWORD to turn it on; with no secret the site is open, exactly as before. It is a latch, not a lock:
+        # a static host serves files to whoever asks, so every take and receipt stays reachable by its own URL.
+        env:
+          OPENFIELD_SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
         run: openfield export-static --out site --site-url "${{ steps.pages.outputs.base_url }}/" --repo-url "https://github.com/${{ github.repository }}"
       - uses: actions/upload-pages-artifact@v3
         with:

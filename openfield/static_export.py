@@ -15,6 +15,7 @@ resolve the same way in both modes.
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -57,6 +58,12 @@ IDENTITY_KEYS = ("status", "score", "threshold", "retried")
 # with its poster
 PREVIEW_SUFFIXES = (".mp4", ".jpg", "-mid.mp4", "-mid.jpg", "-hd.mp4", "-hd.jpg")
 CAST_COPY_WIDTH = 768  # a Cast card is at most 480 CSS px wide: this copy of its 1024 px portrait is sharp on a 2x screen and weighs a tenth of the PNG
+# The stills a take rendered ship as WebP. They are photographs kept as PNG, which costs about twenty times their
+# weight: across the recorded takes 386 MB of PNG becomes about 19 MB. Only the stills under runs/ and the poster are
+# converted. take.mp4 is the file the receipt hashes (outputs[].sha256_before_receipt) and is copied byte for byte,
+# receipt.json is never rewritten, and inputs/ keeps the person's own photo exactly as given (source_sha256 covers
+# it). A name that moves is rewritten only in the records the site reads: take.json and receipt.view.json.
+STILL_QUALITY = 82
 
 
 class StaticExportError(ValueError):
@@ -106,15 +113,87 @@ def served_files(folder: Path) -> list[Path]:
     return keep
 
 
-def _write_take(folder: Path, dest: Path) -> int:
+def _shrinkable(rel: Path) -> bool:
+    """A still the hosted copy may ship as WebP: the stills under runs/, and the poster beside the shot.
+
+    Never take.mp4 (the receipt hashes it), never receipt.json, and never inputs/, which holds the person's own
+    photo exactly as they gave it.
+    """
+    if rel.suffix.lower() not in {".png", ".jpg", ".jpeg"}:
+        return False
+    return rel.parts[0] == "runs" or (len(rel.parts) == 1 and rel.stem == "poster")
+
+
+def _as_webp(source: Path, target: Path) -> bool:
+    """Write `source` to `target` as WebP. False when it cannot be read as a picture, and then it is copied as it is."""
+    try:
+        with Image.open(source) as opened:
+            picture = opened.convert("RGB")
+    except (OSError, ValueError):
+        return False
+    picture.save(target, "WEBP", quality=STILL_QUALITY, method=5)
+    return True
+
+
+def _rename_stills(data: Any, moved: dict[str, str]) -> Any:
+    """Every name of a still that moved, pointed at its WebP, with a sibling `content_type` following.
+
+    Any string that is one of the moved names is rewritten, whatever key holds it: a take names its stills under
+    `file` in its outputs, under `anchors[].file` in a receipt view, and under `edit.before` / `edit.after` when it
+    is an edit. Only the records the site reads are passed through here, never receipt.json.
+    """
+    if isinstance(data, dict):
+        out: dict[str, Any] = {}
+        for key, value in data.items():
+            if key == "content_type" and isinstance(data.get("file"), str) and data["file"] in moved:
+                out[key] = "image/webp"
+            else:
+                out[key] = _rename_stills(value, moved)
+        return out
+    if isinstance(data, list):
+        return [_rename_stills(item, moved) for item in data]
+    if isinstance(data, str) and data in moved:
+        return moved[data]
+    return data
+
+
+def _write_take(folder: Path, dest: Path) -> tuple[int, dict[str, str]]:
+    """Bytes written, and the stills that moved (their name in the take -> the name the site serves), so the
+    manifest's copy of the take can be pointed at them too: the page reads the take from there, not from disk."""
     total = 0
+    moved: dict[str, str] = {}  # the still's name in the receipt -> the name the site serves
     for rel in served_files(folder):
         target = dest / rel
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(folder / rel, target)
+        if _shrinkable(rel) and _as_webp(folder / rel, target.with_suffix(".webp")):
+            target = target.with_suffix(".webp")
+            moved[rel.as_posix()] = rel.with_suffix(".webp").as_posix()
+        else:
+            shutil.copy2(folder / rel, target)
         total += target.stat().st_size
+    if moved:
+        # take.json is the site's own record of the take, so it may name the copies; receipt.json may not
+        take_file = dest / "take.json"
+        if take_file.is_file():
+            before = take_file.stat().st_size
+            data = _rename_stills(json.loads(take_file.read_text(encoding="utf-8")), moved)
+            take_file.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+                                 encoding="utf-8", newline="\n")
+            total += take_file.stat().st_size - before
+        # the run's own log: the hosted copy replays it to the page, which then asks for the stills it names
+        events = dest / "events.jsonl"
+        if events.is_file():
+            before = events.stat().st_size
+            lines = []
+            for line in events.read_text(encoding="utf-8").splitlines():
+                try:
+                    lines.append(json.dumps(_rename_stills(json.loads(line), moved), ensure_ascii=False))
+                except ValueError:
+                    lines.append(line)  # not a JSON line: it travels as it is
+            events.write_text("".join(f"{line}\n" for line in lines), encoding="utf-8", newline="\n")
+            total += events.stat().st_size - before
     view = dest / "receipt.view.json"
-    view.write_text(json.dumps(share.read_receipt_view(folder / "receipt.json"), indent=2,
+    view.write_text(json.dumps(_rename_stills(share.read_receipt_view(folder / "receipt.json"), moved), indent=2,
                                ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     archive = dest / "workflows.zip"
     archive.write_bytes(share.workflows_zip(folder, include_inputs=False))  # the stills are served beside it
@@ -122,7 +201,7 @@ def _write_take(folder: Path, dest: Path) -> int:
     snippet = share.take_snippet(folder)
     if snippet is not None:
         (dest / "sdk-snippet.py").write_text(snippet, encoding="utf-8", newline="\n")
-    return total
+    return total, moved
 
 
 def _is_our_export(folder: Path) -> bool:
@@ -269,6 +348,69 @@ def _add_index_tags(index: Path, site_url: str) -> None:
     head = re.compile(r'(<head[^>]*>)', re.IGNORECASE)
     marker = described if described.search(document) else head
     index.write_text(marker.sub(lambda found: f"{found.group(1)}\n{tags.rstrip()}", document, count=1),
+                     encoding="utf-8", newline="\n")
+
+
+GATE_SCRIPT = """
+<style id="gate-style">
+#gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0d0c0b;color:#ebe3d2;
+font:400 16px/1.4 system-ui,sans-serif}
+#gate form{display:grid;gap:14px;width:min(320px,86vw);text-align:left}
+#gate p{margin:0;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#8d867c}
+#gate input{padding:10px 12px;background:#17150f;color:#ebe3d2;border:1px solid #4a443c;border-radius:4px;font:inherit}
+#gate input:focus-visible{outline:2px solid #ff7a1a;outline-offset:2px}
+#gate button{padding:10px 12px;background:#ff7a1a;color:#17150f;border:0;border-radius:4px;font:inherit;
+font-weight:600;cursor:pointer}
+#gate .no{min-height:1.2em;font-size:13px;color:#f0625f}
+</style>
+<div id="gate"><form>
+<p>OpenField Studio</p>
+<input type="password" aria-label="Password" autocomplete="current-password" autofocus>
+<button type="submit">Enter</button>
+<span class="no" role="status"></span>
+</form></div>
+<script>
+(function(){
+  var want=%s, gate=document.getElementById('gate'), form=gate.querySelector('form'),
+      field=gate.querySelector('input'), no=gate.querySelector('.no'), KEY='openfield-gate';
+  // the app mounts with document.body.replaceChildren (ui/shell.js), which would take the gate with it: both the
+  // gate and its style move out of the body first, where nothing the app does can reach them
+  document.documentElement.appendChild(gate);
+  document.head.appendChild(document.getElementById('gate-style'));
+  function open(){ gate.remove(); document.documentElement.style.overflow=''; }
+  async function digest(text){
+    var bytes=await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return Array.from(new Uint8Array(bytes)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
+  }
+  document.documentElement.style.overflow='hidden';
+  try { if (sessionStorage.getItem(KEY)===want) open(); } catch (e) { /* no storage: ask again */ }
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var got;
+    try { got = await digest(field.value); } catch (err) { no.textContent='This browser cannot check it.'; return; }
+    if (got!==want) { no.textContent='Not that one.'; field.select(); return; }
+    try { sessionStorage.setItem(KEY, want); } catch (e2) { /* it will ask again next time */ }
+    open();
+  });
+})();
+</script>
+"""
+
+
+def _add_gate(index: Path, password: str) -> None:
+    """Put a password in front of the exported page.
+
+    This is a latch on a door, not a lock: a static host serves files to anyone who asks, so every take, poster and
+    receipt under the site stays reachable by its own URL whatever this does, and the page carries the hash the
+    answer is checked against. It keeps a passer-by out of the front door and nothing more. Real protection needs a
+    host that can authenticate a request before it serves a byte.
+    """
+    document = index.read_text(encoding="utf-8")
+    want = hashlib.sha256(password.encode("utf-8")).hexdigest()
+    block = GATE_SCRIPT % json.dumps(want)
+    body = re.compile(r"(</body>)", re.IGNORECASE)
+    index.write_text(body.sub(lambda found: f"{block}{found.group(1)}", document, count=1)
+                     if body.search(document) else document + block,
                      encoding="utf-8", newline="\n")
 
 
@@ -470,7 +612,8 @@ def _site_card(folders: dict[str, Path], hero: str | None, dest: Path) -> None:
 
 def export_static(settings: Settings, out_dir: Path, *, takes_root: Path | None = None,
                   web_dir: Path | None = None, cast_root: Path | None = None,
-                  site_url: str | None = None, repo_url: str | None = None) -> dict[str, Any]:
+                  site_url: str | None = None, repo_url: str | None = None,
+                  password: str | None = None) -> dict[str, Any]:
     """Write the hosted Replay to `out_dir` and return a summary. Raises StaticExportError."""
     takes_root = Path(takes_root) if takes_root else settings.showcase_dir / "takes"
     cast_root = Path(cast_root) if cast_root else settings.showcase_dir / "cast"
@@ -488,11 +631,15 @@ def export_static(settings: Settings, out_dir: Path, *, takes_root: Path | None 
     (out_dir / ".nojekyll").write_text("", encoding="utf-8")
 
     takes, size = [], 0
+    moved_stills: dict[str, dict[str, str]] = {}  # take id -> the stills that became WebP, for the records built below
     records: list[tuple[dict[str, Any], Path]] = []
     for folder in folders:
         take = json.loads((folder / "take.json").read_text(encoding="utf-8"))
-        size += _write_take(folder, out_dir / "showcase" / "takes" / take["id"])
-        listed = dict(take, media_base=MEDIA_BASE.format(id=take["id"]))
+        written, moved = _write_take(folder, out_dir / "showcase" / "takes" / take["id"])
+        size += written
+        moved_stills[take["id"]] = moved
+        # the page reads a take from the manifest, not from its folder, so that copy must name the stills the site serves
+        listed = dict(_rename_stills(take, moved), media_base=MEDIA_BASE.format(id=take["id"]))
         if "identity" in listed:
             listed["identity"] = slim_identity(listed["identity"])
         takes.append(listed)
@@ -537,7 +684,12 @@ def export_static(settings: Settings, out_dir: Path, *, takes_root: Path | None 
                         shutil.copy2(src, previews_out / src.name)
                         size += (previews_out / src.name).stat().st_size
                 if copied:  # the hashes only tell the builder what to cut again: the page never reads them
-                    preview_takes[take_id] = {k: v for k, v in entry.items() if k not in ("source_sha256", "stills_sha")}
+                    kept = {k: v for k, v in entry.items() if k not in ("source_sha256", "stills_sha")}
+                    # the small copies are keyed by the still they were cut from, so those keys follow it to WebP
+                    moved = moved_stills.get(take_id) or {}
+                    if moved and isinstance(kept.get("stills"), dict):
+                        kept["stills"] = {moved.get(k, k): v for k, v in kept["stills"].items()}
+                    preview_takes[take_id] = kept
             if preview_takes:
                 filtered_index = {
                     "version": previews_index.get("version", 1),
@@ -586,6 +738,8 @@ def export_static(settings: Settings, out_dir: Path, *, takes_root: Path | None 
         page.write_text(_move_page(catalog[move_id], takes_by_id[take_id], site_url, has_card), encoding="utf-8", newline="\n")
     if site_url:
         _add_index_tags(out_dir / "index.html", site_url)
+    if password:
+        _add_gate(out_dir / "index.html", password)  # a latch on the front door; see _add_gate
     reel = [t for t in hero_reel(takes_root.parent) if t in exported]
     # the shelf is a list of ids: each recorded take's fields are in `takes` already, and the page joins them (api-static.js)
     recorded = [r["id"] for r in ReplayBackend([takes_root]).recorded({takes_root: MEDIA_BASE}) if r["id"] in exported]

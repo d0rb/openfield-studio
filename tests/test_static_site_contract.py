@@ -39,7 +39,9 @@ const view = await api.receipt(done);
 console.log(JSON.stringify({
   kind: api.kind, status, types, recorded: recorded.length, takes: (await api.takes()).length,
   outputs: done.outputs.length, anchors: done.anchors.length, replayOf: done.replay_of,
-  video: await code(api.media(done, "take.mp4")), poster: await code(api.media(done, "poster.png")),
+  video: await code(api.media(done, "take.mp4")),
+  // the poster is asked for by the name the take gives it: the hosted copy ships the stills as WebP (static_export.py)
+  poster: await code(api.media(done, done.outputs.find((o) => o.role === "poster")?.file ?? "poster.png")),
   zip: await code(api.workflowsUrl(done)), snippet: await code(api.snippetUrl(done)),
   verified: view.verified, recipeLink: Boolean(view.recipe_link),
   locked: (await api.status()).backend.locked,
