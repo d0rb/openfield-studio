@@ -159,7 +159,13 @@ def test_the_javascript_fixtures_match_what_the_server_produces():
             assert stored["recipe"] == data["recipe"]
             assert receipts.parse_recipe_link(stored["link"]) == data["recipe"]
             continue
-        assert on_disk == module.render(data), f"{name} is stale: run python tests/js/make_fixtures.py"
+        fresh = module.render(data)
+        if on_disk != fresh:  # say which line moved: "it is stale" alone sends you hunting through 4000 of them
+            import difflib
+
+            diff = "\n".join(list(difflib.unified_diff(
+                on_disk.splitlines(), fresh.splitlines(), "on disk", "rebuilt", lineterm="", n=1))[:14])
+            raise AssertionError(f"{name} is stale: run python tests/js/make_fixtures.py\n{diff}")
 
 
 def test_a_transformation_edits_the_last_still_and_renders_first_to_last():
