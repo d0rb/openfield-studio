@@ -1,0 +1,140 @@
+{
+  "id": "tk_20261023_085732_f86b",
+  "kind": "direct",
+  "label": "static: Tomas sits reading in a cosy living room by a cr",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:57:32Z",
+  "updated_at": "2026-10-23T09:01:03Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Tomas sits reading in a cosy living room by a crackling fireplace",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "flood"
+    },
+    "audio": null,
+    "seed": 576,
+    "orientation": "landscape",
+    "cast_refs": [
+      "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+    ],
+    "cast_name": "Tomas",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (flood): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "a55ed832c5a772dd339c89b16b5de00f6fbf504bd93a0dc279a530a3a43e93d7",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.858728946948817,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.858728946948817
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        470,
+        91,
+        203,
+        279
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.859 >= threshold 0.363 (best reference 0)",
+      "face_px": 203,
+      "enlarged": null
+    },
+    "transform_1": {
+      "status": "pass",
+      "score": 0.8158023427437695,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8158023427437695
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        467,
+        81,
+        204,
+        272
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.816 >= threshold 0.363 (best reference 0)",
+      "face_px": 204,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.8111341657378064,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8111341657378064
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        447,
+        70,
+        191,
+        264
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.811 >= threshold 0.363 (best reference 0)",
+      "face_px": 191,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fx-flood",
+  "showcase_sha": "9cdc3d768f642fbe"
+}

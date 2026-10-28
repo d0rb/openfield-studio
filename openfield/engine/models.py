@@ -39,12 +39,20 @@ LICENSES: dict[str, License] = {
         "apache-2.0", "Apache License 2.0", "https://www.apache.org/licenses/LICENSE-2.0",
         "free for commercial use",
     ),
+    # The repack's model card declares bsd-3-clause; the upstream repository gives that licence for its code and names no
+    # separate one for the weights, so this is the licence as declared, not one confirmed from the authors.
+    "bsd-3-clause": License(
+        "bsd-3-clause", "BSD 3-Clause License", "https://github.com/xinntao/Real-ESRGAN/blob/a4abfb2/LICENSE",
+        "free for commercial use; keep the copyright notice with any copy",
+    ),
 }
 REPO_LICENSE = {
     "Lightricks/LTX-2.5": "ltx-2.x-community",
     "Comfy-Org/Qwen-Image-2.1": "qwen-research",
     "Comfy-Org/Wan-Animate-2": "apache-2.0",
     "Comfy-Org/gemma-4": "apache-2.0",
+    "Comfy-Org/Real-ESRGAN_repackaged": "bsd-3-clause",  # the name the official template uses ...
+    "Comfy-Org/Real-ESRGAN": "bsd-3-clause",  # ... and the one Hugging Face now redirects it to
 }
 
 
@@ -75,6 +83,8 @@ def _role(name: str, directory: str) -> str:
         return "image:qwen-image-2.1" if "qwen" in lowered else "diffusion"
     if directory == "vae":
         return "audio_vae" if "audio" in lowered else "vae"
+    if directory == "upscale_models":
+        return "upscaler:real-esrgan" if "esrgan" in lowered else "upscaler"
     return {
         "text_encoders": "text_encoder", "clip": "text_encoder", "loras": "lora",
         "clip_vision": "clip_vision", "latent_upscale_models": "upscaler",

@@ -38,7 +38,7 @@ def _iso(dt: datetime) -> str:
 
 
 def _png_bytes(label: str) -> bytes:
-    img = Image.new("RGB", (320, 180), (24, 28, 36))
+    img = Image.new("RGB", (320, 180), (24, 22, 19))
     ImageDraw.Draw(img).text((12, 12), f"FAKE {label}", fill=(255, 255, 255))
     buf = io.BytesIO()
     img.save(buf, "PNG")
@@ -51,18 +51,30 @@ def _jpeg_bytes() -> bytes:
     return buf.getvalue()
 
 
+# The synthetic clip is a slow drift of dark warm tones, so the interface can be judged on it without the
+# SMPTE bars shouting; it is still labelled FAKE everywhere a person could mistake it for a render.
+_PLATE = "gradients=s=320x180:c0=0x0b0b0a:c1=0x3a2a1a:c2=0x14181d:c3=0x5a3a1e:x0=40:y0=30:x1=280:y1=160:nb_colors=4:speed=0.03:duration=1:rate=24"
+_BARS = "testsrc2=size=320x180:rate=24:duration=1"
+
+
 def _mp4_bytes(tmp: Path) -> bytes:
     out = tmp / "fake.mp4"
-    subprocess.run(
-        [
-            imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
-            "-f", "lavfi", "-i", "testsrc2=size=320x180:rate=24:duration=1",
-            "-f", "lavfi", "-i", "sine=frequency=440:duration=1",
-            "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", str(out),
-        ],
-        check=True,
-    )
-    return out.read_bytes()
+    for source in (_PLATE, _BARS):  # an older ffmpeg without the gradients filter falls back to the test pattern
+        try:
+            subprocess.run(
+                [
+                    imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
+                    "-f", "lavfi", "-i", source,
+                    "-f", "lavfi", "-i", "sine=frequency=440:duration=1",
+                    "-vf", "vignette=angle=PI/4",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", str(out),
+                ],
+                check=True,
+            )
+            return out.read_bytes()
+        except subprocess.CalledProcessError:
+            continue
+    raise RuntimeError("ffmpeg could not make the synthetic clip")
 
 
 class FakeJob:
@@ -95,6 +107,25 @@ class FakeJob:
         }
 
 
+def fake_object_info(missing: set[str] | frozenset[str] = frozenset(), workflow_dir: Path | None = None) -> dict[str, Any]:
+    """A ComfyUI `/object_info` that knows every node class our workflows use and lists every model file
+    the manifest names in each loader's file picker, except the ones in `missing`."""
+    from openfield.engine.contract import CONTRACTS
+    from openfield.engine.models import manifest
+    from openfield.engine.preflight import model_inputs, sample_graph
+    from openfield.engine.workflows import load_template
+
+    files = sorted(m["name"] for m in manifest()["models"] if m["name"] not in missing)
+    info: dict[str, Any] = {}
+    for name in CONTRACTS:
+        graph = sample_graph(load_template(name, workflow_dir))
+        for node in graph.values():
+            info.setdefault(str(node.get("class_type", "")), {"input": {"required": {}, "optional": {}}})
+        for _node_id, class_type, input_name, _file in model_inputs(graph):
+            info[class_type]["input"]["required"][input_name] = [files]
+    return info
+
+
 class FakeComfyApi:
     """In-process Comfy API v2. Use `start()` / `stop()` or the pytest fixture in conftest."""
 
@@ -104,6 +135,8 @@ class FakeComfyApi:
         self.delay = delay
         self.previews = previews
         self.proxy_quirks = proxy_quirks
+        self.plain_comfy = False  # pretend to be ComfyUI itself: no /api/v2, only its own routes
+        self.missing_models: set[str] = set()  # model files /object_info leaves out of its file pickers
         self.fail_with: dict[str, Any] | None = None
         self.end_with: str | None = None  # "expired" or "canceled": end the job in that terminal state
         self.reject_next_submit: tuple[int, str, str] | None = None
@@ -255,14 +288,28 @@ class FakeComfyApi:
 
         @app.middleware("http")
         async def auth(request: Request, call_next):
-            if self.token and request.url.path != f"{api}/health":
+            path = request.url.path
+            if self.token and path.startswith(f"{api}/") and path != f"{api}/health":
                 if request.headers.get("authorization") != f"Bearer {self.token}":
                     return self._error(401, "unauthorized", "missing or wrong bearer token")
             return await call_next(request)
 
         @app.get(f"{api}/health")
         async def health():
+            if self.plain_comfy:
+                return self._error(404, "not_found", "no such route")  # a plain ComfyUI has no /api/v2
             return {"status": "ok"}
+
+        # ComfyUI's own routes, as the Connect panel's model check reads them (no auth on a real ComfyUI either)
+        @app.get("/system_stats")
+        async def system_stats():
+            return {"system": {"os": "posix", "comfyui_version": "0.41.0", "python_version": "3.12.4"},
+                    "devices": [{"name": "cuda:0 Fake GPU 32GB : cudaMallocAsync", "type": "cuda",
+                                 "vram_total": 34_359_738_368, "vram_free": 31_000_000_000}]}
+
+        @app.get("/object_info")
+        async def object_info():
+            return fake_object_info(missing=self.missing_models)
 
         @app.api_route(f"{api}/assets/by-hash/{{digest:path}}", methods=["HEAD"])
         async def head_hash(digest: str):
@@ -321,6 +368,10 @@ class FakeComfyApi:
             self.jobs[job.id] = job
             asyncio.create_task(self._simulate(job))
             return JSONResponse(job.to_json(), 201)
+
+        @app.get(f"{api}/jobs")
+        async def list_jobs():  # the proxy lists recorded jobs; the app only uses it to see whether its token holds
+            return {"jobs": [job.to_json() for job in list(self.jobs.values())[-5:]]}
 
         @app.get(f"{api}/jobs/{{job_id}}")
         async def get_job(job_id: str):

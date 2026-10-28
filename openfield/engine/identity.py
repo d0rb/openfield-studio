@@ -5,6 +5,7 @@ reports what it measured: models that are missing or fail to run give "unavailab
 without a usable face give "n/a", and neither can ever read as a match.
 
     python -m openfield.engine.identity REF [REF...] -- CANDIDATE [--json] [--download]
+        [--no-enlarge]
 
 Exit status: 0 pass, 1 drift, 2 n/a or unavailable.
 """
@@ -31,9 +32,11 @@ from ..fsutil import replace_file
 
 __all__ = [
     "DETECTOR_FILE",
+    "ENLARGE_TARGET_PX",
     "MODELS",
     "RECOGNIZER_FILE",
     "SFACE_COSINE_THRESHOLD",
+    "SMALL_FACE_PX",
     "Face",
     "FaceGate",
     "IdentityReport",
@@ -52,6 +55,8 @@ RECOGNIZER_FILE = "face_recognition_sface_2021dec.onnx"
 SFACE_COSINE_THRESHOLD = 0.363  # same-identity boundary from the OpenCV Zoo SFace model card
 MAX_DETECT_SIDE = 2048  # larger images are detected on a downscaled copy, boxes mapped back
 DETECT_SIDES = (MAX_DETECT_SIDE, 960, 480)  # scales tried in order until a face is found
+SMALL_FACE_PX = 80  # a candidate face whose short side is under this is enlarged before embedding
+ENLARGE_TARGET_PX = 160  # enlarged candidate crop aim; the scale factor is capped at 4x
 
 _DETECT_SCORE = 0.7
 _DETECT_NMS = 0.3
@@ -62,10 +67,12 @@ _CHUNK = 1 << 20
 _DOWNLOAD_HINT = "run `python -m openfield.engine.identity --download`"
 _EXIT_CODES = {"pass": 0, "drift": 1, "n/a": 2, "unavailable": 2}
 _EXIT_ERROR = 2
-_FLAGS = ("--json", "--download")
+_FLAGS = ("--json", "--download", "--no-enlarge")
 _USAGE = (
-    "usage: python -m openfield.engine.identity REF [REF...] -- CANDIDATE [--json] [--download]"
+    "usage: python -m openfield.engine.identity REF [REF...] -- CANDIDATE "
+    "[--json] [--download] [--no-enlarge]"
 )
+_HELP = "  --no-enlarge  compare the face at its original size (no enlargement of small faces)"
 
 ImageLike = str | os.PathLike | np.ndarray
 Box = tuple[int, int, int, int]
@@ -230,6 +237,8 @@ class IdentityReport:
     compare: unreadable input, no face in the candidate, no usable reference) or "unavailable"
     (the face models could not run). score is None unless a comparison happened; best_ref and
     per_ref index into the references as given, with None where a reference had no usable face.
+    face_px is the short side of the candidate's largest face; enlarged is the factor applied to
+    a small-face crop before embedding, or None when the original image was embedded.
     """
 
     status: str
@@ -241,6 +250,8 @@ class IdentityReport:
     candidate_box: Box | None
     refs_used: int
     reason: str
+    face_px: int | None = None
+    enlarged: float | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -253,6 +264,8 @@ class IdentityReport:
             "candidate_box": None if self.candidate_box is None else list(self.candidate_box),
             "refs_used": self.refs_used,
             "reason": self.reason,
+            "face_px": self.face_px,
+            "enlarged": self.enlarged,
         }
 
 
@@ -264,6 +277,8 @@ def _unmeasured(
     *,
     faces: int = 0,
     box: Box | None = None,
+    face_px: int | None = None,
+    enlarged: float | None = None,
 ) -> IdentityReport:
     return IdentityReport(
         status=status,
@@ -275,11 +290,19 @@ def _unmeasured(
         candidate_box=box,
         refs_used=0,
         reason=reason,
+        face_px=face_px,
+        enlarged=enlarged,
     )
 
 
 def _scored(
-    per_ref: tuple[float | None, ...], faces: int, box: Box, threshold: float
+    per_ref: tuple[float | None, ...],
+    faces: int,
+    box: Box,
+    threshold: float,
+    *,
+    face_px: int | None = None,
+    enlarged: float | None = None,
 ) -> IdentityReport:
     best = max((i for i, s in enumerate(per_ref) if s is not None), key=per_ref.__getitem__)
     score = per_ref[best]
@@ -295,6 +318,8 @@ def _scored(
         candidate_box=box,
         refs_used=sum(s is not None for s in per_ref),
         reason=f"cosine {score:.3f} {relation} threshold {threshold:.3f} (best reference {best})",
+        face_px=face_px,
+        enlarged=enlarged,
     )
 
 
@@ -373,6 +398,12 @@ class FaceGate:
     OpenCV's detector and recognizer are stateful, so the public methods take a lock: the app shares one
     gate between a take's identity check and a cast upload running on different threads.
     ``detector`` and ``recognizer`` replace the OpenCV models, which lets tests inject fakes.
+
+    With ``enlarge`` (the default), a candidate whose largest face has a short side under
+    SMALL_FACE_PX is detected again on an upscaled crop around that face, and the embedding comes
+    from the crop: SFace is unreliable on tiny faces. References are never enlarged. The report
+    records face_px (the original face's short side) and enlarged (the crop's scale factor, or
+    None when the original image was embedded).
     """
 
     def __init__(
@@ -381,8 +412,10 @@ class FaceGate:
         *,
         detector: _Detector | None = None,
         recognizer: _Recognizer | None = None,
+        enlarge: bool = True,
     ) -> None:
         self.model_dir = Path(model_dir) if model_dir is not None else default_model_dir()
+        self.enlarge = enlarge
         self.available = False
         self.reason = "not initialised"
         self._detector = detector
@@ -540,15 +573,47 @@ class FaceGate:
         found = self._detect(image)
         if not found:
             return _unmeasured("n/a", "no face detected in the candidate", threshold, len(refs))
+        box = found[0].box
+        short = min(box[2], box[3])
+        face_px = int(short)
+        enlarged = None
+        embed_image, embed_face = image, found[0]
+        if self.enlarge and 0 < short < SMALL_FACE_PX:
+            factor = min(4.0, ENLARGE_TARGET_PX / short)
+            x, y, w, h = box
+            left, top = max(0, x - w), max(0, y - h)
+            right, bottom = min(image.shape[1], x + 2 * w), min(image.shape[0], y + 2 * h)
+            crop = image[top:bottom, left:right]
+            if crop.size:
+                size = (max(1, round(crop.shape[1] * factor)), max(1, round(crop.shape[0] * factor)))
+                upscaled = cv2.resize(crop, size, interpolation=cv2.INTER_CUBIC)
+                inside = self._detect(upscaled)
+                if inside:
+                    embed_image, embed_face = upscaled, inside[0]
+                    enlarged = round(factor, 2)
         embeddings = [self._reference_embedding(ref) for ref in refs]
         if all(e is None for e in embeddings):
             reason = f"no face found in any of the {len(refs)} reference image(s)"
             return _unmeasured(
-                "n/a", reason, threshold, len(refs), faces=len(found), box=found[0].box
+                "n/a",
+                reason,
+                threshold,
+                len(refs),
+                faces=len(found),
+                box=box,
+                face_px=face_px,
+                enlarged=enlarged,
             )
-        target = self._embed_face(image, found[0])
+        target = self._embed_face(embed_image, embed_face)
         per_ref = tuple(None if e is None else cosine_similarity(e, target) for e in embeddings)
-        return _scored(per_ref, len(found), found[0].box, threshold)
+        return _scored(
+            per_ref,
+            len(found),
+            box,
+            threshold,
+            face_px=face_px,
+            enlarged=enlarged,
+        )
 
 
 def _download_for_cli() -> bool:
@@ -574,6 +639,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = list(sys.argv[1:] if argv is None else argv)
     if "-h" in args or "--help" in args:
         print(_USAGE)
+        print(_HELP)
         return 0
     words = [arg for arg in args if arg not in _FLAGS]
     if "--download" in args:
@@ -585,7 +651,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     if not refs or len(candidate) != 1:
         print(_USAGE, file=sys.stderr)
         return _EXIT_ERROR
-    report = FaceGate().check(refs, candidate[0])
+    gate = FaceGate(enlarge=False) if "--no-enlarge" in args else FaceGate()
+    report = gate.check(refs, candidate[0])
     if "--json" in args:
         print(json.dumps(report.to_dict(), indent=2))
     else:

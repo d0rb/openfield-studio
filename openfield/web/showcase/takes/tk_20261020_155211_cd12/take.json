@@ -1,0 +1,131 @@
+{
+  "id": "tk_20261020_155211_cd12",
+  "kind": "direct",
+  "label": "crane up: Mara stands at the end of a harbour pier at gold",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-20T15:52:11Z",
+  "updated_at": "2026-10-20T15:54:29Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Mara stands at the end of a harbour pier at golden hour holding a lantern, looking out to sea, her yellow jacket catching the light",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "contre_jour",
+      "movement": "crane_up",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "water against the pier, gulls, a soft wind",
+    "seed": 70,
+    "orientation": "landscape",
+    "cast_refs": [
+      "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+    ],
+    "cast_name": "Mara",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "aae3923ed7ecc20b5e26e4fb289e1ade3ddf00c13323cf8db908ec6aceb229ef",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8052548786633604,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8052548786633604
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        522,
+        134,
+        126,
+        162
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.805 >= threshold 0.363 (best reference 0)"
+    },
+    "anchor_1": {
+      "status": "pass",
+      "score": 0.7031197902475705,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7031197902475705
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        566,
+        202,
+        89,
+        112
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.703 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.669522882843918,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.669522882843918
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        497,
+        109,
+        122,
+        160
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.670 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "sheet-crane-up",
+  "showcase_sha": "a6a0d7b188246e8d"
+}

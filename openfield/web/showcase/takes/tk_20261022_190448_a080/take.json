@@ -1,0 +1,140 @@
+{
+  "id": "tk_20261022_190448_a080",
+  "kind": "direct",
+  "label": "static: Noor stands under the open dome of a mountain ob",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T19:04:48Z",
+  "updated_at": "2026-10-22T19:11:02Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Noor stands under the open dome of a mountain observatory at night, the telescope behind her, starlight on her glasses",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f1.4",
+      "lighting": "practicals",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "ignite"
+    },
+    "audio": "a crackle growing into a roar",
+    "seed": 173,
+    "orientation": "landscape",
+    "cast_refs": [
+      "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+    ],
+    "cast_name": "Noor",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (ignite): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "2af5d2fe52e3a3e049294099ddac258963003ce503557c160a1918780bc15f01",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8876427293699575,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8876427293699575
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        565,
+        211,
+        178,
+        227
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.888 >= threshold 0.363 (best reference 0)",
+      "face_px": 178,
+      "enlarged": null
+    },
+    "transform_1": {
+      "status": "pass",
+      "score": 0.8813542708786868,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8813542708786868
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        569,
+        209,
+        172,
+        231
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.881 >= threshold 0.363 (best reference 0)",
+      "face_px": 172,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.8452872592151496,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8452872592151496
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        543,
+        187,
+        162,
+        220
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.845 >= threshold 0.363 (best reference 0)",
+      "face_px": 162,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "noor-ignite",
+  "showcase_sha": "a28957492dacbab5"
+}

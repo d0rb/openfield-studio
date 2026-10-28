@@ -1,0 +1,63 @@
+{
+  "id": "tk_20261023_095051_b57e",
+  "kind": "transition",
+  "label": "push through: Mara stands alone on the edg to Seen from street level far b",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:50:51Z",
+  "updated_at": "2026-10-23T09:51:52Z",
+  "recipe": {
+    "kind": "transition",
+    "first": "tk_20261023_000528_66a0",
+    "second": "tk_20261023_094522_51f5",
+    "style": "push",
+    "seconds": 3,
+    "seed": 623,
+    "idea": "the camera dives forward off the rooftop and down through the morning haze between the towers until it reaches the crowded avenue and tilts up to the sky"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "The bridge is one LTX 2.5 render from the first take's last frame to the second take's first frame; the take plays the first take, the bridge and the second take, joined."
+  ],
+  "replay": false,
+  "recipe_hash": "b1168c989e4319abb121814eef8329d1ea5e2d0ba021a1c71c333acb92a7f836",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 12.89,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v1c-tr-rooftop-dragon-push",
+  "showcase_sha": "db33d07e40a04e0d"
+}

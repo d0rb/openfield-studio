@@ -1,0 +1,5446 @@
+{
+  "backend": "GPU box",
+  "recorded_at": "2026-10-26T22:08:19Z",
+  "takes": [
+    {
+      "name": "mara-market-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_155721_44ff",
+      "seconds": 141.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.67
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.69
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 88.2
+        }
+      ],
+      "media_bytes": 10124241,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera barely moved (a dolly in that pulls back 2.3 px/s) and a flash bloomed over the subject"
+    },
+    {
+      "name": "mara-rooftop-crane-up",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_150711_c874",
+      "seconds": 137.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.11
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 85.62
+        }
+      ],
+      "media_bytes": 7539671
+    },
+    {
+      "name": "oskar-pier-orbit",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_155942_4978",
+      "seconds": 101.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.97
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.8
+        }
+      ],
+      "media_bytes": 8992096
+    },
+    {
+      "name": "oskar-closeup-static",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_151150_f3ad",
+      "seconds": 89.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.08
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 59.36
+        }
+      ],
+      "media_bytes": 6259151
+    },
+    {
+      "name": "ines-canal-track",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_160123_6d4f",
+      "seconds": 99.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.92
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 68.95
+        }
+      ],
+      "media_bytes": 8431326
+    },
+    {
+      "name": "ines-cafe-arc",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_160303_a6b3",
+      "seconds": 121.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.31
+        },
+        {
+          "stage": "hero_retry",
+          "template": "qwen21_edit",
+          "seconds": 19.69
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.83
+        }
+      ],
+      "media_bytes": 11667445,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera arced right (+2.8 px/s) where the move is an arc left"
+    },
+    {
+      "name": "thermos-orbit",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_194956_a056",
+      "seconds": 265.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 18.94
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 38.53
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 22.72
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 184.5
+        }
+      ],
+      "media_bytes": 5691653,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera stood still (0.01 px/s): not an orbit"
+    },
+    {
+      "name": "thermos-dolly-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_152221_427b",
+      "seconds": 136.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 25.5
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 23.44
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 87.0
+        }
+      ],
+      "media_bytes": 5287386
+    },
+    {
+      "name": "lighthouse-zoom",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_152438_a18b",
+      "seconds": 139.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 26.55
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 23.44
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 89.25
+        }
+      ],
+      "media_bytes": 6230758,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera and lens stood still (no zoom at all)"
+    },
+    {
+      "name": "harbour-dolly-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_152658_3bf0",
+      "seconds": 136.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 26.38
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 22.25
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 87.39
+        }
+      ],
+      "media_bytes": 5409553
+    },
+    {
+      "name": "sheet-static",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_152914_6488",
+      "seconds": 101.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 30.05
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.27
+        }
+      ],
+      "media_bytes": 5879142
+    },
+    {
+      "name": "sheet-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_153056_2c1e",
+      "seconds": 138.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.88
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.52
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 85.45
+        }
+      ],
+      "media_bytes": 7672753
+    },
+    {
+      "name": "sheet-dolly-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_153314_4ad9",
+      "seconds": 139.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.03
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.39
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 87.7
+        }
+      ],
+      "media_bytes": 7786377
+    },
+    {
+      "name": "sheet-optical-zoom-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_153534_544e",
+      "seconds": 140.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.7
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.5
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 88.12
+        }
+      ],
+      "media_bytes": 7624334
+    },
+    {
+      "name": "sheet-orbit-90",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_160504_db84",
+      "seconds": 100.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.11
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.48
+        }
+      ],
+      "media_bytes": 5668232,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera stood still (0.01 px/s) while the subject turned round: not an orbit 90"
+    },
+    {
+      "name": "sheet-orbit-180",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_195421_d0cf",
+      "seconds": 261.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 24.92
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 68.78
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 22.02
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 144.44
+        }
+      ],
+      "media_bytes": 9300971,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the subject turned round while the camera barely moved: not an orbit 180"
+    },
+    {
+      "name": "sheet-arc-left",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_160645_fa80",
+      "seconds": 100.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.2
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.05
+        }
+      ],
+      "media_bytes": 6049342,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera stood still (0.02 px/s): not an arc"
+    },
+    {
+      "name": "sheet-arc-right",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_154511_920f",
+      "seconds": 140.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.0
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.52
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 88.24
+        }
+      ],
+      "media_bytes": 7730144,
+      "set_aside": "2026-10-25 (round 11): out of the bundle. arc right: the subject turned and the background held still (Oct 24 check); rebuilt as a mirror of arc left"
+    },
+    {
+      "name": "sheet-track-left",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_154732_59ef",
+      "seconds": 140.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.2
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.56
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 87.88
+        }
+      ],
+      "media_bytes": 7811717,
+      "set_aside": "2026-10-25 (round 11): out of the bundle. track left: read as a pull-back (Oct 24 check); rebuilt as a mirror of track right"
+    },
+    {
+      "name": "sheet-track-right",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_160826_64a9",
+      "seconds": 100.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.05
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.64
+        }
+      ],
+      "media_bytes": 6142765
+    },
+    {
+      "name": "sheet-crane-up",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_155211_cd12",
+      "seconds": 138.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.8
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.45
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 86.36
+        }
+      ],
+      "media_bytes": 7698228
+    },
+    {
+      "name": "sheet-crane-down",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261020_155430_a18f",
+      "seconds": 140.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.52
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.75
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 87.98
+        }
+      ],
+      "media_bytes": 7862041,
+      "set_aside": "2026-10-25 (round 11): out of the bundle. crane down: drifted (Oct 24 check); rebuilt from a high hero and an eye-level end still"
+    },
+    {
+      "name": "dance-source",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261021_121841_ea93",
+      "seconds": 154.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 34.25
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 120.19
+        }
+      ],
+      "media_bytes": 3041706
+    },
+    {
+      "name": "ref-mara",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261021_124622_3679",
+      "seconds": 161.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 47.66
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 113.61
+        }
+      ],
+      "media_bytes": 4275014
+    },
+    {
+      "name": "ref-oskar",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261021_124905_4e45",
+      "seconds": 177.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 51.53
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 125.66
+        }
+      ],
+      "media_bytes": 4460572
+    },
+    {
+      "name": "ref-ines",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261021_125204_316c",
+      "seconds": 175.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 55.31
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 120.17
+        }
+      ],
+      "media_bytes": 4872617
+    },
+    {
+      "name": "reshoot-mara",
+      "kind": "reshoot",
+      "status": "succeeded",
+      "take_id": "tk_20261021_125609_c6b8",
+      "seconds": 206.2,
+      "runs": [
+        {
+          "stage": "motion",
+          "template": "wan_animate2",
+          "seconds": 206.19
+        }
+      ],
+      "media_bytes": 4731588
+    },
+    {
+      "name": "reshoot-oskar",
+      "kind": "reshoot",
+      "status": "succeeded",
+      "take_id": "tk_20261021_125937_6921",
+      "seconds": 187.3,
+      "runs": [
+        {
+          "stage": "motion",
+          "template": "wan_animate2",
+          "seconds": 187.28
+        }
+      ],
+      "media_bytes": 4795507
+    },
+    {
+      "name": "reshoot-ines",
+      "kind": "reshoot",
+      "status": "succeeded",
+      "take_id": "tk_20261021_130246_8ac4",
+      "seconds": 186.2,
+      "runs": [
+        {
+          "stage": "motion",
+          "template": "wan_animate2",
+          "seconds": 186.22
+        }
+      ],
+      "media_bytes": 5027481
+    },
+    {
+      "name": "fx-rain",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261021_130556_5b2d",
+      "seconds": 172.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 46.23
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 125.8
+        }
+      ],
+      "media_bytes": 9220101
+    },
+    {
+      "name": "fx-lightning",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261021_124024_e152",
+      "seconds": 178.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 57.38
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 120.77
+        }
+      ],
+      "media_bytes": 7768210
+    },
+    {
+      "name": "fx-dust",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261021_124324_66b6",
+      "seconds": 164.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 49.3
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 114.99
+        }
+      ],
+      "media_bytes": 7886357
+    },
+    {
+      "name": "from-image-mara",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_132340_ab20",
+      "seconds": 115.2,
+      "runs": [
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 25.98
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 87.59
+        }
+      ],
+      "media_bytes": 6013041
+    },
+    {
+      "name": "quality-draft-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_132535_ed1c",
+      "seconds": 81.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 17.78
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 8.59
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 53.77
+        }
+      ],
+      "media_bytes": 3859118
+    },
+    {
+      "name": "quality-standard-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_132656_94dd",
+      "seconds": 137.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.19
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 22.53
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 86.16
+        }
+      ],
+      "media_bytes": 7427506
+    },
+    {
+      "name": "quality-fine-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_132914_b94b",
+      "seconds": 304.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 51.8
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 52.92
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 197.34
+        }
+      ],
+      "media_bytes": 17058732
+    },
+    {
+      "name": "angle-oskar-front-eye-wide",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_133608_508a",
+      "seconds": 117.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.16
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 22.52
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.16
+        }
+      ],
+      "media_bytes": 9864299
+    },
+    {
+      "name": "fx-ignite",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_134358_a709",
+      "seconds": 134.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 22.72
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 22.58
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 87.52
+        }
+      ],
+      "media_bytes": 11898229
+    },
+    {
+      "name": "fx-freeze",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_134613_ce4b",
+      "seconds": 138.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.39
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 22.75
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 86.95
+        }
+      ],
+      "media_bytes": 12990705
+    },
+    {
+      "name": "fx-gold",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_134831_3ffc",
+      "seconds": 138.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.95
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 22.67
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 86.78
+        }
+      ],
+      "media_bytes": 6983578
+    },
+    {
+      "name": "fx-bloom",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_135050_ef5a",
+      "seconds": 140.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.81
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 22.64
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 88.84
+        }
+      ],
+      "media_bytes": 12779112
+    },
+    {
+      "name": "fx-night",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_135311_3740",
+      "seconds": 139.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.31
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 22.51
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 86.86
+        }
+      ],
+      "media_bytes": 6914309
+    },
+    {
+      "name": "angle-oskar-front-right-eye-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_135538_a84e",
+      "seconds": 121.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.03
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.53
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.22
+        }
+      ],
+      "media_bytes": 9578077
+    },
+    {
+      "name": "angle-oskar-right-eye-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_135739_4a3a",
+      "seconds": 121.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.73
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.56
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.19
+        }
+      ],
+      "media_bytes": 9935554
+    },
+    {
+      "name": "angle-oskar-back-right-eye-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_135940_2f2c",
+      "seconds": 140.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.8
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.7
+        },
+        {
+          "stage": "angle_retry",
+          "template": "qwen21_edit",
+          "seconds": 19.64
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 69.73
+        }
+      ],
+      "media_bytes": 10576894
+    },
+    {
+      "name": "angle-oskar-back-eye-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_140201_aa06",
+      "seconds": 120.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.83
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.5
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 69.95
+        }
+      ],
+      "media_bytes": 9541523
+    },
+    {
+      "name": "angle-oskar-back-left-eye-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_140402_67f4",
+      "seconds": 141.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.48
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.66
+        },
+        {
+          "stage": "angle_retry",
+          "template": "qwen21_edit",
+          "seconds": 20.05
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.14
+        }
+      ],
+      "media_bytes": 11763986,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, a camera tripod walked into the shot"
+    },
+    {
+      "name": "angle-oskar-left-eye-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_140623_43c6",
+      "seconds": 124.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.75
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 22.55
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.26
+        }
+      ],
+      "media_bytes": 9695208
+    },
+    {
+      "name": "angle-oskar-front-left-eye-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_140827_f002",
+      "seconds": 120.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.52
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.72
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.12
+        }
+      ],
+      "media_bytes": 9662981
+    },
+    {
+      "name": "angle-oskar-front-low-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_141028_26f4",
+      "seconds": 120.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.88
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.41
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.19
+        }
+      ],
+      "media_bytes": 9861104
+    },
+    {
+      "name": "angle-oskar-front-elevated-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_141229_c9fc",
+      "seconds": 121.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.84
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.84
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.06
+        }
+      ],
+      "media_bytes": 9936350
+    },
+    {
+      "name": "angle-oskar-front-high-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_141430_782c",
+      "seconds": 121.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.73
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.59
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.16
+        }
+      ],
+      "media_bytes": 11197830
+    },
+    {
+      "name": "angle-oskar-front-eye-close",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_141631_4bb5",
+      "seconds": 121.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.72
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 21.83
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.25
+        }
+      ],
+      "media_bytes": 10510401
+    },
+    {
+      "name": "sp-orbit-180",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_182405_2bff",
+      "seconds": 5.04,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 3.28
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 3.19
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 3.61
+        },
+        {
+          "stage": "anchor_2_retry",
+          "template": "qwen21_edit",
+          "seconds": 3.95
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 79.77
+        }
+      ],
+      "media_bytes": 14522716,
+      "note": ". Bundled render: the Oct 22 evening sweep at guide strength 0.4 (0.25 and 0.55 also held; the afternoon render at 0.7 ghosted).",
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera stood still (0.0 px/s): not an orbit 180"
+    },
+    {
+      "name": "sp-orbit-360",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_182541_3bbe",
+      "seconds": 5.04,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 4.17
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 3.41
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 3.34
+        },
+        {
+          "stage": "anchor_3",
+          "template": "qwen21_edit",
+          "seconds": 3.33
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 85.2
+        }
+      ],
+      "media_bytes": 13987161,
+      "note": ". Bundled render: the Oct 22 evening sweep at guide strength 0.4 (0.25 and 0.55 also held; the afternoon render at 0.7 ghosted).",
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera stood still (0.15 px/s) while the subject turned: not an orbit 360"
+    },
+    {
+      "name": "sig-crash-zoom-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_142534_036c",
+      "seconds": 99.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.06
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 69.92
+        }
+      ],
+      "media_bytes": 6958622
+    },
+    {
+      "name": "sig-dolly-zoom",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_142714_f803",
+      "seconds": 99.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.12
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.33
+        }
+      ],
+      "media_bytes": 9149588,
+      "set_aside": "2026-10-25 (round 11): out of the bundle. dolly zoom: a plain pull-out; rebuilt as a dolly-out zoomed in code"
+    },
+    {
+      "name": "sig-snorricam",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_142854_6a5e",
+      "seconds": 100.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.24
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.86
+        }
+      ],
+      "media_bytes": 9955354
+    },
+    {
+      "name": "sig-through-object",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_143035_ced1",
+      "seconds": 99.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.92
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.42
+        }
+      ],
+      "media_bytes": 7522534,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera pulled back out through the window (the picture shrank 23 px/s); the move pushes forward through it"
+    },
+    {
+      "name": "sig-hyperlapse",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_143214_e643",
+      "seconds": 100.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.84
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.67
+        }
+      ],
+      "media_bytes": 10968389,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera rushed backward and lost the subject, who should stay the anchor of the frame"
+    },
+    {
+      "name": "sig-lazy-susan",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_143354_e0bc",
+      "seconds": 95.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 24.64
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.06
+        }
+      ],
+      "media_bytes": 3194897
+    },
+    {
+      "name": "sig-crash-zoom-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_143530_e1f3",
+      "seconds": 99.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.77
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 70.45
+        }
+      ],
+      "media_bytes": 10819823
+    },
+    {
+      "name": "sig-eyes-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_143709_e6b6",
+      "seconds": 99.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.38
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 69.91
+        }
+      ],
+      "media_bytes": 7217601
+    },
+    {
+      "name": "ten-second-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_143914_96ca",
+      "seconds": 208.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.26
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 22.47
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 155.66
+        }
+      ],
+      "media_bytes": 9126863
+    },
+    {
+      "name": "dlg-mara-calm",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_180620_04a8",
+      "seconds": 129.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 32.19
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 96.06
+        }
+      ],
+      "media_bytes": 5892867
+    },
+    {
+      "name": "dlg-oskar-gruff",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_180938_a0b7",
+      "seconds": 99.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 33.3
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 64.95
+        }
+      ],
+      "media_bytes": 9977417
+    },
+    {
+      "name": "dlg-ines-whisper",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_181228_32c2",
+      "seconds": 117.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.25
+        },
+        {
+          "stage": "hero_retry",
+          "template": "qwen21_edit",
+          "seconds": 20.41
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 66.17
+        }
+      ],
+      "media_bytes": 11032353
+    },
+    {
+      "name": "cov-oskar-left",
+      "kind": "reshoot",
+      "status": "succeeded",
+      "take_id": "tk_20261022_193602_227c",
+      "seconds": 181.2,
+      "runs": [
+        {
+          "stage": "motion",
+          "template": "wan_animate2",
+          "seconds": 178.92
+        }
+      ],
+      "media_bytes": 4728105
+    },
+    {
+      "name": "cov-oskar-back",
+      "kind": "reshoot",
+      "status": "succeeded",
+      "take_id": "tk_20261022_193904_9fce",
+      "seconds": 174.5,
+      "runs": [
+        {
+          "stage": "motion",
+          "template": "wan_animate2",
+          "seconds": 172.36
+        }
+      ],
+      "media_bytes": 4768222
+    },
+    {
+      "name": "cov-oskar-front-right",
+      "kind": "reshoot",
+      "status": "succeeded",
+      "take_id": "tk_20261022_183830_7c9d",
+      "seconds": 367.1,
+      "runs": [
+        {
+          "stage": "motion",
+          "template": "wan_animate2",
+          "seconds": 364.97
+        }
+      ],
+      "media_bytes": 4750665
+    },
+    {
+      "name": "noor-observatory-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_185241_6aaa",
+      "seconds": 372.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 107.51
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 95.77
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 167.49
+        }
+      ],
+      "media_bytes": 7939889
+    },
+    {
+      "name": "noor-observatory-crash-zoom",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_185853_bb3e",
+      "seconds": 155.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 21.14
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 132.91
+        }
+      ],
+      "media_bytes": 6518995
+    },
+    {
+      "name": "noor-rooftop-orbit-90",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_190128_04a0",
+      "seconds": 199.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 42.98
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 155.05
+        }
+      ],
+      "media_bytes": 6165358
+    },
+    {
+      "name": "noor-ignite",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_190448_a080",
+      "seconds": 373.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 27.28
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 122.36
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 222.08
+        }
+      ],
+      "media_bytes": 9623006
+    },
+    {
+      "name": "tomas-kitchen-snorricam",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_191208_c39c",
+      "seconds": 228.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 84.47
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 142.33
+        }
+      ],
+      "media_bytes": 8119480
+    },
+    {
+      "name": "tomas-kitchen-dolly-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_191557_899a",
+      "seconds": 336.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 30.44
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 120.05
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 183.84
+        }
+      ],
+      "media_bytes": 6773598
+    },
+    {
+      "name": "tomas-alley-hyperlapse",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_192133_2a26",
+      "seconds": 147.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.78
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 122.06
+        }
+      ],
+      "media_bytes": 7721203,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera rushed backward and lost the subject, who should stay the anchor of the frame"
+    },
+    {
+      "name": "tomas-gold",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_192401_ebf8",
+      "seconds": 247.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 28.06
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 69.73
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 148.69
+        }
+      ],
+      "media_bytes": 5310646
+    },
+    {
+      "name": "desert-highway-hyperlapse",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_192808_a4c1",
+      "seconds": 177.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 20.45
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 156.02
+        }
+      ],
+      "media_bytes": 3591756
+    },
+    {
+      "name": "lighthouse-storm-crane-up",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_193105_34f3",
+      "seconds": 293.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 31.7
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 89.47
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 172.17
+        }
+      ],
+      "media_bytes": 6870007
+    },
+    {
+      "name": "cloud-draft-dolly-in",
+      "kind": "direct",
+      "status": "failed",
+      "error": "cast 'Mara' could not be made"
+    },
+    {
+      "name": "v1-oskar-kickflip",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_225813_c120",
+      "seconds": 116.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.64
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 84.8
+        }
+      ],
+      "media_bytes": 6921799
+    },
+    {
+      "name": "v1-noor-mars",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_230114_75f2",
+      "seconds": 109.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 84.47
+        }
+      ],
+      "media_bytes": 5047946
+    },
+    {
+      "name": "v1-tomas-samurai",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_230538_8a28",
+      "seconds": 585.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 166.89
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 230.33
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 185.98
+        }
+      ],
+      "media_bytes": 11300147
+    },
+    {
+      "name": "v1-ines-cyberpunk",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_231523_88ad",
+      "seconds": 121.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 32.66
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 86.62
+        }
+      ],
+      "media_bytes": 10804559
+    },
+    {
+      "name": "v1-mara-skydive",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_231725_3dee",
+      "seconds": 119.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 31.89
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 85.52
+        }
+      ],
+      "media_bytes": 8149006
+    },
+    {
+      "name": "v1-dragon-city",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_231925_bdfb",
+      "seconds": 160.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 33.5
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 23.48
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 102.92
+        }
+      ],
+      "media_bytes": 7949018
+    },
+    {
+      "name": "v1-lava-surfer",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_232205_71d1",
+      "seconds": 1180.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 685.3
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 494.42
+        }
+      ],
+      "media_bytes": 4067167,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera stood still (0.02 px/s) where the move is a track right"
+    },
+    {
+      "name": "v1-cat-dj",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261022_234146_ec1f",
+      "seconds": 114.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 27.95
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 85.59
+        }
+      ],
+      "media_bytes": 4644520
+    },
+    {
+      "name": "v1-shots-noor-mars",
+      "kind": "shots",
+      "status": "succeeded",
+      "take_id": "tk_20261022_234340_e66f",
+      "seconds": 212.4,
+      "runs": [
+        {
+          "stage": "shot_1",
+          "template": "qwen21_edit",
+          "seconds": 31.62
+        },
+        {
+          "stage": "shot_2",
+          "template": "qwen21_edit",
+          "seconds": 21.91
+        },
+        {
+          "stage": "shot_3",
+          "template": "qwen21_edit",
+          "seconds": 21.62
+        },
+        {
+          "stage": "shot_4",
+          "template": "qwen21_edit",
+          "seconds": 22.11
+        },
+        {
+          "stage": "shot_5",
+          "template": "qwen21_edit",
+          "seconds": 22.08
+        },
+        {
+          "stage": "shot_6",
+          "template": "qwen21_edit",
+          "seconds": 21.69
+        },
+        {
+          "stage": "shot_7",
+          "template": "qwen21_edit",
+          "seconds": 22.09
+        },
+        {
+          "stage": "shot_8",
+          "template": "qwen21_edit",
+          "seconds": 22.16
+        },
+        {
+          "stage": "shot_9",
+          "template": "qwen21_edit",
+          "seconds": 22.88
+        }
+      ],
+      "media_bytes": 18635263
+    },
+    {
+      "name": "v1-shots-tomas-samurai",
+      "kind": "shots",
+      "status": "succeeded",
+      "take_id": "tk_20261022_234713_9c93",
+      "seconds": 205.9,
+      "runs": [
+        {
+          "stage": "shot_1",
+          "template": "qwen21_edit",
+          "seconds": 21.94
+        },
+        {
+          "stage": "shot_2",
+          "template": "qwen21_edit",
+          "seconds": 21.48
+        },
+        {
+          "stage": "shot_3",
+          "template": "qwen21_edit",
+          "seconds": 27.08
+        },
+        {
+          "stage": "shot_4",
+          "template": "qwen21_edit",
+          "seconds": 21.34
+        },
+        {
+          "stage": "shot_5",
+          "template": "qwen21_edit",
+          "seconds": 21.84
+        },
+        {
+          "stage": "shot_6",
+          "template": "qwen21_edit",
+          "seconds": 21.78
+        },
+        {
+          "stage": "shot_7",
+          "template": "qwen21_edit",
+          "seconds": 21.73
+        },
+        {
+          "stage": "shot_8",
+          "template": "qwen21_edit",
+          "seconds": 21.86
+        },
+        {
+          "stage": "shot_9",
+          "template": "qwen21_edit",
+          "seconds": 21.73
+        }
+      ],
+      "media_bytes": 22973773
+    },
+    {
+      "name": "v1-tr-mara-ines-morph",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235039_a5f0",
+      "seconds": 69.9,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 65.16
+        }
+      ],
+      "media_bytes": 8840684
+    },
+    {
+      "name": "v1-tr-oskar-cat-whip",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235149_1103",
+      "seconds": 46.1,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 41.55
+        }
+      ],
+      "media_bytes": 7503479
+    },
+    {
+      "name": "v1-tr-dragon-lava-push",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235235_4046",
+      "seconds": 45.0,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 40.22
+        }
+      ],
+      "media_bytes": 8456794
+    },
+    {
+      "name": "v1-tr-noor-tomas-match",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235320_8332",
+      "seconds": 43.6,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 39.25
+        }
+      ],
+      "media_bytes": 6657953
+    },
+    {
+      "name": "v1-edit-face-swap",
+      "kind": "edit",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235404_635b",
+      "seconds": 36.3,
+      "runs": [
+        {
+          "stage": "edit",
+          "template": "qwen21_edit",
+          "seconds": 34.56
+        }
+      ],
+      "media_bytes": 5181504
+    },
+    {
+      "name": "v1-edit-person-swap",
+      "kind": "edit",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235440_2af2",
+      "seconds": 28.8,
+      "runs": [
+        {
+          "stage": "edit",
+          "template": "qwen21_edit",
+          "seconds": 27.16
+        }
+      ],
+      "media_bytes": 5171499
+    },
+    {
+      "name": "v1-edit-remove",
+      "kind": "edit",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235509_1c3d",
+      "seconds": 23.6,
+      "runs": [
+        {
+          "stage": "edit",
+          "template": "qwen21_edit",
+          "seconds": 21.92
+        }
+      ],
+      "media_bytes": 5690869
+    },
+    {
+      "name": "v1-edit-outfit",
+      "kind": "edit",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235532_eafb",
+      "seconds": 23.6,
+      "runs": [
+        {
+          "stage": "edit",
+          "template": "qwen21_edit",
+          "seconds": 21.94
+        }
+      ],
+      "media_bytes": 3980656
+    },
+    {
+      "name": "v1-edit-relight",
+      "kind": "edit",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235556_e38d",
+      "seconds": 23.9,
+      "runs": [
+        {
+          "stage": "edit",
+          "template": "qwen21_edit",
+          "seconds": 22.16
+        }
+      ],
+      "media_bytes": 5189609
+    },
+    {
+      "name": "v1-edit-custom",
+      "kind": "edit",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235620_5e31",
+      "seconds": 43.0,
+      "runs": [
+        {
+          "stage": "edit",
+          "template": "qwen21_edit",
+          "seconds": 21.7
+        },
+        {
+          "stage": "edit_retry",
+          "template": "qwen21_edit",
+          "seconds": 19.66
+        }
+      ],
+      "media_bytes": 5847670
+    },
+    {
+      "name": "v1-reshoot-face-noor",
+      "kind": "reshoot",
+      "status": "succeeded",
+      "take_id": "tk_20261022_235703_a2b6",
+      "seconds": 217.0,
+      "runs": [
+        {
+          "stage": "face",
+          "template": "qwen21_edit",
+          "seconds": 23.02
+        },
+        {
+          "stage": "motion",
+          "template": "wan_animate2",
+          "seconds": 191.8
+        }
+      ],
+      "media_bytes": 6558777
+    },
+    {
+      "name": "v1-dub-mara-es",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_000040_9639",
+      "seconds": 86.5,
+      "runs": [
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 85.06
+        }
+      ],
+      "media_bytes": 5645346
+    },
+    {
+      "name": "v1-dub-mara-fr",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_000207_c125",
+      "seconds": 62.8,
+      "runs": [
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 61.23
+        }
+      ],
+      "media_bytes": 5660409
+    },
+    {
+      "name": "v1b-tomas-samurai-draw",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_075446_a580",
+      "seconds": 221.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 41.08
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 178.11
+        }
+      ],
+      "media_bytes": 5098175,
+      "set_aside": "2026-10-26 (session 10): out of the bundle; the draw swung the blade across his face; replaced by r13-a4-draw-up-624"
+    },
+    {
+      "name": "v1b-oskar-skate",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_075827_dbed",
+      "seconds": 226.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 53.77
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 171.22
+        }
+      ],
+      "media_bytes": 4812479
+    },
+    {
+      "name": "v1b-noor-mars-orbit",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_080214_7f9a",
+      "seconds": 323.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 66.76
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 50.66
+        },
+        {
+          "stage": "anchor_1_retry",
+          "template": "qwen21_edit",
+          "seconds": 20.31
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 22.44
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 161.47
+        }
+      ],
+      "media_bytes": 8719828,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera stood still (0.0 px/s): not an orbit"
+    },
+    {
+      "name": "v1b-ines-ride",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_080737_b3f8",
+      "seconds": 174.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 48.17
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 124.69
+        }
+      ],
+      "media_bytes": 6704519,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera followed the rider away instead of tracking right alongside"
+    },
+    {
+      "name": "v1b-dragon-glide",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_081032_1e95",
+      "seconds": 167.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 41.83
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 124.67
+        }
+      ],
+      "media_bytes": 6302469
+    },
+    {
+      "name": "v1b-cat-dj-zoom",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_081319_fada",
+      "seconds": 168.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 42.17
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 125.72
+        }
+      ],
+      "media_bytes": 4172751
+    },
+    {
+      "name": "v1b-tr-skydive-surfer-morph",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261023_081607_bdbe",
+      "seconds": 60.6,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 56.73
+        }
+      ],
+      "media_bytes": 7427115
+    },
+    {
+      "name": "v1b-tr-surfer-ines-whip",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261023_081708_f6eb",
+      "seconds": 58.6,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 54.48
+        }
+      ],
+      "media_bytes": 10164342
+    },
+    {
+      "name": "v1b-reshoot-face-noor-pier",
+      "kind": "reshoot",
+      "status": "succeeded",
+      "take_id": "tk_20261023_081807_a4e2",
+      "seconds": 251.1,
+      "runs": [
+        {
+          "stage": "face",
+          "template": "qwen21_edit",
+          "seconds": 53.14
+        },
+        {
+          "stage": "motion",
+          "template": "wan_animate2",
+          "seconds": 195.89
+        }
+      ],
+      "media_bytes": 6638463
+    },
+    {
+      "name": "v2-bullet-time",
+      "kind": "direct",
+      "status": "skipped",
+      "take_id": "tk_20261023_000327_e72e",
+      "note": "already recorded",
+      "set_aside": "2026-10-25 (round 11): out of the bundle. bullet time: the dancer moved and the camera held still; rebuilt from three views of one frozen moment"
+    },
+    {
+      "name": "v2-aerial-pullback",
+      "kind": "direct",
+      "status": "skipped",
+      "take_id": "tk_20261023_000528_66a0",
+      "note": "already recorded"
+    },
+    {
+      "name": "v2-dutch-angle",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_082231_01a1",
+      "seconds": 179.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 46.61
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 131.34
+        }
+      ],
+      "media_bytes": 3490841
+    },
+    {
+      "name": "v2-fisheye",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_082530_d515",
+      "seconds": 176.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 48.08
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 126.72
+        }
+      ],
+      "media_bytes": 4448109
+    },
+    {
+      "name": "v2-super-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_082826_7a1e",
+      "seconds": 172.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 48.2
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 123.26
+        }
+      ],
+      "media_bytes": 4088371
+    },
+    {
+      "name": "v2-yoyo-zoom",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_083119_07d0",
+      "seconds": 184.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 40.19
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 144.3
+        }
+      ],
+      "media_bytes": 3128149
+    },
+    {
+      "name": "v2-fx-bts",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_083424_1e48",
+      "seconds": 298.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 49.33
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 59.81
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 187.72
+        }
+      ],
+      "media_bytes": 7482438
+    },
+    {
+      "name": "v2-fx-vanish",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_083923_fc2a",
+      "seconds": 223.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 47.03
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 33.02
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 143.28
+        }
+      ],
+      "media_bytes": 3120268
+    },
+    {
+      "name": "v2-fx-clones",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_084307_e363",
+      "seconds": 215.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 46.02
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 27.55
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 141.67
+        }
+      ],
+      "media_bytes": 5569138
+    },
+    {
+      "name": "v2-fx-comic",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_084643_7561",
+      "seconds": 232.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 45.0
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 24.12
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 162.3
+        }
+      ],
+      "media_bytes": 7094676
+    },
+    {
+      "name": "v2-fx-painting",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_085035_87d4",
+      "seconds": 213.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 50.48
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 24.09
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 138.24
+        }
+      ],
+      "media_bytes": 8515403
+    },
+    {
+      "name": "v2-fx-melt",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_085408_dab1",
+      "seconds": 203.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 38.56
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 25.08
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 139.55
+        }
+      ],
+      "media_bytes": 6716212
+    },
+    {
+      "name": "v2-fx-flood",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_085732_f86b",
+      "seconds": 210.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 43.33
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 23.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 142.36
+        }
+      ],
+      "media_bytes": 7163851
+    },
+    {
+      "name": "v2-fx-age",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_090103_13a2",
+      "seconds": 205.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 41.39
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 22.76
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 140.19
+        }
+      ],
+      "media_bytes": 6053900
+    },
+    {
+      "name": "v2-fx-snowfall",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_090428_796a",
+      "seconds": 204.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 35.62
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 29.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 139.06
+        }
+      ],
+      "media_bytes": 8299542
+    },
+    {
+      "name": "v2-fx-ruin",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_090753_b2f7",
+      "seconds": 241.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 36.7
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 24.95
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 179.76
+        }
+      ],
+      "media_bytes": 6915037
+    },
+    {
+      "name": "v2-fx-time-freeze",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_091155_5b5b",
+      "seconds": 215.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 45.16
+        },
+        {
+          "stage": "hero_retry",
+          "template": "qwen21_edit",
+          "seconds": 20.24
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 148.74
+        }
+      ],
+      "media_bytes": 5232418
+    },
+    {
+      "name": "v2-fx-fog",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_091531_4488",
+      "seconds": 177.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 44.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 132.31
+        }
+      ],
+      "media_bytes": 6533726
+    },
+    {
+      "name": "v2-fx-slow-motion",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_091828_20b9",
+      "seconds": 183.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 39.25
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 144.01
+        }
+      ],
+      "media_bytes": 2714565
+    },
+    {
+      "name": "v3-loop-storm-waves",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_092136_f977",
+      "seconds": 200.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 45.34
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 154.56
+        }
+      ],
+      "media_bytes": 5544257
+    },
+    {
+      "name": "v3-loop-campfire",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_092456_74bb",
+      "seconds": 180.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 39.83
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 139.88
+        }
+      ],
+      "media_bytes": 3522720
+    },
+    {
+      "name": "v3-loop-neon-rain",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_092756_e251",
+      "seconds": 179.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 39.33
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 139.53
+        }
+      ],
+      "media_bytes": 4010805
+    },
+    {
+      "name": "v3-loop-camera-dolly",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_093056_c582",
+      "seconds": 278.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 40.89
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 29.92
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 26.34
+        },
+        {
+          "stage": "anchor_3",
+          "template": "qwen21_edit",
+          "seconds": 22.25
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 158.8
+        }
+      ],
+      "media_bytes": 8601880,
+      "set_aside": "2026-10-25 (session 9): out of the bundle; measured with the optical-flow meter, the camera stood still (0.0 px/s): not an orbit 360"
+    },
+    {
+      "name": "v3-spin-sneaker",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261023_093535_b269",
+      "seconds": 171.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 40.58
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 130.91
+        }
+      ],
+      "media_bytes": 3219411
+    },
+    {
+      "name": "v5-extend-lava",
+      "kind": "extend",
+      "status": "succeeded",
+      "take_id": "tk_20261023_093828_fbda",
+      "seconds": 46.1,
+      "runs": [
+        {
+          "stage": "extend",
+          "template": "ltx25_i2v",
+          "seconds": 43.8
+        }
+      ],
+      "media_bytes": 3847730
+    },
+    {
+      "name": "v5-extend-ines-canal",
+      "kind": "extend",
+      "status": "succeeded",
+      "take_id": "tk_20261023_093914_8b6a",
+      "seconds": 47.9,
+      "runs": [
+        {
+          "stage": "extend",
+          "template": "ltx25_i2v",
+          "seconds": 45.14
+        }
+      ],
+      "media_bytes": 5233686
+    },
+    {
+      "name": "v6-upscale-draft-2k",
+      "kind": "upscale",
+      "status": "succeeded",
+      "take_id": "tk_20261023_094002_a10c",
+      "seconds": 121.1,
+      "runs": [
+        {
+          "stage": "upscale",
+          "template": "esrgan_upscale",
+          "seconds": 120.14
+        }
+      ],
+      "media_bytes": 7249741
+    },
+    {
+      "name": "v8-truck-right",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_182654_5553",
+      "seconds": 55.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.46
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 42.18
+        }
+      ],
+      "media_bytes": 1759945
+    },
+    {
+      "name": "v8-pedestal-up",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_182749_b6a5",
+      "seconds": 55.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.1
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 42.83
+        }
+      ],
+      "media_bytes": 1587918
+    },
+    {
+      "name": "v8-push-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_183130_de1a",
+      "seconds": 66.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.79
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 5.17
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 47.59
+        }
+      ],
+      "media_bytes": 2433988
+    },
+    {
+      "name": "v8-pull-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_183237_020c",
+      "seconds": 65.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.03
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 5.13
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 48.01
+        }
+      ],
+      "media_bytes": 2356464
+    },
+    {
+      "name": "v8-whip-pan",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_183554_d4de",
+      "seconds": 56.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 11.87
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 44.49
+        }
+      ],
+      "media_bytes": 1794242
+    },
+    {
+      "name": "v8-low-angle",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_183939_8600",
+      "seconds": 91.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 30.25
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 61.03
+        }
+      ],
+      "media_bytes": 1593248
+    },
+    {
+      "name": "v8-handheld",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_184224_3820",
+      "seconds": 55.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.41
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 42.79
+        }
+      ],
+      "media_bytes": 1810925
+    },
+    {
+      "name": "v8-over-shoulder",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_184557_9643",
+      "seconds": 55.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.27
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 42.72
+        }
+      ],
+      "media_bytes": 1741990
+    },
+    {
+      "name": "v8-crash-zoom-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_184823_d285",
+      "seconds": 123.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 29.56
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 92.87
+        }
+      ],
+      "media_bytes": 1490716
+    },
+    {
+      "name": "v8-super-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_185026_3e9e",
+      "seconds": 95.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 15.1
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 79.58
+        }
+      ],
+      "media_bytes": 2986946
+    },
+    {
+      "name": "v8b-pan-left",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_192903_df34",
+      "seconds": 56.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 43.03
+        }
+      ],
+      "media_bytes": 1783757
+    },
+    {
+      "name": "v8b-pan-right",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_192959_62ae",
+      "seconds": 55.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.01
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 42.35
+        }
+      ],
+      "media_bytes": 1681376
+    },
+    {
+      "name": "v8b-tilt-down",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_193151_ba77",
+      "seconds": 56.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 12.88
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 42.83
+        }
+      ],
+      "media_bytes": 2001219
+    },
+    {
+      "name": "v8d-fx-fog",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_202615_91e8",
+      "seconds": 148.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 68.8
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 79.41
+        }
+      ],
+      "media_bytes": 6684400
+    },
+    {
+      "name": "v9b-dutch-angle-noir",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261024_232528_8944",
+      "seconds": 151.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 37.16
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 112.55
+        }
+      ],
+      "media_bytes": 4895422
+    },
+    {
+      "name": "r11-bt-dancer-a",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_132158_8d80",
+      "seconds": 207.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 34.53
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 27.58
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 25.36
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 119.44
+        }
+      ],
+      "media_bytes": 11298669,
+      "set_aside": "2026-10-25 (session 9): not landed; bullet time from three angle-edited stills: the stills barely turned and a glitch frame broke the shot"
+    },
+    {
+      "name": "r11-bt-dancer-b",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_132525_38e9",
+      "seconds": 200.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 32.72
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 26.23
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 24.2
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 116.53
+        }
+      ],
+      "media_bytes": 11823885,
+      "set_aside": "2026-10-25 (session 9): not landed; bullet time from three angle-edited stills: the camera held still while the dancer changed pose"
+    },
+    {
+      "name": "r11-bt-samurai-a",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_132846_75f5",
+      "seconds": 210.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 39.81
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 25.8
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 24.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 118.48
+        }
+      ],
+      "media_bytes": 14692845,
+      "set_aside": "2026-10-25 (session 9): not landed; bullet time from three angle-edited stills: the edits turned his head while the street stayed put, the shot swung round and snapped back, and the blade doubled"
+    },
+    {
+      "name": "r11-bt-samurai-b",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_133216_1f14",
+      "seconds": 211.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 38.59
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 26.48
+        },
+        {
+          "stage": "anchor_2",
+          "template": "qwen21_edit",
+          "seconds": 24.7
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 120.02
+        }
+      ],
+      "media_bytes": 15577368,
+      "set_aside": "2026-10-25 (session 9): not landed; bullet time from three angle-edited stills, the construction that failed on its three siblings"
+    },
+    {
+      "name": "r11-orb-90",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_135352_2a70",
+      "seconds": 369.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 216.84
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 150.97
+        }
+      ],
+      "media_bytes": 5995426,
+      "set_aside": "2026-10-25 (session 9): not landed; a real orbit that overshot to about 270 degrees; the October 20 pier orbit stays the proof of orbit 90"
+    },
+    {
+      "name": "r11-orb-180",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_140001_1069",
+      "seconds": 167.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 60.0
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 105.55
+        }
+      ],
+      "media_bytes": 5370501
+    },
+    {
+      "name": "r11-orb-360",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_140248_4c61",
+      "seconds": 159.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 60.61
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 97.62
+        }
+      ],
+      "media_bytes": 6288210,
+      "set_aside": "2026-10-25 (session 9): not landed; orbit 360 from one still flew up into a spinning aerial view and the pier warped"
+    },
+    {
+      "name": "r11-orb-arc-left",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_140528_79fd",
+      "seconds": 158.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 59.77
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 97.66
+        }
+      ],
+      "media_bytes": 5814132,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera arced right (+12.4 px/s) where the move is an arc left"
+    },
+    {
+      "name": "r11-orb2-360",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_140651_7544",
+      "seconds": 235.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 136.19
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 97.48
+        }
+      ],
+      "media_bytes": 5443101,
+      "set_aside": "2026-10-25 (session 9): not landed; orbit 360 from one still (prompt style 1) rolled the frame until he was upside down"
+    },
+    {
+      "name": "r11-mv-arc-right",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_133624_8320",
+      "seconds": 100.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 25.31
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 73.12
+        }
+      ],
+      "media_bytes": 2597620
+    },
+    {
+      "name": "r11-mv-track-left",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_133804_ef0e",
+      "seconds": 98.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.3
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 73.61
+        }
+      ],
+      "media_bytes": 2601939
+    },
+    {
+      "name": "r11-mv-truck-left",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_133942_52d3",
+      "seconds": 97.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 22.58
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 73.08
+        }
+      ],
+      "media_bytes": 2448848
+    },
+    {
+      "name": "r11-mv-tilt-up",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_134120_7409",
+      "seconds": 188.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.64
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 163.28
+        }
+      ],
+      "media_bytes": 1711297
+    },
+    {
+      "name": "r11-mv-optical-zoom-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_134428_f764",
+      "seconds": 189.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 24.25
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 163.3
+        }
+      ],
+      "media_bytes": 1670021
+    },
+    {
+      "name": "r11-mv-crane-down",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_134738_e8d6",
+      "seconds": 113.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.03
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 11.64
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 77.78
+        }
+      ],
+      "media_bytes": 2559662
+    },
+    {
+      "name": "r11-mv-pedestal-down",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_134932_6b62",
+      "seconds": 98.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.66
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 73.77
+        }
+      ],
+      "media_bytes": 1843775,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera rose and tilted down, the opposite of a pedestal down (its words described a tilt; rewritten)"
+    },
+    {
+      "name": "r11-mv-vertigo",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_135110_86ef",
+      "seconds": 332.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.56
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 93.19
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 214.0
+        }
+      ],
+      "media_bytes": 2508961,
+      "set_aside": "2026-10-25 (session 9): not landed; the dolly-out's end still matched the first, LTX snapped back to it and the zoom magnified the snap"
+    },
+    {
+      "name": "r11-mv-rack-focus",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_135643_a9ff",
+      "seconds": 228.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 51.12
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 176.09
+        }
+      ],
+      "media_bytes": 1552981,
+      "set_aside": "2026-10-25 (session 9): not landed; a hand reached into the frame from nowhere; the still had framed the rack as already finished (rewritten)"
+    },
+    {
+      "name": "r11-mv-top-down",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_140031_a803",
+      "seconds": 168.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 42.45
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 124.56
+        }
+      ],
+      "media_bytes": 3886920
+    },
+    {
+      "name": "r11-mv-helicopter",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_140319_a4ab",
+      "seconds": 158.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 34.41
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 123.58
+        }
+      ],
+      "media_bytes": 3265722
+    },
+    {
+      "name": "r11-mv-fpv-drone",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_140558_8a2f",
+      "seconds": 160.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 35.27
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 124.56
+        }
+      ],
+      "media_bytes": 4355184
+    },
+    {
+      "name": "r11-mv-robot-arm",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_140838_f57e",
+      "seconds": 158.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 34.06
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 123.08
+        }
+      ],
+      "media_bytes": 1774606
+    },
+    {
+      "name": "r11-mv-reveal",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_141116_a5de",
+      "seconds": 159.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 35.64
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 122.83
+        }
+      ],
+      "media_bytes": 1673000
+    },
+    {
+      "name": "r11-mv2-rack-focus",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_141048_9880",
+      "seconds": 156.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 59.2
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 96.3
+        }
+      ],
+      "media_bytes": 3117837,
+      "set_aside": "2026-10-25 (session 9): not landed; the still came out with both planes sharp, so the focus went face, cup, face"
+    },
+    {
+      "name": "r11-mv2-pedestal-down",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_141325_cd87",
+      "seconds": 173.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 61.91
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 109.72
+        }
+      ],
+      "media_bytes": 4325625,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera descended but also pulled back and tilted up: not a pure pedestal"
+    },
+    {
+      "name": "r11-bt3-samurai-a",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_141404_7355",
+      "seconds": 191.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 42.38
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 147.03
+        }
+      ],
+      "media_bytes": 7923376,
+      "set_aside": "2026-10-25 (session 9): not landed; bullet time as the October 23 style-1 time-freeze prompt: the frame rolled upside down"
+    },
+    {
+      "name": "r11-bt3-samurai-b",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_141715_a05f",
+      "seconds": 135.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 37.11
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 97.2
+        }
+      ],
+      "media_bytes": 7756231,
+      "set_aside": "2026-10-25 (session 9): not landed; bullet time as the style-1 prompt: the camera pulled back and a glowing sphere appeared"
+    },
+    {
+      "name": "r11-bt3-dancer-a",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_141931_2a0b",
+      "seconds": 188.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 44.41
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 143.91
+        }
+      ],
+      "media_bytes": 3959883,
+      "set_aside": "2026-10-25 (session 9): not landed; bullet time as the style-1 prompt: the dancer hung in the air but the camera barely moved"
+    },
+    {
+      "name": "r11-bt3-dancer-b",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_142239_7f42",
+      "seconds": 188.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 45.72
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 141.97
+        }
+      ],
+      "media_bytes": 3567859,
+      "set_aside": "2026-10-25 (session 9): not landed; bullet time as the style-1 prompt: the camera stood dead still"
+    },
+    {
+      "name": "r11-bt4-samurai-90",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_141822_44ee",
+      "seconds": 207.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 97.34
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 108.25
+        }
+      ],
+      "media_bytes": 7229482,
+      "set_aside": "2026-10-25 (session 9): not landed; held as an orbit 90 with the time-freeze effect; bullet time is now made this way and r11-bt5-samurai-a, a bullet-time recipe, is its proof"
+    },
+    {
+      "name": "r11-bt4-samurai-180",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_142149_796e",
+      "seconds": 189.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 80.88
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 107.02
+        }
+      ],
+      "media_bytes": 8192049,
+      "set_aside": "2026-10-25 (session 9): not landed; a real orbit 180 with a whip blur early on, then held behind him"
+    },
+    {
+      "name": "r11-bt4-dancer-90",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_142458_578e",
+      "seconds": 184.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 77.3
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 107.0
+        }
+      ],
+      "media_bytes": 4510850,
+      "set_aside": "2026-10-25 (session 9): not landed; the dancer kept moving and landed while the camera barely moved"
+    },
+    {
+      "name": "r11-bt4-dancer-180",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_142803_a79d",
+      "seconds": 206.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 44.64
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 161.45
+        }
+      ],
+      "media_bytes": 3474619,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera stood still and drifted back"
+    },
+    {
+      "name": "r11-fx-ruin-a",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_142556_1936",
+      "seconds": 278.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 35.11
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 121.5
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 120.97
+        }
+      ],
+      "media_bytes": 6246088
+    },
+    {
+      "name": "r11-fx-ruin-b",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_143034_9f85",
+      "seconds": 356.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 82.8
+        },
+        {
+          "stage": "transform_1",
+          "template": "qwen21_edit",
+          "seconds": 56.69
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 216.16
+        }
+      ],
+      "media_bytes": 5882218,
+      "set_aside": "2026-10-25 (session 9): not landed; a spare second take of ruin; r11-fx-ruin-a is the proof"
+    },
+    {
+      "name": "r11-bt5-samurai-a",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_143143_2192",
+      "seconds": 216.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 52.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 162.42
+        }
+      ],
+      "media_bytes": 7214050,
+      "set_aside": "2026-10-26 (session 10): out of the bundle; the blade vanished from 3.3 s; replaced by r13-b3-bt-from44ee-1167"
+    },
+    {
+      "name": "r11-bt5-samurai-b",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_143520_5eba",
+      "seconds": 292.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 119.16
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 171.86
+        }
+      ],
+      "media_bytes": 8077679,
+      "set_aside": "2026-10-25 (session 9): not landed; the sword vanished mid-orbit and the move jerked"
+    },
+    {
+      "name": "r11-tr-morph",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261025_143632_b2ef",
+      "seconds": 109.4,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 106.81
+        }
+      ],
+      "media_bytes": 4029606,
+      "set_aside": "2026-10-25 (session 9): not landed; the dunes became the cliff, but the astronaut faded out as a translucent ghost"
+    },
+    {
+      "name": "r11-tr-whip",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261025_143822_b8bd",
+      "seconds": 131.3,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 128.05
+        }
+      ],
+      "media_bytes": 3275059,
+      "set_aside": "2026-10-25 (session 9): not landed; it bridges from r11-mv-rack-focus, a take that did not hold"
+    },
+    {
+      "name": "r11-tr-match",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261025_144033_ac20",
+      "seconds": 113.8,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 109.2
+        }
+      ],
+      "media_bytes": 17102665,
+      "set_aside": "2026-10-25 (session 9): not landed; it bridges two bullet-time takes that did not hold"
+    },
+    {
+      "name": "r11-x-through-hut",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_143042_9668",
+      "seconds": 223.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 94.78
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 127.11
+        }
+      ],
+      "media_bytes": 4282095,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera pulled back out of the hut's window; the move pushes forward through it"
+    },
+    {
+      "name": "r11-x-through-window",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_143425_4dfe",
+      "seconds": 291.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 155.03
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 135.0
+        }
+      ],
+      "media_bytes": 4235822,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera pulled back out of the window, and she moved to another window"
+    },
+    {
+      "name": "r11-x-push-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_143917_d4da",
+      "seconds": 340.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 104.59
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 110.81
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 123.19
+        }
+      ],
+      "media_bytes": 7470884,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera pushed in, then back out to an end still that matched the first"
+    },
+    {
+      "name": "r11-ang-back-right-high-wide",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_152130_9b53",
+      "seconds": 111.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 9.8
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 25.31
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 74.7
+        }
+      ],
+      "media_bytes": 3820881,
+      "set_aside": "2026-10-25 (session 9): not landed; the still holds its angle but the static shot that follows tilts up from the deck to the sea and loses the high angle"
+    },
+    {
+      "name": "r11-ang-left-low-close",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_152321_6222",
+      "seconds": 108.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 22.97
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 9.52
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 74.73
+        }
+      ],
+      "media_bytes": 3374948,
+      "set_aside": "2026-10-25 (session 9): not landed; the still holds its angle but the static shot that follows pulls back until the subject vanishes behind a lens flare"
+    },
+    {
+      "name": "r11-ang-front-left-elevated-wide",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_152509_a71f",
+      "seconds": 110.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.8
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 10.28
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 74.92
+        }
+      ],
+      "media_bytes": 3680958,
+      "set_aside": "2026-10-25 (session 9): not landed; the still holds its angle but the static shot that follows pulls back into the glare (and the still reads frontal, not the front-left quarter)"
+    },
+    {
+      "name": "r11-ang-back-low-medium",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_152700_4b28",
+      "seconds": 108.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.31
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 9.73
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 74.61
+        }
+      ],
+      "media_bytes": 2975797,
+      "set_aside": "2026-10-25 (session 9): not landed; the still holds its angle but the static shot that follows fills with a large orange lens flare over the subject"
+    },
+    {
+      "name": "r11-ang-right-high-close",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_152849_31d0",
+      "seconds": 115.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.41
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 9.44
+        },
+        {
+          "stage": "angle_retry",
+          "template": "qwen21_edit",
+          "seconds": 7.66
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 73.97
+        }
+      ],
+      "media_bytes": 4866182,
+      "set_aside": "2026-10-25 (session 9): not landed; the still holds its angle but the static shot that follows drifts down to eye level and loses the high angle"
+    },
+    {
+      "name": "r11-ang-front-right-low-wide",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_153044_a3ce",
+      "seconds": 108.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.56
+        },
+        {
+          "stage": "angle",
+          "template": "qwen21_edit",
+          "seconds": 9.8
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 74.38
+        }
+      ],
+      "media_bytes": 3376368,
+      "set_aside": "2026-10-25 (session 9): not landed; the still holds its angle but the static shot that follows pulls back until the subject vanishes (and the still reads frontal)"
+    },
+    {
+      "name": "r11-qk-dolly-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_153235_23ab",
+      "seconds": 97.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.3
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 73.19
+        }
+      ],
+      "media_bytes": 1698330
+    },
+    {
+      "name": "r11-qk-dolly-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_153413_3b9b",
+      "seconds": 97.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.86
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 72.83
+        }
+      ],
+      "media_bytes": 1773862
+    },
+    {
+      "name": "r11-qk-push-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_153550_7ada",
+      "seconds": 97.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.41
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 73.41
+        }
+      ],
+      "media_bytes": 1674898
+    },
+    {
+      "name": "r11-qk-pull-out",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_153728_4fe8",
+      "seconds": 96.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 22.95
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 72.27
+        }
+      ],
+      "media_bytes": 1813924
+    },
+    {
+      "name": "r11-qk-vertigo",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_153905_8143",
+      "seconds": 187.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 22.86
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 162.3
+        }
+      ],
+      "media_bytes": 1719844,
+      "set_aside": "2026-10-25 (session 9): not landed; a plain pull-out: the one-still dolly-out shrank her about 3.5 times and the fixed 1.8x zoom could not hold her size"
+    },
+    {
+      "name": "r11-qk-optical-zoom-in",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_154212_0052",
+      "seconds": 189.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 24.12
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 163.83
+        }
+      ],
+      "media_bytes": 1772318
+    },
+    {
+      "name": "r11-qk-orbit-180",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_154522_9fa6",
+      "seconds": 97.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.56
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 72.81
+        }
+      ],
+      "media_bytes": 1983345,
+      "set_aside": "2026-10-25 (session 9): not landed; on the plain dunes the subject turned round while the camera stood still (0.01 px/s); on the pier the same move circles"
+    },
+    {
+      "name": "r11-qk-orbit-360",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_154659_ea0a",
+      "seconds": 96.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 23.03
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 72.34
+        }
+      ],
+      "media_bytes": 1885711,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera flew up and away into an aerial view instead of circling"
+    },
+    {
+      "name": "r11-qk-crane-up",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_154836_8b69",
+      "seconds": 99.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 24.25
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 74.03
+        }
+      ],
+      "media_bytes": 1847262,
+      "set_aside": "2026-10-25 (session 9): not landed; a spare one-still crane up; the rooftop take stays the crane-up proof"
+    },
+    {
+      "name": "r11-qk-crane-down",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_155015_a6da",
+      "seconds": 98.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 22.89
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 74.5
+        }
+      ],
+      "media_bytes": 1970185,
+      "set_aside": "2026-10-25 (session 9): not landed; a spare one-still crane down; r11-mv-crane-down is the proof"
+    },
+    {
+      "name": "r11-qk-loop",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_155153_0b89",
+      "seconds": 96.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 22.66
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 72.42
+        }
+      ],
+      "media_bytes": 1734231,
+      "set_aside": "2026-10-25 (session 9): not landed; in quick mode nothing pins the loop's last frame to its first, so it is a static shot, not a proof of the loop"
+    },
+    {
+      "name": "r11-up-4k",
+      "kind": "upscale",
+      "status": "succeeded",
+      "take_id": "tk_20261025_155332_efdb",
+      "seconds": 132.1,
+      "runs": [
+        {
+          "stage": "upscale",
+          "template": "esrgan_upscale",
+          "seconds": 129.91
+        }
+      ],
+      "media_bytes": 34527507
+    },
+    {
+      "name": "r11-tr2-whip",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261025_155544_f115",
+      "seconds": 62.6,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 59.78
+        }
+      ],
+      "media_bytes": 4738810,
+      "set_aside": "2026-10-25 (session 9): not landed; the bridge drifted across the dunes and made a radial zoom blur into the canyon, not a whip pan, and a figure appeared on a ridge"
+    },
+    {
+      "name": "r11-tr2-match",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261025_155647_ed28",
+      "seconds": 90.4,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 87.89
+        }
+      ],
+      "media_bytes": 2923785,
+      "set_aside": "2026-10-25 (session 9): not landed; the bridge was a double-exposure dissolve: two translucent faces overlapped"
+    },
+    {
+      "name": "r11-tr2-morph",
+      "kind": "transition",
+      "status": "succeeded",
+      "take_id": "tk_20261025_155817_e375",
+      "seconds": 80.9,
+      "runs": [
+        {
+          "stage": "bridge",
+          "template": "ltx25_flf2v",
+          "seconds": 78.33
+        }
+      ],
+      "media_bytes": 3869917,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera kept pulling back from the astronaut and then cut hard to the lighthouse: nothing transformed"
+    },
+    {
+      "name": "r11-mv3-pedestal-down",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_155551_1369",
+      "seconds": 200.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 84.5
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 114.61
+        }
+      ],
+      "media_bytes": 4040966,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera dropped and tilted up until it looked up at his chin against the sky: not a level pedestal"
+    },
+    {
+      "name": "r11-bt6-boxer",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261025_155912_46ec",
+      "seconds": 152.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 54.83
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 96.69
+        }
+      ],
+      "media_bytes": 4404262,
+      "set_aside": "2026-10-25 (session 9): not landed; the camera circled to his side but he moved from the punch into a guard, and his face smeared in one frame"
+    },
+    {
+      "name": "r13-a1-draw-high-613",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_180843_20ff",
+      "seconds": 142.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 40.14
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 100.66
+        }
+      ],
+      "media_bytes": 5327745,
+      "set_aside": "the high guard ends with the blade across his forehead; the draw lasts 0.6 s"
+    },
+    {
+      "name": "r13-a1-draw-high-614",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_181106_cdf3",
+      "seconds": 140.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 38.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 100.78
+        }
+      ],
+      "media_bytes": 5210900,
+      "set_aside": "the blade is lifted across his face; the eyes are lost 0.5-1.25 s"
+    },
+    {
+      "name": "r13-a1-draw-high-615",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_181327_0c9d",
+      "seconds": 146.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 39.19
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 105.88
+        }
+      ],
+      "media_bytes": 5425932,
+      "set_aside": "the blade ends across his mouth; a one-eye squint 0.5-1.5 s"
+    },
+    {
+      "name": "r13-a2-draw-low-616",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_181553_0d52",
+      "seconds": 147.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 39.94
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 105.77
+        }
+      ],
+      "media_bytes": 4756146,
+      "set_aside": "the draw lasts 0.2 s and the blade is hidden from 3.3 s"
+    },
+    {
+      "name": "r13-a2-draw-low-617",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_181821_e152",
+      "seconds": 149.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 42.59
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 104.69
+        }
+      ],
+      "media_bytes": 4737200,
+      "set_aside": "the eyes are nearly shut 1.5-2.25 s"
+    },
+    {
+      "name": "r13-a2-draw-low-618",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_182050_18ac",
+      "seconds": 150.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 45.03
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 103.88
+        }
+      ],
+      "media_bytes": 4870688,
+      "set_aside": "he never draws"
+    },
+    {
+      "name": "r13-b1-bt-1163",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_182336_5d5d",
+      "seconds": 141.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 40.3
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 99.06
+        }
+      ],
+      "media_bytes": 8743340,
+      "set_aside": "he turns with the camera to his back; the face shrinks to 0.58 of its start"
+    },
+    {
+      "name": "r13-b1-bt-1164",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_182557_2031",
+      "seconds": 275.2,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 138.77
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 134.84
+        }
+      ],
+      "media_bytes": 7543263,
+      "set_aside": "the orbit stalls at 3.3 s and the shop sign garbles; he ends on his back"
+    },
+    {
+      "name": "r13-b2-bt-upright-1165",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_183032_69d3",
+      "seconds": 1161.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 518.03
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 641.59
+        }
+      ],
+      "media_bytes": 5665218,
+      "set_aside": "the camera stands still and the figure turns instead"
+    },
+    {
+      "name": "r13-b2-bt-upright-1166",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_184954_d804",
+      "seconds": 664.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 421.41
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 241.97
+        }
+      ],
+      "media_bytes": 5780316,
+      "set_aside": "the camera stands still and the figure turns instead; the blade goes horizontal"
+    },
+    {
+      "name": "r13-a3-draw-high-slow-619",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_191350_3563",
+      "seconds": 724.9,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 356.47
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 366.81
+        }
+      ],
+      "media_bytes": 5185383,
+      "set_aside": "the blade ends across his eyes"
+    },
+    {
+      "name": "r13-a3-draw-high-slow-620",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_192555_afda",
+      "seconds": 2308.6,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 528.45
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 1778.61
+        }
+      ],
+      "media_bytes": 5368362,
+      "set_aside": "the blade ends across his eyes, then his forehead"
+    },
+    {
+      "name": "r13-a3-draw-high-slow-621",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_200424_e536",
+      "seconds": 856.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 639.16
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 215.83
+        }
+      ],
+      "media_bytes": 5123304,
+      "set_aside": "the blade ends across his mouth"
+    },
+    {
+      "name": "r13-b3-bt-from44ee-1160",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_201842_9ca7",
+      "seconds": 65.9,
+      "runs": [
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 64.2
+        }
+      ],
+      "media_bytes": 6901133,
+      "set_aside": "the orbit slows under 8 px/s in one second; the face shrinks to 0.72"
+    },
+    {
+      "name": "r13-b3-bt-from44ee-1167",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_201948_1d50",
+      "seconds": 57.4,
+      "runs": [
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 55.77
+        }
+      ],
+      "media_bytes": 7162031
+    },
+    {
+      "name": "r13-a4-draw-up-622",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_202156_4517",
+      "seconds": 144.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 39.67
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 102.84
+        }
+      ],
+      "media_bytes": 5482093,
+      "set_aside": "his hands cover his face from 4.25 s"
+    },
+    {
+      "name": "r13-a4-draw-up-623",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_202420_89a9",
+      "seconds": 142.8,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 38.84
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 102.62
+        }
+      ],
+      "media_bytes": 4817988,
+      "set_aside": "the face is lost during the raise and the camera tilts up hard; kept as the alternate"
+    },
+    {
+      "name": "r13-a4-draw-up-624",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_202643_8fbb",
+      "seconds": 154.1,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 47.22
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 105.56
+        }
+      ],
+      "media_bytes": 4893517
+    },
+    {
+      "name": "r13-c-through-hut-1341",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_202937_c933",
+      "seconds": 145.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 42.8
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 99.52
+        }
+      ],
+      "media_bytes": 4622960
+    },
+    {
+      "name": "r13-c-through-shop-1342",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_203203_abe2",
+      "seconds": 431.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 41.62
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 386.95
+        }
+      ],
+      "media_bytes": 4847197,
+      "set_aside": "the sign over the door reads as garbled letters; a doubtful eye 2.5-4 s"
+    },
+    {
+      "name": "r13-c-pedestal-pier-1351",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_203914_b9c9",
+      "seconds": 426.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 132.27
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 291.75
+        }
+      ],
+      "media_bytes": 4976493,
+      "set_aside": "the descent is slow (1.3 px/s) and the picture shrinks 4 to 12 percent a second: a pull-back, not a pedestal"
+    },
+    {
+      "name": "r13-c-pedestal-books-1352",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_204621_a1f1",
+      "seconds": 742.3,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_t2i",
+          "seconds": 578.58
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_i2v",
+          "seconds": 162.36
+        }
+      ],
+      "media_bytes": 3482695,
+      "set_aside": "the camera slides sideways and pulls back as it descends; a flare bloom fills the first second"
+    },
+    {
+      "name": "r13-c-vertigo-corridor-1361",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_213744_0fb9",
+      "seconds": 770.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 526.12
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 18.91
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 219.78
+        }
+      ],
+      "media_bytes": 4631442
+    },
+    {
+      "name": "r13-c-vertigo-pier-1362",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_215034_e3ca",
+      "seconds": 279.5,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 38.27
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 21.41
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 214.47
+        }
+      ],
+      "media_bytes": 4706386,
+      "set_aside": "the render pulls back eight times in three seconds, far past the 2.2x the window may zoom, and the last frame is a ghost"
+    },
+    {
+      "name": "r13-c-arc-left-square-1371",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_215515_0d10",
+      "seconds": 189.4,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 44.95
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 23.67
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 119.14
+        }
+      ],
+      "media_bytes": 7185207
+    },
+    {
+      "name": "r13-c-arc-right-square-1372",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_215825_194f",
+      "seconds": 174.7,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 38.41
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 23.14
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 111.61
+        }
+      ],
+      "media_bytes": 6880067
+    },
+    {
+      "name": "r13-c-arc-left-market-1373",
+      "kind": "direct",
+      "status": "succeeded",
+      "take_id": "tk_20261026_220120_6584",
+      "seconds": 225.0,
+      "runs": [
+        {
+          "stage": "hero",
+          "template": "qwen21_edit",
+          "seconds": 39.28
+        },
+        {
+          "stage": "hero_retry",
+          "template": "qwen21_edit",
+          "seconds": 29.3
+        },
+        {
+          "stage": "anchor_1",
+          "template": "qwen21_edit",
+          "seconds": 23.41
+        },
+        {
+          "stage": "anchor_1_retry",
+          "template": "qwen21_edit",
+          "seconds": 20.36
+        },
+        {
+          "stage": "shoot_1",
+          "template": "ltx25_flf2v",
+          "seconds": 110.81
+        }
+      ],
+      "media_bytes": 9800372
+    },
+    {
+      "name": "r13-c-arc-right-market-1374",
+      "kind": "direct",
+      "status": "failed",
+      "take_id": "tk_20261026_220505_2852",
+      "seconds": 194.6,
+      "error": "ffprobe.EXE failed (3221225794): "
+    }
+  ],
+  "summary": {
+    "succeeded": 245,
+    "failed": 2,
+    "skipped": 2
+  }
+}

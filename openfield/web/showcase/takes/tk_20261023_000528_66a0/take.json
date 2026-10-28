@@ -1,0 +1,117 @@
+{
+  "id": "tk_20261023_000528_66a0",
+  "kind": "direct",
+  "label": "aerial pullback: Mara stands alone on the edge of a skyscraper ro",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T00:05:28Z",
+  "updated_at": "2026-10-23T00:07:26Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Mara stands alone on the edge of a skyscraper rooftop at dawn, the city spreading to the horizon",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "aerial_pullback",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "high wind, the city far below",
+    "seed": 561,
+    "orientation": "landscape",
+    "cast_refs": [
+      "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+    ],
+    "cast_name": "Mara",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "6f17255ae372371f0bbab8c669b3b06049588cc60f264170c7a24736f761cd1c",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.9086413083199142,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.9086413083199142
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        613,
+        176,
+        221,
+        299
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.909 >= threshold 0.363 (best reference 0)",
+      "face_px": 221,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.8729554792502273,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8729554792502273
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        582,
+        157,
+        219,
+        281
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.873 >= threshold 0.363 (best reference 0)",
+      "face_px": 219,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-aerial-pullback",
+  "showcase_sha": "81dd6f75b1fa9890"
+}

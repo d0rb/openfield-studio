@@ -10,6 +10,7 @@ import pytest
 from openfield.backends.sdk import SdkBackend
 from openfield.cast import CastStore
 from openfield.cli import main as cli_main
+from openfield.engine import receipt as receipts
 from openfield.ledger import Ledger
 from openfield.pipeline import Pipeline
 from openfield.showcase import (
@@ -19,6 +20,7 @@ from openfield.showcase import (
     load_spec,
     plan_text,
     record,
+    referenced_by,
     slim_copy,
     write_report,
 )
@@ -38,7 +40,8 @@ def good_spec(clip_name: str = "clip.mp4") -> dict:
             {"name": "mara-quick", "kind": "direct", "cast": "Mara", "subject": "Mara walks along a pier at dusk",
              "rig": {"movement": "dolly_in"}, "seed": 4, "prompt_only": True},
             {"name": "reshoot-mara", "kind": "reshoot", "source": clip_name, "cast": "Mara",
-             "prompt": "a woman with short dark hair", "background": "a rooftop at night", "seed": 9},
+             "prompt": "a woman with short dark hair", "background": "a rooftop at night", "seed": 9,
+             "note": "Source footage rendered for the test; nobody was filmed."},
         ],
     }
 
@@ -120,7 +123,7 @@ def test_a_full_orbit_reuses_its_hero_still_so_that_anchor_is_not_counted_as_a_r
         "rig": {"movement": "orbit_360", "duration_seconds": 8}}]}), encoding="utf-8")
     text = "\n".join(plan_text(load_spec(spec_path)))
     # hero + three edited anchors (the fifth anchor is the hero again) + four first-and-last-frame shots
-    assert "8 render(s)" in text and "total 8 ComfyUI render(s)" in text
+    assert "5 render(s)" in text and "total 5 ComfyUI render(s)" in text  # hero, three edited stills, one pass
 
 
 # -- recording -----------------------------------------------------------------------------------
@@ -144,6 +147,7 @@ async def test_recording_generates_the_cast_once_renders_every_take_and_keeps_sl
         assert not list(folder.rglob("*.tmp"))
         assert outcome.seconds and outcome.runs and outcome.media_bytes > 0
     reshoot = json.loads((world.out / outcomes[2].take_id / "take.json").read_text())
+    assert reshoot["notes"] == ["Source footage rendered for the test; nobody was filmed."]  # the spec's note travels with the take
     assert reshoot["recipe"]["background"] == "a rooftop at night"
     assert (world.out / outcomes[2].take_id / "inputs" / "source.mp4").is_file()
     assert [r["template"] for r in outcomes[1].runs] == ["qwen21_edit", "ltx25_i2v"]
@@ -158,6 +162,8 @@ async def test_recording_is_resumable_and_follows_spec_changes(world):
 
     forced = await run(world, only={"mara-quick"}, force=True)
     assert forced[0].status == "succeeded" and forced[0].take_id != first[1].take_id
+    assert (world.out / forced[0].take_id).is_dir() and not (world.out / first[1].take_id).exists(),         "a forced re-render replaces the earlier recording of that entry"
+    assert len(list(world.out.iterdir())) == 3
 
     changed = good_spec()
     changed["takes"][0]["seed"] = 99
@@ -261,3 +267,259 @@ def test_cli_records_through_the_configured_backend(world, fake_api, capsys, mon
                       "--work-dir", str(world.root / "cli-work")])
     assert again == 0 and "0 recorded, 3 skipped" in capsys.readouterr().out
     shutil.rmtree(world.root / "cli-work")
+
+
+def test_a_partial_run_merges_into_the_report_instead_of_erasing_earlier_rows(tmp_path):
+    from openfield.showcase import Outcome
+
+    path = tmp_path / "report.json"
+    first = [Outcome("mara-dolly", "direct", "succeeded", take_id="tk_1", seconds=120.0, runs=[{"stage": "hero"}]),
+             Outcome("fx-rain", "direct", "succeeded", take_id="tk_2", seconds=170.0)]
+    assert write_report(first, path, backend_label="GPU box")["summary"] == {"succeeded": 2, "failed": 0, "skipped": 0}
+
+    # a later run with --only fx-rain: mara-dolly is reported as skipped by the CLI, fx-rain is re-rendered
+    second = [Outcome("mara-dolly", "direct", "skipped", take_id="tk_1"),
+              Outcome("fx-rain", "direct", "succeeded", take_id="tk_3", seconds=165.0),
+              Outcome("fx-dust", "direct", "failed", error="boom")]
+    report = write_report(second, path, backend_label="GPU box")
+    rows = {t["name"]: t for t in report["takes"]}
+    assert rows["mara-dolly"]["status"] == "succeeded" and rows["mara-dolly"]["seconds"] == 120.0, "the measured row survives"
+    assert rows["fx-rain"]["take_id"] == "tk_3" and rows["fx-rain"]["seconds"] == 165.0, "a re-render replaces its own row"
+    assert rows["fx-dust"]["status"] == "failed"
+    assert report["summary"] == {"succeeded": 2, "failed": 1, "skipped": 0}
+    assert json.loads(path.read_text(encoding="utf-8"))["summary"] == report["summary"]
+
+
+async def test_a_spec_take_can_start_from_a_still_and_the_plan_does_not_count_it_as_a_render(world):
+    from PIL import Image
+
+    spec = good_spec()
+    spec["takes"].append({"name": "mara-from-still", "kind": "direct", "cast": "Mara", "subject": "Mara on a pier at dusk",
+                          "rig": {"movement": "dolly_in"}, "seed": 5, "source": "still.png"})
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    with pytest.raises(SpecError) as refused:
+        load_spec(world.spec_path)
+    assert any("source image not found" in p for p in refused.value.problems)
+
+    Image.new("RGB", (640, 480), "orange").save(world.root / "still.png")
+    loaded = load_spec(world.spec_path)
+    plan = "\n".join(plan_text(loaded, {"mara-from-still"}))
+    assert "mara-from-still" in plan and "2 render(s)" in plan and "from a still" in plan, "the hero is the given still"
+    outcomes = await run(world, only={"mara-from-still"})
+    done = {o.name: o for o in outcomes}["mara-from-still"]
+    assert done.status == "succeeded" and (world.out / done.take_id / "inputs" / "hero.png").is_file(), "the still ships with the recorded take"
+    assert [r["template"] for r in done.runs] == ["qwen21_edit", "ltx25_flf2v"]
+    assert (world.root / "still.png").is_file(), "a spec file is never deleted"
+
+
+def test_a_spec_take_names_its_quality_tier_and_a_bad_one_is_refused(world):
+    spec = good_spec()
+    spec["takes"][0]["quality"] = "fine"
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    plan = "\n".join(plan_text(load_spec(world.spec_path), {"mara-dolly"}))
+    assert "fine quality" in plan
+    spec["takes"][1]["quality"] = "ultra"
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    with pytest.raises(SpecError) as refused:
+        load_spec(world.spec_path)
+    assert any("unsupported quality" in p for p in refused.value.problems)
+
+
+# -- round 7: a shots board and a transition, from takes recorded earlier ----------------------------------------
+async def test_a_spec_board_and_bridge_start_from_takes_recorded_on_an_earlier_run(world, fake_api):
+    spec = good_spec()
+    spec["takes"] += [
+        {"name": "mara-board", "kind": "shots", "from": "mara-dolly", "cast": "Mara", "seed": 3},
+        {"name": "mara-bridge", "kind": "transition", "first": "mara-dolly", "second": "mara-quick", "style": "whip",
+         "seconds": 2, "seed": 6},
+    ]
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    loaded = load_spec(world.spec_path)
+    plan = "\n".join(plan_text(loaded, {"mara-board", "mara-bridge"}))
+    assert "mara-board" in plan and "9 render(s)" in plan and "9 setups from take mara-dolly" in plan
+    assert "whip bridge, 2s, mara-dolly to mara-quick" in plan
+    with_shelf = Pipeline(world.ledger, lambda: SdkBackend(base_url=fake_api.base_url), WORKFLOWS, timeout=60.0,
+                          shelves=[world.out])
+    world.pipeline = with_shelf
+    outcomes = {o.name: o for o in await run(world)}
+    assert outcomes["mara-board"].status == "succeeded", outcomes["mara-board"].error
+    assert outcomes["mara-bridge"].status == "succeeded", outcomes["mara-bridge"].error
+    board = json.loads((world.out / outcomes["mara-board"].take_id / "take.json").read_text(encoding="utf-8"))
+    assert board["kind"] == "shots" and len(board["shots"]) == 9 and board["recipe"]["take"] == outcomes["mara-dolly"].take_id
+    assert all((world.out / board["id"] / s["file"]).is_file() for s in board["shots"]), "the stills ship with the board"
+    bridge = json.loads((world.out / outcomes["mara-bridge"].take_id / "take.json").read_text(encoding="utf-8"))
+    assert bridge["recipe"]["first"] == outcomes["mara-dolly"].take_id and bridge["recipe"]["second"] == outcomes["mara-quick"].take_id
+
+
+def test_bad_board_and_bridge_entries_are_all_reported(world):
+    spec = good_spec()
+    spec["takes"] += [
+        {"name": "board-both", "kind": "shots", "from": "mara-dolly", "source": "x.png"},
+        {"name": "board-none", "kind": "shots"},
+        {"name": "bridge-same", "kind": "transition", "first": "mara-dolly", "second": "mara-dolly"},
+        {"name": "bridge-style", "kind": "transition", "first": "mara-dolly", "second": "mara-quick", "style": "spin", "seconds": 9},
+    ]
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    with pytest.raises(SpecError) as refused:
+        load_spec(world.spec_path)
+    text = "\n".join(refused.value.problems)
+    assert "board-both" in text and "board-none" in text and "exactly one of 'from'" in text
+    assert "bridge-same" in text and "must be different takes" in text
+    assert "unknown style 'spin'" in text and "seconds must be one of" in text
+
+
+# -- extend: continue a recorded take from its last frame --------------------------------------------------------------
+async def test_a_spec_extension_starts_from_a_take_recorded_on_an_earlier_run(world, fake_api):
+    spec = good_spec()
+    spec["takes"] += [
+        {"name": "mara-extend", "kind": "extend", "from": "mara-dolly", "seconds": 3, "seed": 6},
+    ]
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    loaded = load_spec(world.spec_path)
+    plan = "\n".join(plan_text(loaded, {"mara-extend"}))
+    assert "mara-extend" in plan and "1 render(s)" in plan and "extend mara-dolly by 3s" in plan
+    with_shelf = Pipeline(world.ledger, lambda: SdkBackend(base_url=fake_api.base_url), WORKFLOWS, timeout=60.0,
+                          shelves=[world.out])
+    world.pipeline = with_shelf
+    outcomes = {o.name: o for o in await run(world)}
+    assert outcomes["mara-extend"].status == "succeeded", outcomes["mara-extend"].error
+    extended = json.loads((world.out / outcomes["mara-extend"].take_id / "take.json").read_text(encoding="utf-8"))
+    assert extended["recipe"]["take"] == outcomes["mara-dolly"].take_id
+    receipt = json.loads((world.out / outcomes["mara-extend"].take_id / "receipt.json").read_text(encoding="utf-8"))
+    assert receipt["inputs"]["take"]["sha256"] == receipts.sha256_file(world.out / outcomes["mara-dolly"].take_id / "take.mp4")
+    assert [r["template"] for r in receipt["workflow"]["runs"]] == ["ltx25_i2v"]
+
+
+def test_bad_extension_entries_are_reported(world):
+    spec = good_spec()
+    spec["takes"] += [
+        {"name": "extend-bad-name", "kind": "extend", "from": "Mara Dolly", "seconds": 3},
+        {"name": "extend-bad-seconds", "kind": "extend", "from": "mara-dolly", "seconds": 9},
+    ]
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    with pytest.raises(SpecError) as refused:
+        load_spec(world.spec_path)
+    text = "\n".join(refused.value.problems)
+    assert "extend-bad-name" in text and "'from' must be a take name" in text
+    assert "extend-bad-seconds" in text and "seconds must be one of" in text
+
+
+async def test_a_spec_edit_and_a_dub_start_from_recorded_takes(world, fake_api):
+    spec = good_spec()
+    spec["takes"] += [
+        {"name": "mara-remove", "kind": "edit", "preset": "remove", "detail": "the lantern", "from": "mara-dolly", "seed": 3},
+        {"name": "mara-dub", "kind": "direct", "from": "mara-dolly", "cast": "Mara", "subject": "Mara walks along a pier at dusk",
+         "rig": {"movement": "static"}, "seed": 4, "line": "Hola, mar.", "language": "Spanish"},
+    ]
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    plan = "\n".join(plan_text(load_spec(world.spec_path), {"mara-remove"}))
+    assert "remove edit of take mara-dolly" in plan
+    world.pipeline = Pipeline(world.ledger, lambda: SdkBackend(base_url=fake_api.base_url), WORKFLOWS, timeout=60.0, shelves=[world.out])
+    outcomes = {o.name: o for o in await run(world)}
+    assert outcomes["mara-remove"].status == "succeeded", outcomes["mara-remove"].error
+    assert outcomes["mara-dub"].status == "succeeded", outcomes["mara-dub"].error
+    dub = json.loads((world.out / outcomes["mara-dub"].take_id / "take.json").read_text(encoding="utf-8"))
+    assert dub["recipe"]["language"] == "Spanish" and dub["recipe"]["source_sha256"]
+
+
+async def test_a_spec_take_with_an_action_plans_and_records_it_and_a_bad_action_is_reported(world):
+    spec = good_spec()
+    action = "She turns to face the camera and smiles"
+    spec["takes"].append({"name": "mara-turns", "kind": "direct", "cast": "Mara", "subject": "Mara stands on a pier at dusk",
+                          "rig": {"movement": "static"}, "seed": 4, "action": action})
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    plan = "\n".join(plan_text(load_spec(world.spec_path), {"mara-turns"}))
+    assert "mara-turns" in plan and "static (prompt_only), 5s" in plan
+    done = {o.name: o for o in await run(world, only={"mara-turns"})}["mara-turns"]
+    assert done.status == "succeeded", done.error
+    take = json.loads((world.out / done.take_id / "take.json").read_text(encoding="utf-8"))
+    assert take["recipe"]["action"] == action
+    receipt = json.loads((world.out / done.take_id / "receipt.json").read_text(encoding="utf-8"))
+    assert f"on a pier at dusk. {action}." in receipt["inputs"]["final_prompt"]
+
+    for bad in (42, "x" * 301):
+        spec["takes"][-1]["action"] = bad
+        world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+        with pytest.raises(SpecError) as refused:
+            load_spec(world.spec_path)
+        assert any(p.startswith("take 'mara-turns'") and "action" in p for p in refused.value.problems), bad
+
+
+def test_a_named_take_is_found_in_the_run_or_on_a_shelf_that_ships(tmp_path):
+    from openfield.ledger import write_json
+    from openfield.showcase import recorded_id
+    out, shelf = tmp_path / "out", tmp_path / "shipped"
+    (shelf / "tk_20261020_120000_aaaa").mkdir(parents=True)
+    (out / "tk_20261023_120000_bbbb").mkdir(parents=True)
+    write_json(shelf / "tk_20261020_120000_aaaa" / "take.json", {"id": "tk_20261020_120000_aaaa", "status": "succeeded", "showcase_name": "dlg-mara", "created_at": "2026-10-20T12:00:00Z"})
+    assert recorded_id(out, "dlg-mara", [shelf]) == "tk_20261020_120000_aaaa"
+    with pytest.raises(ValueError):
+        recorded_id(out, "dlg-mara")  # without the shelf it is not known
+    write_json(out / "tk_20261023_120000_bbbb" / "take.json", {"id": "tk_20261023_120000_bbbb", "status": "succeeded", "showcase_name": "dlg-mara", "created_at": "2026-10-23T12:00:00Z"})
+    assert recorded_id(out, "dlg-mara", [shelf]) == "tk_20261023_120000_bbbb", "the run's own recording wins"
+
+
+async def test_a_forced_rerecord_keeps_what_others_still_use_and_moves_the_rest_aside(world):
+    first = await run(world)
+    old = first[1].take_id
+    forced = await run(world, only={"mara-quick"}, force=True)
+    assert not (world.out / old).exists() and (world.out.parent / "superseded" / old / "take.json").is_file(), \
+        "nothing is deleted: the earlier recording is moved aside"
+    # a recording built from the current take (here a hand-made board) keeps it on the shelf when its entry is re-recorded
+    kept = forced[0].take_id
+    board = world.out / "tk_board"
+    board.mkdir()
+    (board / "take.json").write_text(json.dumps({"id": "tk_board", "recipe": {"kind": "shots", "take": kept}}), encoding="utf-8")
+    assert referenced_by(world.out, kept) == ["tk_board"]
+    again = await run(world, only={"mara-quick"}, force=True)
+    assert again[0].status == "succeeded" and (world.out / kept).is_dir(), "a take another recording uses is kept"
+
+
+# -- an upscale of a take recorded earlier ---------------------------------------------------------------------------
+async def test_a_spec_upscale_starts_from_a_take_recorded_on_an_earlier_run(world, fake_api):
+    spec = good_spec()
+    spec["takes"] += [{"name": "mara-4k", "kind": "upscale", "from": "mara-dolly", "target": "4k"}]
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    loaded = load_spec(world.spec_path)
+    plan = "\n".join(plan_text(loaded, {"mara-4k"}))
+    assert "mara-4k" in plan and "1 render(s)" in plan and "4k upscale of take mara-dolly" in plan
+    world.pipeline = Pipeline(world.ledger, lambda: SdkBackend(base_url=fake_api.base_url), WORKFLOWS, timeout=60.0,
+                              shelves=[world.out])
+    outcomes = {o.name: o for o in await run(world, only={"mara-dolly", "mara-4k"})}
+    assert outcomes["mara-4k"].status == "succeeded", outcomes["mara-4k"].error
+    assert [r["template"] for r in outcomes["mara-4k"].runs] == ["esrgan_upscale"]
+    shipped = json.loads((world.out / outcomes["mara-4k"].take_id / "take.json").read_text(encoding="utf-8"))
+    assert shipped["kind"] == "upscale" and shipped["showcase_name"] == "mara-4k"
+    assert shipped["recipe"] == {"kind": "upscale", "take": outcomes["mara-dolly"].take_id, "target": "4k"}
+    assert (world.out / shipped["id"] / "take.mp4").is_file() and (world.out / shipped["id"] / "receipt.json").is_file()
+
+
+def test_a_spec_upscale_defaults_to_4k_and_every_bad_entry_is_reported(world):
+    spec = good_spec()
+    spec["takes"] += [{"name": "mara-up", "kind": "upscale", "from": "mara-dolly"}]
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    assert "4k upscale of take mara-dolly" in "\n".join(plan_text(load_spec(world.spec_path), {"mara-up"}))
+    spec["takes"] += [
+        {"name": "up-target", "kind": "upscale", "from": "mara-dolly", "target": "8k"},
+        {"name": "up-from", "kind": "upscale", "target": "2k"},
+        {"name": "up-name", "kind": "upscale", "from": "Not A Name"},
+        {"name": "up-kind", "kind": "uprez", "from": "mara-dolly"},
+    ]
+    world.spec_path.write_text(json.dumps(spec), encoding="utf-8")
+    with pytest.raises(SpecError) as refused:
+        load_spec(world.spec_path)
+    text = "\n".join(refused.value.problems)
+    assert "up-target" in text and "unknown target '8k' (one of 2k, 4k)" in text
+    assert "up-from" in text and "up-name" in text and text.count("'from' must be a take name") == 2
+    assert "kind must be 'direct', 'reshoot', 'shots', 'edit', 'transition', 'extend' or 'upscale'" in text
+
+
+def test_a_slim_copy_drops_the_identity_check_frames(tmp_path):
+    source = tmp_path / "src"
+    (source / "runs" / "02_shoot_1").mkdir(parents=True)
+    (source / "take.mp4").write_bytes(b"v")
+    (source / "runs" / "02_shoot_1" / "preview.jpg").write_bytes(b"p")
+    (source / "runs" / "02_shoot_1" / "identity_frame_last.png").write_bytes(b"i")
+    slim_copy(source, tmp_path / "dst")
+    assert (tmp_path / "dst" / "runs" / "02_shoot_1" / "preview.jpg").is_file()
+    assert not (tmp_path / "dst" / "runs" / "02_shoot_1" / "identity_frame_last.png").exists()

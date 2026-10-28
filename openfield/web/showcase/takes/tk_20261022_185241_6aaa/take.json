@@ -1,0 +1,137 @@
+{
+  "id": "tk_20261022_185241_6aaa",
+  "kind": "direct",
+  "label": "dolly in: Noor stands under the open dome of a mountain ob",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T18:52:41Z",
+  "updated_at": "2026-10-22T18:58:53Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Noor stands under the open dome of a mountain observatory at night, the telescope behind her, starlight on her glasses",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f1.4",
+      "lighting": "practicals",
+      "movement": "dolly_in",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "wind through the dome slit, a slow motor hum",
+    "seed": 170,
+    "orientation": "landscape",
+    "cast_refs": [
+      "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+    ],
+    "cast_name": "Noor",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "a256ef839d97287bf335b15141768e4f17977f6e04f6eb8f1c52f4c819f92b36",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.915130591633633,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.915130591633633
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        548,
+        165,
+        215,
+        291
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.915 >= threshold 0.363 (best reference 0)",
+      "face_px": 215,
+      "enlarged": null
+    },
+    "anchor_1": {
+      "status": "pass",
+      "score": 0.888739165899579,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.888739165899579
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        512,
+        130,
+        255,
+        341
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.889 >= threshold 0.363 (best reference 0)",
+      "face_px": 255,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.8671980027202583,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8671980027202583
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        520,
+        150,
+        209,
+        269
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.867 >= threshold 0.363 (best reference 0)",
+      "face_px": 209,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "noor-observatory-dolly-in",
+  "showcase_sha": "ae986d9a01393c7b"
+}

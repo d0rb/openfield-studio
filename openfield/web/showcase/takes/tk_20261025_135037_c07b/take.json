@@ -1,0 +1,86 @@
+{
+  "id": "tk_20261025_135037_c07b",
+  "kind": "direct",
+  "label": "push in: A sixty-year-old street-food cook with grey stub",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-25T13:50:37Z",
+  "updated_at": "2026-10-25T13:52:48Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A sixty-year-old street-food cook with grey stubble and a sweat-darkened headband, in a stained apron with rolled sleeves, stands behind a smoking wok at her night-market stall, tongs raised, the striped awning and rain-soaked neon signs above and behind her. Steam and orange firelight colour her wet face.",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "anamorphic",
+      "focal_length_mm": 40,
+      "aperture": "f1.4",
+      "lighting": "practicals",
+      "movement": "push_in",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "rain",
+      "grade": "teal_orange",
+      "score": "no_music",
+      "soundscape": "city_night"
+    },
+    "audio": "rain drumming on tin awnings, wok roar and oil sizzle, a shouted order, distant market chatter",
+    "seed": 226847133,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "prompt_only": true,
+    "action": "She snaps the wok up and forward, tossing a ribbon of noodles into a flaming arc above the pan, then catches them back in the wok as the fire flares around the rim and she settles into the next toss.",
+    "quality": "draft",
+    "cast_name": null,
+    "auto_approve": false
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "quick mode: one still and a camera instruction, no anchor stills"
+  ],
+  "replay": false,
+  "recipe_hash": "f44cd761c2d10c50b363e83954730d5e6a86a6a70dcaa101d18f83d4a1c06d7b",
+  "anchors": [
+    {
+      "index": 0,
+      "file": "runs/01_hero/image.png",
+      "role": "hero"
+    }
+  ],
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    896,
+    512
+  ]
+}

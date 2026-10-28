@@ -1,0 +1,22 @@
+{
+  "title": "OpenField Studio: a real render, recorded live",
+  "_comment": "The demo's time-lapse beat, recorded against a live GPU backend (never the FAKE stack): python scripts/record_demo.py --url http://127.0.0.1:8890/ --scenario scripts/ui/live.scenario.json --out G:/openfield-tmp/live-timelapse. The waits run at 8x with the recorder's time-lapse badge on screen, so the cut is honest about the minutes it skips. Spliced into the main cut after the Moves beat.",
+  "steps": [
+    { "do": "goto", "route": "cast" },
+    { "do": "say", "text": "This part is live: a rented GPU, a real render, cut at eight times speed.", "caption": "Recorded live on a rented RTX 5090." },
+    { "do": "click", "selector": ".cast-card button", "text": "Use in Direct" },
+    { "do": "until", "expr": "window.openfield.store.get().route === 'direct'", "label": "Direct" },
+    { "do": "type", "selector": "#subject", "text": "Ines waits on a harbour pier at golden hour, wind in her hair, gulls over the water", "cps": 40 },
+    { "do": "click", "selector": "#tab-settings" },
+    { "do": "click", "selector": ".move-tile", "text": "Crane up" },
+    { "do": "hold", "ms": 800 },
+    { "do": "click", "selector": "[data-station=direct] .prompt .btn.primary" },
+    { "do": "until", "expr": "document.querySelector('[data-station=direct] .screen[data-mode=approval]')", "timeout": 900000, "speed": 8, "label": "the stills" },
+    { "do": "say", "text": "Two stills first, each face-checked. Approve them, and only then LTX 2.5 renders the shot.", "caption": "Stills first. Approve. Then LTX 2.5 renders." },
+    { "do": "ring", "selector": "[data-station=direct] .approve-row", "ms": 2400 },
+    { "do": "click", "selector": "[data-station=direct] .approve-actions .btn.primary" },
+    { "do": "until", "expr": "document.querySelector('[data-station=direct] .screen[data-mode=ready] video.player')", "timeout": 1200000, "speed": 8, "label": "the shot" },
+    { "do": "caption", "text": "One shot, two minutes, open weights only." },
+    { "do": "hold", "ms": 4500 }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "id": "tk_20261025_134428_f764",
+  "kind": "direct",
+  "label": "optical zoom out: Noor in a white spacesuit with the helmet off st",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-25T13:44:28Z",
+  "updated_at": "2026-10-25T13:47:38Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "optical_zoom_out",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "wind over sand, a faint rumble",
+    "seed": 620,
+    "orientation": "landscape",
+    "cast_refs": [
+      "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+    ],
+    "quality": "draft",
+    "cast_name": "Noor",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "made in code: rendered from a still camera, then the lens widened in code from 1.5x to the whole frame"
+  ],
+  "replay": false,
+  "recipe_hash": "7c0f061e4a52018aebfc9d07b157a409fc97bbe35a25f747b93bafbe4d8b3f56",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.589715628862256,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.589715628862256
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        438,
+        84,
+        39,
+        51
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.590 >= threshold 0.363 (best reference 0)",
+      "face_px": 39,
+      "enlarged": 4.0
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.6167659855459295,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6167659855459295
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        422,
+        30,
+        53,
+        66
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.617 >= threshold 0.363 (best reference 0)",
+      "face_px": 53,
+      "enlarged": 3.02,
+      "frame": "mid",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    896,
+    512
+  ],
+  "showcase_name": "r11-mv-optical-zoom-out",
+  "showcase_sha": "189a64f8fabdec3a"
+}

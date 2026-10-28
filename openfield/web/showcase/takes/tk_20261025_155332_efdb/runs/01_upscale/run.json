@@ -1,0 +1,33 @@
+{
+  "stage": "upscale",
+  "template": "esrgan_upscale",
+  "workflow_sha256": "9f2c192206ed2351e2a5d690a39f580c1902256120a67cd370bfe0c6bcbf5399",
+  "snapped": {},
+  "job_id": "c4a342a6-ef87-41ea-a015-a487ca5dd050",
+  "backend": "pod",
+  "timings": {
+    "submit_s": 3.14,
+    "total_s": 129.91
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "node_id": "12",
+      "name": "ComfyUI_00001_.mp4",
+      "content_type": "video/mp4",
+      "kind": "video",
+      "file": "video.mp4",
+      "size_bytes": 29666024
+    }
+  ],
+  "assets": [
+    {
+      "node": "9",
+      "input": "file",
+      "slot": "video",
+      "name": "video.mp4",
+      "sha256": "2e271039e4aaa3286d0d5b0ee3875fe1f712e1b8fd7e93464a62b61a4b2531f7",
+      "from": null
+    }
+  ]
+}

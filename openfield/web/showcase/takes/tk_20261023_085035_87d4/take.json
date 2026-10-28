@@ -1,0 +1,98 @@
+{
+  "id": "tk_20261023_085035_87d4",
+  "kind": "direct",
+  "label": "static: Mara stands in a sunlit field of red poppies in ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:50:35Z",
+  "updated_at": "2026-10-23T08:54:08Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Mara stands in a sunlit field of red poppies in a white summer dress",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "painting"
+    },
+    "audio": null,
+    "seed": 574,
+    "orientation": "landscape",
+    "cast_refs": [
+      "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+    ],
+    "cast_name": "Mara",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (oil painting): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "c03a4558df798d301b2d47db60af37bf1abb7ac9f84d99fe0f5e1e9cebacc7e0",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.9095125370321522,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.9095125370321522
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        561,
+        98,
+        155,
+        210
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.910 >= threshold 0.363 (best reference 0)",
+      "face_px": 155,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fx-painting",
+  "showcase_sha": "d4813050f036fb0e"
+}

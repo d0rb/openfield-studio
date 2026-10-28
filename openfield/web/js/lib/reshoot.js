@@ -5,7 +5,7 @@ export const CLIP_TYPES = [".mp4", ".mov", ".webm", ".mkv"];
 export const IMAGE_TYPES = [".png", ".jpg", ".jpeg", ".webp"];
 
 export function initialReshoot() {
-  return { clip: null, referenceFile: null, castId: null, refIndex: 1, prompt: "", background: "", motion: "", seed: "" };
+  return { clip: null, referenceFile: null, castId: null, refIndex: 1, prompt: "", background: "", motion: "", seed: "", faceOnly: false };
 }
 
 const extension = (name) => (name.includes(".") ? name.slice(name.lastIndexOf(".")).toLowerCase() : "");
@@ -19,7 +19,9 @@ export function validate(state) {
   else if (!CLIP_TYPES.includes(extension(clip.name))) problems.push({ field: "clip", message: `Use a ${CLIP_TYPES.join(", ")} file.` });
   else if (megabytes(clip.size) > LIMITS.clipMB) problems.push({ field: "clip", message: `Keep the clip under ${LIMITS.clipMB} MB.` });
 
-  if (!referenceFile && !castId) problems.push({ field: "reference", message: "Add a reference image or pick a character." });
+  if (state.faceOnly) { // only the face changes, and it comes from a Cast
+    if (!castId) problems.push({ field: "reference", message: "A face is only taken from a Cast. Pick a character." });
+  } else if (!referenceFile && !castId) problems.push({ field: "reference", message: "Add a reference image or pick a character." });
   else if (referenceFile && !IMAGE_TYPES.includes(extension(referenceFile.name))) {
     problems.push({ field: "reference", message: `Use a ${IMAGE_TYPES.join(", ")} image.` });
   } else if (referenceFile && megabytes(referenceFile.size) > LIMITS.imageMB) {
@@ -46,7 +48,10 @@ export function toForm(state, FormDataImpl = globalThis.FormData) {
   const form = new FormDataImpl();
   form.append("prompt", state.prompt.trim());
   form.append("source", state.clip);
-  if (state.referenceFile) form.append("reference", state.referenceFile);
+  if (state.faceOnly) {
+    form.append("face_only", "true");
+    form.append("cast_id", state.castId);
+  } else if (state.referenceFile) form.append("reference", state.referenceFile);
   else if (state.castId) {
     form.append("cast_id", state.castId);
     form.append("ref_index", String(state.refIndex));

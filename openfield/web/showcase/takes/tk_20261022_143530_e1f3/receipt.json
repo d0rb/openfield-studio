@@ -1,0 +1,226 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_143530_e1f3",
+    "kind": "direct",
+    "created_at": "2026-10-22T14:37:09Z",
+    "label": "crash zoom out: Mara pushes a bicycle through a night market, ne"
+  },
+  "inputs": {
+    "subject": "Mara pushes a bicycle through a night market, neon signs reflected in wet pavement, light rain",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f1.4",
+      "lighting": "practicals",
+      "movement": "crash_zoom_out",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "none",
+      "grade": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "crash_zoom_out",
+    "mode": "prompt_only",
+    "final_prompt": "Mara pushes a bicycle through a night market, neon signs reflected in wet pavement, light rain. Shot on a clean modern digital cinema camera with an anamorphic lens with oval bokeh and horizontal flares, 35mm (natural), wide open at f/1.4 with very shallow depth of field; practical lights in the scene making warm pools of light. A crash zoom out: the lens snaps wide in a fraction of a second, the subject suddenly small in its setting, then holds. Constraint: one abrupt zoom, locked tripod, then a steady frame. Sound: rain on awnings, distant chatter, a bicycle bell.",
+    "seed": 157,
+    "orientation": "landscape",
+    "audio": "rain on awnings, distant chatter, a bicycle bell",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Mara",
+      "refs": [
+        "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+      ]
+    },
+    "recipe_hash": "09ace983f1494437b485e594a39fcbf575f7f04584eeb63077ee12db6d0f6cf6"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "dee50860fe318b2711a9242ac456772e5179abae660395d42067405253fee0a2",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "ab98b4d9bf4fc9b3089d44078dcfce8a73a5bf4ff05214389f6ece8c68b7b2c4",
+        "job_id": "a46d9c03-fdd1-4dfa-b138-c2fd984254f0"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "27d9939c8d1cbf4424df471c7042de4fe08df6a79292404433a97475c7bc238a",
+        "job_id": "3cff1bc4-e180-4838-bae3-0537f577fc94"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.7580857286789129,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.7580857286789129,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7580857286789129
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          599,
+          147,
+          129,
+          173
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.758 >= threshold 0.363 (best reference 0)",
+        "face_px": 129,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.7139727572451287,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7139727572451287
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          569,
+          128,
+          126,
+          161
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.714 >= threshold 0.363 (best reference 0)",
+        "face_px": 126,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "a46d9c03-fdd1-4dfa-b138-c2fd984254f0,3cff1bc4-e180-4838-bae3-0537f577fc94",
+    "timings": {
+      "total_s": 99.5
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "afd9109f6afc0608d9f59291ddaa0a3fd0bf63e8d9546e8f38c31cf0c4cd47f1",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "1cd8c45d075dbb6047a763b47d751442f0f31e8cf7cd2db6bad58e66f4cb173b"
+  }
+}

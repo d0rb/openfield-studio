@@ -32,6 +32,8 @@ def fake_api(_fake_server, monkeypatch):
     server.fail_with = None
     server.end_with = None
     server.reject_next_submit = None
+    server.plain_comfy = False
+    server.missing_models = set()
     server.uploads.clear()
     server.jobs.clear()
     monkeypatch.setenv("COMFY_BASE_URL", server.base_url)

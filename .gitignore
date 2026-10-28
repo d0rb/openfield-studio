@@ -18,6 +18,9 @@ models/
 .impeccable/review/
 .impeccable/build/
 .impeccable/config.local.json
+.impeccable/questions/
 data-dev/
 .release-deny.txt
 data-showcase/
+# stray command output saved at the repo root (curl -o, redirects): never part of the project
+/*.out

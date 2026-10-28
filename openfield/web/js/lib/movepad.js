@@ -1,10 +1,10 @@
-// The Move Pad's data: the 35 moves organised into the 7 groups, with only the promoted moves
+// The Move Pad's data: the 49 moves organised into the 7 groups, with only the promoted moves
 // on the surface and the rest behind "More". Pure functions over the catalog from /api/moves.
 
 const MODE_COPY = {
-  keyframed: { label: "Keyframed", hint: "Plans still frames along the path for you to approve, then renders between them." },
-  prompt_only: { label: "Quick", hint: "One still and a camera instruction. No anchor stills to approve." },
-  experimental: { label: "Experimental", hint: "A camera instruction only. Not tested with a real render yet." },
+  keyframed: { label: "Keyframed", hint: "Approve the stills, then shoot." },
+  prompt_only: { label: "Quick", hint: "One still, then the move." },
+  experimental: { label: "Quick", hint: "One still, then the move." },
 };
 
 /** Groups in catalog order; each has its promoted moves up front and the rest under `more`. */
@@ -19,9 +19,9 @@ export function organise(catalog) {
   return { groups, moves, featured: catalog.moves.filter((m) => m.featured) };
 }
 
-/** What to tell the person about a move, honestly: tested only once a real render exists. */
+/** What to tell the person about a move: how it is made and how many stills it plans (a frozen move has no quick form). */
 export function describeMove(move, { quick = false } = {}) {
-  const mode = quick && move.mode === "keyframed" ? "prompt_only" : move.mode;
+  const mode = quick && move.mode === "keyframed" && !move.frozen ? "prompt_only" : move.mode;
   const copy = MODE_COPY[mode] ?? MODE_COPY.experimental;
   const stills = mode === "keyframed" ? move.anchors : 1;
   return {
@@ -32,8 +32,7 @@ export function describeMove(move, { quick = false } = {}) {
     hint: copy.hint,
     stills,
     stillsLabel: stills === 1 ? "1 still" : `${stills} stills`,
-    tested: Boolean(move.validated),
-    testedLabel: move.validated ? "Tested with a real render" : "Not yet tested with a real render",
+    tested: Boolean(move.validated), // the server's flag: only a checked move plays its recorded loop at rest
     phrase: move.phrase,
   };
 }

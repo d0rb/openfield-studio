@@ -1,0 +1,22 @@
+{
+  "_comment": "Round 14 (Oct 27): one Standard take rendered on Comfy Cloud through the same comfy-sdk call the GPU box uses, with the open-weights check on, so the documents can say Comfy Cloud was tested. No cast member (nothing is generated before the take), a prompt-only dolly in, seed 901. Run: COMFY_API_KEY set in the environment, `python -m openfield showcase --spec showcase/round14-cloud.spec.json --out C:/openfield-scratch/r14/cloud-takes --work-dir C:/openfield-scratch/r14/cloud-work`; then land10.py --from that folder.",
+  "casts": [],
+  "takes": [
+    {
+      "name": "r14-cloud-dolly-in-901",
+      "kind": "direct",
+      "subject": "An old lighthouse keeper in a yellow oilskin stands at the rail of the lamp room at dusk, the great lamp turning slowly behind him, spray beading on the glass, the sea grey and heavy below",
+      "rig": {
+        "movement": "dolly_in",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals"
+      },
+      "seed": 901,
+      "quality": "standard",
+      "audio": "wind against the glass, the slow turn of the lamp mechanism, gulls far below",
+      "prompt_only": true
+    }
+  ]
+}

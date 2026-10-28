@@ -1,0 +1,90 @@
+{
+  "id": "tk_20261022_235556_e38d",
+  "kind": "edit",
+  "label": "relight: Tomas in black samurai armour stands in ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T23:55:56Z",
+  "updated_at": "2026-10-22T23:56:20Z",
+  "recipe": {
+    "kind": "edit",
+    "preset": "relight",
+    "detail": "golden",
+    "source_sha256": "1417bf8f8a70747f44795d706fcef8ab6d33bb1f32cece47411e37ffbf868973",
+    "seed": 534,
+    "cast_refs": [],
+    "take": "tk_20261022_230538_8a28",
+    "cast_name": null
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "One Qwen-Image 2.1 edit of one still. The take plays the still before and after, 1.2 s each: no video model ran."
+  ],
+  "replay": false,
+  "recipe_hash": "76824a2ea973098246d18eecd6dada329d53a3c893eaf239aa7bd67450b55a5a",
+  "edit": {
+    "preset": "relight",
+    "before": "inputs/source.png",
+    "after": "runs/01_edit/image.png"
+  },
+  "identity": {
+    "edit": {
+      "status": "pass",
+      "score": 0.8950760186179836,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8950760186179836
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        578,
+        105,
+        142,
+        192
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.895 >= threshold 0.363 (best reference 0)",
+      "face_px": 142,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 2.4,
+  "size": [
+    1344,
+    768
+  ],
+  "showcase_name": "v1-edit-relight",
+  "showcase_sha": "b11af64e0f294514"
+}

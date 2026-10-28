@@ -1,0 +1,289 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_135940_2f2c",
+    "kind": "direct",
+    "created_at": "2026-10-22T14:02:01Z",
+    "label": "static: Oskar mends a fishing net on a harbour pier at g"
+  },
+  "inputs": {
+    "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "halation_vintage",
+      "focal_length_mm": 50,
+      "aperture": "f1.4",
+      "lighting": "contre_jour",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "none",
+      "grade": "none",
+      "angle": "back_right/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Oskar mends a fishing net on a harbour pier at golden hour. Shot on 35mm film with fine organic grain with a vintage lens with red halation around the highlights, 50mm (natural), wide open at f/1.4 with very shallow depth of field; strong backlight (contre-jour) with a glowing rim. The camera is locked off on a tripod; only the subject moves. Constraint: no camera movement, no zoom, no drift. Sound: water lapping against wood, creaking boats, gulls.",
+    "seed": 120,
+    "orientation": "landscape",
+    "audio": "water lapping against wood, creaking boats, gulls",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "angle": {
+      "id": "back_right/eye/medium",
+      "label": "Back-right quarter · Eye level · Medium",
+      "azimuth_deg": 135,
+      "elevation_deg": 0,
+      "distance": 1.0,
+      "directive": "Re-shoot the same scene from the back-right quarter view, the camera rotated 135 degrees to the right, an eye-level shot, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 将镜头向右旋转135度。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。",
+      "tested": true,
+      "source_file": "runs/01_hero/image.png"
+    },
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/03_angle_retry/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Oskar",
+      "refs": [
+        "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+      ]
+    },
+    "recipe_hash": "e330c9894dd5cf78b1fc12c5ba1e9d411ca895a01a16bcb09953a90d94765164"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "930e102a2cbec3c0765a93f94ad6dfea5397149d5419777c4027ead35736e0db",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "067e6e8dfee56523fcb9dde926af8bc932b70225496d3244dd5acb4bc02b20ec",
+        "job_id": "2bd656fc-8741-4240-aca4-09edc3a61724"
+      },
+      {
+        "stage": "angle",
+        "template": "qwen21_edit",
+        "workflow_sha256": "fa023a9296c07daebef663c2488c8b915387dbe2a91c2fcd3e9b738183507bb6",
+        "job_id": "c82cfc6b-800f-4fea-9108-a39d1461cefd"
+      },
+      {
+        "stage": "angle_retry",
+        "template": "qwen21_edit",
+        "workflow_sha256": "430135b6def6658af9c62eb709c2061ba73eaddb90074df9e8062522fef5fa4c",
+        "job_id": "b9f99cd9-83b8-4f65-bb13-5efc14502226"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "de980461cbcd08fd90c99953a442a28161732623e5460bbd7ad759e82c191522",
+        "job_id": "bc05307c-8553-4130-ad38-46d320f2e229"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8215723483649987,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8215723483649987,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8215723483649987
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          594,
+          130,
+          197,
+          266
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.822 >= threshold 0.363 (best reference 0)",
+        "face_px": 197,
+        "enlarged": null
+      },
+      "angle": {
+        "status": "pass",
+        "score": 0.4122919241807693,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.4122919241807693
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          707,
+          132,
+          91,
+          181
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.412 >= threshold 0.363 (best reference 0)",
+        "face_px": 91,
+        "enlarged": null,
+        "retried": true
+      },
+      "angle_retry": {
+        "status": "pass",
+        "score": 0.4122919241807693,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.4122919241807693
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          707,
+          132,
+          91,
+          181
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.412 >= threshold 0.363 (best reference 0)",
+        "face_px": 91,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.4140411074083185,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.4140411074083185
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          672,
+          104,
+          94,
+          184
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.414 >= threshold 0.363 (best reference 0)",
+        "face_px": 94,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "2bd656fc-8741-4240-aca4-09edc3a61724,c82cfc6b-800f-4fea-9108-a39d1461cefd,b9f99cd9-83b8-4f65-bb13-5efc14502226,bc05307c-8553-4130-ad38-46d320f2e229",
+    "timings": {
+      "total_s": 140.4
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "3921ac1ecd8eaadb35df087d6b3ac133b1ac2890882e5c2d16949177085940bd",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "a3fc00ec4d2d981899f4a3792622c70c12b8e3d8457164b46505e233600594f7"
+  }
+}

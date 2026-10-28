@@ -1,0 +1,113 @@
+{
+  "id": "tk_20261020_151150_f3ad",
+  "kind": "direct",
+  "label": "static: A close-up of Oskar's face in the cold morning, ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-20T15:11:50Z",
+  "updated_at": "2026-10-20T15:13:19Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A close-up of Oskar's face in the cold morning, his breath visible, a faint smile",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 85,
+      "aperture": "f1.4",
+      "lighting": "window",
+      "movement": "static",
+      "duration_seconds": 4,
+      "speed": "steady"
+    },
+    "audio": "soft wind, a distant bell buoy",
+    "seed": 22,
+    "orientation": "landscape",
+    "cast_refs": [
+      "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+    ],
+    "cast_name": "Oskar",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "6b0de5a177b532608c3bb4cffa1ab546c50a040602fdbb54b67d4f44fc78fb0d",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8856548364996446,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8856548364996446
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        536,
+        128,
+        340,
+        475
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.886 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.8885810673337621,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8885810673337621
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        508,
+        134,
+        314,
+        401
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.889 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 4.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "oskar-closeup-static",
+  "showcase_sha": "66e8c395c4e7fec4"
+}

@@ -1,0 +1,164 @@
+{
+  "title": "OpenField Studio: connect a box and render, recorded live",
+  "_comment": "The demo's live beats, recorded against a real GPU box reached through the Connect sheet (never the FAKE stack): start the app on Replay (openfield serve --port 8890 --backend replay) with the tunnel up (9189 = comfy-api-proxy, 9188 = ComfyUI), then python scripts/record_demo.py --url http://127.0.0.1:8890/ --scenario scripts/ui/live4.scenario.json --out <dir>. The readiness check can take minutes on a cold box, so that wait runs as a labelled time-lapse instead of a hard limit.",
+  "steps": [
+    {
+      "do": "say",
+      "text": "This part is live. A rented box, connected from the header.",
+      "caption": "Recorded live: a rented RTX 5090, connected from the app."
+    },
+    {
+      "do": "click",
+      "selector": ".backend-btn"
+    },
+    {
+      "do": "click",
+      "selector": ".menu .connect-btn"
+    },
+    {
+      "do": "until",
+      "expr": "document.querySelector('.sheet-connect #connect-url')",
+      "timeout": 5000,
+      "label": "the Connect sheet"
+    },
+    {
+      "do": "eval",
+      "expr": "for (const id of ['connect-url', 'connect-comfy']) { const el = document.getElementById(id); if (el) { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); } }"
+    },
+    {
+      "do": "type",
+      "selector": "#connect-url",
+      "text": "http://127.0.0.1:9189",
+      "cps": 30
+    },
+    {
+      "do": "type",
+      "selector": "#connect-comfy",
+      "text": "http://127.0.0.1:9188",
+      "cps": 30
+    },
+    {
+      "do": "say",
+      "text": "Test asks the box what it can run: every workflow, every model file, before anything renders.",
+      "caption": "Test: six workflows, fourteen model files, checked before a render."
+    },
+    {
+      "do": "eval",
+      "expr": "[...document.querySelectorAll('.sheet-connect .connect-actions .btn')].find((x) => /^Test/.test(x.textContent)).click()"
+    },
+    {
+      "do": "until",
+      "expr": "document.querySelectorAll('.sheet-connect .ready-row').length >= 5",
+      "timeout": 420000,
+      "speed": 8,
+      "label": "the readiness rows"
+    },
+    {
+      "do": "ring",
+      "selector": ".sheet-connect .ready-table",
+      "ms": 2600
+    },
+    {
+      "do": "hold",
+      "ms": 800
+    },
+    {
+      "do": "until",
+      "expr": "document.querySelectorAll('.sheet-connect .ready-row[data-state=ready]').length === 6 && !document.querySelector('.sheet-connect .btn.primary').disabled",
+      "timeout": 20000,
+      "label": "every row Ready and Use enabled"
+    },
+    {
+      "do": "eval",
+      "expr": "document.querySelector('.sheet-connect .btn.primary').click()"
+    },
+    {
+      "do": "until",
+      "expr": "!window.openfield.store.get().status?.backend?.locked && !document.querySelector('.sheet-connect')",
+      "timeout": 20000,
+      "label": "connected"
+    },
+    {
+      "do": "ring",
+      "selector": ".backend-btn",
+      "ms": 1800
+    },
+    {
+      "do": "goto",
+      "route": "direct"
+    },
+    {
+      "do": "say",
+      "text": "A draft-tier shot: small and quick, so the time on the plan line is a measured one.",
+      "caption": "Draft tier. The time is measured, never guessed."
+    },
+    {
+      "do": "eval",
+      "expr": "window.openfield.forms.set((s) => ({ direct: { ...s.direct, subject: '', heroMode: 'prompt', sourceFile: null, quality: 'draft', castId: null, line: '', delivery: 'natural', language: '' } }))"
+    },
+    {
+      "do": "type",
+      "selector": "#subject",
+      "text": "Ines waits on a harbour pier at golden hour, wind in her hair, gulls over the water",
+      "cps": 40
+    },
+    {
+      "do": "click",
+      "selector": "#tab-settings"
+    },
+    {
+      "do": "click",
+      "selector": ".move-tile",
+      "text": "Dolly in"
+    },
+    {
+      "do": "hold",
+      "ms": 600
+    },
+    {
+      "do": "click",
+      "selector": "[data-station=direct] .prompt .btn.primary"
+    },
+    {
+      "do": "until",
+      "expr": "document.querySelector('[data-station=direct] .screen[data-mode=approval]')",
+      "timeout": 900000,
+      "speed": 8,
+      "label": "the stills"
+    },
+    {
+      "do": "hold",
+      "ms": 1500
+    },
+    {
+      "do": "click",
+      "selector": "[data-station=direct] .approve-actions .btn.primary"
+    },
+    {
+      "do": "until",
+      "expr": "document.querySelector('[data-station=direct] .screen[data-mode=ready] video.player')",
+      "timeout": 1200000,
+      "speed": 8,
+      "label": "the shot"
+    },
+    {
+      "do": "until",
+      "expr": "/measured here/.test(document.querySelector('[data-station=direct] .plan')?.innerText ?? '')",
+      "timeout": 15000,
+      "label": "the measured time"
+    },
+    {
+      "do": "ring",
+      "selector": "[data-station=direct] .plan",
+      "ms": 2400
+    },
+    {
+      "do": "caption",
+      "text": "Measured on this box, from this render."
+    },
+    {
+      "do": "hold",
+      "ms": 2500
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 
 import { describeMove, locate, organise, step } from "../../openfield/web/js/lib/movepad.js";
 import {
-  defaultRig, fromRecipe, initialDirect, planSummary, renderEstimate, requestBody, validate,
+  defaultRig, describeDialogue, fromRecipe, initialDirect, matchesRecording, planSummary, renderEstimate, requestBody, validate,
 } from "../../openfield/web/js/lib/direct.js";
 import { formFor, children, ledgerTakes, lineage, portraitTakes, reelable, statusLabel } from "../../openfield/web/js/lib/takes.js";
 import { formatScore, overall, perStage, ringState } from "../../openfield/web/js/lib/identity.js";
@@ -15,33 +15,43 @@ const plans = read("plans.json");
 
 // -- the Move Pad -----------------------------------------------------------------------------------
 
-test("all 35 moves land in the 7 groups, with twelve promoted and the rest under More", () => {
+test("all 49 moves land in the 7 groups, with twelve promoted and the rest under More", () => {
   const pad = organise(catalog);
   assert.equal(pad.groups.length, 7);
-  assert.equal(pad.moves.size, 35);
+  assert.equal(pad.moves.size, 49);
   assert.equal(pad.featured.length, 12);
   const counted = pad.groups.reduce((n, g) => n + g.featured.length + g.more.length, 0);
-  assert.equal(counted, 35);
+  assert.equal(counted, 49);
   assert.ok(pad.groups.every((g) => g.featured.every((m) => m.featured) && g.more.every((m) => !m.featured)));
   assert.deepEqual(locate(pad, "dolly_in"), { group: "dolly", hidden: false });
   assert.deepEqual(locate(pad, "vertigo"), { group: "dolly", hidden: true });
   assert.equal(locate(pad, "nonsense"), null);
 });
 
-test("moves are described honestly: a move is tested only once a real render exists", () => {
+test("a move is described by how it is made; the server's flag still says whether its recorded loop plays at rest", () => {
   const pad = organise(catalog);
   const dolly = describeMove(pad.moves.get("dolly_in"));
   assert.equal(dolly.modeLabel, "Keyframed");
   assert.equal(dolly.stills, 2);
   assert.equal(dolly.stillsLabel, "2 stills");
-  assert.equal(dolly.tested, false, "nothing is validated before the first real render");
-  assert.equal(dolly.testedLabel, "Not yet tested with a real render");
+  assert.equal(dolly.tested, true, "dolly in was validated by the keyframing experiment of 2026-10-20");
+  assert.ok(!("testedLabel" in dolly), "the interface no longer prints tested or untested");
+  assert.equal(describeMove(pad.moves.get("through_object")).tested, true, "Oct 26: made as its reverse, the push through the hut door held");
+  assert.equal(describeMove(pad.moves.get("pedestal_down")).tested, false, "the flag stays false until a render holds (the reversed descent pulled back)");
+  assert.equal(describeMove(pad.moves.get("orbit_90")).modeLabel, "Quick", "a move the experiment settled as prompt-only renders from one still");
+  const arc = describeMove(pad.moves.get("arc_left"));
+  assert.equal(arc.modeLabel, "Keyframed", "an arc is two stills since Oct 26: the end still, 45 degrees round, sets the direction");
+  assert.equal(arc.stillsLabel, "2 stills");
+  assert.equal(arc.tested, false, "unflagged until a render of the two-still arc holds");
   const quick = describeMove(pad.moves.get("dolly_in"), { quick: true });
   assert.equal(quick.modeLabel, "Quick");
   assert.equal(quick.stillsLabel, "1 still");
   assert.equal(describeMove(pad.moves.get("static")).modeLabel, "Quick");
-  assert.equal(describeMove(pad.moves.get("vertigo")).modeLabel, "Experimental");
-  assert.equal(describeMove({ ...pad.moves.get("static"), validated: true }).testedLabel, "Tested with a real render");
+  assert.equal(describeMove(pad.moves.get("rack_focus")).modeLabel, "Quick", "an experimental move reads as what it is: one still and a camera instruction");
+  assert.equal(describeMove(pad.moves.get("vertigo")).stillsLabel, "2 stills", "the dolly zoom is made from a dolly-out's two stills");
+  const bullet = describeMove(pad.moves.get("bullet_time"), { quick: true });
+  assert.equal(bullet.modeLabel, "Quick", "bullet time is one still of the frozen moment, circled by the camera");
+  assert.equal(bullet.stillsLabel, "1 still");
 });
 
 test("arrow-key stepping wraps around the promoted set", () => {
@@ -89,6 +99,8 @@ test("validation catches what the server would refuse, before the request", () =
   assert.deepEqual(fields({ seed: String(2 ** 31) }), ["seed"]);
   assert.deepEqual(fields({ seed: "0" }), []);
   assert.deepEqual(fields({}, { lens: "fisheye" }), ["lens"]);
+  assert.deepEqual(fields({}, { effect: "snow" }), ["effect"]);
+  assert.deepEqual(fields({}, { effect: "rain" }), []);
   assert.deepEqual(fields({}, { movement: "teleport" }), ["movement"]);
   assert.deepEqual(fields({}, { focal_length_mm: 5 }), ["focal_length_mm"]);
   assert.deepEqual(fields({}, { duration_seconds: 30 }), ["duration_seconds"]);
@@ -200,7 +212,7 @@ test("a take's overall identity is its worst stage, and unavailable never reads 
 
 // -- Move Pad glyphs --------------------------------------------------------------------------------
 
-import { anchorsAlong, sideView, topView } from "../../openfield/web/js/lib/pathview.js";
+import { anchorsAlong, frustum, poseAt, sideView, stageFit, topView } from "../../openfield/web/js/lib/pathview.js";
 
 test("every move path projects to finite, in-bounds glyph coordinates in both views", () => {
   for (const move of catalog.moves) {
@@ -218,6 +230,23 @@ test("every move path projects to finite, in-bounds glyph coordinates in both vi
   }
 });
 
+test("every move fits the stage view, and its camera lands on each numbered mark when the shot reaches that still", () => {
+  for (const move of catalog.moves) {
+    const fit = stageFit(move.path, { width: 100, height: 62 });
+    const inside = (p, what) => assert.ok(p.x >= -0.5 && p.x <= 100.5 && p.y >= -0.5 && p.y <= 62.5 && Number.isFinite(p.x + p.y), `${move.id}: ${what} at ${p.x},${p.y}`);
+    for (const p of move.path) inside(fit.to(p), "path");
+    for (const p of move.path) inside(fit.to({ ...p, y: fit.floor }), "the floor under the path");
+    inside(fit.to({ x: 0, y: fit.floor, z: 0 }), "the subject's mark");
+    for (let i = 0; i <= 20; i += 1) for (const c of frustum(poseAt(move.path, i / 20)).corners) inside(fit.to(c), "frame");
+    const view = { points: move.path.map(fit.to) };
+    const count = Math.max(2, move.anchors);
+    anchorsAlong(view, count).forEach((mark, k) => {
+      const camera = fit.to(poseAt(move.path, k / (count - 1)));
+      assert.ok(Math.hypot(mark.x - camera.x, mark.y - camera.y) < 1e-9, `${move.id}: mark ${k + 1} is where the camera is`);
+    });
+  }
+});
+
 test("a moving camera draws a path with length, a locked one barely moves", () => {
   const length = (view) => view.points.slice(1).reduce((sum, p, i) => sum + Math.hypot(p.x - view.points[i].x, p.y - view.points[i].y), 0);
   const pad = organise(catalog);
@@ -225,4 +254,96 @@ test("a moving camera draws a path with length, a locked one barely moves", () =
   assert.ok(length(topView(pad.moves.get("orbit_180").path)) > length(topView(pad.moves.get("orbit_90").path)));
   assert.ok(length(sideView(pad.moves.get("crane_up").path)) > 5);
   assert.ok(length(topView(pad.moves.get("static").path)) < 0.001);
+});
+
+test("a form that starts from an image sends a multipart body and never matches a recording", async () => {
+  const d = await import("../../openfield/web/js/lib/direct.js");
+  const catalog = JSON.parse(readFileSync(new URL("./fixtures/catalog.json", import.meta.url), "utf8"));
+  const state = { ...d.initialDirect(catalog), subject: "Me on a pier at dusk", seed: "3" };
+  assert.equal(d.fromImage(state), false);
+  const withImage = { ...state, heroMode: "image", sourceFile: null };
+  assert.ok(d.validate(withImage, catalog).some((p) => p.field === "source"), "an image is required in image mode");
+  const file = { name: "me.png", size: 1024 };
+  const ready = { ...withImage, sourceFile: file };
+  assert.ok(!d.validate(ready, catalog).some((p) => p.field === "source"));
+  assert.ok(d.validate({ ...ready, sourceFile: { name: "me.gif", size: 10 } }, catalog).some((p) => p.field === "source"));
+  assert.ok(d.validate({ ...ready, sourceFile: { name: "me.png", size: 21 * 1024 * 1024 } }, catalog).some((p) => p.field === "source"));
+  const parts = [];
+  class FD { append(k, v) { parts.push([k, v]); } }
+  d.toImageForm(ready, FD);
+  assert.deepEqual(parts.map(([k]) => k), ["request", "source"]);
+  assert.equal(JSON.parse(parts[0][1]).subject, "Me on a pier at dusk");
+  assert.equal(parts[1][1], file);
+  assert.equal(JSON.stringify(d.requestBody(ready)), JSON.stringify(d.requestBody(state)), "the JSON body is unchanged by the image");
+  const recorded = { kind: "direct", recipe: { ...d.formRecipe(state), source_sha256: undefined, cast_name: null } };
+  delete recorded.recipe.source_sha256;
+  assert.equal(d.matchesRecording(state, recorded), true);
+  assert.equal(d.matchesRecording(ready, recorded), false, "a form with an image never matches a recording");
+  const sourcedRecording = { kind: "direct", recipe: { ...recorded.recipe, source_sha256: "abc" } };
+  assert.equal(d.matchesRecording(state, sourcedRecording), false, "a form without one never matches a sourced recording");
+  const back = d.fromRecipe(sourcedRecording.recipe, catalog);
+  assert.equal(back.heroMode, "image");
+  assert.equal(back.sourceFile, null, "the image itself must be added again");
+  assert.equal(d.fromRecipe(recorded.recipe, catalog).heroMode, "prompt");
+});
+
+test("quality is sent only when it is not standard, and a tier changes what matches", async () => {
+  const d = await import("../../openfield/web/js/lib/direct.js");
+  const catalog = JSON.parse(readFileSync(new URL("./fixtures/catalog.json", import.meta.url), "utf8"));
+  assert.deepEqual(catalog.quality.map((q) => q.id), ["draft", "standard", "fine"]);
+  const state = { ...d.initialDirect(catalog), subject: "A lighthouse at dusk", seed: "5" };
+  assert.equal(state.quality, "standard");
+  assert.ok(!("quality" in d.requestBody(state)), "standard is the server's default and stays out of the body");
+  assert.equal(d.requestBody({ ...state, quality: "draft" }).quality, "draft");
+  assert.ok(d.validate({ ...state, quality: "ultra" }, catalog).some((p) => p.field === "quality"));
+  const recorded = { kind: "direct", recipe: { ...d.formRecipe(state), cast_name: null } };
+  delete recorded.recipe.quality;
+  delete recorded.recipe.source_sha256;
+  assert.equal(d.matchesRecording(state, recorded), true, "a recording made before tiers existed is a standard take");
+  assert.equal(d.matchesRecording({ ...state, quality: "draft" }, recorded), false);
+  assert.equal(d.matchesRecording(state, { kind: "direct", recipe: { ...recorded.recipe, quality: "fine" } }), false);
+  assert.equal(d.fromRecipe({ ...recorded.recipe, quality: "fine" }, catalog).quality, "fine");
+  assert.equal(d.fromRecipe(recorded.recipe, catalog).quality, "standard");
+  const fine = d.describeQuality(catalog, "fine");
+  assert.equal(fine.tested, true, "checked by eye on the Oct 22 render");
+  assert.ok(!("testedLabel" in fine));
+  assert.equal(d.describeQuality(catalog, "standard").tested, true);
+  assert.equal(d.describeQuality(catalog, "nope"), null);
+  assert.equal(d.estimateLine(null), null);
+  assert.equal(d.estimateLine({ samples: 0, seconds: null, basis: "render time, approvals not counted" }), "No time measured yet on this backend");
+  assert.equal(d.estimateLine({ samples: 0, seconds: null, basis: "Replay renders nothing" }), null);
+  assert.equal(d.estimateLine({ samples: 3, seconds: 135.4 }), "≈ 2 min 15 s, about 2.7¢, measured here (3 takes)");
+  assert.equal(d.estimateLine({ samples: 1, seconds: 48 }), "≈ 48 s, about 0.9¢, measured here (1 take)");
+});
+
+test("a spoken line travels with its delivery, is validated, and is part of what a recording must match", () => {
+  const base = { ...initialDirect(catalog), subject: "Mara at the pier" };
+  assert.ok(!("line" in requestBody(base)) && !("delivery" in requestBody(base)), "a silent form sends no dialogue keys");
+  const spoken = { ...base, line: "  We leave at first light.  ", delivery: "calm", language: " English " };
+  assert.deepEqual(validate(spoken, catalog), []);
+  const body = requestBody(spoken);
+  assert.equal(body.line, "We leave at first light.");
+  assert.equal(body.delivery, "calm");
+  assert.equal(body.language, "English");
+  assert.ok(!("language" in requestBody({ ...spoken, language: "" })), "the language is named only when given");
+  const fields = (patch) => validate({ ...base, ...patch }, catalog).map((p) => p.field);
+  assert.deepEqual(fields({ line: "x".repeat(201) }), ["line"]);
+  assert.deepEqual(fields({ line: "hi", delivery: "sing" }), ["delivery"]);
+  assert.deepEqual(fields({ language: "y".repeat(41) }), ["language"]);
+  assert.deepEqual(fields({ delivery: "sing" }), [], "a delivery without a line is ignored");
+  const d = describeDialogue(catalog);
+  assert.ok(d.deliveries.some((x) => x.id === "whisper") && d.tested === true && !("testedLabel" in d));
+  const back = fromRecipe({ subject: "Mara", line: "Come home.", delivery: "whisper", language: "English", rig: {} }, catalog);
+  assert.equal(back.line, "Come home.");
+  assert.equal(back.delivery, "whisper");
+  assert.equal(back.language, "English");
+  const silentBack = fromRecipe({ subject: "Mara", delivery: "shout", rig: {} }, catalog);
+  assert.equal(silentBack.delivery, "natural", "a delivery without a line is not kept");
+  const recorded = { kind: "direct", recipe: { subject: "Mara at the pier", rig: base.rig, seed: 7, orientation: "landscape", cast_refs: [] } };
+  const form = { ...base, seed: "7" };
+  assert.equal(matchesRecording(form, recorded), true);
+  assert.equal(matchesRecording({ ...form, line: "Come home." }, recorded), false, "a line makes a different shot");
+  const spokenRecording = { kind: "direct", recipe: { ...recorded.recipe, line: "Come home.", delivery: "whisper" } };
+  assert.equal(matchesRecording({ ...form, line: "Come home.", delivery: "whisper" }, spokenRecording), true);
+  assert.equal(matchesRecording({ ...form, line: "Come home.", delivery: "calm" }, spokenRecording), false, "the delivery is part of the recipe");
 });

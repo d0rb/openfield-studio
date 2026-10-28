@@ -1,0 +1,75 @@
+{
+  "id": "tk_20261024_232528_8944",
+  "kind": "direct",
+  "label": "dutch angle: A detective in a rumpled trench coat and fedora ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-24T23:25:28Z",
+  "updated_at": "2026-10-24T23:28:00Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A detective in a rumpled trench coat and fedora stands under a flickering streetlight in a narrow rain-soaked alley at night, his breath steaming in the cold",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "practicals",
+      "movement": "dutch_angle",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "rain dripping from gutters, a distant siren, a sudden clatter",
+    "seed": 642,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "action": "He turns his head sharply toward a sound behind him, eyes narrowing.",
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "rolled: the shot is rendered level and larger, then the video is turned 15 degrees in code and cropped to the frame, so the tilt holds from the first frame to the last"
+  ],
+  "replay": false,
+  "recipe_hash": "6e99e6d261ac94ea2b5fb1ff1e0f63cf48953b464ffd446863ac424bf7400939",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v9b-dutch-angle-noir",
+  "showcase_sha": "cac51c7b4e060afe"
+}

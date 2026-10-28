@@ -1,0 +1,140 @@
+{
+  "id": "tk_20261022_134358_a709",
+  "kind": "direct",
+  "label": "static: Ines writes in a notebook at a cafe window while",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T13:43:58Z",
+  "updated_at": "2026-10-22T13:46:13Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines writes in a notebook at a cafe window while rain runs down the glass",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "vintage_anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "window",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "ignite"
+    },
+    "audio": "cafe chatter, rain on glass, a spoon against a cup",
+    "seed": 131,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (ignite): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "8fd63f694556b4a6d9596f89040ac5c8512a18e2e55c18be361607833a6cf4a3",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8602878356113385,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8602878356113385
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        629,
+        102,
+        172,
+        216
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.860 >= threshold 0.363 (best reference 0)",
+      "face_px": 172,
+      "enlarged": null
+    },
+    "transform_1": {
+      "status": "pass",
+      "score": 0.8374427630998349,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8374427630998349
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        627,
+        102,
+        166,
+        217
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.837 >= threshold 0.363 (best reference 0)",
+      "face_px": 166,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.7533251235271786,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7533251235271786
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        597,
+        74,
+        160,
+        215
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.753 >= threshold 0.363 (best reference 0)",
+      "face_px": 160,
+      "enlarged": null,
+      "frame": "mid",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "fx-ignite",
+  "showcase_sha": "949186ed197764fc"
+}

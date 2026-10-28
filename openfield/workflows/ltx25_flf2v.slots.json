@@ -9,7 +9,8 @@
     "width": {"node": "251:215", "input": "value", "kind": "int", "multiple_of": 16, "min": 512, "max": 1920, "default": 1280},
     "height": {"node": "251:216", "input": "value", "kind": "int", "multiple_of": 16, "min": 512, "max": 1920, "default": 720},
     "first_frame": {"node": "31", "input": "image", "kind": "image"},
-    "last_frame": {"node": "39", "input": "image", "kind": "image"}
+    "last_frame": {"node": "39", "input": "image", "kind": "image"},
+    "mids": {"kind": "guide_list", "node": "251:204", "loader": "39", "chain": ["251:214", "251:195"], "guide": "251:204", "limit": 3, "required": false}
   },
   "fixed": [
     {"node": "251:250", "input": "value", "value": false},

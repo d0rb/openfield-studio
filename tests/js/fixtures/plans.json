@@ -1,188 +1,345 @@
 {
  "dolly_in": {
+  "action": null,
   "anchors": [
    {
+    "check_identity": true,
     "edit_prompt": null,
     "index": 0,
     "role": "hero"
    },
    {
+    "check_identity": true,
     "edit_prompt": "Same scene, subject, wardrobe, lighting and style as the reference. The camera is now much closer to the subject, about half the original distance, framing tighter at the same angle and focal length.",
     "index": 1,
     "role": "edit"
    }
   ],
+  "angle": null,
+  "dialogue": null,
+  "mirror": null,
   "mode": "keyframed",
   "move_id": "dolly_in",
-  "negative": "blurry, out of focus, distorted, warped or melting faces, extra limbs, jittery motion, flicker, morphing objects, text, subtitles, watermark, logo, low quality",
   "notes": [],
-  "prompt": "A lighthouse at dusk. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. Constraint: physical camera travel, fixed focal length, no zoom, constant lens height.",
+  "prompt": "A lighthouse at dusk. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. The camera travels forward on its track and arrives at a close view of the subject, the lens height unchanged.",
+  "reframe": null,
+  "reverse": null,
   "rig": {
+   "angle": "front/eye/medium",
    "aperture": "f4",
    "duration_seconds": 5,
+   "effect": "none",
    "focal_length_mm": 35,
+   "grade": "none",
    "lens": "clean_sharp",
    "lighting": "soft_cross",
    "movement": "dolly_in",
+   "score": "none",
    "sensor": "modern_digital",
+   "soundscape": "none",
    "speed": "steady"
   },
+  "roll": null,
   "segments": [
    {
     "end_anchor": 1,
     "index": 0,
+    "mids": [],
     "seconds": 5,
     "start_anchor": 0,
     "template": "ltx25_flf2v"
    }
   ],
-  "total_seconds": 5
+  "total_seconds": 5,
+  "transformation": null
  },
  "dolly_in_quick": {
+  "action": null,
   "anchors": [
    {
+    "check_identity": true,
     "edit_prompt": null,
     "index": 0,
     "role": "hero"
    }
   ],
+  "angle": null,
+  "dialogue": null,
+  "mirror": null,
   "mode": "prompt_only",
   "move_id": "dolly_in",
-  "negative": "blurry, out of focus, distorted, warped or melting faces, extra limbs, jittery motion, flicker, morphing objects, text, subtitles, watermark, logo, low quality",
   "notes": [
    "quick mode: one still and a camera instruction, no anchor stills"
   ],
-  "prompt": "A lighthouse at dusk. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. Constraint: physical camera travel, fixed focal length, no zoom, constant lens height.",
+  "prompt": "A lighthouse at dusk. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. The camera travels forward on its track and arrives at a close view of the subject, the lens height unchanged.",
+  "reframe": null,
+  "reverse": null,
   "rig": {
+   "angle": "front/eye/medium",
    "aperture": "f4",
    "duration_seconds": 5,
+   "effect": "none",
    "focal_length_mm": 35,
+   "grade": "none",
    "lens": "clean_sharp",
    "lighting": "soft_cross",
    "movement": "dolly_in",
+   "score": "none",
    "sensor": "modern_digital",
+   "soundscape": "none",
    "speed": "steady"
   },
+  "roll": null,
   "segments": [
    {
     "end_anchor": null,
     "index": 0,
+    "mids": [],
     "seconds": 5,
     "start_anchor": 0,
     "template": "ltx25_i2v"
    }
   ],
-  "total_seconds": 5
+  "total_seconds": 5,
+  "transformation": null
  },
- "orbit_360": {
+ "orbit_180_one_pass": {
+  "action": null,
   "anchors": [
    {
+    "check_identity": true,
+    "edit_prompt": null,
+    "index": 0,
+    "role": "hero"
+   }
+  ],
+  "angle": null,
+  "dialogue": null,
+  "mirror": null,
+  "mode": "prompt_only",
+  "move_id": "orbit_180",
+  "notes": [],
+  "prompt": "A bottle. The camera orbits 180 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles halfway round at the same distance and height and ends behind the subject, who stays centred and facing the same way.",
+  "reframe": null,
+  "reverse": null,
+  "rig": {
+   "angle": "front/eye/medium",
+   "aperture": "f4",
+   "duration_seconds": 5,
+   "effect": "none",
+   "focal_length_mm": 35,
+   "grade": "none",
+   "lens": "clean_sharp",
+   "lighting": "soft_cross",
+   "movement": "orbit_180",
+   "score": "none",
+   "sensor": "modern_digital",
+   "soundscape": "none",
+   "speed": "steady"
+  },
+  "roll": null,
+  "segments": [
+   {
+    "end_anchor": null,
+    "index": 0,
+    "mids": [],
+    "seconds": 5,
+    "start_anchor": 0,
+    "template": "ltx25_i2v"
+   }
+  ],
+  "total_seconds": 5,
+  "transformation": null
+ },
+ "orbit_360": {
+  "action": null,
+  "anchors": [
+   {
+    "check_identity": true,
     "edit_prompt": null,
     "index": 0,
     "role": "hero"
    },
    {
+    "check_identity": true,
     "edit_prompt": "Same scene, subject, wardrobe, lighting and style as the reference. The camera has orbited 90 degrees around the subject to its right, seeing it in profile.",
     "index": 1,
     "role": "edit"
    },
    {
+    "check_identity": true,
     "edit_prompt": "Same scene, subject, wardrobe, lighting and style as the reference. The camera has orbited 180 degrees around the subject, now seeing it from behind.",
     "index": 2,
     "role": "edit"
    },
    {
+    "check_identity": true,
     "edit_prompt": "Same scene, subject, wardrobe, lighting and style as the reference. The camera has orbited 270 degrees around the subject, seeing its left profile.",
     "index": 3,
     "role": "edit"
    },
    {
+    "check_identity": true,
     "edit_prompt": null,
     "index": 4,
     "role": "repeat_hero"
    }
   ],
+  "angle": null,
+  "dialogue": null,
+  "mirror": null,
   "mode": "keyframed",
   "move_id": "orbit_360",
-  "negative": "blurry, out of focus, distorted, warped or melting faces, extra limbs, jittery motion, flicker, morphing objects, text, subtitles, watermark, logo, low quality",
   "notes": [
-   "duration 5s becomes 8s (4 segments of 2s)"
+   "one pass: 3 middle stills guided inside the shot"
   ],
-  "prompt": "A bottle. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera makes a full 360 degree orbit around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. Constraint: constant radius, constant height, subject remains centred, no subject spin.",
+  "prompt": "A bottle. The camera makes a full 360 degree orbit around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles all the way round at the same distance and height and ends where it began, the subject centred throughout.",
+  "reframe": null,
+  "reverse": null,
   "rig": {
+   "angle": "front/eye/medium",
    "aperture": "f4",
    "duration_seconds": 5,
+   "effect": "none",
    "focal_length_mm": 35,
+   "grade": "none",
    "lens": "clean_sharp",
    "lighting": "soft_cross",
    "movement": "orbit_360",
+   "score": "none",
    "sensor": "modern_digital",
+   "soundscape": "none",
    "speed": "steady"
   },
+  "roll": null,
   "segments": [
    {
-    "end_anchor": 1,
-    "index": 0,
-    "seconds": 2,
-    "start_anchor": 0,
-    "template": "ltx25_flf2v"
-   },
-   {
-    "end_anchor": 2,
-    "index": 1,
-    "seconds": 2,
-    "start_anchor": 1,
-    "template": "ltx25_flf2v"
-   },
-   {
-    "end_anchor": 3,
-    "index": 2,
-    "seconds": 2,
-    "start_anchor": 2,
-    "template": "ltx25_flf2v"
-   },
-   {
     "end_anchor": 4,
-    "index": 3,
-    "seconds": 2,
-    "start_anchor": 3,
+    "index": 0,
+    "mids": [
+     [
+      1,
+      32
+     ],
+     [
+      2,
+      64
+     ],
+     [
+      3,
+      88
+     ]
+    ],
+    "seconds": 5,
+    "start_anchor": 0,
     "template": "ltx25_flf2v"
    }
   ],
-  "total_seconds": 8
+  "total_seconds": 5,
+  "transformation": null
  },
  "static": {
+  "action": null,
   "anchors": [
    {
+    "check_identity": true,
     "edit_prompt": null,
     "index": 0,
     "role": "hero"
    }
   ],
+  "angle": null,
+  "dialogue": null,
+  "mirror": null,
   "mode": "prompt_only",
   "move_id": "static",
-  "negative": "blurry, out of focus, distorted, warped or melting faces, extra limbs, jittery motion, flicker, morphing objects, text, subtitles, watermark, logo, low quality",
   "notes": [],
-  "prompt": "A lighthouse at dusk. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera is locked off on a tripod; only the subject moves. Constraint: no camera movement, no zoom, no drift.",
+  "prompt": "A lighthouse at dusk. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves.",
+  "reframe": null,
+  "reverse": null,
   "rig": {
+   "angle": "front/eye/medium",
    "aperture": "f4",
    "duration_seconds": 5,
+   "effect": "none",
    "focal_length_mm": 35,
+   "grade": "none",
    "lens": "clean_sharp",
    "lighting": "soft_cross",
    "movement": "static",
+   "score": "none",
    "sensor": "modern_digital",
+   "soundscape": "none",
    "speed": "steady"
   },
+  "roll": null,
   "segments": [
    {
     "end_anchor": null,
     "index": 0,
+    "mids": [],
     "seconds": 5,
     "start_anchor": 0,
     "template": "ltx25_i2v"
    }
   ],
-  "total_seconds": 5
+  "total_seconds": 5,
+  "transformation": null
+ },
+ "static_ignite": {
+  "action": null,
+  "anchors": [
+   {
+    "check_identity": true,
+    "edit_prompt": null,
+    "index": 0,
+    "role": "hero"
+   },
+   {
+    "check_identity": true,
+    "edit_prompt": "Set the scene ablaze: flames spreading across the ground and surfaces, smoke and embers in the air, everything lit by orange firelight.",
+    "index": 1,
+    "role": "transform"
+   }
+  ],
+  "angle": null,
+  "dialogue": null,
+  "mirror": null,
+  "mode": "prompt_only",
+  "move_id": "static",
+  "notes": [
+   "transformation (ignite): the last still is edited into the end state and LTX renders the change"
+  ],
+  "prompt": "A lighthouse at dusk. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves. Flames catch at the edges of the frame and spread across the scene, embers drifting upward and the light turning orange, until fire fills the shot, the crackle of the fire rising.",
+  "reframe": null,
+  "reverse": null,
+  "rig": {
+   "angle": "front/eye/medium",
+   "aperture": "f4",
+   "duration_seconds": 5,
+   "effect": "ignite",
+   "focal_length_mm": 35,
+   "grade": "none",
+   "lens": "clean_sharp",
+   "lighting": "soft_cross",
+   "movement": "static",
+   "score": "none",
+   "sensor": "modern_digital",
+   "soundscape": "none",
+   "speed": "steady"
+  },
+  "roll": null,
+  "segments": [
+   {
+    "end_anchor": 1,
+    "index": 0,
+    "mids": [],
+    "seconds": 5,
+    "start_anchor": 0,
+    "template": "ltx25_flf2v"
+   }
+  ],
+  "total_seconds": 5,
+  "transformation": "ignite"
  }
 }

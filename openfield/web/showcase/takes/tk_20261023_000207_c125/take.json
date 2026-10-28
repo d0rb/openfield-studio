@@ -1,0 +1,124 @@
+{
+  "id": "tk_20261023_000207_c125",
+  "kind": "direct",
+  "label": "static: Mara stands at the end of a harbour pier at gold",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T00:02:07Z",
+  "updated_at": "2026-10-23T00:03:10Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Mara stands at the end of a harbour pier at golden hour holding a lantern, looking into the camera, her yellow jacket catching the light",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 50,
+      "aperture": "f1.4",
+      "lighting": "contre_jour",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "water lapping against wood, a distant bell",
+    "seed": 160,
+    "orientation": "landscape",
+    "cast_refs": [
+      "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+    ],
+    "line": "Nous partons aux premières lueurs.",
+    "delivery": "calm",
+    "language": "French",
+    "source_sha256": "31b4c04d18d1f2abe9b22f21dd2f948ac65bd6b300faa11640cd76ae868fc629",
+    "cast_name": "Mara",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "dialogue: LTX 2.5 speaks the line with the picture",
+    "The hero still is the person's own image; nothing was rendered for it."
+  ],
+  "replay": false,
+  "recipe_hash": "ef0bce5009f797fb28ea9668275a1345bee65d07f391a920356d9818564818c6",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.693585185554785,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.693585185554785
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        599,
+        137,
+        140,
+        189
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.694 >= threshold 0.363 (best reference 0)",
+      "face_px": 140,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.7422173860300273,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7422173860300273
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        481,
+        93,
+        287,
+        372
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.742 >= threshold 0.363 (best reference 0)",
+      "face_px": 287,
+      "enlarged": null,
+      "frame": "last",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v1-dub-mara-fr",
+  "showcase_sha": "b23a3ad04e4c5b31"
+}

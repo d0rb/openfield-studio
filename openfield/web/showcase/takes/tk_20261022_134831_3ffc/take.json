@@ -1,0 +1,98 @@
+{
+  "id": "tk_20261022_134831_3ffc",
+  "kind": "direct",
+  "label": "static: Ines writes in a notebook at a cafe window while",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T13:48:31Z",
+  "updated_at": "2026-10-22T13:50:49Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines writes in a notebook at a cafe window while rain runs down the glass",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "vintage_anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "window",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "gold"
+    },
+    "audio": "cafe chatter, rain on glass, a spoon against a cup",
+    "seed": 133,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (gold statue): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "b9371ede925b901a46664a6c9f0dcc47dd520ffb9f58d0dd86db3b9643442da0",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.885854030932318,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.885854030932318
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        603,
+        76,
+        195,
+        259
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.886 >= threshold 0.363 (best reference 0)",
+      "face_px": 195,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "fx-gold",
+  "showcase_sha": "2ad3b6a5bc2f0d06"
+}

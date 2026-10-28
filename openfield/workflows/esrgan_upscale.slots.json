@@ -1,0 +1,13 @@
+{
+  "engine": "real-esrgan-x4plus",
+  "source_template": "utility-gan_upscaler",
+  "note": "Video upscale: the official 'Video Upscale: Real-ESRGAN' graph (LoadVideo, GetVideoComponents, ImageUpscaleWithModel with RealESRGAN_x4plus, CreateVideo keeping the clip's frame rate and sound, SaveVideo) plus one core ImageScale after the model. The model always enlarges 4x; ImageScale lands that on the size asked for (width and height, even numbers because the video is yuv420p). 'area' averages when the picture is shrunk, which is nearly every case; 'bicubic' is for a target above 4x the clip, where 'area' does not interpolate and the picture would turn blocky. The clip is held in memory at 4x before the resize.",
+  "slots": {
+    "video": {"node": "9", "input": "file", "kind": "video"},
+    "width": {"node": "13", "input": "width", "kind": "int", "multiple_of": 2, "min": 256, "max": 7680},
+    "height": {"node": "13", "input": "height", "kind": "int", "multiple_of": 2, "min": 256, "max": 7680},
+    "upscale_method": {"node": "13", "input": "upscale_method", "kind": "choice", "choices": ["area", "bicubic"],
+                       "required": false, "default": "area"}
+  },
+  "outputs": {"video": "12"}
+}

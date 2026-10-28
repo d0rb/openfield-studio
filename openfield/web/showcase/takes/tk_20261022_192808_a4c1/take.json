@@ -1,0 +1,73 @@
+{
+  "id": "tk_20261022_192808_a4c1",
+  "kind": "direct",
+  "label": "hyperlapse: A desert highway at dusk, a lone pickup truck fa",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T19:28:08Z",
+  "updated_at": "2026-10-22T19:31:05Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A desert highway at dusk, a lone pickup truck far ahead, heat haze, a storm building on the horizon",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "anamorphic",
+      "focal_length_mm": 24,
+      "aperture": "f11",
+      "lighting": "contre_jour",
+      "movement": "hyperlapse",
+      "duration_seconds": 5,
+      "speed": "fast"
+    },
+    "audio": "wind over sand, a far-off engine, distant thunder",
+    "seed": 190,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "prompt_only": true,
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "526c629cbb6f2efb12ac0bb224e6751ab23ade92a562e082032eb74ee967320e",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "desert-highway-hyperlapse",
+  "showcase_sha": "42e0b7609a6be253"
+}

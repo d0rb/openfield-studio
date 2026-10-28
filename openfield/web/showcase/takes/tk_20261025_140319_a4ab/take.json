@@ -1,0 +1,73 @@
+{
+  "id": "tk_20261025_140319_a4ab",
+  "kind": "direct",
+  "label": "helicopter: A white lighthouse on a cliff above the sea at g",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-25T14:03:19Z",
+  "updated_at": "2026-10-25T14:05:58Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A white lighthouse on a cliff above the sea at golden hour, waves breaking on the rocks below",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "helicopter",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "wind, rotor thump far off, surf",
+    "seed": 1613,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "quality": "draft",
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "0b2b26f1e356bbe6c233fad03c1ca256c1d97284bbac57d7fe0359fdd950b42b",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    896,
+    512
+  ],
+  "showcase_name": "r11-mv-helicopter",
+  "showcase_sha": "42f3a52fb617bc82"
+}

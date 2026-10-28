@@ -1,0 +1,121 @@
+{
+  "id": "tk_20261026_201948_1d50",
+  "kind": "direct",
+  "label": "bullet time: Tomas in black samurai armour, katana raised mid",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-26T20:19:48Z",
+  "updated_at": "2026-10-26T20:20:45Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "practicals",
+      "movement": "bullet_time",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+    "seed": 1167,
+    "orientation": "landscape",
+    "cast_refs": [
+      "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+    ],
+    "source_sha256": "b12ae64f32fbca2c6ca1baac3a2e2c52a2f26fa77f79363c29630d1ce7f55e5a",
+    "cast_name": "Tomas",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "made as an orbit 90 around one still of the moment at its peak, with the world frozen while the camera moves",
+    "The hero still is the person's own image; nothing was rendered for it."
+  ],
+  "replay": false,
+  "recipe_hash": "3bf53267c2c1f0e9541f4647f9ffc0371786e26606d3e43baa2376ffca18c241",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8283653075402286,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8283653075402286
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        588,
+        96,
+        187,
+        251
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.828 >= threshold 0.363 (best reference 0)",
+      "face_px": 187,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.8244944433371666,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8244944433371666
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        556,
+        73,
+        181,
+        240
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.824 >= threshold 0.363 (best reference 0)",
+      "face_px": 181,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "r13-b3-bt-from44ee-1167",
+  "showcase_sha": "ea15a27762224774"
+}

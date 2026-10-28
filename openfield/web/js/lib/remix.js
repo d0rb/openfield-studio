@@ -6,16 +6,22 @@ import { fromRecipe } from "./direct.js";
 /**
  * @param {object} imported the answer of POST /api/receipts/import ({ verified, recipe, label })
  * @param {object} catalog  the move catalog
+ * @param {object[]} [recorded] the recordings: the one a receipt names tells quick mode on a one-still move
  * @returns {{ form: "direct"|"reshoot"|"portrait"|null, state: object|null, needs: string[], notice: string }}
  */
-export function remix(imported, catalog) {
+export function remix(imported, catalog, recorded = []) {
   const recipe = imported.recipe ?? {};
   const inputs = recipe.inputs ?? {};
   const notice = noticeFor(imported.verified);
   switch (recipe.kind) {
     case "direct": {
-      const state = fromRecipe({ ...inputs, prompt_only: inputs.mode === "prompt_only" }, catalog);
+      // the receipt keeps the plan's mode (quick only on a keyframed move, else as its recording says) and the line under dialogue
+      const move = catalog?.moves?.find((m) => m.id === (inputs.move ?? inputs.rig?.movement));
+      const twin = inputs.recipe_hash && recorded?.find((r) => r.recipe_hash === inputs.recipe_hash);
+      const { line, delivery, language } = inputs.dialogue ?? inputs;
+      const state = fromRecipe({ ...inputs, line, delivery, language, prompt_only: twin ? Boolean(twin.recipe?.prompt_only) : inputs.mode === "prompt_only" && move?.mode === "keyframed" }, catalog);
       const needs = inputs.cast?.name ? [`the character "${inputs.cast.name}" (pick it again in Cast)`] : [];
+      if (inputs.source) needs.push("your image (the hero still was your own photo)");
       return { form: "direct", state, needs, notice };
     }
     case "reshoot":
@@ -38,8 +44,8 @@ export function remix(imported, catalog) {
         state: null,
         needs: [],
         notice: recipe.kind === "export"
-          ? "An export is made from its source take. Open that take and export it again."
-          : "This receipt is not one OpenField can rebuild a take from.",
+          ? "Open the source take to export it again."
+          : "OpenField cannot rebuild a take from this receipt.",
       };
   }
 }
@@ -51,9 +57,9 @@ export function linkFromHash(hash) {
 }
 
 function noticeFor(verified) {
-  if (verified === true) return "The receipt's checksum matches, so it has not been edited since it was written. A checksum shows edits, not who made it.";
-  if (verified === null || verified === undefined) return "A recipe link carries a recipe, not a receipt: nothing here is checked or signed.";
-  return "This receipt's checksum does not match: it was edited after it was written, or OpenField did not make it. What follows may not match what was rendered.";
+  if (verified === true) return "The checksum matches. It does not prove who wrote it.";
+  if (verified === null || verified === undefined) return "Settings only. Nothing in it is checked.";
+  return "The checksum does not match. Edited, or not made here.";
 }
 
 /** Decode a recipe link (base64url of zlib-compressed JSON) in the browser, with no server round trip. */

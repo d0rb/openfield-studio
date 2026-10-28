@@ -1,0 +1,233 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261026_202937_c933",
+    "kind": "direct",
+    "created_at": "2026-10-26T20:32:03Z",
+    "label": "through object: Oskar sits still at a wooden table inside a fish"
+  },
+  "inputs": {
+    "subject": "Oskar sits still at a wooden table inside a fisherman's hut at dusk, his hands resting on a coiled net, an oil lamp beside him, seen from just inside the open doorway",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "halation_vintage",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "contre_jour",
+      "movement": "through_object",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "through_object",
+    "mode": "prompt_only",
+    "final_prompt": "Oskar sits still at a wooden table inside a fisherman's hut at dusk, his hands resting on a coiled net, an oil lamp beside him, seen from just inside the open doorway. The camera dollies out, pulling back from the subject on a smooth track and revealing the setting, moving at a steady pace. The camera travels backward on its track and arrives at a wide view with the whole setting around the subject. Shot on 35mm film with fine organic grain with a vintage lens with red halation around the highlights, 35mm (natural), at f/4 with moderate depth of field; strong backlight (contre-jour) with a glowing rim. We hear steady rain on the roof, a distant foghorn.",
+    "seed": 1341,
+    "orientation": "landscape",
+    "audio": "steady rain on the roof, a distant foghorn",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "reversed": {
+      "picture": "reversed in code",
+      "sound": "kept as rendered",
+      "rendered_as": "dolly_out"
+    },
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Oskar",
+      "refs": [
+        "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+      ]
+    },
+    "recipe_hash": "5d14e04a926253c3410e356739424217f3b95b0ebf295da447ead59e8e8352ae"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "3b427cb3cd63900ca6667311d5a74e2f3dd68396d7bf6e9fd4b175abbdc6c563",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "12b07c568118d1ded82094242332f1d005205bd71339244ede775dc841348bcb",
+        "job_id": "88837818-d5dd-4b69-a12c-4c13f4494624"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "323140c2e281f2cee71d655925b5110d54f209a1d8ee72b827085fee4c08a61b",
+        "job_id": "bd3b43bc-c74d-482f-868f-73bb8db707af"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8386038067272851,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8386038067272851,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8386038067272851
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          608,
+          153,
+          134,
+          168
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.839 >= threshold 0.363 (best reference 0)",
+        "face_px": 134,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.7639911566992363,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7639911566992363
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          577,
+          129,
+          132,
+          168
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.764 >= threshold 0.363 (best reference 0)",
+        "face_px": 132,
+        "enlarged": null,
+        "frame": "last",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "88837818-d5dd-4b69-a12c-4c13f4494624,bd3b43bc-c74d-482f-868f-73bb8db707af",
+    "timings": {
+      "total_s": 145.2
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "cabada34cf1e872bb6c3de559c284444587fdb20a2f2e188bc8caa33f1f2ffc0",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "0789b4502c0461c0dbacf8218988e7ce19909007ba3266b5a329aed63fc86d6e"
+  }
+}

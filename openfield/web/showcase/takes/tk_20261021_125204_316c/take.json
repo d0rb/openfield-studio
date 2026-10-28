@@ -1,0 +1,114 @@
+{
+  "id": "tk_20261021_125204_316c",
+  "kind": "direct",
+  "label": "static: Ines stands facing the camera on an empty roofto",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-21T12:52:04Z",
+  "updated_at": "2026-10-21T12:55:00Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines stands facing the camera on an empty rooftop at dusk, full body in frame from head to shoes, arms relaxed at her sides, the city skyline behind her",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "city air, a light wind",
+    "seed": 93,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "prompt_only": true,
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "0d5e9ec8a379099c5c46986caed5ee2f03334d2c8c743a8b646890dd09b58331",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.6694488744832845,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6694488744832845
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        635,
+        66,
+        67,
+        79
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.669 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.5662778361899086,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.5662778361899086
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        606,
+        50,
+        63,
+        75
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.566 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "ref-ines",
+  "showcase_sha": "2edbe03c9a2d9119"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "tk_20261025_142556_1936",
+  "kind": "direct",
+  "label": "static: A grand piano stands alone in an empty ballroom ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-25T14:25:56Z",
+  "updated_at": "2026-10-25T14:30:34Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A grand piano stands alone in an empty ballroom with tall windows, morning light on the parquet",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "ruin"
+    },
+    "audio": "a long held piano note, wind through broken glass",
+    "seed": 1601,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (ruin): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "b0cdecbd0803a905689ba9bd532eeb0ae80ab7131f540265ff4ecc8e50421ec0",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "r11-fx-ruin-a",
+  "showcase_sha": "8f85a4ae643a7ff2"
+}

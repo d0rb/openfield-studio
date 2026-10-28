@@ -1,0 +1,247 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_190448_a080",
+    "kind": "direct",
+    "created_at": "2026-10-22T19:11:01Z",
+    "label": "static: Noor stands under the open dome of a mountain ob"
+  },
+  "inputs": {
+    "subject": "Noor stands under the open dome of a mountain observatory at night, the telescope behind her, starlight on her glasses",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f1.4",
+      "lighting": "practicals",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "ignite",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Noor stands under the open dome of a mountain observatory at night, the telescope behind her, starlight on her glasses. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), wide open at f/1.4 with very shallow depth of field; practical lights in the scene making warm pools of light. The camera is locked off on a tripod; only the subject moves. Flames catch at the edges of the frame and spread across the scene, embers drifting upward and the light turning orange, until fire fills the shot, the crackle of the fire rising. Constraint: no camera movement, no zoom, no drift. Sound: a crackle growing into a roar.",
+    "seed": 173,
+    "orientation": "landscape",
+    "audio": "a crackle growing into a roar",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "transformation": "ignite",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_transform_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Noor",
+      "refs": [
+        "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+      ]
+    },
+    "recipe_hash": "2af5d2fe52e3a3e049294099ddac258963003ce503557c160a1918780bc15f01"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "f589ffdc99100b586908e47963571f476981bde11dba69aa31d351a0157078ad",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "72ff55e43c4744a089fd95063e9448dd4ef0cf4a6f400f79cabaaaaf31549021",
+        "job_id": "40f89d14-0dde-4012-8f0e-033c68fe8028"
+      },
+      {
+        "stage": "transform_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "4b24be0c648f8886068afd0d24b39938810f8a28a1b4b0ed3b537f6dee2d2f01",
+        "job_id": "f05b0896-9fb5-4a41-8d48-9833fa31244a"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "480642e5acc376b9a6d75f2fdeef8d80e4200e98e99717ea7e07cccd564b129a",
+        "job_id": "24483265-2d94-40b6-84bf-0748c3dba43a"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8876427293699575,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8876427293699575,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8876427293699575
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          565,
+          211,
+          178,
+          227
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.888 >= threshold 0.363 (best reference 0)",
+        "face_px": 178,
+        "enlarged": null
+      },
+      "transform_1": {
+        "status": "pass",
+        "score": 0.8813542708786868,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8813542708786868
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          569,
+          209,
+          172,
+          231
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.881 >= threshold 0.363 (best reference 0)",
+        "face_px": 172,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.8452872592151496,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8452872592151496
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          543,
+          187,
+          162,
+          220
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.845 >= threshold 0.363 (best reference 0)",
+        "face_px": 162,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "40f89d14-0dde-4012-8f0e-033c68fe8028,f05b0896-9fb5-4a41-8d48-9833fa31244a,24483265-2d94-40b6-84bf-0748c3dba43a",
+    "timings": {
+      "total_s": 373.6
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "2d50259f3b9ae86251c74ebc459309950bc7dc92f8149cf3f6f2bb5bd51c5da1",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "b64d7734d946ea1aaf065e3bdb33b708de8dc53c2f809be3dc4784acc1d41587"
+  }
+}

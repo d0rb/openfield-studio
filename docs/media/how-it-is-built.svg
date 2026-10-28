@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">OpenField Studio architecture</title>
+  <desc id="desc">The browser talks to a FastAPI app, which runs a pipeline; the pipeline calls ComfyUI through comfy-sdk and the official templates, which run LTX 2.5, Qwen-Image 2.1 and Wan Animate 2. An audit, an identity check and a receipt surround every take. Replay and the static export play recorded takes back.</desc>
+
+  <rect width="1200" height="560" fill="#141311"/>
+
+  <defs>
+    <marker id="foot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff7a1a"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="54" font-family="Barlow, system-ui, sans-serif" font-size="30" fill="#ebe8e3">OpenField Studio</text>
+  <text x="40" y="84" font-family="Barlow, system-ui, sans-serif" font-size="17" fill="#aba59d">browser UI → FastAPI → comfy-sdk → ComfyUI → models. Every take keeps its receipt.</text>
+
+  <g stroke="#37332e" stroke-width="1" fill="none">
+    <rect x="40" y="110" width="150" height="100" rx="3"/>
+    <rect x="232" y="110" width="150" height="100" rx="3"/>
+    <rect x="424" y="110" width="200" height="100" rx="3"/>
+    <rect x="666" y="110" width="150" height="100" rx="3"/>
+    <rect x="845" y="110" width="150" height="100" rx="3"/>
+    <rect x="1015" y="110" width="150" height="100" rx="3"/>
+    <rect x="40" y="252" width="1120" height="132" rx="3"/>
+    <rect x="70" y="288" width="255" height="80" rx="3"/>
+    <rect x="355" y="288" width="245" height="80" rx="3"/>
+    <rect x="630" y="288" width="240" height="80" rx="3"/>
+    <rect x="900" y="288" width="240" height="80" rx="3"/>
+    <rect x="40" y="408" width="550" height="112" rx="3"/>
+    <rect x="610" y="408" width="550" height="112" rx="3"/>
+  </g>
+
+  <g font-family="Barlow, system-ui, sans-serif" font-size="22" fill="#ebe8e3">
+    <text x="56" y="144">Browser UI</text>
+    <text x="248" y="144">FastAPI</text>
+    <text x="440" y="144">Pipeline</text>
+    <text x="682" y="144">comfy-sdk</text>
+    <text x="861" y="144">ComfyUI</text>
+    <text x="1031" y="144">Models</text>
+  </g>
+
+  <g font-family="Overpass Mono, ui-monospace, monospace" font-size="14" fill="#aba59d">
+    <text x="56" y="172">openfield/web</text>
+    <text x="56" y="194">no build step</text>
+    <text x="248" y="172">app.py</text>
+    <text x="248" y="194">FastAPI routes</text>
+    <text x="440" y="172" font-size="15">pipeline.py</text>
+    <text x="440" y="194">approve · render</text>
+    <text x="682" y="172" font-size="13">backends/sdk.py</text>
+    <text x="682" y="194" font-size="13">submit · events</text>
+    <text x="861" y="159" font-size="13">workflows/</text>
+    <text x="861" y="175" font-size="13">official</text>
+    <text x="861" y="191" font-size="13">templates</text>
+    <text x="861" y="207" font-size="13">no custom nodes</text>
+    <text x="1031" y="166">LTX 2.5</text>
+    <text x="1031" y="187">Qwen-Image 2.1</text>
+    <text x="1031" y="208">Wan Animate 2</text>
+  </g>
+
+  <g stroke="#ff7a1a" stroke-width="2" marker-end="url(#foot)">
+    <line x1="190" y1="160" x2="224" y2="160"/>
+    <line x1="382" y1="160" x2="416" y2="160"/>
+    <line x1="624" y1="160" x2="658" y2="160"/>
+    <line x1="816" y1="160" x2="837" y2="160"/>
+    <line x1="995" y1="160" x2="1007" y2="160"/>
+  </g>
+
+  <text x="60" y="274" font-family="Overpass Mono, ui-monospace, monospace" font-size="15" fill="#aba59d">around every take</text>
+
+  <g font-family="Barlow, system-ui, sans-serif" font-size="20" fill="#ebe8e3">
+    <text x="86" y="318">Open-weights audit</text>
+    <text x="371" y="318">Identity check</text>
+    <text x="646" y="318">One folder per take</text>
+    <text x="916" y="318">receipt.json</text>
+  </g>
+
+  <g font-family="Overpass Mono, ui-monospace, monospace" font-size="14" fill="#aba59d">
+    <text x="86" y="344">engine/audit.py</text>
+    <text x="86" y="362">allowlist of official nodes</text>
+    <text x="371" y="344">engine/identity.py</text>
+    <text x="371" y="362">YuNet + SFace · 0.363</text>
+    <text x="646" y="344">ledger.py · take.json</text>
+    <text x="646" y="362">video · stills · events</text>
+    <text x="916" y="344">SHA-256 checksum</text>
+    <text x="916" y="362">not a signature</text>
+  </g>
+
+  <g font-family="Barlow, system-ui, sans-serif" font-size="22" fill="#ebe8e3">
+    <text x="56" y="442">Replay and the static export</text>
+    <text x="626" y="442">Every take carries its receipt</text>
+  </g>
+
+  <g font-family="Barlow, system-ui, sans-serif" font-size="15" fill="#ebe8e3">
+    <text x="56" y="470">Recorded events play back; any other recipe is refused.</text>
+    <text x="626" y="470">prompts · seeds · workflows · model files with licences</text>
+    <text x="626" y="492">audit · identity · a checksum over the canonical JSON</text>
+  </g>
+
+  <g font-family="Overpass Mono, ui-monospace, monospace" font-size="14" fill="#aba59d">
+    <text x="56" y="500">backends/replay.py · static_export.py</text>
+    <text x="626" y="516">pipeline.py · engine/receipt.py</text>
+  </g>
+
+  <text x="40" y="548" font-family="Barlow, system-ui, sans-serif" font-size="15" fill="#aba59d">Open weights, each under its own licence · code MIT</text>
+</svg>

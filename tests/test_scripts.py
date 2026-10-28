@@ -6,6 +6,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 SCRIPTS = Path(__file__).resolve().parents[1] / "scripts"
 WORKFLOWS = Path(__file__).resolve().parents[1] / "openfield" / "workflows"
 
@@ -22,7 +24,7 @@ def load(name: str):
 def test_validate_workflows_passes_the_mini_templates_and_fails_missing_ones(tmp_path, capsys):
     validate = load("validate_workflows")
     assert validate.main(["--dir", str(WORKFLOWS)]) == 0
-    assert "5/5 templates usable" in capsys.readouterr().out
+    assert "6/6 templates usable" in capsys.readouterr().out
     assert validate.main(["--dir", str(tmp_path)]) == 1
     assert "[FAIL] ltx25_flf2v" in capsys.readouterr().out
 
@@ -66,3 +68,11 @@ def test_export_script_suggests_slot_candidates_from_titles_and_classes():
     qwen = export.candidates(json.loads((WORKFLOWS / "qwen21_t2i.api.json").read_text()))
     # the switch's literal is the prompt; the enhancer's system prompt is never suggested
     assert qwen["prompt"][0] == {"node": "459:474", "input": "on_false", "why": "ComfySwitchNode 'If/Else Switch'"}
+
+
+def test_showcase_mid_strength_requires_single_pass(capsys):
+    from openfield.cli import main
+
+    with pytest.raises(SystemExit):
+        main(["showcase", "--mid-strength", "0.5", "--dry-run"])
+    assert "--mid-strength requires --single-pass" in capsys.readouterr().err

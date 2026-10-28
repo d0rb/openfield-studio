@@ -8,7 +8,7 @@ import pytest
 from PIL import Image
 
 from openfield.backends.base import BackendError, media_kind
-from openfield.backends.replay import ReplayBackend
+from openfield.backends.replay import ReplayBackend, hero_reel, hero_take
 from openfield.backends.sdk import SdkBackend, classify
 from openfield.engine.workflows import load_template
 
@@ -167,6 +167,15 @@ async def test_health_reports_reachability(fake_api):
     assert (await backend_for(fake_api).health())["ok"] is True
     down = await SdkBackend(base_url="http://127.0.0.1:9").health()
     assert down["ok"] is False
+    assert down["code"] == "unreachable" and "tunnel" in down["detail"]
+    fake_api.plain_comfy = True  # the person pasted ComfyUI's own address instead of the proxy's
+    plain = await backend_for(fake_api).health()
+    assert plain["ok"] is False and plain["code"] == "not_a_proxy" and "comfy-api-proxy" in plain["detail"]
+    fake_api.plain_comfy = False
+    fake_api.token = "t0k3n"
+    assert (await backend_for(fake_api).health())["code"] == "missing_api_key"
+    assert (await backend_for(fake_api, api_key="nope").health())["code"] == "unauthorized"
+    assert (await backend_for(fake_api, api_key="t0k3n").health())["ok"] is True
 
 
 def test_backend_kinds():
@@ -210,8 +219,59 @@ async def test_replay_indexes_only_complete_recorded_takes_and_never_renders(pat
     assert "media_base" not in replay.recorded()[0]
     shelf = replay.recorded({root: "/showcase/takes/{id}", tmp_path / "unrelated": "/x/{id}"})
     assert shelf[0]["media_base"] == "/showcase/takes/tk_20261016_120000_aaaa"
+    proof = json.loads((good / "take.json").read_text(encoding="utf-8"))
+    proof.update(identity={"hero": {"status": "same", "score": 0.81}}, audit={"result": "pass"})
+    (good / "take.json").write_text(json.dumps(proof), encoding="utf-8")
+    entry = replay.recorded()[0]
+    assert entry["identity"]["hero"]["score"] == 0.81 and entry["audit"] == {"result": "pass"}
+    assert replay.folder("tk_20261016_120000_aaaa") == good and replay.folder("tk_20261016_120001_bbbb") is None
+    assert replay.folder("../etc") is None
     assert "1 recorded take" in (await replay.health())["detail"]
 
     with pytest.raises(BackendError) as info:
         await replay.run(patched, out_dir=tmp_path / "nope")
     assert info.value.code == "replay_unavailable"
+
+
+def test_a_kept_superseded_take_never_shadows_its_re_record(tmp_path):
+    """A forced re-record of an unchanged spec has the same recipe hash; the old folder stays when other takes point at it."""
+    def record(root, name, created, digest="h-lava"):
+        folder = root / name
+        folder.mkdir(parents=True)
+        (folder / "take.json").write_text(json.dumps({
+            "id": name, "kind": "direct", "label": name, "recipe": {"subject": "lava surfer"}, "outputs": [],
+            "status": "succeeded", "recipe_hash": digest, "created_at": created}), encoding="utf-8")
+        (folder / "receipt.json").write_text("{}", encoding="utf-8")
+        return folder
+
+    shelf = tmp_path / "showcase"
+    record(shelf, "tk_20261021_090000_aaaa", "2026-10-21T09:00:00Z")  # kept: a transition and an extension point at it
+    redo = record(shelf, "tk_20261023_100000_bbbb", "2026-10-23T10:00:00Z")
+    record(shelf, "tk_20261022_090000_cccc", "2026-10-22T09:00:00Z")
+    replay = ReplayBackend([shelf])
+    assert replay.find("h-lava") == redo and [r["id"] for r in replay.recorded()] == [redo.name]
+    mine = record(tmp_path / "takes", "tk_20261020_080000_dddd", "2026-10-20T08:00:00Z")
+    assert ReplayBackend([tmp_path / "takes", shelf]).find("h-lava") == mine, "an earlier root still wins, as before"
+
+
+def test_the_showcase_names_its_hero_and_the_filmstrip_order(tmp_path):
+    assert hero_take(tmp_path) is None and hero_reel(tmp_path) == []
+    (tmp_path / "hero.json").write_text(json.dumps({"take": "tk_a", "reel": ["tk_b", "", 3, "tk_a"]}), encoding="utf-8")
+    assert hero_take(tmp_path) == "tk_a"
+    assert hero_reel(tmp_path) == ["tk_b", "tk_a"]  # names only, in the order given
+    (tmp_path / "hero.json").write_text("{not json", encoding="utf-8")
+    assert hero_take(tmp_path) is None and hero_reel(tmp_path) == []
+
+
+def test_the_per_request_timeout_comes_from_the_environment_or_the_default(monkeypatch):
+    from openfield.backends import sdk as sdk_module
+
+    monkeypatch.delenv("OPENFIELD_REQUEST_TIMEOUT", raising=False)
+    assert SdkBackend(base_url="http://127.0.0.1:9")._request_timeout == sdk_module.DEFAULT_REQUEST_TIMEOUT
+    monkeypatch.setenv("OPENFIELD_REQUEST_TIMEOUT", "900")
+    assert SdkBackend(base_url="http://127.0.0.1:9")._request_timeout == 900.0
+    assert SdkBackend(base_url="http://127.0.0.1:9", request_timeout=2.0)._request_timeout == 2.0, "an explicit value wins"
+    monkeypatch.setenv("OPENFIELD_REQUEST_TIMEOUT", "soon")
+    assert SdkBackend(base_url="http://127.0.0.1:9")._request_timeout == sdk_module.DEFAULT_REQUEST_TIMEOUT
+    monkeypatch.setenv("OPENFIELD_REQUEST_TIMEOUT", "-5")
+    assert SdkBackend(base_url="http://127.0.0.1:9")._request_timeout == sdk_module.DEFAULT_REQUEST_TIMEOUT

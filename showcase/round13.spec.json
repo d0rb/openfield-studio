@@ -1,0 +1,666 @@
+{
+ "_comment": "GPU session 10 (round 13): the samurai draw in three guards, bullet time from a recorded still, the moves re-built (through object, pedestal down, vertigo, arcs) and eight new showcase takes (crane down, helicopter, FPV, robot arm, reveal, overhead, push-in and a spoken static in Spanish). Casts are copied from round 11 word for word so the faces stay the same. Blocks run by name prefix with --only.",
+ "casts": [
+  {
+   "name": "Mara",
+   "description": "a woman in her late twenties with short dark hair, freckles and a yellow rain jacket",
+   "count": 3,
+   "pick": 1,
+   "seed": 101
+  },
+  {
+   "name": "Oskar",
+   "description": "an elderly man with a white beard, weathered skin and a navy knit cap",
+   "count": 3,
+   "pick": 1,
+   "seed": 202
+  },
+  {
+   "name": "Ines",
+   "description": "a young woman with long curly auburn hair, round glasses and a mustard cardigan",
+   "count": 3,
+   "pick": 1,
+   "seed": 303
+  },
+  {
+   "name": "Noor",
+   "description": "a woman in her thirties with dark skin, cropped silver-grey hair, round glasses and a red wool coat",
+   "count": 3,
+   "pick": 1,
+   "seed": 104
+  },
+  {
+   "name": "Tomas",
+   "description": "a broad-shouldered man in his forties with a trimmed grey beard, a scar through one eyebrow and a white chef's jacket",
+   "count": 3,
+   "pick": 1,
+   "seed": 105
+  }
+ ],
+ "takes": [
+  {
+   "name": "r13-a1-draw-high-613",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals"
+   },
+   "seed": 613,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lifts it into a high guard beside his right shoulder, the blade pointing up and back, clear of his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a1-draw-high-614",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals"
+   },
+   "seed": 614,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lifts it into a high guard beside his right shoulder, the blade pointing up and back, clear of his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a1-draw-high-615",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals"
+   },
+   "seed": 615,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lifts it into a high guard beside his right shoulder, the blade pointing up and back, clear of his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a2-draw-low-616",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals"
+   },
+   "seed": 616,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lowers it into a guard at his right side, the tip angled down toward the wet street, and holds still, his gaze steady ahead.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a2-draw-low-617",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals"
+   },
+   "seed": 617,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lowers it into a guard at his right side, the tip angled down toward the wet street, and holds still, his gaze steady ahead.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a2-draw-low-618",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals"
+   },
+   "seed": 618,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lowers it into a guard at his right side, the tip angled down toward the wet street, and holds still, his gaze steady ahead.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a3-draw-high-slow-619",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "slow"
+   },
+   "seed": 619,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lifts it into a high guard beside his right shoulder, the blade pointing up and back, clear of his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a3-draw-high-slow-620",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "slow"
+   },
+   "seed": 620,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lifts it into a high guard beside his right shoulder, the blade pointing up and back, clear of his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a3-draw-high-slow-621",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "slow"
+   },
+   "seed": 621,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then lifts it into a high guard beside his right shoulder, the blade pointing up and back, clear of his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-b1-bt-1163",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+   "rig": {
+    "movement": "bullet_time",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "steady"
+   },
+   "seed": 1163,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "a deep slowed-down whoosh, then the hush of frozen rain"
+  },
+  {
+   "name": "r13-b1-bt-1164",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+   "rig": {
+    "movement": "bullet_time",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "steady"
+   },
+   "seed": 1164,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "a deep slowed-down whoosh, then the hush of frozen rain"
+  },
+  {
+   "name": "r13-b2-bt-upright-1165",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour, frozen mid-strike with the katana raised straight above his head in both hands, the long blade pointing at the night sky, sparks and raindrops frozen in the air around it, on a neon-lit Tokyo street at night",
+   "rig": {
+    "movement": "bullet_time",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "steady"
+   },
+   "seed": 1165,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "a deep slowed-down whoosh, then the hush of frozen rain"
+  },
+  {
+   "name": "r13-b2-bt-upright-1166",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour, frozen mid-strike with the katana raised straight above his head in both hands, the long blade pointing at the night sky, sparks and raindrops frozen in the air around it, on a neon-lit Tokyo street at night",
+   "rig": {
+    "movement": "bullet_time",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "steady"
+   },
+   "seed": 1166,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "a deep slowed-down whoosh, then the hush of frozen rain"
+  },
+  {
+   "name": "r13-b3-bt-from44ee-1160",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+   "rig": {
+    "movement": "bullet_time",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "steady"
+   },
+   "seed": 1160,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+   "from": "r11-bt4-samurai-90"
+  },
+  {
+   "name": "r13-b3-bt-from44ee-1167",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+   "rig": {
+    "movement": "bullet_time",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "steady"
+   },
+   "seed": 1167,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+   "from": "r11-bt4-samurai-90"
+  },
+  {
+   "name": "r13-c-through-hut-1341",
+   "kind": "direct",
+   "cast": "Oskar",
+   "seed": 1341,
+   "subject": "Oskar sits still at a wooden table inside a fisherman's hut at dusk, his hands resting on a coiled net, an oil lamp beside him, seen from just inside the open doorway",
+   "rig": {
+    "movement": "through_object",
+    "sensor": "35mm_film",
+    "lens": "halation_vintage",
+    "aperture": "f4",
+    "lighting": "contre_jour",
+    "speed": "steady"
+   },
+   "quality": "standard",
+   "audio": "steady rain on the roof, a distant foghorn"
+  },
+  {
+   "name": "r13-c-through-shop-1342",
+   "kind": "direct",
+   "cast": "Mara",
+   "seed": 1342,
+   "subject": "Mara sits still in an armchair with an open book on her lap inside a small bookshop at night, shelves on both sides, seen from just inside its open front door",
+   "rig": {
+    "movement": "through_object",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "steady"
+   },
+   "quality": "standard",
+   "audio": "the hush of a bookshop at night, a clock ticking"
+  },
+  {
+   "name": "r13-c-pedestal-pier-1351",
+   "kind": "direct",
+   "cast": "Oskar",
+   "seed": 1351,
+   "subject": "Oskar stands at the rail of a harbour pier at golden hour, fishing boats moored behind him",
+   "rig": {
+    "movement": "pedestal_down",
+    "sensor": "35mm_film",
+    "lens": "halation_vintage",
+    "aperture": "f4",
+    "lighting": "contre_jour",
+    "speed": "steady"
+   },
+   "quality": "standard",
+   "audio": "water lapping against wood, a distant foghorn"
+  },
+  {
+   "name": "r13-c-pedestal-books-1352",
+   "kind": "direct",
+   "seed": 1352,
+   "subject": "A tall stack of old leather-bound books beside a brass lamp on a dark library table at night",
+   "rig": {
+    "movement": "pedestal_down",
+    "sensor": "35mm_film",
+    "lens": "halation_vintage",
+    "aperture": "f4",
+    "lighting": "contre_jour",
+    "speed": "steady"
+   },
+   "quality": "standard",
+   "audio": "the hush of a library at night, a clock ticking"
+  },
+  {
+   "name": "r13-c-vertigo-corridor-1361",
+   "kind": "direct",
+   "cast": "Ines",
+   "seed": 1361,
+   "subject": "Ines stands still in a long, narrow library corridor at night, shelves receding to a single lit window far behind her, looking at the camera",
+   "rig": {
+    "movement": "vertigo",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals"
+   },
+   "quality": "standard",
+   "audio": "the hush of a library at night, a clock ticking"
+  },
+  {
+   "name": "r13-c-vertigo-pier-1362",
+   "kind": "direct",
+   "cast": "Mara",
+   "seed": 1362,
+   "subject": "Mara stands still at the near end of a long wooden pier at dusk, lamps receding out to sea behind her, looking at the camera",
+   "rig": {
+    "movement": "vertigo",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals"
+   },
+   "quality": "standard",
+   "audio": "water lapping against wood, a distant foghorn"
+  },
+  {
+   "name": "r13-c-arc-left-square-1371",
+   "kind": "direct",
+   "cast": "Noor",
+   "seed": 1371,
+   "subject": "Noor in her red wool coat stands still on a cobbled square in an old European town at dusk, café lights and a stone fountain behind her",
+   "rig": {
+    "movement": "arc_left",
+    "sensor": "35mm_film",
+    "lens": "halation_vintage",
+    "aperture": "f4",
+    "lighting": "contre_jour",
+    "speed": "steady"
+   },
+   "quality": "standard",
+   "audio": "evening chatter from the cafés, a fountain playing"
+  },
+  {
+   "name": "r13-c-arc-right-square-1372",
+   "kind": "direct",
+   "cast": "Noor",
+   "seed": 1372,
+   "subject": "Noor in her red wool coat stands still on a cobbled square in an old European town at dusk, café lights and a stone fountain behind her",
+   "rig": {
+    "movement": "arc_right",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4"
+   },
+   "quality": "standard",
+   "audio": "evening chatter from the cafés, a fountain playing"
+  },
+  {
+   "name": "r13-c-arc-left-market-1373",
+   "kind": "direct",
+   "cast": "Tomas",
+   "seed": 1373,
+   "subject": "Tomas in his white chef's jacket stands still in a busy night market, paper lanterns and food stalls receding behind him",
+   "rig": {
+    "movement": "arc_left",
+    "sensor": "35mm_film",
+    "lens": "halation_vintage",
+    "aperture": "f4",
+    "lighting": "contre_jour",
+    "speed": "steady"
+   },
+   "quality": "standard",
+   "audio": "market murmur, a sizzling griddle, paper lanterns creaking"
+  },
+  {
+   "name": "r13-c-arc-right-market-1374",
+   "kind": "direct",
+   "cast": "Tomas",
+   "seed": 1374,
+   "subject": "Tomas in his white chef's jacket stands still in a busy night market, paper lanterns and food stalls receding behind him",
+   "rig": {
+    "movement": "arc_right",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4"
+   },
+   "quality": "standard",
+   "audio": "market murmur, a sizzling griddle, paper lanterns creaking"
+  },
+  {
+   "name": "r13-d-noor-lake-crane-down-1301",
+   "kind": "direct",
+   "cast": "Noor",
+   "seed": 1301,
+   "subject": "Noor in her red wool coat stands at the edge of a frozen mountain lake at dawn, the peaks behind her glowing pink, her breath misting in the cold",
+   "rig": {
+    "movement": "crane_down",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4"
+   },
+   "quality": "standard",
+   "audio": "wind over ice, a distant crack of the lake, her breath"
+  },
+  {
+   "name": "r13-d-oskar-boat-helicopter-1302",
+   "kind": "direct",
+   "cast": "Oskar",
+   "seed": 1302,
+   "subject": "Oskar rows a small wooden boat across a misty lake at sunrise, pine forest on the far shore",
+   "rig": {
+    "movement": "helicopter",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4"
+   },
+   "quality": "standard",
+   "audio": "oars dipping, water lapping at the hull, distant birds"
+  },
+  {
+   "name": "r13-d-mara-trail-fpv-1303",
+   "kind": "direct",
+   "cast": "Mara",
+   "seed": 1303,
+   "subject": "Mara in her yellow rain jacket rides a mountain bike down a forest trail at golden hour, light flickering through the trees",
+   "rig": {
+    "movement": "fpv_drone",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4"
+   },
+   "quality": "standard",
+   "audio": "tyres on the trail, wind in the trees, birds"
+  },
+  {
+   "name": "r13-d-tomas-sauce-robot-arm-1304",
+   "kind": "direct",
+   "cast": "Tomas",
+   "seed": 1304,
+   "subject": "Tomas in his white chef's jacket leans over a plated dessert on a black slate in a dim kitchen, one spotlight above",
+   "rig": {
+    "movement": "robot_arm",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4"
+   },
+   "quality": "standard",
+   "audio": "a quiet kitchen hum, sauce pouring onto porcelain",
+   "action": "He pours dark chocolate sauce slowly in a thin ribbon over the dessert."
+  },
+  {
+   "name": "r13-d-ines-cafe-reveal-1305",
+   "kind": "direct",
+   "cast": "Ines",
+   "seed": 1305,
+   "subject": "Ines reads by a rain-streaked window in a Paris café at dusk, the dark edge of a coat stand close to the lens",
+   "rig": {
+    "movement": "reveal",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "window"
+   },
+   "quality": "standard",
+   "audio": "rain on the window, cafe murmur, a spoon on a saucer"
+  },
+  {
+   "name": "r13-d-oskar-charts-top-down-1306",
+   "kind": "direct",
+   "cast": "Oskar",
+   "seed": 1306,
+   "subject": "Oskar sits at a round table covered in old sea charts, a brass compass and a steaming mug beside him",
+   "rig": {
+    "movement": "top_down",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4"
+   },
+   "quality": "standard",
+   "audio": "a clock ticking, paper rustling, a mug set down",
+   "action": "He slides the compass slowly across a chart with one finger."
+  },
+  {
+   "name": "r13-d-mara-alley-line-1307",
+   "kind": "direct",
+   "cast": "Mara",
+   "seed": 1307,
+   "subject": "Mara stands under a flickering pink neon sign in a rainy alley at night, looking at the camera",
+   "rig": {
+    "movement": "push_in",
+    "sensor": "35mm_film",
+    "lens": "halation_vintage",
+    "aperture": "f4",
+    "lighting": "contre_jour",
+    "speed": "steady"
+   },
+   "quality": "standard",
+   "orientation": "portrait",
+   "audio": "rain on the alley, neon buzzing, distant traffic",
+   "line": "You came back. I knew you would.",
+   "delivery": "calm",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-d-tomas-kitchen-line-es-1308",
+   "kind": "direct",
+   "cast": "Tomas",
+   "seed": 1308,
+   "subject": "Tomas leans on a steel counter in an empty restaurant kitchen late at night, one light on over the pass",
+   "rig": {
+    "movement": "static",
+    "sensor": "35mm_film",
+    "lens": "halation_vintage",
+    "aperture": "f1.4",
+    "lighting": "contre_jour",
+    "speed": "slow"
+   },
+   "quality": "standard",
+   "orientation": "portrait",
+   "audio": "a quiet kitchen, a fan humming, a plate set down",
+   "line": "La cocina está cerrada. Pero para ti, un plato más.",
+   "delivery": "natural",
+   "language": "Spanish"
+  },
+  {
+   "name": "r13-a4-draw-up-622",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "slow"
+   },
+   "seed": 622,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then raises it straight up above his head in both hands, the long blade pointing at the night sky, high above his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a4-draw-up-623",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "slow"
+   },
+   "seed": 623,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then raises it straight up above his head in both hands, the long blade pointing at the night sky, high above his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  },
+  {
+   "name": "r13-a4-draw-up-624",
+   "kind": "direct",
+   "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+   "rig": {
+    "movement": "dolly_in",
+    "sensor": "modern_digital",
+    "lens": "clean_sharp",
+    "aperture": "f4",
+    "lighting": "practicals",
+    "speed": "slow"
+   },
+   "seed": 624,
+   "cast": "Tomas",
+   "quality": "standard",
+   "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+   "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then raises it straight up above his head in both hands, the long blade pointing at the night sky, high above his face, and holds still as rain beads on the steel.",
+   "prompt_only": true
+  }
+ ]
+}

@@ -194,9 +194,151 @@ def test_audit_rejects_partner_nodes_and_unknown_weights(template):
     assert not audit_graph({}).passed
 
 
+def test_ltx25_flf2v_guide_list_patches_mid_stills(tmp_path):
+    template = load_template("ltx25_flf2v")
+    first, last, mid1, mid2 = (tmp_path / f"{n}.png" for n in ("first", "last", "mid1", "mid2"))
+    for p in (first, last, mid1, mid2):
+        Image.new("RGB", (64, 36), "red").save(p)
+    patched = template.patch({
+        "prompt": "A lighthouse at dusk.",
+        "seed": 42,
+        "duration": 5,
+        "first_frame": first,
+        "last_frame": last,
+        "mids": [{"image": mid1, "frame_idx": 32}, {"image": mid2, "frame_idx": 64}],
+    })
+    graph = patched.graph
+    assert "251:204_mids_0" in graph and "251:204_mids_1" in graph
+    assert "251:214_mids_0" in graph and "251:195_mids_0" in graph
+    assert "39_mids_0" in graph and "39_mids_1" in graph
+    assert graph["251:204"]["inputs"]["positive"] == ["251:204_mids_1", 0]
+    assert graph["251:204"]["inputs"]["negative"] == ["251:204_mids_1", 1]
+    assert graph["251:204"]["inputs"]["latent"] == ["251:204_mids_1", 2]
+    assert graph["251:204_mids_0"]["inputs"]["positive"] == ["251:206", 0]
+    assert graph["251:204_mids_0"]["inputs"]["negative"] == ["251:206", 1]
+    assert graph["251:204_mids_0"]["inputs"]["latent"] == ["251:206", 2]
+    assert graph["251:204_mids_1"]["inputs"]["positive"] == ["251:204_mids_0", 0]
+    assert graph["251:204_mids_1"]["inputs"]["latent"] == ["251:204_mids_0", 2]
+    assert graph["251:204_mids_0"]["inputs"]["frame_idx"] == 32
+    assert graph["251:204_mids_1"]["inputs"]["frame_idx"] == 64
+    assert len(patched.assets) == 4
+    assert audit_graph(patched.graph).result == "pass"
+
+
+def test_ltx25_flf2v_guide_list_strength_is_applied_per_still_and_keeps_originals(tmp_path):
+    template = load_template("ltx25_flf2v")
+    first, last, mid1, mid2 = (tmp_path / f"{n}.png" for n in ("first", "last", "mid1", "mid2"))
+    for p in (first, last, mid1, mid2):
+        Image.new("RGB", (64, 36), "red").save(p)
+    patched = template.patch({
+        "prompt": "A lighthouse at dusk.",
+        "seed": 42,
+        "duration": 5,
+        "first_frame": first,
+        "last_frame": last,
+        "mids": [
+            {"image": mid1, "frame_idx": 32, "strength": 0.3},
+            {"image": mid2, "frame_idx": 64, "strength": 0.5},
+        ],
+    })
+    graph = patched.graph
+    assert graph["251:204_mids_0"]["inputs"]["strength"] == 0.3
+    assert graph["251:204_mids_1"]["inputs"]["strength"] == 0.5
+    assert graph["251:204"]["inputs"]["strength"] == 0.7
+    assert graph["251:206"]["inputs"]["strength"] == 0.7
+
+
+def test_ltx25_flf2v_guide_list_rejects_bad_strengths(tmp_path):
+    template = load_template("ltx25_flf2v")
+    first, last, mid = (tmp_path / f"{n}.png" for n in ("first", "last", "mid"))
+    for p in (first, last, mid):
+        Image.new("RGB", (64, 36), "red").save(p)
+    base = {
+        "prompt": "A lighthouse at dusk.",
+        "seed": 42,
+        "duration": 5,
+        "first_frame": first,
+        "last_frame": last,
+    }
+    with pytest.raises(WorkflowError, match="strength must be a number in"):
+        template.patch(base | {"mids": [{"image": mid, "frame_idx": 32, "strength": 0}]})
+    with pytest.raises(WorkflowError, match="strength must be a number in"):
+        template.patch(base | {"mids": [{"image": mid, "frame_idx": 32, "strength": "x"}]})
+
+
+def test_ltx25_flf2v_guide_list_sha256_differs_by_frame_idx(tmp_path):
+    template = load_template("ltx25_flf2v")
+    first, last, mid = (tmp_path / f"{n}.png" for n in ("first", "last", "mid"))
+    for p in (first, last, mid):
+        Image.new("RGB", (64, 36), "red").save(p)
+    base = {
+        "prompt": "A lighthouse at dusk.",
+        "seed": 42,
+        "duration": 5,
+        "first_frame": first,
+        "last_frame": last,
+    }
+    a = template.patch(base | {"mids": [{"image": mid, "frame_idx": 64}]}).sha256()
+    b = template.patch(base | {"mids": [{"image": mid, "frame_idx": 72}]}).sha256()
+    assert a != b
+
+
+def test_ltx25_flf2v_guide_list_rejects_bad_inputs(tmp_path):
+    template = load_template("ltx25_flf2v")
+    first, last, mid = (tmp_path / f"{n}.png" for n in ("first", "last", "mid"))
+    for p in (first, last, mid):
+        Image.new("RGB", (64, 36), "red").save(p)
+    base = {
+        "prompt": "A lighthouse at dusk.",
+        "seed": 42,
+        "duration": 5,
+        "first_frame": first,
+        "last_frame": last,
+    }
+    with pytest.raises(WorkflowError, match="at most 3 stills"):
+        template.patch(base | {"mids": [{"image": mid, "frame_idx": 1}] * 4})
+    with pytest.raises(WorkflowError, match="strictly increasing"):
+        template.patch(base | {"mids": [{"image": mid, "frame_idx": 64}, {"image": mid, "frame_idx": 32}]})
+    with pytest.raises(WorkflowError, match="frame_idx must be an integer >= 1"):
+        template.patch(base | {"mids": [{"image": mid, "frame_idx": 0}]})
+    missing = tmp_path / "missing.png"
+    with pytest.raises(WorkflowError, match="file not found"):
+        template.patch(base | {"mids": [{"image": missing, "frame_idx": 32}]})
+
+
+def test_ltx25_flf2v_guide_list_empty_or_absent_is_identical(tmp_path):
+    template = load_template("ltx25_flf2v")
+    first, last = (tmp_path / f"{n}.png" for n in ("first", "last"))
+    for p in (first, last):
+        Image.new("RGB", (64, 36), "red").save(p)
+    base = {
+        "prompt": "A lighthouse at dusk.",
+        "seed": 42,
+        "duration": 5,
+        "first_frame": first,
+        "last_frame": last,
+    }
+    assert template.patch(base).sha256() == template.patch(base | {"mids": []}).sha256()
+
+
+def test_ltx25_flf2v_guide_list_problems_detect_bad_guide_and_chain():
+    template = load_template("ltx25_flf2v")
+    broken = copy.deepcopy(template)
+    broken.graph["251:204"]["class_type"] = "NotLTXVAddGuide"
+    problems = broken.problems()
+    assert any("slot 'mids': guide node 251:204 is 'NotLTXVAddGuide'" in p for p in problems)
+
+    broken2 = copy.deepcopy(template)
+    del broken2.graph["251:214"]
+    problems2 = broken2.problems()
+    assert any("slot 'mids': chain nodes ['251:214'] are not in the graph" in p for p in problems2)
+
+
 def test_every_template_node_in_the_manifest_is_allowed():
     manifest = json.loads(models.MANIFEST_PATH.read_text(encoding="utf-8"))
     allowed = set(manifest["allowed_node_types"])
     for name, info in manifest["templates"].items():
         assert set(info["node_types"]) <= allowed, name
+        added = set(info.get("added_node_types", ()))
+        assert added <= allowed and not added & set(info["node_types"]), name  # an addition is allowed, and really an addition
     assert "KlingTextToVideoNode" not in allowed

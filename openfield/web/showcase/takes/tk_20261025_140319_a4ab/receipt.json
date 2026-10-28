@@ -1,0 +1,179 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261025_140319_a4ab",
+    "kind": "direct",
+    "created_at": "2026-10-25T14:05:58Z",
+    "label": "helicopter: A white lighthouse on a cliff above the sea at g"
+  },
+  "inputs": {
+    "subject": "A white lighthouse on a cliff above the sea at golden hour, waves breaking on the rocks below",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "helicopter",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "helicopter",
+    "mode": "experimental",
+    "final_prompt": "A white lighthouse on a cliff above the sea at golden hour, waves breaking on the rocks below. Aerial footage from a helicopter high above: the camera flies forward over the landscape and sweeps in a wide circle around the subject far below, rising slowly, the horizon level, moving at a steady pace. The camera flies a wide smooth arc while rising, the horizon level, and ends high above the scene. We hear wind, rotor thump far off, surf.",
+    "seed": 1613,
+    "orientation": "landscape",
+    "audio": "wind, rotor thump far off, surf",
+    "quality": "draft",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      }
+    ],
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "recipe_hash": "0b2b26f1e356bbe6c233fad03c1ca256c1d97284bbac57d7fe0359fdd950b42b"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "b52c4c6851e6a6b4d7d89e6ba3e2549791528d169d35f7ae344f8bca12a6842c",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_t2i",
+        "workflow_sha256": "1368ae7a4817cb8a65d5a2b6cf2937592a37b918c613f8701077c72cf0d202fa",
+        "job_id": "67386d1e-be74-46a9-9ec9-f82f6cabebf8"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "0d577e8a37329c6a8fe7730d9168ddf096b0de662d62fc11980b3b957c88159e",
+        "job_id": "bc103af9-c453-47d6-835f-c098bb92225b"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {}
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "67386d1e-be74-46a9-9ec9-f82f6cabebf8,bc103af9-c453-47d6-835f-c098bb92225b",
+    "timings": {
+      "total_s": 158.2
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "2f1244677650fa0bc400a81b60a6e5d5f3652e5b3659cb4c41dfc34b0753ea81",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "68df8be1ea7e87ed5f41f1a9e0c2e7608e81fda87d32599f2955839ad5950149"
+  }
+}

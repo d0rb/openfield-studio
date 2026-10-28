@@ -1,0 +1,85 @@
+{
+  "id": "tk_20261021_125937_6921",
+  "kind": "reshoot",
+  "label": "re-shoot: an elderly man with a white beard, weathered ski",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-21T12:59:37Z",
+  "updated_at": "2026-10-21T13:02:46Z",
+  "recipe": {
+    "kind": "reshoot",
+    "prompt": "an elderly man with a white beard, weathered skin and a navy knit cap",
+    "background": "a harbour pier at golden hour",
+    "motion": "",
+    "seed": 62,
+    "source_sha256": "c1b9d2bef6370ac3238f4f2182d8f9b3137874cfe59b663525bb20165ae5d8f0",
+    "reference_sha256": "3283131d763d5aa49e972af92d4ae11174709910577858653d16f09a8719995f",
+    "reference_name": "Oskar"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "Source footage rendered with LTX 2.5 (the showcase's own dance-source take: an invented dancer on a rooftop); no real person was filmed."
+  ],
+  "replay": false,
+  "recipe_hash": "4b92543056fe8b68b84c4ab2e13a271038163a38b7fb8689b882f14c7b14988f",
+  "identity": {
+    "motion": {
+      "status": "pass",
+      "score": 0.5677250157930053,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.5677250157930053
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        383,
+        64,
+        44,
+        55
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.568 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    848,
+    480
+  ],
+  "showcase_name": "reshoot-oskar",
+  "showcase_sha": "3caf80c65ee3bd35"
+}

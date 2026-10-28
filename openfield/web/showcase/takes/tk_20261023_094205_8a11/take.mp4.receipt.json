@@ -1,0 +1,229 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_094205_8a11",
+    "kind": "direct",
+    "created_at": "2026-10-23T09:45:22Z",
+    "label": "dolly out: Oskar, a seventy-year-old fisherman with a white"
+  },
+  "inputs": {
+    "subject": "Oskar, a seventy-year-old fisherman with a white beard and a navy knit cap, stands on a skateboard at the start of the harbour pier at golden hour, gulls on the railings",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "dolly_out",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "dolly_out",
+    "mode": "prompt_only",
+    "final_prompt": "Oskar, a seventy-year-old fisherman with a white beard and a navy knit cap, stands on a skateboard at the start of the harbour pier at golden hour, gulls on the railings. He pushes off and rolls fast down the pier toward the camera on the skateboard, arms out for balance, grinning, as the gulls lift off the railings. Shot on 35mm film with fine organic grain with a warm vintage prime lens with soft contrast, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera dollies out, pulling back from the subject on a smooth track and revealing the setting, moving at a steady pace. Constraint: physical camera travel, fixed focal length, no zoom, constant lens height. Sound: skateboard wheels rumbling on old wood, gulls crying, a cheer from the boats.",
+    "seed": 617,
+    "orientation": "landscape",
+    "audio": "skateboard wheels rumbling on old wood, gulls crying, a cheer from the boats",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "action": "He pushes off and rolls fast down the pier toward the camera on the skateboard, arms out for balance, grinning, as the gulls lift off the railings.",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Oskar",
+      "refs": [
+        "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+      ]
+    },
+    "recipe_hash": "a908747d96925dc8ff3ce9a83e284701da2dc5bc3896e87dd06a8bfb331b63bb"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "c4cc5b15aba4a07932400dd0420b2b3c1365046943da30fcc345a110e6a7da80",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "92c41de2524ba686999f0a628216e5d64c8d0ccb74451b15b986ba26df10919f",
+        "job_id": "918f6433-ee83-4d7b-aa83-5a187f41f127"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "1b33bf2a466f08e7a5cde41b55518650a5cf8c3536df74f231c7f947c1903370",
+        "job_id": "a95579d0-1a2e-4fcd-90be-144feb6dd397"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.7674326563607368,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.7674326563607368,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7674326563607368
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          559,
+          78,
+          135,
+          177
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.767 >= threshold 0.363 (best reference 0)",
+        "face_px": 135,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.6877080266248019,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.6877080266248019
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          534,
+          55,
+          130,
+          178
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.688 >= threshold 0.363 (best reference 0)",
+        "face_px": 130,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "918f6433-ee83-4d7b-aa83-5a187f41f127,a95579d0-1a2e-4fcd-90be-144feb6dd397",
+    "timings": {
+      "total_s": 196.4
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "432594f984dca71f82b08397ba6d78f662539c339625d8671dbc12ba1d31dd99",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "85b5c86948547a7e292f7d9e48f1b2b856de5573f72e37caf220d23f98ed3a45"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "tk_20261021_121841_ea93",
+  "kind": "direct",
+  "label": "static: A young man in a white t-shirt and dark jeans da",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-21T12:18:41Z",
+  "updated_at": "2026-10-21T12:21:16Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A young man in a white t-shirt and dark jeans dances energetically on an empty rooftop at dusk, full body in frame, facing the camera, the city skyline behind him",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 28,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "a drum loop, city air",
+    "seed": 77,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "prompt_only": true,
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "e686be3c65c7d8afc314fd64f7dd0969775d45e15a75cb67d601b7887079733d",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "dance-source",
+  "showcase_sha": "ec04104f32b57c9b"
+}

@@ -1,10 +1,10 @@
-/* The shell: a 52px top bar over a 64px station rail, the workspace, and a 360px settings dock. */
+/* The shell: a 48px slate bar over a 64px station rail, the stage, and a 340px camera-report dock. */
 
 .skip {
   position: absolute;
   left: var(--s3);
   top: -48px;
-  z-index: 60;
+  z-index: var(--z-skip);
   padding: var(--s2) var(--s3);
   background: var(--raised);
   border: 1px solid var(--line-strong);
@@ -16,26 +16,126 @@
   top: var(--s3);
 }
 
+/* a room change crossfades the stage as the rail's mark slides (shell.js); the stage is named only for the capture of the
+   old room (the name comes off as the new room is painted, so it is clickable at once and a move page's own transition
+   never takes it). A transition paints over the whole page: what floats over the stage is lifted in */
+:root {
+  view-transition-name: none;
+}
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-group(*) {
+  animation-duration: var(--t-base);
+  animation-timing-function: var(--ease);
+}
+:root.room-swap .stage {
+  view-transition-name: stage;
+}
+:root.room-swap .notices {
+  view-transition-name: room-notices;
+}
+:root.room-swap .topbar .menu:not([hidden]) {
+  view-transition-name: room-menu;
+}
+:root.room-swap .sheet-scrim {
+  view-transition-name: room-sheet;
+}
+@media (max-width: 1179px) {
+  :root.room-swap .dock {
+    view-transition-name: room-dock; /* where it floats over the stage */
+  }
+}
+::view-transition-group(stage) {
+  animation: none;
+  overflow: clip;
+}
+::view-transition-old(stage),
+::view-transition-new(stage) {
+  height: 100%;
+  object-fit: none;
+  object-position: 0 0;
+}
+/* a dissolve you can see: the old room goes in 180 ms, the new one comes up over 320 ms */
+::view-transition-old(stage) {
+  animation: room-out 180ms var(--ease) both;
+}
+::view-transition-new(stage) {
+  animation: room-in 320ms var(--ease) both;
+}
+@keyframes room-out {
+  to { opacity: 0; }
+}
+@keyframes room-in {
+  from { opacity: 0; }
+}
+:root.room-swap :is(.station, .app) {
+  transition: none;
+}
+
 .app {
   display: grid;
   height: 100%;
+  overflow: clip; /* a closed dock's 1 px border sits in its 0 px column: it must not widen the page */
   grid-template-columns: var(--rail-w) minmax(0, 1fr) var(--dock-w);
   grid-template-rows: var(--topbar-h) minmax(0, 1fr);
   grid-template-areas:
     "top top top"
     "rail stage dock";
+  transition: grid-template-columns var(--t-base) var(--ease); /* the dock slides when "[" closes or opens it */
 }
 .app[data-dock="closed"] {
   grid-template-columns: var(--rail-w) minmax(0, 1fr) 0;
 }
+/* -- the stock ------------------------------------------------------------------------------------
+   One projector lights the whole app, so the grain falls on every room and on the furniture too: the
+   rail and the slate bar are in the room, not outside it. A frame of it changes about seven times a
+   second, faint enough (4.5%) that no word loses its contrast; held still, it stays and stops. */
+.app::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background: var(--plate-grain) 0 0 / var(--grain-size);
+  opacity: var(--grain-opacity);
+  animation: room-grain 1.1s steps(1) infinite;
+}
+@keyframes room-grain {
+  12.5% { background-position: -47px 31px; }
+  25% { background-position: 73px -59px; }
+  37.5% { background-position: -91px -17px; }
+  50% { background-position: 23px 86px; }
+  62.5% { background-position: 109px 11px; }
+  75% { background-position: -29px -103px; }
+  87.5% { background-position: 61px 53px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app::after {
+    animation: none;
+  }
+}
+/* cinema: the take alone, full window (C, or Escape to come back) */
+.app[data-cinema="true"] {
+  grid-template-columns: 0 minmax(0, 1fr) 0;
+  grid-template-rows: 0 minmax(0, 1fr);
+}
+.app[data-cinema="true"] :is(.topbar, .rail, .dock) {
+  visibility: hidden;
+  overflow: hidden;
+}
+.app[data-cinema="true"] .station > :not(.monitor),
+.app[data-cinema="true"] .monitor-head {
+  display: none;
+}
 
-/* -- top bar -------------------------------------------------------------------------------- */
+/* -- slate bar ------------------------------------------------------------------------------ */
 .topbar {
   grid-area: top;
   display: flex;
   align-items: center;
   gap: var(--s3);
-  padding-right: var(--s4);
+  padding-right: var(--s3);
   background: var(--panel);
   border-bottom: 1px solid var(--line);
   min-width: 0;
@@ -43,25 +143,22 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: var(--s3);
-  padding-left: 18px;
+  gap: var(--s2);
+  padding-left: calc((var(--rail-w) - 20px) / 2); /* the mark sits on the rail's centre line */
+  padding-right: var(--s2);
+  flex: none;
   min-width: 0;
 }
+/* the mark: floor tape laid as a T (the actor's mark on a set), no box around it */
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-s);
-  border: 1px solid var(--control-line);
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--text);
+  flex: none;
+  width: 20px;
+  height: 20px;
+  fill: var(--accent-fill);
 }
 .wordmark {
   font-size: var(--fs-md);
-  font-weight: 600;
+  font-weight: var(--w-strong);
   white-space: nowrap;
 }
 .crumb {
@@ -69,14 +166,15 @@
   align-items: center;
   gap: var(--s2);
   color: var(--text-2);
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   white-space: nowrap;
 }
 .crumb .icon {
   color: var(--text-3);
 }
 .crumb b {
-  font-weight: 500;
+  font-weight: var(--w-medium);
+  font-size: var(--fs-sm);
   color: var(--text);
 }
 .topbar .grow {
@@ -87,21 +185,27 @@
   align-items: center;
   gap: var(--s2);
 }
+.topbar-actions > .btn.ghost.icon-only:last-of-type {
+  margin-right: -8px; /* the panel icon on the edge, not 8 px in */
+}
+/* the tally: which backend the stage is wired to */
 .backend-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--s2);
-  height: var(--control-h);
+  height: var(--control-h); /* level with Open file beside it */
   padding: 0 var(--s3);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
   border: 1px solid var(--line-strong);
   background: var(--raised);
-  font-size: var(--fs-sm);
-  font-weight: 500;
+  font-size: var(--fs-xs);
+  font-weight: var(--w-medium);
+  letter-spacing: 0.04em;
   max-width: 440px;
 }
 .backend-btn:hover {
   background: var(--hover);
+  border-color: var(--control-line);
 }
 .backend-btn .label-text {
   overflow: hidden;
@@ -131,34 +235,108 @@
   display: flex;
   flex-direction: column;
   gap: var(--s1);
-  padding: var(--s2) 4px;
+  overflow-y: auto; /* six rooms on a short window still reach the last */
+  padding: var(--s2) 0;
   background: var(--panel);
   border-right: 1px solid var(--line);
 }
 .rail-item {
+  position: relative;
   display: grid;
   justify-items: center;
   align-content: center;
   gap: 4px;
-  height: 56px;
-  border-radius: var(--radius-s);
-  color: var(--text-2);
+  height: 64px;
+  color: var(--text-3);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--w-medium);
+  letter-spacing: 0.04em;
   text-decoration: none;
-  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  transition: background-color var(--t-fast) var(--ease), color var(--t-base) var(--ease);
 }
 .rail-item .icon {
   width: 20px;
   height: 20px;
 }
-.rail-item:hover {
-  background: var(--raised);
+/* the rendered prop: dimmed until it is the room you are in; black melts into the rail */
+.rail-art {
+  grid-area: 1 / 1; /* it shares its cell with its light (::before), which paints first, under it */
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  filter: saturate(0.7) brightness(1.15);
+  -webkit-mask: radial-gradient(closest-side, #000 80%, #0000);
+  mask: radial-gradient(closest-side, #000 80%, #0000);
+  transition: filter var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+/* the warm light a prop gives off when the hand comes to it: a soft shadow in the accent hue, offset to the prop's foot
+   and blurred, never a halo round it. A sliver at the prop's centre casts it, so no unlit disc shows through; it lies
+   under the prop, so the prop's black still melts into the rail */
+.rail-item::before {
+  content: "";
+  grid-area: 1 / 1;
+  place-self: center;
+  width: 18px;
+  height: 2px;
+  border-radius: 50%;
+  transition: box-shadow var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+.rail-item:is(:hover, :focus-visible)::before {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 10px 8px var(--accent-soft), 0 20px 22px 14px var(--accent-soft), 0 26px 24px 20px var(--accent-soft);
+}
+/* the Lobby's sign is a strip of the marquee: its shape is the point, so no round fall-off */
+.rail-item[data-route="lobby"] .rail-art {
+  -webkit-mask: none;
+  mask: none;
+}
+/* under the hand or the keyboard the prop wakes into its light; pressed, it sinks. The arriving room's prop flares once as it
+   clicks in (shell.js). Every filter lists the same functions, so it glides instead of flipping */
+.rail-item:is(:hover, :focus-visible) .rail-art {
+  filter: saturate(1) brightness(1.4);
+  transform: translateY(-3px) scale(1.12) rotate(-5deg);
+}
+.rail-item:active .rail-art {
+  transform: translateY(1px) scale(0.97);
+  transition-duration: var(--t-fast);
+}
+.rail-item[aria-current="page"] .rail-art {
+  filter: saturate(1) brightness(1.3);
+  animation: rail-lamp var(--t-base) var(--ease);
+}
+@keyframes rail-lamp {
+  0% { filter: saturate(1) brightness(1.1); }
+  45% { filter: saturate(1.1) brightness(1.9); }
+  100% { filter: saturate(1) brightness(1.3); }
+}
+/* the room's name rises 1px with its prop */
+.rail-item > span:not(.rail-art, .rail-mark) {
+  transition: translate var(--t-base) var(--ease);
+}
+.rail-item:is(:hover, :focus-visible) > span:not(.rail-art, .rail-mark) {
+  translate: 0 -1px;
+}
+.rail-item:is(:hover, :focus-visible) {
+  background: var(--surface-tint);
   color: var(--text);
 }
 .rail-item[aria-current="page"] {
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  background: var(--surface-tint);
+  color: var(--text);
+}
+.rail-item[aria-current="page"] .icon {
+  color: var(--accent);
+}
+/* the current room's mark, in its rail item: a view transition slides it between rooms (shell.js), else it jumps */
+.rail-mark {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--accent);
+  view-transition-name: rail-mark;
 }
 .rail-item .count {
   display: none;
@@ -169,17 +347,99 @@
   grid-area: stage;
   display: flex;
   flex-direction: column;
-  gap: var(--s4);
+  gap: var(--s3);
   min-width: 0;
   min-height: 0;
-  padding: var(--s4);
+  padding: var(--s4) var(--s5) var(--s5);
   overflow-y: auto;
   background: var(--ground);
+}
+/* the light in the rooms (ui/ambient.js), in the stage's cell under the page's flow (z-index -1): a positioned stage over it
+   cost the page its LCD text on Windows. The Lobby has its own light; cinema and phones have none */
+.ambient {
+  grid-area: stage;
+  z-index: -1;
+  overflow: hidden;
+  contain: strict;
+  isolation: isolate;
+  background: var(--ground);
+  pointer-events: none;
+}
+.ambient > span {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+}
+.ambient-beam {
+  background: url("../art/ov-beams.webp") 50% 0 / cover no-repeat;
+  opacity: 0.28;
+  -webkit-mask: linear-gradient(to bottom, #000 30%, #0000 85%);
+  mask: linear-gradient(to bottom, #000 30%, #0000 85%);
+}
+.ambient > .ambient-dust {
+  inset: -6%;
+  background: url("../art/ov-dust.webp") 40% 30% / cover no-repeat;
+  opacity: 0.4;
+  -webkit-mask: linear-gradient(to bottom, #000 40%, #0000);
+  mask: linear-gradient(to bottom, #000 40%, #0000);
+  animation: room-dust 36s linear infinite alternate;
+}
+@keyframes room-dust {
+  from { transform: translate3d(0, 0, 0) scale(1.04); }
+  to { transform: translate3d(-3%, 2%, 0) scale(1.12); }
+}
+/* the house light: an 1100 px disc of rendered leak under a round mask, its centre on the pointer (ui/ambient.js moves it).
+   It lies under the floor, so it shows between the tiles and around the words, never over a picture */
+.ambient > .house-light {
+  inset: auto;
+  left: 0;
+  top: 0;
+  width: 1100px;
+  height: 1100px;
+  opacity: 0;
+  background: url("../art/ov-leak.webp") center / cover no-repeat;
+  -webkit-mask: radial-gradient(closest-side, #000, #0000);
+  mask: radial-gradient(closest-side, #000, #0000);
+  transform: translate3d(-550px, -550px, 0);
+  will-change: transform;
+  transition: opacity var(--t-base) var(--ease);
+}
+.ambient.lit > .house-light {
+  opacity: 0.8;
+}
+.app[inert] .house-light {
+  opacity: 0; /* a sheet is open over the room */
+}
+.app:is([data-room="lobby"], [data-cinema="true"]) .ambient {
+  display: none;
+}
+/* the stage drops its floor only where the light shows */
+@media (min-width: 720px) {
+  .app:not([data-room="lobby"], [data-cinema="true"]) > .stage {
+    background: none;
+  }
+}
+@media (hover: none), (max-width: 899px) {
+  .house-light {
+    display: none;
+  }
+}
+@media (max-width: 719px) {
+  .ambient {
+    display: none;
+  }
+}
+/* held still, none of it runs at all (the blanket rule would still start them) */
+:root.hold-still :is(.ambient-dust, .rail-art) {
+  animation: none;
+}
+:root.hold-still .house-light {
+  display: none;
 }
 .station {
   display: flex;
   flex-direction: column;
-  gap: var(--s3);
+  gap: var(--s4);
   flex: 1;
   min-height: 0;
   min-width: 0;
@@ -191,15 +451,16 @@
 }
 .station-head h1 {
   font-size: var(--fs-xl);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: var(--w-strong);
+  line-height: var(--lh-tight);
 }
 .station-head p {
   color: var(--text-2);
   font-size: var(--fs-sm);
+  line-height: var(--lh-tight); /* inside the title's line box, so the count filling in never grows the head */
 }
 
-/* -- dock ----------------------------------------------------------------------------------- */
+/* -- dock (the camera report) ---------------------------------------------------------------- */
 .dock {
   grid-area: dock;
   display: flex;
@@ -217,6 +478,7 @@
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  scrollbar-gutter: stable; /* the right edge holds whether or not a pane scrolls */
   overscroll-behavior: contain;
 }
 .dock-pane {
@@ -226,14 +488,7 @@
 .dock-pane[hidden] {
   display: none;
 }
-.dock-foot {
-  display: flex;
-  gap: var(--s2);
-  padding: var(--s3) var(--s4);
-  border-top: 1px solid var(--line);
-}
-
-/* A narrower window: the dock floats over the workspace instead of squeezing the monitor. */
+/* A narrower window: the dock floats over the stage instead of squeezing the wall. */
 @media (max-width: 1179px) {
   .app,
   .app[data-dock="closed"] {
@@ -244,7 +499,7 @@
   }
   .dock {
     position: fixed;
-    z-index: 20;
+    z-index: var(--z-dock);
     top: var(--topbar-h);
     right: 0;
     bottom: 0;
@@ -264,7 +519,7 @@
 /* A phone: the rail moves to the bottom and the dock takes the full width. */
 @media (max-width: 719px) {
   :root {
-    --topbar-h: 48px;
+    --topbar-h: 44px;
   }
   .app,
   .app[data-dock="closed"] {
@@ -278,16 +533,43 @@
   .rail {
     flex-direction: row;
     justify-content: space-around;
-    padding: 4px var(--s2);
+    overflow: hidden; /* a row of six: nothing to scroll, so no stray scrollbar */
+    padding: 0 var(--s2);
     border-right: 0;
     border-top: 1px solid var(--line);
   }
+  .rail-art {
+    width: 28px;
+    height: 28px;
+  }
+  .rail-item::before {
+    scale: 0.67; /* the light keeps to the smaller prop, at its foot and clear of the bar's top rule */
+  }
+  .rail-item:is(:hover, :focus-visible) .rail-art {
+    transform: translateY(-2px) scale(1.04) rotate(-2deg); /* the smaller prop wakes a little less */
+  }
+  .rail-item:active .rail-art {
+    transform: translateY(1px) scale(0.97);
+  }
   .rail-item {
     flex: 1;
-    height: 48px;
+    min-width: 0;
+    height: 56px;
+    font-size: 0.6875rem; /* seven rooms in 390 px: every name on one line */
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+  .rail-mark {
+    left: 10px;
+    right: 10px;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 2px;
   }
   .brand {
-    padding-left: var(--s4);
+    width: auto;
+    padding-left: 10px; /* the T's ink starts 2 px into its box: this puts it on the 12 px gutter */
   }
   .crumb,
   .wordmark {
@@ -300,9 +582,11 @@
   .dock {
     width: 100vw;
     bottom: 56px;
+    border-left: 0;
+    box-shadow: none; /* full width: a shadow would only fall on the rail */
   }
   .backend-btn {
-    max-width: 150px;
+    max-width: calc(100vw - 160px); /* the whole label when it fits beside the mark and the two buttons */
     padding: 0 var(--s2);
   }
   .topbar {
@@ -315,8 +599,25 @@
   .btn-label {
     display: none;
   }
-  .topbar-actions .btn.secondary {
+  .topbar-actions > .btn.secondary {
     width: var(--control-h);
     padding: 0;
+  }
+}
+
+/* cinema holds at every width: the take alone, in the middle of the window */
+@media (max-width: 1179px) {
+  .app[data-cinema="true"] {
+    grid-template-columns: 0 minmax(0, 1fr);
+    grid-template-rows: 0 minmax(0, 1fr);
+  }
+}
+@media (max-width: 719px) {
+  .app[data-cinema="true"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 0 minmax(0, 1fr) 0;
+  }
+  .app[data-cinema="true"] .stage {
+    justify-content: center;
   }
 }

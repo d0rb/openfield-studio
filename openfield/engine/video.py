@@ -373,6 +373,39 @@ def concat(
     return probe(target)
 
 
+def stills_clip(
+    images: Iterable[PathLike],
+    out: PathLike,
+    *,
+    size: tuple[int, int],
+    seconds_each: float = 0.6,
+    fps: float = 24,
+) -> MediaInfo:
+    """Play still images in order as one MP4 with a silent audio track: the animatic of a board of stills.
+
+    Every image is letterboxed to `size` (even numbers) and held `seconds_each`; nothing is interpolated.
+    """
+    paths = [Path(p) for p in images]
+    if not paths:
+        raise ValueError("stills_clip needs at least one image")
+    if seconds_each <= 0 or fps <= 0:
+        raise ValueError("seconds_each and fps must be > 0")
+    width, height = size[0] // 2 * 2, size[1] // 2 * 2
+    args: list[str] = []
+    for path in paths:
+        args += ["-loop", "1", "-t", f"{seconds_each:.3f}", "-i", str(path)]
+    total = seconds_each * len(paths)
+    chains = [
+        f"[{i}:v:0]scale={width}:{height}:force_original_aspect_ratio=decrease,"
+        f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps={fps},format=yuv420p[v{i}]"
+        for i in range(len(paths))
+    ]
+    joined = "".join(f"[v{i}]" for i in range(len(paths))) + f"concat=n={len(paths)}:v=1:a=0[v]"
+    graph = ";".join([*chains, joined, f"anullsrc=r=48000:cl=stereo:d={total:.3f}[a]"])
+    args += ["-filter_complex", graph, "-map", "[v]", "-map", "[a]", "-t", f"{total:.3f}"]
+    return probe(_encode([*args, *_X264, *_AAC, *_FASTSTART], Path(out)))
+
+
 _LOUDNORM_JSON = re.compile(r'\{[^{}]*"input_i"[^{}]*\}')
 
 
@@ -430,18 +463,219 @@ def crop_9x16(src: PathLike, out: PathLike, *, focus_x: float = 0.5, height: int
     return _encode([*args, *_X264, *_AAC, *_FASTSTART], Path(out))
 
 
+def roll_zoom(width: int, height: int, degrees: float) -> float:
+    """How much larger than a frame a picture must be so the frame, turned `degrees` inside it, has no empty corner."""
+    theta = math.radians(abs(degrees))
+    return math.cos(theta) + max(width / height, height / width) * math.sin(theta)
+
+
+def roll_render_size(frame: tuple[int, int], degrees: float, *, cap: tuple[int, int] | None = None,
+                     multiple: int = 32) -> tuple[int, int]:
+    """The size to render at so `frame`, turned `degrees` and cropped back out, needs no upscaling: the frame times
+    roll_zoom, kept within `cap` (same aspect), on the `multiple` grid the models need."""
+    w, h = frame
+    zoom = roll_zoom(w, h, degrees)
+    tw, th = w * zoom, h * zoom
+    if cap:
+        k = min(cap[0] / tw, cap[1] / th, 1.0)
+        tw, th = tw * k, th * k
+
+    def grid(value: float, limit: int | None) -> int:
+        snapped = math.ceil(value / multiple) * multiple
+        if limit is not None:
+            snapped = min(snapped, limit // multiple * multiple)
+        return max(multiple, snapped)
+
+    return grid(tw, cap[0] if cap else None), grid(th, cap[1] if cap else None)
+
+
+def roll(src: PathLike, out: PathLike, degrees: float, size: tuple[int, int]) -> dict[str, Any]:
+    """Turn a video `degrees` counter-clockwise about its centre and crop it to `size`: the largest centred rectangle
+    of that shape inside the turned picture (so no corner is empty, with a 1% margin), scaled to `size`. The sound is
+    copied untouched. `src` and `out` may be the same file. Returns what the receipt records about the turn."""
+    info = probe(src)
+    tw, th = size
+    aspect = tw / th
+    theta = math.radians(abs(degrees))
+    c, s = math.cos(theta), math.sin(theta)
+    fit = min(info.width / (aspect * c + s), info.height / (aspect * s + c)) * 0.99
+    cw, ch = int(aspect * fit) // 2 * 2, int(fit) // 2 * 2
+    vf = (f"rotate={-math.radians(degrees):.6f}:ow=iw:oh=ih:c=black,"
+          f"crop={cw}:{ch},scale={tw}:{th}:flags=lanczos,setsar=1")
+    _encode(["-i", str(src), "-vf", vf, *_X264, "-c:a", "copy", *_FASTSTART], Path(out))
+    scaled = round(tw / cw, 3)
+    how = ("rendered level and larger, then turned in code and cropped to the frame" if scaled <= 1.01 else
+           f"rendered level at the largest size the template allows, then turned in code, cropped and scaled up "
+           f"{scaled:.2f}x to the frame")
+    return {"degrees": degrees, "rendered": [info.width, info.height], "crop": [cw, ch], "size": [tw, th],
+            "scaled": scaled, "how": how}
+
+
+def mirror(src: PathLike, out: PathLike) -> dict[str, Any]:
+    """Flip a video left to right; the sound is copied untouched. `src` and `out` may be the same file. Returns what
+    the receipt records."""
+    _encode(["-i", str(src), "-vf", "hflip,setsar=1", *_X264, "-c:a", "copy", *_FASTSTART], Path(out))
+    return {"flipped": "left to right", "how": "the hero was flipped, the mirror move rendered, and the video flipped back in code"}
+
+
+def reverse(src: PathLike, out: PathLike) -> dict[str, Any]:
+    """Play a video's picture backwards and keep its sound as rendered. `src` and `out` may be the same file. Returns
+    what the receipt records. The reverse filter holds the whole clip in memory, which a shot of ten seconds allows."""
+    # The sound stays forward: a reversed track turns every sharp sound into a swell, and an "approaching" audio preset
+    # cannot match the pull-back LTX actually renders, so these takes get steady sound beds that play the same both ways.
+    # Copying the audio needs the video re-encoded through the filter, with the project's x264 settings.
+    _encode(["-i", str(src), "-vf", "reverse", *_X264, "-c:a", "copy", *_FASTSTART], Path(out))
+    return {"picture": "reversed in code", "sound": "kept as rendered"}
+
+
+def sample_frames(src: PathLike, out_dir: PathLike, fps: float = 4) -> list[tuple[float, Path]]:
+    """Frames of a video `fps` times a second from its first frame, saved as JPEG files in `out_dir`:
+    [(seconds, file), ...] in order."""
+    if fps <= 0:
+        raise ValueError("fps must be > 0")
+    folder = Path(out_dir)
+    folder.mkdir(parents=True, exist_ok=True)
+    # frames are picked by count, not by timestamp: every `step`th frame from the first (0, 6, 12... at 24 fps for 4 a
+    # second), so each sample is exactly the frame its label names whatever the render's timestamps (the fps filter
+    # rounds by time and, by default, picked two frames late)
+    rate = probe(src).fps or 24
+    step = max(1, round(rate / fps))
+    _ffmpeg(["-i", str(src), "-an", "-vf", f"select='not(mod(n\\,{step}))'", "-fps_mode", "vfr", "-q:v", "2",
+             str(folder / "sample_%04d.jpg")])
+    return [(round(i * step / rate, 4), path) for i, path in enumerate(sorted(folder.glob("sample_*.jpg")))]
+
+
+Box = tuple[float, float, float, float]  # x, y, w, h in pixels
+
+
+def _median3(values: list[float], *, edge_tolerance: float = 0.15) -> list[float]:
+    """A running median of three: one misread sample takes its neighbours' middle value. The two ends have one
+    neighbour only, so each keeps its own value unless it sits more than `edge_tolerance` away from the median of the
+    first (or last) three: a stray face in the first or last frame is replaced (it would set the reference, or drag the
+    window at the end), while a face that keeps shrinking to the last frame is not."""
+    n = len(values)
+    if n < 3:
+        return list(values)
+    out = [values[0], *(sorted(values[i - 1:i + 2])[1] for i in range(1, n - 1)), values[-1]]
+    for i, window in ((0, values[:3]), (n - 1, values[-3:])):
+        middle = sorted(window)[1]
+        if middle and abs(values[i] - middle) > edge_tolerance * middle:
+            out[i] = middle
+    return out
+
+
+def face_zoom_path(samples: list[tuple[float, Box | None]], size: tuple[int, int], *, cap: float = 2.2,
+                   min_found: float = 0.6) -> list[tuple[float, float, float, float]] | None:
+    """The window of a dolly zoom made from where the face is in a dolly-out render: [(seconds, zoom, centre x,
+    centre y), ...] at the samples that found a face, the centre a fraction of the frame; None when fewer than
+    `min_found` of the samples found one.
+
+    `samples` are (seconds, box) with the face's box (x, y, w, h) in render pixels, or None where none was found, and
+    `size` is the render's (width, height). Height and centre go through a running median of three, so one misread
+    frame cannot jerk the window. The zoom is the first height over the height now, so the face keeps its first size;
+    it never falls (a dolly-out only shrinks the face) and stops at `cap`. The window keeps the face where it sat in
+    the first frame (for a straight dolly-out that is the middle of the picture) and never leaves the picture."""
+    if cap < 1 or not 0 <= min_found <= 1:
+        raise ValueError("cap must be at least 1 and min_found between 0 and 1")
+    found = [(t, box) for t, box in samples if box is not None and box[3] > 0]
+    if not found or len(found) < min_found * len(samples):
+        return None
+    width, height = size
+    heights = _median3([box[3] for _, box in found])
+    xs = _median3([box[0] + box[2] / 2 for _, box in found])
+    ys = _median3([box[1] + box[3] / 2 for _, box in found])
+    path: list[tuple[float, float, float, float]] = []
+    zoom = 1.0
+    for (t, _), h, x, y in zip(found, heights, xs, ys, strict=True):
+        zoom = min(cap, max(zoom, heights[0] / h))
+        half = 0.5 / zoom  # the window's half-size as a fraction of the frame: its centre stays this far inside
+        cx = (x + (width / 2 - xs[0]) / zoom) / width
+        cy = (y + (height / 2 - ys[0]) / zoom) / height
+        path.append((t, round(zoom, 4), round(min(max(cx, half), 1 - half), 4), round(min(max(cy, half), 1 - half), 4)))
+    return path
+
+
+def _ramp(points: list[tuple[float, float]]) -> str:
+    """An ffmpeg expression of the output frame number that runs straight from one (frame, value) point to the next,
+    holding the first value before the first point and the last after the last."""
+    expr = f"{points[0][1]:.4f}"
+    for (fa, va), (fb, vb) in zip(points, points[1:], strict=False):
+        if fb > fa and vb != va:
+            expr += f"{(vb - va) / (fb - fa):+.6f}*clip(on-{fa:.3f},0,{fb - fa:.3f})"
+    return expr
+
+
+def reframe(src: PathLike, out: PathLike, size: tuple[int, int], *, zoom: tuple[float, float] = (1.0, 1.0),
+            height: tuple[float, float] = (0.5, 0.5), how: str = "",
+            path: list[tuple[float, float, float, float]] | None = None) -> dict[str, Any]:
+    """Move a window steadily over a video and scale every frame to `size`; the sound is copied untouched. `zoom` is
+    how much of the frame the window shows at the first and last frame (1 = all of it, 2 = the middle half), and
+    `height` where it sits in its free travel (0 at the top, 1 at the bottom); it stays centred left to right. A `path`
+    of (seconds, zoom, centre x, centre y) keyframes (face_zoom_path), the centre a fraction of the frame, replaces
+    both: the window runs straight from one keyframe to the next. The picture is doubled first so the window never
+    steps between whole pixels. `src` and `out` may be the same file."""
+    info = probe(src)
+    tw, th = size
+    fps = info.fps or 24
+    if path:
+        frames = [(t * fps, z, cx, cy) for t, z, cx, cy in path]
+        z = _ramp([(f, v) for f, v, _, _ in frames])
+        x = f"iw*({_ramp([(f, v) for f, _, v, _ in frames])})-iw/zoom/2"
+        y = f"ih*({_ramp([(f, v) for f, _, _, v in frames])})-ih/zoom/2"
+        zooms = [step[1] for step in path]
+    else:
+        last = max(1, round(info.duration_s * fps) - 1)
+        z = f"{zoom[0]:.4f}+({zoom[1] - zoom[0]:.4f})*on/{last}"
+        x = "iw/2-(iw/zoom/2)"
+        y = f"(ih-ih/zoom)*({height[0]:.4f}+({height[1] - height[0]:.4f})*on/{last})"
+        zooms = list(zoom)
+    vf = (f"scale=iw*2:ih*2:flags=lanczos,zoompan=z='{z}':x='{x}':y='{y}'"
+          f":d=1:s={tw}x{th}:fps={fps:g},setsar=1")
+    _encode(["-i", str(src), "-vf", vf, *_X264, "-c:a", "copy", *_FASTSTART], Path(out))
+    tightest = max(zooms)
+    upscaled = round(max(tw * tightest / info.width, th * tightest / info.height), 3)
+    curve: dict[str, Any] = ({"zoom": [zooms[0], zooms[-1]], "keyframes": len(path)} if path else
+                             {"zoom": list(zoom), "height": list(height)})
+    return {**curve, "rendered": [info.width, info.height], "size": [tw, th],
+            "upscaled_at_most": upscaled, "how": how or "a window moved over the render in code"}
+
+
+# Windows caps a whole command line at 32,767 characters: tags longer than this go to ffmpeg in a metadata file
+_TAGS_ON_COMMAND_LINE = 8_000
+
+
+def _ffmetadata_escape(text: str) -> str:
+    """Escape what FFMETADATA1 treats as special: '=', ';', '#', backslash, and both line ends (a bare CR ends a line too)."""
+    return re.sub(r"([=;#\\\r\n])", r"\\\1", text)
+
+
 def embed_metadata(src: PathLike, out: PathLike, tags: dict[str, str]) -> Path:
     """Copy streams untouched and add format-level tags (an empty value removes the tag).
 
     MP4 stores custom keys in the mdta atom, which `+use_metadata_tags` enables. Read keys back
-    lower-cased, so write them lower-case.
+    lower-cased, so write them lower-case. Long tags (a large receipt) travel in an FFMETADATA1
+    file beside the output instead of on the command line.
     """
-    args = ["-i", str(src), "-c", "copy", "-map_metadata", "0"]
-    for key, value in tags.items():
+    for key in tags:
         if not key or "=" in key:
             raise ValueError(f"invalid metadata key: {key!r}")
-        args += ["-metadata", f"{key}={value}"]
-    return _encode([*args, "-movflags", "+use_metadata_tags+faststart"], Path(out))
+    flags = ["-movflags", "+use_metadata_tags+faststart"]
+    if sum(len(key) + len(value) for key, value in tags.items()) <= _TAGS_ON_COMMAND_LINE:
+        args = ["-i", str(src), "-c", "copy", "-map_metadata", "0"]
+        for key, value in tags.items():
+            args += ["-metadata", f"{key}={value}"]
+        return _encode([*args, *flags], Path(out))
+    # the source's own global tags, merged with the new ones, as `-map_metadata 0` and `-metadata` would leave them
+    # (ffmpeg matches metadata keys without regard to case, so a new "Title" replaces an old "title")
+    merged = {key: value for key, value in {**read_metadata(src), **{k.lower(): v for k, v in tags.items()}}.items() if value}
+    sheet = Path(out).with_name(f".{Path(out).name}.{uuid.uuid4().hex[:8]}.ffmetadata")
+    sheet.write_text(";FFMETADATA1\n" + "".join(f"{_ffmetadata_escape(key)}={_ffmetadata_escape(value)}\n"
+                                                 for key, value in merged.items()), encoding="utf-8", newline="\n")
+    try:
+        return _encode(["-i", str(src), "-f", "ffmetadata", "-i", str(sheet), "-c", "copy", "-map_metadata", "1", *flags],
+                       Path(out))
+    finally:
+        sheet.unlink(missing_ok=True)
 
 
 _FFMETADATA = re.compile(

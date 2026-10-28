@@ -1,0 +1,207 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_134831_3ffc",
+    "kind": "direct",
+    "created_at": "2026-10-22T13:50:49Z",
+    "label": "static: Ines writes in a notebook at a cafe window while"
+  },
+  "inputs": {
+    "subject": "Ines writes in a notebook at a cafe window while rain runs down the glass",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "vintage_anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "window",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "gold",
+      "grade": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Ines writes in a notebook at a cafe window while rain runs down the glass. Shot on a clean modern digital cinema camera with a vintage anamorphic lens with soft edges, flares and gentle falloff, 35mm (natural), at f/4 with moderate depth of field; soft window light from one side. The camera is locked off on a tripod; only the subject moves. Gold spreads over the subject from the feet upward, skin and cloth hardening into polished metal until a gold statue stands where the subject was, with a low metallic hum. Constraint: no camera movement, no zoom, no drift. Sound: cafe chatter, rain on glass, a spoon against a cup.",
+    "seed": 133,
+    "orientation": "landscape",
+    "audio": "cafe chatter, rain on glass, a spoon against a cup",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "transformation": "gold",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_transform_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Ines",
+      "refs": [
+        "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+      ]
+    },
+    "recipe_hash": "b9371ede925b901a46664a6c9f0dcc47dd520ffb9f58d0dd86db3b9643442da0"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "ec684b5197ec6bfa7a0b38c6abe2bf8da39a47a81d8b1c76a45b8eff7680dfd5",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "8c7fad7f6345d31bb4397d30d41372e8571fad0f5174b24f76a68e25a559d63e",
+        "job_id": "9cae0775-fbf7-4c73-bf39-1a23a7feb7e7"
+      },
+      {
+        "stage": "transform_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "fa3faf72ff253fc149c69cdad3fce1bf24392c57869f5b7e945785c10d1c0323",
+        "job_id": "94cc7d15-8ebf-4ef5-82a4-646ac66a5f52"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "f5f288e1bb40a5092312b75ecef2b47823356c6d1b0036bc6b5237333f039add",
+        "job_id": "3d4a4c5c-7854-41c6-8489-d59cc9283451"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.885854030932318,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.885854030932318,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.885854030932318
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          603,
+          76,
+          195,
+          259
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.886 >= threshold 0.363 (best reference 0)",
+        "face_px": 195,
+        "enlarged": null
+      }
+    },
+    "skipped": {
+      "transform_1": "the transformation changes the face on purpose",
+      "shoot_1": "the transformation changes the face on purpose"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "9cae0775-fbf7-4c73-bf39-1a23a7feb7e7,94cc7d15-8ebf-4ef5-82a4-646ac66a5f52,3d4a4c5c-7854-41c6-8489-d59cc9283451",
+    "timings": {
+      "total_s": 137.8
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "9d4711c79afabcc8b2948983e643a7df2a351dc23a8862fc9c0fbd72f3b1cf12",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "8d21d7a561705d9d97e23c234bdf5c36c16ab1e7d70fa191c1925255434067c5"
+  }
+}

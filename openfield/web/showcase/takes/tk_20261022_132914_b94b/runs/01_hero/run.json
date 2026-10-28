@@ -1,0 +1,33 @@
+{
+  "stage": "hero",
+  "template": "qwen21_edit",
+  "workflow_sha256": "12e8ea3e93ecd058712ba20db7ecfa0a148a8465d22c20b29362fe9ae1e59f4e",
+  "snapped": {},
+  "job_id": "2996048f-97f0-444c-b1f3-c96c78734e34",
+  "backend": "pod",
+  "timings": {
+    "submit_s": 1.0,
+    "total_s": 51.8
+  },
+  "outputs": [
+    {
+      "role": "image",
+      "node_id": "461",
+      "name": "Qwen_image_2.1_00009.png",
+      "content_type": "image/png",
+      "kind": "image",
+      "file": "image.png",
+      "size_bytes": 2934245
+    }
+  ],
+  "assets": [
+    {
+      "node": "470",
+      "input": "image",
+      "slot": "base_image",
+      "name": "base_image.png",
+      "sha256": "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4",
+      "from": null
+    }
+  ]
+}

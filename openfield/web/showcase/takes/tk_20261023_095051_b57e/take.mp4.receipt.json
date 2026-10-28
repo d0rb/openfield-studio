@@ -1,0 +1,128 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_095051_b57e",
+    "kind": "transition",
+    "created_at": "2026-10-23T09:51:52Z",
+    "label": "push through: Mara stands alone on the edg to Seen from street level far b"
+  },
+  "inputs": {
+    "style": "push",
+    "seconds": 3,
+    "seed": 623,
+    "final_prompt": "The camera pushes forward through the first scene and comes out into the second, one continuous forward move with no cut. How it gets there: the camera dives forward off the rooftop and down through the morning haze between the towers until it reaches the crowded avenue and tilts up to the sky. It starts on the last moment of the first shot: Mara stands alone on the edge of a skyscraper rooftop at dawn, the city spreading to the horizon. It lands on the opening of the second shot: Seen from street level far below: a colossal dragon high in the sky between glass skyscrapers at sunset, small against the towers, crowds filling the avenue. The sound carries through the transition without a break.",
+    "frame": [
+      1280,
+      704
+    ],
+    "idea": "the camera dives forward off the rooftop and down through the morning haze between the towers until it reaches the crowded avenue and tilts up to the sky",
+    "first": {
+      "take": "tk_20261023_000528_66a0",
+      "sha256": "cc4ba02e1e899a396039afb53b5d62dbe07672ab770d4fa94154d42330928c6f",
+      "frame": "inputs/first_last_frame.png"
+    },
+    "second": {
+      "take": "tk_20261023_094522_51f5",
+      "sha256": "3d65376ad0e8e631b531322c05ffd32cbd973d8dbd7742c2ad8d27b570df4a49",
+      "frame": "inputs/second_first_frame.png"
+    },
+    "join": {
+      "order": [
+        "first",
+        "bridge",
+        "second"
+      ],
+      "crossfade_s": 0.12
+    },
+    "recipe_hash": "b1168c989e4319abb121814eef8329d1ea5e2d0ba021a1c71c333acb92a7f836"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "4bb43acbe2e5be6c0cf9e88a541433a50e4415b7d98c42cf0023bb5f7f674423",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "bridge",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "0dd44ed05046fef89ba05a4d882adcdd3bd83983fc1958749e55218e799fbd04",
+        "job_id": "af3d9b68-e117-49ab-8e7f-4f48849fcb0c"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {},
+    "skipped": {
+      "bridge": "a transition joins two finished takes; each keeps its own identity result"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "af3d9b68-e117-49ab-8e7f-4f48849fcb0c",
+    "timings": {
+      "total_s": 61.1
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "bc2c253228802cea24f5ce6d01972c99c19f9f8f0dcaa91ba2c2fd75f563933f",
+      "seconds": 12.89
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "21070985a8e99fcaa34d61cdc5f0926de09596e28976ea3d172fa019f38d9892"
+  }
+}

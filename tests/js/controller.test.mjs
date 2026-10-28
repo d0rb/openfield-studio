@@ -37,6 +37,9 @@ function fakeApi(overrides = {}) {
     cancel: async (id) => take(id, "canceled"),
     remove: async (id) => { calls.push(["remove", id]); return null; },
     setBackend: async (mode) => ({ backend: { kind: mode } }),
+    testBackend: async (body) => { calls.push(["testBackend", body]); return { health: { ok: true }, target: { kind: "pod", host: "127.0.0.1:9189" }, warnings: [], preflight: null }; },
+    connectBackend: async (body) => { calls.push(["connectBackend", body]); return { backend: { kind: "pod", source: body.remember ? "saved" : "session" } }; },
+    forgetBackend: async () => { calls.push(["forgetBackend"]); return { backend: { kind: "replay", source: null } }; },
     exportVertical: async (id) => take("tk_ex", "succeeded", "2026-10-16T12:00:00Z", { kind: "export" }),
     exportReel: async () => take("tk_reel", "succeeded", "2026-10-16T12:30:00Z", { kind: "export" }),
     ...overrides,
@@ -146,7 +149,7 @@ test("remove stops following and clears the selection", async () => {
 });
 
 test("cast, exports and backend switching update the store", async () => {
-  const { store, controller } = setup();
+  const { api, store, controller } = setup();
   await controller.load();
   await controller.createCast(new FormData());
   assert.deepEqual(store.get().cast, [{ id: "ca_1" }]);
@@ -155,6 +158,14 @@ test("cast, exports and backend switching update the store", async () => {
   assert.ok(store.get().takes.some((t) => t.id === "tk_ex"));
   await controller.setBackend("replay");
   assert.equal(store.get().status.backend.kind, "replay");
+  const probe = await controller.testBackend({ base_url: "http://127.0.0.1:9189" });
+  assert.equal(probe.health.ok, true);
+  assert.equal(store.get().status.backend.kind, "replay", "a test never switches");
+  await controller.connectBackend({ base_url: "http://127.0.0.1:9189", api_key: "t", remember: true });
+  assert.deepEqual(store.get().status.backend, { kind: "pod", source: "saved" });
+  await controller.forgetBackend();
+  assert.equal(store.get().status.backend.kind, "replay");
+  assert.deepEqual(api.calls.filter((c) => /Backend$/.test(c[0])).map((c) => c[0]), ["testBackend", "connectBackend", "forgetBackend"]);
 });
 
 test("live reducer follows a whole Direct run, including approval and identity", () => {
@@ -225,4 +236,13 @@ test("stage labels read like words", () => {
   assert.equal(label("motion"), "Motion transfer");
   assert.equal(label("some_new_stage"), "some new stage");
   assert.equal(label(null), "");
+});
+
+test("a shot from the person's image starts over multipart and is followed like any take", async () => {
+  const { store, controller, followed } = setup({ startDirectFromImage: async (form) => take(`tk_img_${form instanceof FormData}`, "queued", "2026-10-22T09:00:00Z") });
+  await controller.load();
+  const started = await controller.startDirectFromImage(new FormData());
+  assert.equal(started.id, "tk_img_true");
+  assert.equal(store.get().selected, "tk_img_true");
+  assert.ok(followed.some((f) => f.id === "tk_img_true"));
 });

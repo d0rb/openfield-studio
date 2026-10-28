@@ -1,0 +1,209 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_085035_87d4",
+    "kind": "direct",
+    "created_at": "2026-10-23T08:54:08Z",
+    "label": "static: Mara stands in a sunlit field of red poppies in "
+  },
+  "inputs": {
+    "subject": "Mara stands in a sunlit field of red poppies in a white summer dress",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "painting",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Mara stands in a sunlit field of red poppies in a white summer dress. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera is locked off on a tripod; only the subject moves. Brushstrokes sweep across the scene until it becomes a classical oil painting, thick paint and canvas texture covering every surface, with a soft brushing sound. Constraint: no camera movement, no zoom, no drift.",
+    "seed": 574,
+    "orientation": "landscape",
+    "audio": null,
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "transformation": "painting",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_transform_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Mara",
+      "refs": [
+        "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+      ]
+    },
+    "recipe_hash": "c03a4558df798d301b2d47db60af37bf1abb7ac9f84d99fe0f5e1e9cebacc7e0"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "12458d211d653532773b74473e26821172f11075ba9ab94a535911a2b23cf173",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "10612c2f213286cd89d8b9e4b24018f84ece578aa093ebc8a80ea4951978d6a6",
+        "job_id": "23ba96c9-248e-4b08-8516-d9cd781c38a4"
+      },
+      {
+        "stage": "transform_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "475cfb41a951ede68c670af2b0ef0c51142ad5592b6bfe577c13f199ab62022c",
+        "job_id": "ae99d7b7-e3ab-4067-8369-31ac4c4e9163"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "84f693f7be6c3871d50e5e1a50c6f3a000052ed897bed9df68e0c99028ae1e9c",
+        "job_id": "c9e51f7f-1723-4e3a-86dc-7d8ddece30ab"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.9095125370321522,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.9095125370321522,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.9095125370321522
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          561,
+          98,
+          155,
+          210
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.910 >= threshold 0.363 (best reference 0)",
+        "face_px": 155,
+        "enlarged": null
+      }
+    },
+    "skipped": {
+      "transform_1": "the scene is repainted in oils, so a photographic face check does not apply",
+      "shoot_1": "the scene is repainted in oils, so a photographic face check does not apply"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "23ba96c9-248e-4b08-8516-d9cd781c38a4,ae99d7b7-e3ab-4067-8369-31ac4c4e9163,c9e51f7f-1723-4e3a-86dc-7d8ddece30ab",
+    "timings": {
+      "total_s": 213.3
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "434d002e41e529cb2c7bc536a805275843a37f6670803ca92f4d7792920685e4",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "c765dca53a35f16060e828c0b58089c863af018def81ac21158701f953389def"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "stage": "motion",
+  "template": "wan_animate2",
+  "workflow_sha256": "b5ad79d28b6d631731d85fe5da385f8f7e61fdd48de8f8dad132a134871412d2",
+  "snapped": {},
+  "job_id": "d90f944e-30fd-4643-9e13-fa8e73a65fd4",
+  "backend": "pod",
+  "timings": {
+    "submit_s": 4.48,
+    "total_s": 186.22
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "node_id": "246",
+      "name": "ComfyUI_00006_.mp4",
+      "content_type": "video/mp4",
+      "kind": "video",
+      "file": "video.mp4",
+      "size_bytes": 802555
+    }
+  ],
+  "assets": [
+    {
+      "node": "189",
+      "input": "image",
+      "slot": "reference_image",
+      "name": "reference_image.png",
+      "sha256": "36ff70eb52ec941b973a66af87c93c585b35f31be4178cef93c1ff04ed77f90f",
+      "from": "inputs/reference.png"
+    },
+    {
+      "node": "240",
+      "input": "file",
+      "slot": "pose_video",
+      "name": "pose_video.mp4",
+      "sha256": "771d0e696af1c1777d1e0c5efb610fcfd84c25b7cf750bba8b68ccb634441881",
+      "from": "inputs/source.mp4"
+    }
+  ]
+}

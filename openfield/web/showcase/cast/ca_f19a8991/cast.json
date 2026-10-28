@@ -1,0 +1,42 @@
+{
+  "id": "ca_f19a8991",
+  "name": "Mara",
+  "kind": "character",
+  "consent": "fictional",
+  "consent_text": "These are AI-generated or fictional.",
+  "created_at": "2026-10-20T14:23:26Z",
+  "refs": [
+    {
+      "file": "ref_1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "faces": 1,
+      "hint": null
+    }
+  ],
+  "face_check": true,
+  "origin": {
+    "generated": true,
+    "take": "tk_20261020_142241_2c06",
+    "description": "a woman in her late twenties with short dark hair, freckles and a yellow rain jacket",
+    "seed": 101,
+    "prompt": "A photographic head-and-shoulders portrait of a woman in her late twenties with short dark hair, freckles and a yellow rain jacket. The face is fully visible and evenly lit, looking toward the camera with a relaxed neutral expression, in sharp focus, against a plain, softly out-of-focus background. Natural skin texture, realistic proportions. No text, no watermark.",
+    "models": [
+      {
+        "file": "qwen_image_2.1_int8_convrot.safetensors",
+        "license": "Qwen Research License Agreement"
+      },
+      {
+        "file": "qwen3vl_8b_int8_convrot.safetensors",
+        "license": "Qwen Research License Agreement"
+      },
+      {
+        "file": "qwen_image_2.1_vae_bf16.safetensors",
+        "license": "Qwen Research License Agreement"
+      }
+    ],
+    "disclosure": "AI-generated fictional character"
+  }
+}

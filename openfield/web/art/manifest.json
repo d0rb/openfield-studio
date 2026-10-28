@@ -1,0 +1,1649 @@
+{
+ "what": "Every picture and the trailer in openfield/web/art: the pictures rendered with open weights through the app's own audited templates and resized for the web, the trailer cut from recorded takes.",
+ "made": "2026-10-24/25 UTC; 2026-10-27; 2026-10-27; 2026-10-27",
+ "files": [
+  {
+   "file": "art-cast-480.webp",
+   "width": 480,
+   "height": 268,
+   "bytes": 8280,
+   "sha256": "f1133ffed1cede4797c4aaff4c37d7c0550ccf9ddec037d3d61f9fffc08bf7ad",
+   "made_from": {
+    "render": "art-cast/202.png",
+    "kind": "still",
+    "prompt": "Five empty canvas director's chairs in a row on a dark stage, each under its own soft spotlight, plain canvas backs, polished concrete floor reflecting the light. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 202,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "de54366efe9593ff1e06850ab5d53b41b1cb832727a90b25156caafbbf8dec4e",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "648f19c63a0d3f02cccc2b2265eb8c4bd9825285fcf4ced5288e81712c9b7281"
+   }
+  },
+  {
+   "file": "art-cast.webp",
+   "width": 960,
+   "height": 535,
+   "bytes": 23574,
+   "sha256": "06a28e8e9ca14c48dcd49abf02f2e567b3b37254b59356108a959f27ee3406d1",
+   "made_from": {
+    "render": "art-cast/202.png",
+    "kind": "still",
+    "prompt": "Five empty canvas director's chairs in a row on a dark stage, each under its own soft spotlight, plain canvas backs, polished concrete floor reflecting the light. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 202,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "de54366efe9593ff1e06850ab5d53b41b1cb832727a90b25156caafbbf8dec4e",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "648f19c63a0d3f02cccc2b2265eb8c4bd9825285fcf4ced5288e81712c9b7281"
+   }
+  },
+  {
+   "file": "art-direct-480.webp",
+   "width": 480,
+   "height": 268,
+   "bytes": 5182,
+   "sha256": "8107d4a1dec21fec13cc08bf4c326cefe81edfea72f87b31a9148011520026ef",
+   "made_from": {
+    "render": "art-direct/212.png",
+    "kind": "still",
+    "prompt": "An empty sound stage floor with an orange tape X mark lit by a single hard spotlight, a curved dolly track leading toward it, a cinema camera on the dolly waiting in the dark at the edge of the light. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 212,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "fc2fe9fef6b52180a349d234f60ca0bae92a3099c45db8dae249722ceaa5acb0",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "c3d12e5b800dfb0b6c598c6c25a17fabf67ecb96a74cb5ebfe4afed43a31d13f"
+   }
+  },
+  {
+   "file": "art-direct.webp",
+   "width": 960,
+   "height": 535,
+   "bytes": 15074,
+   "sha256": "d645a0bd703c62a9fd9b5e7fd115ed677bdf0165c2175ca9c2393a0dcd914b0e",
+   "made_from": {
+    "render": "art-direct/212.png",
+    "kind": "still",
+    "prompt": "An empty sound stage floor with an orange tape X mark lit by a single hard spotlight, a curved dolly track leading toward it, a cinema camera on the dolly waiting in the dark at the edge of the light. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 212,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "fc2fe9fef6b52180a349d234f60ca0bae92a3099c45db8dae249722ceaa5acb0",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "c3d12e5b800dfb0b6c598c6c25a17fabf67ecb96a74cb5ebfe4afed43a31d13f"
+   }
+  },
+  {
+   "file": "art-reshoot-480.webp",
+   "width": 480,
+   "height": 268,
+   "bytes": 5302,
+   "sha256": "50572204863bad68f8c2cac175d209de35aadf1f2d33c527ed33adc00622bf4b",
+   "made_from": {
+    "render": "art-reshoot/232.png",
+    "kind": "still",
+    "prompt": "A motion capture stage in darkness: a performer in a black suit covered with glowing marker dots in the middle of a dance move, a ring of tracking cameras with small red lights circling the stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 232,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "4067c83ab880a767c4734ab6dc3b28fa16870e1ac6f5d6c777e0299f32dd967f",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "0b5457d2249cb2acea2cd8d3f684d13e27f7b5492d311ed59696245757a1023e"
+   }
+  },
+  {
+   "file": "art-reshoot.webp",
+   "width": 960,
+   "height": 535,
+   "bytes": 14418,
+   "sha256": "1193609db04cbf908649df8ecef75085ad58fbd1c40d025016bdea85c37edf2c",
+   "made_from": {
+    "render": "art-reshoot/232.png",
+    "kind": "still",
+    "prompt": "A motion capture stage in darkness: a performer in a black suit covered with glowing marker dots in the middle of a dance move, a ring of tracking cameras with small red lights circling the stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 232,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "4067c83ab880a767c4734ab6dc3b28fa16870e1ac6f5d6c777e0299f32dd967f",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "0b5457d2249cb2acea2cd8d3f684d13e27f7b5492d311ed59696245757a1023e"
+   }
+  },
+  {
+   "file": "art-shots-480.webp",
+   "width": 480,
+   "height": 268,
+   "bytes": 10966,
+   "sha256": "79977707a6323d1b62786aea0178a1bb39ca8d5c1d729b945e0d3095879f0f2d",
+   "made_from": {
+    "render": "art-shots/221.png",
+    "kind": "still",
+    "prompt": "A wall of storyboard frames: rows of small pencil-sketch drawings of film scenes pinned to a dark wall, lit by a warm desk lamp, the sketches are drawings only with no writing. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 221,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "36c99cce589012516219d316d9fcc8c7ba5bdde164d569411f2a807fc89b916c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "13d245554d6be9351e12f03b3f8f8e09c79add152a904e619f4e194bf117cdef"
+   }
+  },
+  {
+   "file": "art-shots.webp",
+   "width": 960,
+   "height": 535,
+   "bytes": 29506,
+   "sha256": "21d7bbd75035803758f78922a00098c63258a6599ccb1d8c628ffcea379a1ef9",
+   "made_from": {
+    "render": "art-shots/221.png",
+    "kind": "still",
+    "prompt": "A wall of storyboard frames: rows of small pencil-sketch drawings of film scenes pinned to a dark wall, lit by a warm desk lamp, the sketches are drawings only with no writing. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 221,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "36c99cce589012516219d316d9fcc8c7ba5bdde164d569411f2a807fc89b916c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "13d245554d6be9351e12f03b3f8f8e09c79add152a904e619f4e194bf117cdef"
+   }
+  },
+  {
+   "file": "art-takes-480.webp",
+   "width": 480,
+   "height": 268,
+   "bytes": 6456,
+   "sha256": "429354d6547d08ce4afa8d9bfbe09a778293fe17c0fd0dae880c74a91f1b7f33",
+   "made_from": {
+    "render": "art-takes/242.png",
+    "kind": "still",
+    "prompt": "A dark video village on a film set: a bank of monitors on a cart glowing with different film scenes, an empty director's chair in front of them, cables on the floor, warm and teal light. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 242,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "e32d18834d17bfd9390f1bf7f22b10bb24fa0ba27c7f5e57b531d1e48d683557",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "3ffe39cb407856bbc655b0c6371e59d1770c44db31e6a415617e1ab66511e074"
+   }
+  },
+  {
+   "file": "art-takes.webp",
+   "width": 960,
+   "height": 535,
+   "bytes": 18194,
+   "sha256": "7790a9045bcf9f615792aabf8a595e9882fe5728b967d0975b039b8452af77b3",
+   "made_from": {
+    "render": "art-takes/242.png",
+    "kind": "still",
+    "prompt": "A dark video village on a film set: a bank of monitors on a cart glowing with different film scenes, an empty director's chair in front of them, cables on the floor, warm and teal light. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 242,
+    "size": [
+     1664,
+     928
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "e32d18834d17bfd9390f1bf7f22b10bb24fa0ba27c7f5e57b531d1e48d683557",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "3ffe39cb407856bbc655b0c6371e59d1770c44db31e6a415617e1ab66511e074"
+   }
+  },
+  {
+   "file": "btn-cast.webp",
+   "width": 160,
+   "height": 160,
+   "bytes": 2016,
+   "sha256": "3f14cf5602bb61e79172bab28d35fdab71f9c7a35feb18f5a1fd1fd2def1f056",
+   "made_from": {
+    "render": "btn-cast/502.png",
+    "kind": "still",
+    "prompt": "A single a folding canvas director's chair. Studio product photograph on a pure black background, the object centred and filling about two thirds of the frame, a crisp safety-orange rim light from behind and a soft warm key light, deep black all around, photorealistic, high detail. No text, no letters, no logos, no watermark.",
+    "seed": 502,
+    "size": [
+     1024,
+     1024
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "ef8e682fa50a78ae54013111bdc93f246696ce0b8d0d2c2e689e7dcf07573588",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "807efb976f19ac33b4dcddd107b43ce3a6ae6033db21c468b99549865bd1299e"
+   }
+  },
+  {
+   "file": "btn-direct.webp",
+   "width": 160,
+   "height": 160,
+   "bytes": 3206,
+   "sha256": "921ded079db74bcc23116b584dfc2fd9220ae5cc22a4cfe5fbba554aeea4d115",
+   "made_from": {
+    "render": "btn-direct/511.png",
+    "kind": "still",
+    "prompt": "A single a compact professional cinema camera with a lens. Studio product photograph on a pure black background, the object centred and filling about two thirds of the frame, a crisp safety-orange rim light from behind and a soft warm key light, deep black all around, photorealistic, high detail. No text, no letters, no logos, no watermark.",
+    "seed": 511,
+    "size": [
+     1024,
+     1024
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "3d253e2a4a2ccaa4c35aaec2d8e2fa65471d1d18cf29652e12eb21a59957cec4",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "b972a0ab98ff5a4b9654221f93de66dc5c7f3f233e7e3a7da0e79ad1ca76bdd6"
+   }
+  },
+  {
+   "file": "btn-lobby.webp",
+   "width": 160,
+   "height": 160,
+   "bytes": 2552,
+   "sha256": "12ab77cc78ac18414c75e106362e8b5d3a85b77e2f2c7730fee501dadd81684d",
+   "made_from": {
+    "render": "marquee-board/903.png",
+    "kind": "still",
+    "prompt": "Frontal view of a vintage cinema marquee sign at night: a long blank white backlit letter board with thin horizontal black letter rails and nothing on it, framed above and below by rows of glowing warm incandescent bulbs in a black metal housing with chrome trim; the sign fills the frame edge to edge. Photorealistic. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 903,
+    "size": [
+     1792,
+     512
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "30a4ca083442efd1954901d28f97b92bc814fac18a5aa26ca54135da68eb2f78",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "d4029f84dec197b77726c3a3c9280dcccd48ed58f3f0c7fc2c3dae2a3ae5e0c0"
+   },
+   "cropped": "the left end of the marquee board (both rows of bulbs), its blank board dimmed to half, set on black in a square"
+  },
+  {
+   "file": "btn-reshoot.webp",
+   "width": 160,
+   "height": 160,
+   "bytes": 2266,
+   "sha256": "03f5e53c2a7b43f7fb7c93ec9b8844dd2eaf9fa2985e0f41e3ac1b5e4792f36f",
+   "made_from": {
+    "render": "btn-reshoot/531.png",
+    "kind": "still",
+    "prompt": "A single a jointed wooden artist's mannequin figure in a dance pose. Studio product photograph on a pure black background, the object centred and filling about two thirds of the frame, a crisp safety-orange rim light from behind and a soft warm key light, deep black all around, photorealistic, high detail. No text, no letters, no logos, no watermark.",
+    "seed": 531,
+    "size": [
+     1024,
+     1024
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "e2f8f5748e3532f9072ca5bb2b7ed2f533cdc68724af9bca8d2d45d37a35d539",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "97c61060d65fd28413363763efe4c22182cd67fc5eaa9f619345183fd64d2ff7"
+   }
+  },
+  {
+   "file": "btn-shots.webp",
+   "width": 160,
+   "height": 160,
+   "bytes": 1754,
+   "sha256": "c1cc37484ee4531363cba23e33a87170aed0177db0fd0971d625494ffa0de9ad",
+   "made_from": {
+    "render": "btn-shots/522.png",
+    "kind": "still",
+    "prompt": "A single a closed wooden film clapperboard with a plain blank slate. Studio product photograph on a pure black background, the object centred and filling about two thirds of the frame, a crisp safety-orange rim light from behind and a soft warm key light, deep black all around, photorealistic, high detail. No text, no letters, no logos, no watermark.",
+    "seed": 522,
+    "size": [
+     1024,
+     1024
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "0e9b6b72914565adb9be8fb5b40006d3a97735477c182766802b404c01d167f3",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "30bfd671ca35176bf33c493aaa5743f1e95644f2fae2181ce8268def3c83f4c1"
+   }
+  },
+  {
+   "file": "btn-takes.webp",
+   "width": 160,
+   "height": 160,
+   "bytes": 4006,
+   "sha256": "0e0baceb9476826e741d63752a1203577c52f4ca0b979f58388df544d5c6c07e",
+   "made_from": {
+    "render": "btn-takes/542.png",
+    "kind": "still",
+    "prompt": "A single a metal 35mm film reel with film wound on it. Studio product photograph on a pure black background, the object centred and filling about two thirds of the frame, a crisp safety-orange rim light from behind and a soft warm key light, deep black all around, photorealistic, high detail. No text, no letters, no logos, no watermark.",
+    "seed": 542,
+    "size": [
+     1024,
+     1024
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "8fd8ad07a01e13bd093135415a48a3f331b58ae21b0c34ac88ab3a19376621a6",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "5061e0305fbe58cd112f9b33b068105ddd4e1285c6d3c5f3272e9ccca6c81e16"
+   }
+  },
+  {
+   "file": "marquee.webp",
+   "width": 1600,
+   "height": 457,
+   "bytes": 38006,
+   "sha256": "2aa7ec92169709178d09bb823a549bb5e53b238ec7ec7ddac5572a08bd0cffbe",
+   "made_from": {
+    "render": "marquee-board/903.png",
+    "kind": "still",
+    "prompt": "Frontal view of a vintage cinema marquee sign at night: a long blank white backlit letter board with thin horizontal black letter rails and nothing on it, framed above and below by rows of glowing warm incandescent bulbs in a black metal housing with chrome trim; the sign fills the frame edge to edge. Photorealistic. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 903,
+    "size": [
+     1792,
+     512
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "30a4ca083442efd1954901d28f97b92bc814fac18a5aa26ca54135da68eb2f78",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "d4029f84dec197b77726c3a3c9280dcccd48ed58f3f0c7fc2c3dae2a3ae5e0c0"
+   }
+  },
+  {
+   "file": "mat-brass.webp",
+   "width": 1024,
+   "height": 576,
+   "bytes": 36446,
+   "sha256": "efc71161f4a9aca94c12443d706381ebf46541fcdf7ad57813ef4a6e772218f4",
+   "made_from": {
+    "template": "qwen21_t2i",
+    "kind": "still",
+    "prompt": "A flat strip of aged polished brass lit from the left, fine lengthwise brushing across the metal, a warm specular highlight falling away to deep shadow at the right, faint patina and fine scratches, filling the frame. Photographic, macro, shallow depth of field. No text, no letters, no logos, no watermark.",
+    "seed": 1651,
+    "steps": 30,
+    "width": 2048,
+    "height": 1152,
+    "workflow_sha256": "b474395d56241250f87c5dd3c1a97e943fb0f8ddc36408863a05eaad98f4db82",
+    "seconds": 45.6,
+    "render": "mat-brass.png",
+    "resized_to": 1024
+   }
+  },
+  {
+   "file": "mat-stock.webp",
+   "width": 1024,
+   "height": 576,
+   "bytes": 23128,
+   "sha256": "57fbf07c281dc0d11b0150230ff4d19c2af4c643ce54933a3e1088c39206eca8",
+   "made_from": {
+    "template": "qwen21_t2i",
+    "kind": "still",
+    "prompt": "Extreme macro photograph of warm cream cotton rag paper, its fibre, tooth and faint speckle filling the entire frame edge to edge, lit evenly and flatly, no sheet, no edges, no border, no corner, no shadow, no printing. Photographic, even exposure, sharp across the frame. No text, no letters, no logos, no watermark.",
+    "seed": 1643,
+    "steps": 30,
+    "width": 2048,
+    "height": 1152,
+    "workflow_sha256": "cb4a1abd5dab6fedd303ae4e0f1da19be5c1cc73c66ba6727af86c1d830870f1",
+    "seconds": 45.1,
+    "render": "mat-stock.png",
+    "resized_to": 1024
+   }
+  },
+  {
+   "file": "ov-beams.webp",
+   "width": 2048,
+   "height": 972,
+   "bytes": 11508,
+   "sha256": "ae0a643b056c2bccf91bdcaaff5a5f667e0ab2b19f56a8418fde5ea6e240d1ab",
+   "made_from": {
+    "template": "qwen21_t2i",
+    "kind": "still",
+    "prompt": "A single projector beam cutting down diagonally from the upper left through still, heavy air, the cone narrow and bright at its source and widening as it falls, its edges soft, faint striations in the haze. On a pure black background, no objects, no people, nothing else in the frame, photographic, soft and organic. No text, no letters, no logos, no watermark.",
+    "seed": 1612,
+    "steps": 30,
+    "width": 2048,
+    "height": 1152,
+    "workflow_sha256": "b78f1d35ac0e8dce26209950453fe69c8b37cce1ed9ada5e655a6d36d0dccd3b",
+    "seconds": 52.4,
+    "render": "ov-beams.png",
+    "crop_top": 180
+   }
+  },
+  {
+   "file": "ov-dust.webp",
+   "width": 2048,
+   "height": 1152,
+   "bytes": 17146,
+   "sha256": "f806d3b86588820985c46f85574d05ef5992e92a4868add58bf0fc79acec77c2",
+   "made_from": {
+    "template": "qwen21_t2i",
+    "kind": "still",
+    "prompt": "Fine dust motes and tiny specks suspended in still air, caught in a shaft of light, hundreds of them at many depths, some sharp and near, most small and soft and far. On a pure black background, no objects, no people, nothing else in the frame, photographic, soft and organic. No text, no letters, no logos, no watermark.",
+    "seed": 1622,
+    "steps": 30,
+    "width": 2048,
+    "height": 1152,
+    "workflow_sha256": "fc2c229d403aa2f50fbb93e002c7de86ce55d8eae4367c10b9e12ebc836e507e",
+    "seconds": 45.5,
+    "render": "ov-dust.png"
+   }
+  },
+  {
+   "file": "ov-leak.webp",
+   "width": 2048,
+   "height": 1152,
+   "bytes": 23044,
+   "sha256": "22f7c3edc2a32af77b44017de4eebec05ac1aa4255a0175032a91463d68cba6d",
+   "made_from": {
+    "template": "qwen21_t2i",
+    "kind": "still",
+    "prompt": "A warm orange and amber film light leak glowing in from the left edge, soft organic bloom falling away into darkness, faint banding in the glow. On a pure black background, no objects, no people, nothing else in the frame, photographic, soft and organic. No text, no letters, no logos, no watermark.",
+    "seed": 1603,
+    "steps": 30,
+    "width": 2048,
+    "height": 1152,
+    "workflow_sha256": "8c262efffa966e3bad11ae8f329996ee7b11189b50ee060790d8bc27ebe78b39",
+    "seconds": 45.2,
+    "render": "ov-leak.png"
+   }
+  },
+  {
+   "file": "poster-bts-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 7620,
+   "sha256": "ee3fd141d14c765d6bf39b29c9e27337e7596b66c81086ebe7602872256ed41f",
+   "made_from": {
+    "render": "app-bts/461.png",
+    "kind": "still",
+    "prompt": "A film crew seen from behind the camera on a night set, the camera's monitor glowing with the scene, haze and practical lights beyond. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 461,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "0b742a17b523e2475719ce8ea87ea4c27d0c9b7599df5c8102ff61f8ce030517",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "1fdb104fa6bc99f82991ca8779af7c77b41aad73d704a3694f69f8d89b1857e1"
+   }
+  },
+  {
+   "file": "poster-bts.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 20414,
+   "sha256": "41b46d7a73f74e36b028339224ea9aa899bc5b15a80aaf7f52509e58c9055cbe",
+   "made_from": {
+    "render": "app-bts/461.png",
+    "kind": "still",
+    "prompt": "A film crew seen from behind the camera on a night set, the camera's monitor glowing with the scene, haze and practical lights beyond. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 461,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "0b742a17b523e2475719ce8ea87ea4c27d0c9b7599df5c8102ff61f8ce030517",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "1fdb104fa6bc99f82991ca8779af7c77b41aad73d704a3694f69f8d89b1857e1"
+   }
+  },
+  {
+   "file": "poster-bullet-time-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 6118,
+   "sha256": "f30ed97fefcc02bacacedbc5e35abc0db4c631460cf73767da8077639a6252ab",
+   "made_from": {
+    "render": "app-bullet-time/441.png",
+    "kind": "still",
+    "prompt": "A ring of dozens of small cameras on a circular rig surrounding an empty centre point on a dark stage, each camera with a tiny red light. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 441,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "8afe96d6c9059a49ce9cb313096a03cd7ec702e54a96bd922e0c033a1e03d448",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "32101a3b9e14bdffb74a98549c4479e53bc448f346421c9e3d33a99aa474852c"
+   }
+  },
+  {
+   "file": "poster-bullet-time.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 17562,
+   "sha256": "4e7a65e767a2b9da8bf98daef4e6aa13862d51cabd882b72e1a9df82bf9fa325",
+   "made_from": {
+    "render": "app-bullet-time/441.png",
+    "kind": "still",
+    "prompt": "A ring of dozens of small cameras on a circular rig surrounding an empty centre point on a dark stage, each camera with a tiny red light. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 441,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "8afe96d6c9059a49ce9cb313096a03cd7ec702e54a96bd922e0c033a1e03d448",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "32101a3b9e14bdffb74a98549c4479e53bc448f346421c9e3d33a99aa474852c"
+   }
+  },
+  {
+   "file": "poster-cast-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 5300,
+   "sha256": "c19a3e5d3b8fd143eaed83f9ebf03015054de298a19e10ffc043395623f370ac",
+   "made_from": {
+    "render": "app-cast/312.png",
+    "kind": "still",
+    "prompt": "A dressing-room mirror ringed with glowing bulbs in a dark room, an empty makeup chair in front of it. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 312,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "f05a2f5fcd5ee7d823e896246dc8f0e4ce06f89398fee53a8a4044ca8cdd1a6b",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "f9fdbaa4a5ce162670b4f3d239232d73531303b183f27b8977ec21d22c08a2cc"
+   }
+  },
+  {
+   "file": "poster-cast.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 13614,
+   "sha256": "65537912e73073af6c281da4a222716f0bb6444dff7eae9b8c53338d4b8ea300",
+   "made_from": {
+    "render": "app-cast/312.png",
+    "kind": "still",
+    "prompt": "A dressing-room mirror ringed with glowing bulbs in a dark room, an empty makeup chair in front of it. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 312,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "f05a2f5fcd5ee7d823e896246dc8f0e4ce06f89398fee53a8a4044ca8cdd1a6b",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "f9fdbaa4a5ce162670b4f3d239232d73531303b183f27b8977ec21d22c08a2cc"
+   }
+  },
+  {
+   "file": "poster-direct-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 5392,
+   "sha256": "7bb29fc34afed7ffadc998b1d54b3ead16b3b736b54e3ed61fe1fdbdd9e08ff1",
+   "made_from": {
+    "render": "app-direct/302.png",
+    "kind": "still",
+    "prompt": "A cinema camera on a dolly with its monitor glowing, on a dark stage, a beam of light falling across it. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 302,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "f3b8bd114f63a8085eb9542775ae9ff8f18daa1b279d15ba974a5ff0fa9b470c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "4c0966d1416b5e5cf32ec3d15eb5e4e0a96d88f5391c5ce9cda131b56a791558"
+   }
+  },
+  {
+   "file": "poster-direct.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 15884,
+   "sha256": "ea5f44286728e5537e58e7c881ca3dc4f7c19a6fa33c1f85133db3fb527a5e4b",
+   "made_from": {
+    "render": "app-direct/302.png",
+    "kind": "still",
+    "prompt": "A cinema camera on a dolly with its monitor glowing, on a dark stage, a beam of light falling across it. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 302,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "f3b8bd114f63a8085eb9542775ae9ff8f18daa1b279d15ba974a5ff0fa9b470c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "4c0966d1416b5e5cf32ec3d15eb5e4e0a96d88f5391c5ce9cda131b56a791558"
+   }
+  },
+  {
+   "file": "poster-dub-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 6410,
+   "sha256": "7a10f21fbf1520cb5cbb363ce7b95eaa72e62aa50ac03dff69b607ee41aad1b4",
+   "made_from": {
+    "render": "app-dub/411.png",
+    "kind": "still",
+    "prompt": "A recording booth: a studio condenser microphone with a round pop filter, headphones hanging beside it, warm light in a dark padded room. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 411,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "e3b628710bc45f165dad026ac19437d85856e72ff4298d54d709d3b6163cc62c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "63a8101898a07ecacd029eb0ccbe11a1005520d6bd67bce7e700747e32a0e925"
+   }
+  },
+  {
+   "file": "poster-dub.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 18922,
+   "sha256": "eaf5a436698b7de60c96c115919b48efa5cac81a5a8469cc93764b21be64dbbf",
+   "made_from": {
+    "render": "app-dub/411.png",
+    "kind": "still",
+    "prompt": "A recording booth: a studio condenser microphone with a round pop filter, headphones hanging beside it, warm light in a dark padded room. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 411,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "e3b628710bc45f165dad026ac19437d85856e72ff4298d54d709d3b6163cc62c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "63a8101898a07ecacd029eb0ccbe11a1005520d6bd67bce7e700747e32a0e925"
+   }
+  },
+  {
+   "file": "poster-extend-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 7176,
+   "sha256": "ecf66cbc495402bd022922e69905741a4764c38e85f5e2f70a5e74aa46211dbc",
+   "made_from": {
+    "render": "app-extend/422.png",
+    "kind": "still",
+    "prompt": "A strip of 35mm film unspooling from a metal reel across a dark editing desk, the film glowing with light from a lamp below. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 422,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "11ad2eebad27f56b91769bc48075f9fbf59adf812400b82088e7832c5513de08",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "a4bbea53fefef1fa5c14f124de75fa3fc8de84f3a749458a26738675d5493805"
+   }
+  },
+  {
+   "file": "poster-extend.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 18048,
+   "sha256": "1a119b0add6acdabbcfc09d7bb452d8a460f0494eae76364ef0b4122b8167602",
+   "made_from": {
+    "render": "app-extend/422.png",
+    "kind": "still",
+    "prompt": "A strip of 35mm film unspooling from a metal reel across a dark editing desk, the film glowing with light from a lamp below. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 422,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "11ad2eebad27f56b91769bc48075f9fbf59adf812400b82088e7832c5513de08",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "a4bbea53fefef1fa5c14f124de75fa3fc8de84f3a749458a26738675d5493805"
+   }
+  },
+  {
+   "file": "poster-face-swap-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 6916,
+   "sha256": "c0ad8352e05a2461b8c8c89d0c0cc33317e3b2daa5be7705c7526f4b50031867",
+   "made_from": {
+    "render": "app-face-swap/341.png",
+    "kind": "still",
+    "prompt": "Two porcelain face masks on stands side by side, one plain white and one painted with warm colours, under a soft spotlight on a dark stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 341,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "cfa2689fd26a270b7c2b766ef2d90c72eaedc84a46a6b0607cf8837d136081b1",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "1c2db93bef0d5e541b4170b3f931cd167c18c1bff5bc7d7e8bf0c2d3725cc3e3"
+   }
+  },
+  {
+   "file": "poster-face-swap.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 21548,
+   "sha256": "5c93678843c27db512209cb16e93c3faa610bb6f44c587d4e0c5803f39a3c2ce",
+   "made_from": {
+    "render": "app-face-swap/341.png",
+    "kind": "still",
+    "prompt": "Two porcelain face masks on stands side by side, one plain white and one painted with warm colours, under a soft spotlight on a dark stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 341,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "cfa2689fd26a270b7c2b766ef2d90c72eaedc84a46a6b0607cf8837d136081b1",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "1c2db93bef0d5e541b4170b3f931cd167c18c1bff5bc7d7e8bf0c2d3725cc3e3"
+   }
+  },
+  {
+   "file": "poster-loop-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 6798,
+   "sha256": "5da634708f0f7822a1abe823b073b4d4543797d1fc666af3f2d5b5ebbfe5f771",
+   "made_from": {
+    "render": "app-loop/432.png",
+    "kind": "still",
+    "prompt": "A strip of 35mm film formed into a perfect closed circle standing upright on a glowing light table in a dark room. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 432,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "dfb66143f64c1fe0a89ba8afc523b9e5af783877d3bf0427fecf9e8dbc13a526",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "97c386a9f950ced0be3f0777db0b192c77138523ff860f2ca79311ef4d846297"
+   }
+  },
+  {
+   "file": "poster-loop.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 16674,
+   "sha256": "c9d7fa7dcd7d7bbaa0fe709f2fcd4653b7f63b94b6f3538b804c8e10b2ca08d8",
+   "made_from": {
+    "render": "app-loop/432.png",
+    "kind": "still",
+    "prompt": "A strip of 35mm film formed into a perfect closed circle standing upright on a glowing light table in a dark room. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 432,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "dfb66143f64c1fe0a89ba8afc523b9e5af783877d3bf0427fecf9e8dbc13a526",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "97c386a9f950ced0be3f0777db0b192c77138523ff860f2ca79311ef4d846297"
+   }
+  },
+  {
+   "file": "poster-orbit-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 5672,
+   "sha256": "15283b1b56095dfb961ead30a0860e37fdef79562800c81c8bcabcd01ac1beb0",
+   "made_from": {
+    "render": "app-orbit/451.png",
+    "kind": "still",
+    "prompt": "A cinema camera on a circular track that runs all the way around a round stage, a single spotlight in the centre. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 451,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "54cb675d011c0802c5c594ea9dc233f962dddaaa6f60aca2384420fb2cb0e31c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "54988e95a8b193df357cd1bdeaf4e0c96752a7de544f2e10133947942a2abfcf"
+   }
+  },
+  {
+   "file": "poster-orbit.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 17634,
+   "sha256": "af31abc91f45dac7d2245258b1de41cdedadae050c97206457b630f9e1753c76",
+   "made_from": {
+    "render": "app-orbit/451.png",
+    "kind": "still",
+    "prompt": "A cinema camera on a circular track that runs all the way around a round stage, a single spotlight in the centre. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 451,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "54cb675d011c0802c5c594ea9dc233f962dddaaa6f60aca2384420fb2cb0e31c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "54988e95a8b193df357cd1bdeaf4e0c96752a7de544f2e10133947942a2abfcf"
+   }
+  },
+  {
+   "file": "poster-outfit-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 10822,
+   "sha256": "5f936f0afb108be05ab2227693550f806a1bcdfe13942753333c03001f4dae9d",
+   "made_from": {
+    "render": "app-outfit/361.png",
+    "kind": "still",
+    "prompt": "A film costume department rail of colourful period costumes and jackets under warm light, deep shadows around it. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 361,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "e8810c4da2a5555a20a867be3db308b98c99a1bf68350fae82aa81c1a0558ef8",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "88c88161900ab65d76d8afd814539dc6d87f8b2a7ab3c8741cf9574d5e3ede10"
+   }
+  },
+  {
+   "file": "poster-outfit.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 31088,
+   "sha256": "ff19b79ea5787e4686e549d30fe4a819b1c8e901104685bebe16b47181a072f8",
+   "made_from": {
+    "render": "app-outfit/361.png",
+    "kind": "still",
+    "prompt": "A film costume department rail of colourful period costumes and jackets under warm light, deep shadows around it. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 361,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "e8810c4da2a5555a20a867be3db308b98c99a1bf68350fae82aa81c1a0558ef8",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "88c88161900ab65d76d8afd814539dc6d87f8b2a7ab3c8741cf9574d5e3ede10"
+   }
+  },
+  {
+   "file": "poster-own-words-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 5556,
+   "sha256": "73bc37d1f874e7a625ad98554cc428fd64aaa02e9eee488b34c80729cc6da31d",
+   "made_from": {
+    "render": "app-own-words/392.png",
+    "kind": "still",
+    "prompt": "A director's megaphone resting on the seat of a canvas director's chair under a spotlight on a dark stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 392,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "d727793830e04db84aa7ed5caa648a35160d53c6e33d0e55200ba5da76bf1cc8",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "67c371ac4afbfe3630b1b5827df0d118beace05acd9c88d5838a574a5ce710a7"
+   }
+  },
+  {
+   "file": "poster-own-words.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 14498,
+   "sha256": "8f410ff068f9c9c494774178f01af703d0a3d2bdd4a6ef83420546abccf546f4",
+   "made_from": {
+    "render": "app-own-words/392.png",
+    "kind": "still",
+    "prompt": "A director's megaphone resting on the seat of a canvas director's chair under a spotlight on a dark stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 392,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "d727793830e04db84aa7ed5caa648a35160d53c6e33d0e55200ba5da76bf1cc8",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "67c371ac4afbfe3630b1b5827df0d118beace05acd9c88d5838a574a5ce710a7"
+   }
+  },
+  {
+   "file": "poster-person-swap-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 4222,
+   "sha256": "32a8559ddcc1d15b6abe578e4efb4df20f9acb15fecf122f027b7090d40eaee3",
+   "made_from": {
+    "render": "app-person-swap/351.png",
+    "kind": "still",
+    "prompt": "An empty orange tape mark on a stage floor inside a pool of spotlight, a rail of costumes waiting in the shadows beside it. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 351,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "ce6dc6e81a799c2099854651412a259723846544955f5690f4d9ced652969891",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "913a33040ac3b7dbac7cd2464c6ea4ee4d9b8a24da04be825b999fcd334718ef"
+   }
+  },
+  {
+   "file": "poster-person-swap.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 13156,
+   "sha256": "585f2563744fd8d221dcd75c96eca075e55ef2386b9b61c9897dea3466ca27a3",
+   "made_from": {
+    "render": "app-person-swap/351.png",
+    "kind": "still",
+    "prompt": "An empty orange tape mark on a stage floor inside a pool of spotlight, a rail of costumes waiting in the shadows beside it. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 351,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "ce6dc6e81a799c2099854651412a259723846544955f5690f4d9ced652969891",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "913a33040ac3b7dbac7cd2464c6ea4ee4d9b8a24da04be825b999fcd334718ef"
+   }
+  },
+  {
+   "file": "poster-relight-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 5320,
+   "sha256": "a8fda502b111162789b91c51f0ded84dc5f5fc2ce3171d6241ebfaf4b9d22996",
+   "made_from": {
+    "render": "app-relight/371.png",
+    "kind": "still",
+    "prompt": "A white marble bust lit by an orange softbox from one side and a cool teal LED tube from the other, on a dark stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 371,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "82758a65dc5952bdf75f8fe0b498db97e9bccfeabc8e81877a0b65498e740948",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "1faf4c1d8a3a9918634420c98a40d2b18e00b439e7668c283880587e6f0e0677"
+   }
+  },
+  {
+   "file": "poster-relight.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 13530,
+   "sha256": "133bbb38f88adda18c2c73b02abfb0242cce912759b2989a25c78e85afbbc198",
+   "made_from": {
+    "render": "app-relight/371.png",
+    "kind": "still",
+    "prompt": "A white marble bust lit by an orange softbox from one side and a cool teal LED tube from the other, on a dark stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 371,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "82758a65dc5952bdf75f8fe0b498db97e9bccfeabc8e81877a0b65498e740948",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "1faf4c1d8a3a9918634420c98a40d2b18e00b439e7668c283880587e6f0e0677"
+   }
+  },
+  {
+   "file": "poster-remove-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 16168,
+   "sha256": "55bb156d88d4f48811cf91c0214a65459a4c2d39b13c5cbded6ae15f2d23473a",
+   "made_from": {
+    "render": "app-remove/381.png",
+    "kind": "still",
+    "prompt": "A pristine empty cobblestone film-set street at night, wet and glistening under street lamps, a camera on a tripod in the foreground pointing at the empty street. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 381,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "1eeaf3442eb7c15146eea78071c726f3b59c8bc18ca92a0b6194f9f39e8f7ba0",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "41fa47dedbedc6cc2d02eeb8dce20bde71b15fab974df9a0450e48b9d1f0141a"
+   }
+  },
+  {
+   "file": "poster-remove.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 54088,
+   "sha256": "3e114409001fceb56c4b0295819629a8bb99a3a42b74a63b32afdcaaf4d268b9",
+   "made_from": {
+    "render": "app-remove/381.png",
+    "kind": "still",
+    "prompt": "A pristine empty cobblestone film-set street at night, wet and glistening under street lamps, a camera on a tripod in the foreground pointing at the empty street. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 381,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "1eeaf3442eb7c15146eea78071c726f3b59c8bc18ca92a0b6194f9f39e8f7ba0",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "41fa47dedbedc6cc2d02eeb8dce20bde71b15fab974df9a0450e48b9d1f0141a"
+   }
+  },
+  {
+   "file": "poster-reshoot-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 5820,
+   "sha256": "2a82c37e8be8173e6df175b5a40c2a2d74b2a0cd4247fabc20f3d41d7deae0b7",
+   "made_from": {
+    "render": "poster-reshoot/992.png",
+    "kind": "still",
+    "prompt": "Vertical one-sheet film poster key art. The subject sits in the upper two thirds of the frame and the lower third falls away into deep empty shadow, leaving dark space at the bottom for a title. A dancer in a black motion capture suit covered with glowing marker dots caught in the middle of a leap on a dark stage, a ring of tracking cameras with small red lights around the floor. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 992,
+    "size": [
+     1104,
+     1632
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "db16b8b77d70e8861a726a229d9885abc878766def766f71799ca62e89c687ba",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "cebf8b57e38a81e22c8c74227a0367c9f4745a14dc0f5dcf3b3dff67d1b18648"
+   },
+   "cropped": "top square"
+  },
+  {
+   "file": "poster-reshoot-face-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 8758,
+   "sha256": "14f2634ad773ec9cc683b8f67a1eae7310dcd7d67f7e81aa4a5d6f9456f509da",
+   "made_from": {
+    "render": "app-reshoot-face/402.png",
+    "kind": "still",
+    "prompt": "A cinema camera on a slider aimed at a glowing ring light in a dark studio, close view, the ring light reflecting in the lens. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 402,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "d6e4f00b2d81490488bf487ed5217c239fe5f280512729650c5288896b73edcb",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "f6c5d0e4e363b1a08cceaa5b69536f707b307692c9d8b69aeb369882b5046cd0"
+   }
+  },
+  {
+   "file": "poster-reshoot-face.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 22216,
+   "sha256": "27e8f8cf6127f15ad0ced16db4a36d549b66423313ce31a78c747e409c39174b",
+   "made_from": {
+    "render": "app-reshoot-face/402.png",
+    "kind": "still",
+    "prompt": "A cinema camera on a slider aimed at a glowing ring light in a dark studio, close view, the ring light reflecting in the lens. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 402,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "d6e4f00b2d81490488bf487ed5217c239fe5f280512729650c5288896b73edcb",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "f6c5d0e4e363b1a08cceaa5b69536f707b307692c9d8b69aeb369882b5046cd0"
+   }
+  },
+  {
+   "file": "poster-reshoot.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 14840,
+   "sha256": "16959bebb51a5ea5d727043a778a3f434b75cd21363bcc46dae706dd40907501",
+   "made_from": {
+    "render": "poster-reshoot/992.png",
+    "kind": "still",
+    "prompt": "Vertical one-sheet film poster key art. The subject sits in the upper two thirds of the frame and the lower third falls away into deep empty shadow, leaving dark space at the bottom for a title. A dancer in a black motion capture suit covered with glowing marker dots caught in the middle of a leap on a dark stage, a ring of tracking cameras with small red lights around the floor. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 992,
+    "size": [
+     1104,
+     1632
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "db16b8b77d70e8861a726a229d9885abc878766def766f71799ca62e89c687ba",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "cebf8b57e38a81e22c8c74227a0367c9f4745a14dc0f5dcf3b3dff67d1b18648"
+   },
+   "cropped": "top square"
+  },
+  {
+   "file": "poster-shots-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 5468,
+   "sha256": "73a31d46568a38f87b89f979ad6151f7e8f9b397006ba1ea0ea94bb19b17cb5b",
+   "made_from": {
+    "render": "app-shots/331.png",
+    "kind": "still",
+    "prompt": "Three cinema cameras on tripods aimed from three different angles at one orange tape mark in a spotlight on a dark stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 331,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "816479c9b2824d1be1b4e490e51c0e8532ff4c584e5328bd05df5b0d4fe49fe7",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "0e708d10ad4082ba1a781d97477b11dde6876550b53fd8433686f904a6353d6b"
+   }
+  },
+  {
+   "file": "poster-shots.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 16196,
+   "sha256": "9ea3d7459671b8153aa32df0359ba4cd94a205c2532beb59f4ed13f48383a0ce",
+   "made_from": {
+    "render": "app-shots/331.png",
+    "kind": "still",
+    "prompt": "Three cinema cameras on tripods aimed from three different angles at one orange tape mark in a spotlight on a dark stage. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 331,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "816479c9b2824d1be1b4e490e51c0e8532ff4c584e5328bd05df5b0d4fe49fe7",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "0e708d10ad4082ba1a781d97477b11dde6876550b53fd8433686f904a6353d6b"
+   }
+  },
+  {
+   "file": "poster-transitions-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 5854,
+   "sha256": "b0cca6b96336503123f7ac04a38ea97a00a565e955a6a38077bb60e5121ab989",
+   "made_from": {
+    "render": "app-transitions/321.png",
+    "kind": "still",
+    "prompt": "An open door standing alone on a dark rainy city-street film set, through the doorway a bright desert sunset world spills warm light onto the wet ground. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 321,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "45f68cc11066b812ce84380639dc7a9bc0c2c15a0ab7939d4ae63d24737a6e4d",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "8d976ea402408c4a2abe1671d1c6a34baaac9e5f93ecd84208417699e42102f0"
+   }
+  },
+  {
+   "file": "poster-transitions.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 18658,
+   "sha256": "215e7406f1b9b3ca26fb540dc5f7461049dc1d632f45f0844e873921b07f1608",
+   "made_from": {
+    "render": "app-transitions/321.png",
+    "kind": "still",
+    "prompt": "An open door standing alone on a dark rainy city-street film set, through the doorway a bright desert sunset world spills warm light onto the wet ground. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 321,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "45f68cc11066b812ce84380639dc7a9bc0c2c15a0ab7939d4ae63d24737a6e4d",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "8d976ea402408c4a2abe1671d1c6a34baaac9e5f93ecd84208417699e42102f0"
+   }
+  },
+  {
+   "file": "poster-upscale-360.webp",
+   "width": 360,
+   "height": 360,
+   "bytes": 8050,
+   "sha256": "d12381bf6988f93b7502e5117213d7ddb74aafa0b9d8331f8db4018d78011d5b",
+   "made_from": {
+    "render": "app-upscale/471.png",
+    "kind": "still",
+    "prompt": "An extreme close-up of a cinema lens, its glass elements reflecting stage lights in rings of orange and teal. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 471,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "fd169cee3581661eacfd65969ddf14e784a4c762c68b06c6bf7370ee363ab69c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "9d9d31129b00992a141031aa1d115a0a3802dd31466a6694128bdf339e4591c1"
+   }
+  },
+  {
+   "file": "poster-upscale.webp",
+   "width": 720,
+   "height": 720,
+   "bytes": 21318,
+   "sha256": "8ac5a94b9584ccc2605566a6a1f626c0691081ef8d0d76fe6f962d490279ca1c",
+   "made_from": {
+    "render": "app-upscale/471.png",
+    "kind": "still",
+    "prompt": "An extreme close-up of a cinema lens, its glass elements reflecting stage lights in rings of orange and teal. Cinematic production still, photorealistic, shot on a large-format cinema camera with a fine lens, deep black shadows, warm tungsten amber and safety-orange practical light with a touch of cool teal, light atmospheric haze, shallow depth of field, subtle film grain. No text, no letters, no numbers, no logos, no watermark.",
+    "seed": 471,
+    "size": [
+     1328,
+     1328
+    ],
+    "template": "qwen21_t2i",
+    "workflow_sha256": "fd169cee3581661eacfd65969ddf14e784a4c762c68b06c6bf7370ee363ab69c",
+    "models": [
+     "qwen3vl_8b_int8_convrot.safetensors",
+     "qwen_image_2.1_int8_convrot.safetensors",
+     "qwen_image_2.1_vae_bf16.safetensors"
+    ],
+    "audit": "pass",
+    "source_sha256": "9d9d31129b00992a141031aa1d115a0a3802dd31466a6694128bdf339e4591c1"
+   }
+  },
+  {
+   "file": "trailer-640.mp4",
+   "kind": "cut",
+   "width": 640,
+   "height": 352,
+   "bytes": 1818288,
+   "sha256": "56e0df24e19e796df94269f0515930e5f1611da4c3535d8798e9b066f9faf5d7",
+   "cropped": "the takes' own frame",
+   "made_from": {
+    "kind": "cut",
+    "how": "scripts/make_trailer.py from recorded takes (art/trailer.json)",
+    "takes": [
+     "tk_20261026_202643_8fbb",
+     "tk_20261026_201948_1d50",
+     "tk_20261023_094205_8a11",
+     "tk_20261022_231725_3dee",
+     "tk_20261023_095051_b57e",
+     "tk_20261023_094522_51f5",
+     "tk_20261025_140558_8a2f",
+     "tk_20261023_081319_fada",
+     "tk_20261022_134358_a709",
+     "tk_20261022_134831_3ffc",
+     "tk_20261022_180938_a0b7",
+     "tk_20261024_232528_8944",
+     "tk_20261025_140001_1069"
+    ]
+   }
+  },
+  {
+   "file": "trailer-hd.mp4",
+   "kind": "cut",
+   "width": 1280,
+   "height": 704,
+   "bytes": 6535593,
+   "sha256": "f450258ba7bc35853b3b200217188c4e888e8b7c91a806b64be2bbe9db8a94b0",
+   "cropped": "the takes' own frame",
+   "made_from": {
+    "kind": "cut",
+    "how": "scripts/make_trailer.py from recorded takes (art/trailer.json)",
+    "takes": [
+     "tk_20261026_202643_8fbb",
+     "tk_20261026_201948_1d50",
+     "tk_20261023_094205_8a11",
+     "tk_20261022_231725_3dee",
+     "tk_20261023_095051_b57e",
+     "tk_20261023_094522_51f5",
+     "tk_20261025_140558_8a2f",
+     "tk_20261023_081319_fada",
+     "tk_20261022_134358_a709",
+     "tk_20261022_134831_3ffc",
+     "tk_20261022_180938_a0b7",
+     "tk_20261024_232528_8944",
+     "tk_20261025_140001_1069"
+    ]
+   }
+  },
+  {
+   "file": "trailer.mp4",
+   "kind": "cut",
+   "width": 1024,
+   "height": 564,
+   "bytes": 4259242,
+   "sha256": "bb73415cdb4f02118103b2416cf3ed9ab02df73a9d70b6b27d0d45164172a582",
+   "cropped": "the takes' own frame",
+   "made_from": {
+    "kind": "cut",
+    "how": "scripts/make_trailer.py from recorded takes (art/trailer.json)",
+    "takes": [
+     "tk_20261026_202643_8fbb",
+     "tk_20261026_201948_1d50",
+     "tk_20261023_094205_8a11",
+     "tk_20261022_231725_3dee",
+     "tk_20261023_095051_b57e",
+     "tk_20261023_094522_51f5",
+     "tk_20261025_140558_8a2f",
+     "tk_20261023_081319_fada",
+     "tk_20261022_134358_a709",
+     "tk_20261022_134831_3ffc",
+     "tk_20261022_180938_a0b7",
+     "tk_20261024_232528_8944",
+     "tk_20261025_140001_1069"
+    ]
+   }
+  },
+  {
+   "file": "trailer.webp",
+   "kind": "still",
+   "width": 1024,
+   "height": 564,
+   "bytes": 27198,
+   "sha256": "c19843b0e80c7927661c3acc7d0df4442ba27c687f2323077ded5828e69065ee",
+   "cropped": "the takes' own frame",
+   "made_from": {
+    "kind": "cut",
+    "how": "scripts/make_trailer.py from recorded takes (art/trailer.json)",
+    "takes": [
+     "tk_20261026_202643_8fbb",
+     "tk_20261026_201948_1d50",
+     "tk_20261023_094205_8a11",
+     "tk_20261022_231725_3dee",
+     "tk_20261023_095051_b57e",
+     "tk_20261023_094522_51f5",
+     "tk_20261025_140558_8a2f",
+     "tk_20261023_081319_fada",
+     "tk_20261022_134358_a709",
+     "tk_20261022_134831_3ffc",
+     "tk_20261022_180938_a0b7",
+     "tk_20261024_232528_8944",
+     "tk_20261025_140001_1069"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "tk_20261026_213744_0fb9",
+  "kind": "direct",
+  "label": "vertigo: Ines stands still in a long, narrow library corr",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-26T21:37:44Z",
+  "updated_at": "2026-10-26T21:50:34Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines stands still in a long, narrow library corridor at night, shelves receding to a single lit window far behind her, looking at the camera",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "practicals",
+      "movement": "vertigo",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "the hush of a library at night, a clock ticking",
+    "seed": 1361,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "made in code: rendered as a dolly-out, then zoomed in code as the camera backs away, so the subject keeps its size; the zoom follows the face it finds in the render, or runs 1x to 1.8x when too few frames show one"
+  ],
+  "replay": false,
+  "recipe_hash": "3083a9979b00550841c767f44ea57967d8b8039cd451405f60643c00bdbd1a19",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.9036272242285006,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.9036272242285006
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        486,
+        142,
+        155,
+        206
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.904 >= threshold 0.363 (best reference 0)",
+      "face_px": 155,
+      "enlarged": null
+    },
+    "anchor_1": {
+      "status": "pass",
+      "score": 0.7576989479721786,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7576989479721786
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        565,
+        166,
+        88,
+        113
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.758 >= threshold 0.363 (best reference 0)",
+      "face_px": 88,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.8113832661089381,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8113832661089381
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        463,
+        130,
+        143,
+        187
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.811 >= threshold 0.363 (best reference 0)",
+      "face_px": 143,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "r13-c-vertigo-corridor-1361",
+  "showcase_sha": "98848506a2b2a77a"
+}

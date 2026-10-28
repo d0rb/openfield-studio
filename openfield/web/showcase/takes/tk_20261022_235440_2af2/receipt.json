@@ -1,0 +1,124 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_235440_2af2",
+    "kind": "edit",
+    "created_at": "2026-10-22T23:55:08Z",
+    "label": "swap the person: Oskar, a seventy-year-old fisherman with"
+  },
+  "inputs": {
+    "preset": "character_swap",
+    "detail": "",
+    "final_prompt": "Replace the person in the first image with the person from the other images, in exactly the same pose, place, framing and light. Keep the setting and every other object unchanged.",
+    "seed": 531,
+    "before": "inputs/source.png",
+    "after": "runs/01_edit/image.png",
+    "cast": {
+      "name": "Ines",
+      "refs": [
+        "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+      ]
+    },
+    "identity_reference": "cast",
+    "recipe_hash": "fc3f2f74650a6cac17b7db60ce11aef9b8ba13f3d6ac804397ee9995af73c608"
+  },
+  "workflow": {
+    "template": "qwen21_edit",
+    "sha256": "756acd3c664eb2c41512a3ed54b8993762636cbaa1af7376afd2a09c222f88b0",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "edit",
+        "template": "qwen21_edit",
+        "workflow_sha256": "37beb7bdd678cf6f4b5963fa321d63c958456f3f54f62934a057e0bc2ac21671",
+        "job_id": "f65f2af6-e048-440a-937c-bdd5a7dad690"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.7944749991282789,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "edit": {
+        "status": "pass",
+        "score": 0.7944749991282789,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7944749991282789
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          674,
+          62,
+          96,
+          117
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.794 >= threshold 0.363 (best reference 0)",
+        "face_px": 96,
+        "enlarged": null
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "f65f2af6-e048-440a-937c-bdd5a7dad690",
+    "timings": {
+      "total_s": 28.6
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "14182b352643697a3beaacd2218eb42d22cb81ac61e3401102a86b65bff75d82",
+      "seconds": 2.4
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "f2ce5f0e8c43b4e0a297785bbbf2cca9577cdf2244bf774bf8795826a4c5bc3a"
+  }
+}

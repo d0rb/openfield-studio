@@ -1,0 +1,149 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261021_130246_8ac4",
+    "kind": "reshoot",
+    "created_at": "2026-10-21T13:05:54Z",
+    "label": "re-shoot: a young woman with long curly auburn hair, round"
+  },
+  "inputs": {
+    "prompt": "a young woman with long curly auburn hair, round glasses and a mustard cardigan",
+    "background": "a sunlit cafe with a window onto a canal",
+    "motion": "",
+    "final_prompt": "Character Description: a young woman with long curly auburn hair, round glasses and a mustard cardigan\nBackground description: a sunlit cafe with a window onto a canal",
+    "orientation": "landscape",
+    "frame": [
+      854,
+      482
+    ],
+    "seed": 63,
+    "reference_name": "Ines",
+    "source": {
+      "sha256": "771d0e696af1c1777d1e0c5efb610fcfd84c25b7cf750bba8b68ccb634441881",
+      "seconds": 5.04,
+      "size": [
+        1280,
+        704
+      ]
+    },
+    "reference": {
+      "sha256": "36ff70eb52ec941b973a66af87c93c585b35f31be4178cef93c1ff04ed77f90f"
+    },
+    "recipe_hash": "c9129d23e14f4993fe490dd2adf5416679a6f1b0a5658b0dbf112f24743b1856"
+  },
+  "workflow": {
+    "template": "wan_animate2",
+    "sha256": "3bb7275cb58902d97f9e47bd47a2cb0a34183bc3f2d10a3f71cf4b60ee131bdf",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "motion",
+        "template": "wan_animate2",
+        "workflow_sha256": "b5ad79d28b6d631731d85fe5da385f8f7e61fdd48de8f8dad132a134871412d2",
+        "job_id": "d90f944e-30fd-4643-9e13-fa8e73a65fd4"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "video:wan-animate-2",
+      "file": "wan_animate_2_int8_convrot.safetensors",
+      "license": "Apache License 2.0",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/diffusion_models/wan_animate_2_int8_convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "lora",
+      "file": "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "license": "Apache License 2.0",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/loras/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "license": "Apache License 2.0",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "clip_vision",
+      "file": "clip_vision_h.safetensors",
+      "license": "Apache License 2.0",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/clip_vision/clip_vision_h.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "Wan2_1_VAE_bf16.safetensors",
+      "license": "Apache License 2.0",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Wan-Animate-2/resolve/main/vae/Wan2_1_VAE_bf16.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.6085997526149401,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "motion": {
+        "status": "pass",
+        "score": 0.6085997526149401,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.6085997526149401
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          391,
+          36,
+          51,
+          60
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.609 >= threshold 0.363 (best reference 0)",
+        "frame": "mid",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "d90f944e-30fd-4643-9e13-fa8e73a65fd4",
+    "timings": {
+      "total_s": 188.1
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "fbd8e21d11204651102facb8c24b623bb3f99ac0fbeaf298ba12d13bc78dbbc1",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "6216dd5b0e4a10ef7c2e4d1cd36b09507011fd21cb8a9dee8f2f33616b9f824f"
+  }
+}

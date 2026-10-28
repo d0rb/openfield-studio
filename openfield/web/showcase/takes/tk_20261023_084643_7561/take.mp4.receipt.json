@@ -1,0 +1,209 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_084643_7561",
+    "kind": "direct",
+    "created_at": "2026-10-23T08:50:34Z",
+    "label": "static: Noor lands in a superhero crouch on a rooftop at"
+  },
+  "inputs": {
+    "subject": "Noor lands in a superhero crouch on a rooftop at night, a red cape flaring",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "comic",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Noor lands in a superhero crouch on a rooftop at night, a red cape flaring. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera is locked off on a tripod; only the subject moves. Ink outlines trace every shape and the colours flatten until the scene becomes a hand-drawn comic panel, halftone dots spreading across the frame, with the scratch of a pen. Constraint: no camera movement, no zoom, no drift.",
+    "seed": 573,
+    "orientation": "landscape",
+    "audio": null,
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "transformation": "comic",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_transform_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Noor",
+      "refs": [
+        "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+      ]
+    },
+    "recipe_hash": "c0f228996a9c77deb14ad17086a60af4a953ca65e71aa48517673945b5691d1e"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "493c9439c5d64787ccd2d3fc912d4f8eaa6591d1ab588a8893850cd886227aef",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "b9f3f5bcb9a96d77f9a08c9c39bfaff205277b1624c6dcbbc4f475f90f2ede34",
+        "job_id": "d5bb26e6-b397-44bf-a874-b2a855b2dd7d"
+      },
+      {
+        "stage": "transform_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "e4054f2f8ab0d7d72482c1ee95c7ffb98b3882d80673574873d40c7fe0e6dbd3",
+        "job_id": "55bf4f58-4724-4cd0-9315-1988c04e2073"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "793764e177ef943600fa9591940cdf35e394e3d689b9f645a537e4fb622aaf39",
+        "job_id": "0d828dd1-f02f-4a1d-bec5-59a2729d006a"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8435796033743624,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8435796033743624,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8435796033743624
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          616,
+          84,
+          127,
+          161
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.844 >= threshold 0.363 (best reference 0)",
+        "face_px": 127,
+        "enlarged": null
+      }
+    },
+    "skipped": {
+      "transform_1": "the scene is redrawn as a comic panel, so a photographic face check does not apply",
+      "shoot_1": "the scene is redrawn as a comic panel, so a photographic face check does not apply"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "d5bb26e6-b397-44bf-a874-b2a855b2dd7d,55bf4f58-4724-4cd0-9315-1988c04e2073,0d828dd1-f02f-4a1d-bec5-59a2729d006a",
+    "timings": {
+      "total_s": 231.9
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "bb33bfa6a0fcafce5d17ba6ae56c5879a1ccb8bed241563cc2eeb697f3cab123",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "a213dc306ab388221faef4e55c0e24f59e20a74cce8f589ba0259c964e462123"
+  }
+}

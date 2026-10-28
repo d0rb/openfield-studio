@@ -1,0 +1,113 @@
+{
+  "id": "tk_20261020_155942_4978",
+  "kind": "direct",
+  "label": "orbit 90: Oskar mends a fishing net on a harbour pier at g",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-20T15:59:42Z",
+  "updated_at": "2026-10-20T16:01:23Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "halation_vintage",
+      "focal_length_mm": 50,
+      "aperture": "f1.4",
+      "lighting": "contre_jour",
+      "movement": "orbit_90",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "water lapping against wood, creaking boats, gulls",
+    "seed": 21,
+    "orientation": "landscape",
+    "cast_refs": [
+      "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+    ],
+    "cast_name": "Oskar",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "574ec01ff770d9732fdc8442e5ef6acd503d61b8476c273fc457334295869df4",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8086457643635749,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8086457643635749
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        526,
+        125,
+        156,
+        191
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.809 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.7648145888331614,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7648145888331614
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        505,
+        108,
+        147,
+        184
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.765 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "oskar-pier-orbit",
+  "showcase_sha": "ad9d0d1ad10e436b"
+}

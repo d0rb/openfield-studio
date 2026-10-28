@@ -1,4 +1,4 @@
-/* One control vocabulary: buttons, fields, segmented controls, sliders, switches, pills, tabs, menus. */
+/* One control vocabulary, in equipment grammar: buttons, fields, rockers, faders, tape chips, tabs, menus. */
 
 /* -- buttons -------------------------------------------------------------------------------- */
 .btn {
@@ -11,7 +11,7 @@
   border: 1px solid transparent;
   border-radius: var(--radius-s);
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: var(--w-medium);
   line-height: 1;
   white-space: nowrap;
   color: var(--text);
@@ -36,15 +36,50 @@
 .btn.sm.icon-only {
   width: 26px;
 }
+/* the primary action is a roll ticket: orange stock, dark marks, both ends notched */
 .btn.primary {
+  --notch: 5px;
+  padding-left: calc(var(--s3) + 4px);
+  padding-right: calc(var(--s3) + 4px);
+  -webkit-mask: radial-gradient(circle var(--notch) at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+  mask: radial-gradient(circle var(--notch) at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
   background: var(--accent-fill);
-  color: var(--on-fill);
+  color: var(--on-accent);
+  font-weight: var(--w-strong);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+.btn.primary.lg {
+  --notch: 6px;
+  padding-left: calc(var(--s4) + 6px);
+  padding-right: calc(var(--s4) + 6px);
+  font-size: var(--fs-sm);
 }
 .btn.primary:hover:not(:disabled) {
   background: var(--accent-fill-hover);
 }
 .btn.primary:active:not(:disabled) {
   background: var(--accent-fill-press);
+}
+/* a primary that is not the action of the moment (a take is waiting for approval or rendering) steps back to grey */
+/* the notch mask clips the focus outline: ring it inside */
+.btn.primary:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--on-accent);
+}
+.btn.primary.is-quiet:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+.btn.primary.is-quiet:not(:disabled) {
+  background: var(--raised);
+  border-color: var(--line-strong);
+  color: var(--text-2);
+}
+.btn.primary.is-quiet:hover:not(:disabled) {
+  background: var(--hover);
+  color: var(--text);
 }
 .btn.secondary {
   background: var(--raised);
@@ -84,23 +119,33 @@
   margin-left: auto;
   padding-left: var(--s3);
   font-size: var(--fs-xs);
-  font-weight: 400;
+  font-weight: var(--w-regular);
   color: var(--text-3);
 }
 .btn[aria-pressed="true"] {
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  background: var(--pressed);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--control-line); /* a toggle that is on reads as pressed in, not as a second accent */
 }
 .btn:disabled,
 .btn[aria-disabled="true"] {
   opacity: 0.45;
   cursor: not-allowed;
 }
+/* a primary action that is not available now goes grey, never muddy orange */
+.btn.primary:disabled,
+.btn.primary[aria-disabled="true"] {
+  opacity: 1;
+  background: var(--raised);
+  border-color: var(--line-strong);
+  color: var(--text-3);
+}
+
 .btn[aria-busy="true"] {
   cursor: progress;
 }
 
-/* -- fields --------------------------------------------------------------------------------- */
+/* -- fields: a camera report, small tracked labels over readouts -------------------------------- */
 .field {
   display: grid;
   gap: var(--s1);
@@ -113,12 +158,17 @@
   justify-content: space-between;
   gap: var(--s2);
   font-size: var(--fs-xs);
-  font-weight: 500;
-  color: var(--text-2);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--text-3);
 }
 .label .value {
   color: var(--text);
+  font-family: var(--mono);
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  text-transform: none;
 }
 .hint {
   font-size: var(--fs-xs);
@@ -153,7 +203,7 @@
   height: auto;
   min-height: 64px;
   padding: 8px 10px;
-  line-height: 1.45;
+  line-height: var(--lh-body);
   resize: vertical;
 }
 .input::placeholder,
@@ -185,6 +235,7 @@
 .input.num-input {
   width: 64px;
   text-align: right;
+  font-family: var(--mono);
   font-variant-numeric: tabular-nums;
 }
 .input-row {
@@ -218,7 +269,7 @@
   color: var(--text);
 }
 
-/* -- segmented control ---------------------------------------------------------------------- */
+/* -- segmented control: a rocker ------------------------------------------------------------- */
 .seg {
   display: flex;
   gap: 2px;
@@ -232,14 +283,16 @@
   min-width: 0;
   height: 26px;
   padding: 0 var(--s2);
-  border-radius: 4px;
+  border-radius: 2px;
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--w-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text-2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease); /* the inset edge settles with the fill */
 }
 .seg > button:hover:not([aria-checked="true"]):not(:disabled) {
   background: var(--raised);
@@ -258,7 +311,7 @@
   outline-offset: 0;
 }
 
-/* -- slider --------------------------------------------------------------------------------- */
+/* -- slider: a fader ---------------------------------------------------------------------- */
 .slider-row {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -288,7 +341,7 @@ input[type="radio"] {
   border-radius: 50%;
 }
 input[type="checkbox"] {
-  border-radius: 4px;
+  border-radius: 2px;
 }
 input[type="checkbox"]:hover,
 input[type="radio"]:hover {
@@ -304,14 +357,14 @@ input[type="radio"]:checked::after {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--on-fill);
+  background: var(--on-accent);
 }
 input[type="checkbox"]:checked::after {
   content: "";
   width: 8px;
   height: 4px;
-  border-left: 2px solid var(--on-fill);
-  border-bottom: 2px solid var(--on-fill);
+  border-left: 2px solid var(--on-accent);
+  border-bottom: 2px solid var(--on-accent);
   rotate: -45deg;
   translate: 0 -1px;
 }
@@ -330,36 +383,33 @@ input[type="radio"]:disabled {
   cursor: pointer;
 }
 .range::-webkit-slider-runnable-track {
-  height: 4px;
-  border-radius: var(--radius-pill);
+  height: 2px;
   background: linear-gradient(to right, var(--accent) var(--fill), var(--line-strong) var(--fill));
 }
 .range::-moz-range-track {
-  height: 4px;
-  border-radius: var(--radius-pill);
+  height: 2px;
   background: var(--line-strong);
 }
 .range::-moz-range-progress {
-  height: 4px;
-  border-radius: var(--radius-pill);
+  height: 2px;
   background: var(--accent);
 }
 .range::-webkit-slider-thumb {
   appearance: none;
-  width: 16px;
-  height: 16px;
-  margin-top: -6px;
-  border-radius: 50%;
+  width: 10px;
+  height: 18px;
+  margin-top: -8px;
+  border-radius: 2px;
   background: var(--text);
-  border: 2px solid var(--ground);
+  border: 1px solid var(--ground);
   box-shadow: 0 0 0 1px var(--control-line);
 }
 .range::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+  width: 8px;
+  height: 16px;
+  border-radius: 2px;
   background: var(--text);
-  border: 2px solid var(--ground);
+  border: 1px solid var(--ground);
   box-shadow: 0 0 0 1px var(--control-line);
 }
 .range:hover::-webkit-slider-thumb {
@@ -370,7 +420,7 @@ input[type="radio"]:disabled {
   border-radius: var(--radius-s);
 }
 
-/* -- switch row ----------------------------------------------------------------------------- */
+/* -- switch row: a rocker switch -------------------------------------------------------------- */
 .switch-row {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -383,13 +433,13 @@ input[type="radio"]:disabled {
 }
 .switch-row .title {
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: var(--w-medium);
 }
 .switch {
   position: relative;
-  width: 42px;
+  width: 44px;
   height: 24px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
   background: var(--line-strong);
   box-shadow: inset 0 0 0 1px var(--control-line);
   transition: background-color var(--t-base) var(--ease);
@@ -401,35 +451,37 @@ input[type="radio"]:disabled {
   left: 3px;
   width: 18px;
   height: 18px;
-  border-radius: 50%;
+  border-radius: 2px;
   background: var(--text);
-  transition: translate var(--t-base) var(--ease);
+  transition: translate var(--t-base) var(--ease), background-color var(--t-base) var(--ease);
 }
 .switch[aria-checked="true"] {
   background: var(--accent-fill);
   box-shadow: none;
 }
 .switch[aria-checked="true"]::after {
-  translate: 18px 0;
-  background: var(--on-fill);
+  translate: 20px 0;
+  background: var(--on-accent);
 }
 .switch:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 
-/* -- pills ---------------------------------------------------------------------------------- */
+/* -- tape chips (pills) ------------------------------------------------------------------------ */
 .pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   height: 20px;
-  padding: 0 8px;
-  border-radius: var(--radius-pill);
+  padding: 0 7px;
+  border-radius: 2px;
   background: var(--raised);
   border: 1px solid var(--line-strong);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--w-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   line-height: 1;
   color: var(--text-2);
   white-space: nowrap;
@@ -474,10 +526,12 @@ input[type="radio"]:disabled {
 }
 .tabs > button {
   position: relative;
-  height: 44px;
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  color: var(--text-2);
+  height: 40px;
+  font-size: var(--fs-xs);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--text-3);
 }
 .tabs > button:hover:not(:disabled) {
   color: var(--text);
@@ -499,33 +553,41 @@ input[type="radio"]:disabled {
   cursor: not-allowed;
 }
 
-/* -- dock sections -------------------------------------------------------------------------- */
+/* -- dock sections: the report's headings ----------------------------------------------------- */
 .section {
   border-bottom: 1px solid var(--line);
 }
 .section-head {
   display: flex;
-  align-items: center;
+  align-items: baseline; /* the title and its mono value share a baseline; the chevron centres */
   gap: var(--s2);
   width: 100%;
-  height: 40px;
-  padding: 0 var(--s4);
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  min-height: 36px;
+  padding: 6px var(--s4) 8px; /* Barlow sits low in its line: 1 px up centres the words */
+  font-size: var(--fs-md);
+  line-height: 22px;
+  font-weight: var(--w-strong);
   text-align: left;
   color: var(--text);
 }
 .section-head:hover {
-  background: var(--raised);
+  background: var(--surface-tint);
+  color: var(--text);
 }
 .section-head .grow {
   flex: 1;
 }
 .section-head .meta {
-  font-weight: 400;
+  line-height: 1; /* a mono value must not stretch the head */
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--w-regular);
+  letter-spacing: 0.02em;
   color: var(--text-3);
 }
 .section-head .icon {
+  align-self: center;
+  margin-top: 2px; /* on the button's middle */
   color: var(--text-3);
   transition: rotate var(--t-base) var(--ease);
 }
@@ -536,6 +598,15 @@ input[type="radio"]:disabled {
   display: grid;
   gap: var(--s3);
   padding: var(--s1) var(--s4) var(--s4);
+  transition: opacity var(--t-fast) var(--ease); /* fades in as it opens, leaves at once */
+}
+@starting-style {
+  .section-body {
+    opacity: 0;
+  }
+}
+:root.hold-still .section-body {
+  transition: none;
 }
 .section-body[hidden] {
   display: none;
@@ -546,13 +617,14 @@ input[type="radio"]:disabled {
   display: inline-flex;
   align-items: center;
   height: 18px;
-  padding: 0 5px;
-  border-radius: 4px;
-  border: 1px solid var(--line-strong);
-  background: rgb(0 0 0 / 0.18);
-  font: 500 var(--fs-xs) / 1 var(--font);
+  padding: 4px 5px 0; /* Overpass Mono sits high in its line: the key's glyph drops onto the cap's middle */
+  border-radius: 2px;
+  border: 1px solid currentColor;
+  font: var(--w-medium) var(--fs-xs) / 1 var(--mono);
+  letter-spacing: 0;
+  text-transform: none;
   color: inherit;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 .kv {
   display: grid;
@@ -561,6 +633,9 @@ input[type="radio"]:disabled {
   font-size: var(--fs-sm);
 }
 .kv dt {
+  font-size: var(--fs-xs);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
   color: var(--text-3);
 }
 .kv dd {
@@ -572,11 +647,20 @@ input[type="radio"]:disabled {
 .menu-wrap {
   position: relative;
 }
+/* a hint with an icon in the menu wraps beside its icon, not under it */
+.menu > .hint:has(> .icon) {
+  display: flex;
+  align-items: flex-start;
+}
+.menu > .hint > .icon {
+  flex: none;
+  margin-top: 3px;
+}
 .menu {
   position: absolute;
   right: 0;
   top: calc(100% + 6px);
-  z-index: 30;
+  z-index: var(--z-float);
   width: 320px;
   padding: var(--s3);
   display: grid;
@@ -592,7 +676,7 @@ input[type="radio"]:disabled {
   position: fixed;
   right: var(--s4);
   top: calc(var(--topbar-h) + var(--s3));
-  z-index: 40;
+  z-index: var(--z-menu);
   display: grid;
   gap: var(--s2);
   width: min(380px, calc(100vw - 2 * var(--s4)));
@@ -619,7 +703,7 @@ input[type="radio"]:disabled {
   color: var(--red);
 }
 .notice .what {
-  font-weight: 500;
+  font-weight: var(--w-medium);
 }
 .notice .how {
   color: var(--text-2);
@@ -648,13 +732,32 @@ input[type="radio"]:disabled {
 }
 .empty h2 {
   font-size: var(--fs-xl);
-  font-weight: 600;
+  font-weight: var(--w-strong);
+  line-height: var(--lh-tight);
   color: var(--text);
   text-wrap: balance;
 }
 .empty p {
   max-width: 44ch;
   text-wrap: pretty;
+}
+/* an empty room shows its set, rendered on our GPU, before the words */
+.empty-art {
+  width: min(100%, 480px);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: var(--s3);
+  background: var(--screen);
+  box-shadow: 0 0 0 1px var(--line-strong), var(--case-shadow);
+}
+
+/* the empty art can be a case holding a recorded loop (the hosted Chat room's card): the clip (.live-clip, absolute) fills it,
+   with the same edge as the stills of the other empty rooms and 2px corners; clip, not hidden, so a case in a grid shorter
+   than its content (a phone on its side) never shrinks to nothing and lies over the words */
+div.empty-art {
+  position: relative;
+  overflow: clip;
+  border-radius: 2px;
 }
 .empty .actions {
   display: flex;
@@ -666,11 +769,82 @@ input[type="radio"]:disabled {
   display: inline-flex;
   align-items: center;
   min-height: 24px;
-  color: var(--accent-text);
+  color: var(--text);
   text-decoration: underline;
-  text-decoration-color: rgb(142 155 255 / 0.4);
+  text-decoration-color: var(--on-media-line);
   text-underline-offset: 0.18em;
 }
 .link-btn:hover {
   text-decoration-color: currentColor;
+}
+
+/* -- keykode ----------------------------------------------------------------------------------------
+   Film stock prints its own provenance along the sprocket edge: footage and its identity leave the lab
+   as one object. Every frame in this app does the same. The keykode runs up the left gutter of a frame
+   in 8px mono, set vertically against the picture's edge, and names the take's serial, its seed and the
+   head of its receipt hash, with an orange tick between the fields the way a stock's foot mark reads.
+   It is HTML, never baked into the render, and it is read out to a screen reader as the take's id. */
+.keykode {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: var(--keykode-gutter);
+  padding-bottom: 10px;
+  pointer-events: none;
+  font: var(--w-medium) var(--fs-keykode) / 1 var(--mono);
+  font-feature-settings: "tnum";
+  letter-spacing: var(--track-keykode);
+  color: var(--keykode-ink);
+  text-transform: uppercase;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  /* the stock's edge is darker than the picture, so the keykode reads on a bright frame too (a sky, a field) and not
+     only on night footage. It is a scrim, the same one every chip on a picture uses, not a glow */
+  background: linear-gradient(to right, var(--scrim), rgb(5 5 4 / 0));
+}
+/* the perforations the type runs beside: a column of hard ticks, the stock's own edge */
+.keykode::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 3px;
+  width: 2px;
+  background: var(--on-media-line);
+  -webkit-mask: var(--tick-holes);
+  mask: var(--tick-holes);
+  --tick-holes: linear-gradient(to bottom, #000 0 5px, #0000 5px var(--perf-pitch)) 0 0 / 100% var(--perf-pitch) repeat-y;
+}
+.keykode > b {
+  font-weight: var(--w-medium);
+  color: inherit;
+  opacity: 0.7;
+}
+.keykode.full > b {
+  color: var(--keykode-tick); /* one to a screen, on the frame the room is built around */
+  opacity: 1;
+}
+/* on card stock the ink flips with the material */
+.on-stock .keykode {
+  color: rgb(34 28 22 / 0.5);
+  background: none;
+}
+.on-stock .keykode::before {
+  background: rgb(34 28 22 / 0.28);
+}
+@media (max-width: 719px) {
+  .keykode {
+    display: none; /* 8px type on a phone is a smudge, not a fact */
+  }
+}
+
+/* the hero's frame is large enough for the keykode to read as a printed edge rather than a texture */
+.keykode.full {
+  --keykode-gutter: 22px;
+  font-size: 10px;
+  padding-bottom: 16px;
 }

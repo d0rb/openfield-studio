@@ -1,0 +1,121 @@
+{
+  "id": "tk_20261022_180620_04a8",
+  "kind": "direct",
+  "label": "static: Mara stands at the end of a harbour pier at gold",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T18:06:20Z",
+  "updated_at": "2026-10-22T18:08:30Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Mara stands at the end of a harbour pier at golden hour holding a lantern, looking into the camera, her yellow jacket catching the light",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 50,
+      "aperture": "f1.4",
+      "lighting": "contre_jour",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "water lapping against wood, a distant bell",
+    "seed": 160,
+    "orientation": "landscape",
+    "cast_refs": [
+      "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+    ],
+    "line": "We leave at first light.",
+    "delivery": "calm",
+    "cast_name": "Mara",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "dialogue: LTX 2.5 speaks the line with the picture (not yet tested with a real render)"
+  ],
+  "replay": false,
+  "recipe_hash": "e78699a982131e8d35a1925ec6de9d456fc5f298c350aca53ca84d57471ae744",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.693585185554785,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.693585185554785
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        599,
+        137,
+        140,
+        189
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.694 >= threshold 0.363 (best reference 0)",
+      "face_px": 140,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.7216865412705841,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7216865412705841
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        489,
+        89,
+        277,
+        365
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.722 >= threshold 0.363 (best reference 0)",
+      "face_px": 277,
+      "enlarged": null,
+      "frame": "last",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "dlg-mara-calm",
+  "showcase_sha": "2d54d588dcb42ebd"
+}

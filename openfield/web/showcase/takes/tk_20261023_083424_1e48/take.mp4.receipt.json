@@ -1,0 +1,230 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_083424_1e48",
+    "kind": "direct",
+    "created_at": "2026-10-23T08:39:22Z",
+    "label": "dolly out: Tomas as a lone astronaut walks across the surfa"
+  },
+  "inputs": {
+    "subject": "Tomas as a lone astronaut walks across the surface of the moon, the Earth rising behind him",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "dolly_out",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "bts",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "dolly_out",
+    "mode": "prompt_only",
+    "final_prompt": "Tomas as a lone astronaut walks across the surface of the moon, the Earth rising behind him. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera dollies out, pulling back from the subject on a smooth track and revealing the setting, moving at a steady pace. The camera pulls back and the scene is revealed as a film set: lights on stands, a camera on a dolly track, a boom microphone and a crew at work around the subject, with the murmur of the set. Constraint: physical camera travel, fixed focal length, no zoom, constant lens height.",
+    "seed": 570,
+    "orientation": "landscape",
+    "audio": null,
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "transformation": "bts",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_transform_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Tomas",
+      "refs": [
+        "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+      ]
+    },
+    "recipe_hash": "e54ea493133e64cbc5e7c6343724fd05f99ecf14602a4ecc34794bd7bfe31edb"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "cc8060f5f8e14d83498c6d6e799fc2409fed67fbe734d2ad83fd231cf5f7ff07",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "6d30134f0fe2fd1d44029f19d1a965f4e3f51257417187900cdf01f644f38ec8",
+        "job_id": "74bd85bb-fcd5-40b1-b5ab-66cbb551b83f"
+      },
+      {
+        "stage": "transform_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "3d592de28dd17455b81cf688f17c4486bd5cc7c675d3da3d5f10df14dfd723a5",
+        "job_id": "a60c2699-ca82-4d0a-84d6-d7901832e6ca"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "ba681f5ded95dcc600833c60c6371ebf7f6a48f865873fa06140a1c92a4eda39",
+        "job_id": "4f6ca33d-8c2d-474f-88ad-11911c17ba23"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.6973007412912339,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.6973007412912339,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.6973007412912339
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          406,
+          99,
+          119,
+          164
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.697 >= threshold 0.363 (best reference 0)",
+        "face_px": 119,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.6076054616799493,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.6076054616799493
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          386,
+          83,
+          113,
+          150
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.608 >= threshold 0.363 (best reference 0)",
+        "face_px": 113,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    },
+    "skipped": {
+      "transform_1": "the view widens to reveal a crew around the person, so the face check cannot tell them apart on this still; the shot is still checked"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "74bd85bb-fcd5-40b1-b5ab-66cbb551b83f,a60c2699-ca82-4d0a-84d6-d7901832e6ca,4f6ca33d-8c2d-474f-88ad-11911c17ba23",
+    "timings": {
+      "total_s": 298.1
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "df329c7b9458541943cdde9e46269ac68dcafe624c367b38aa1b3ea96e5e1f40",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "9fcc12934a1c8e122d3e12bc628d9b1c9da21589dda2e0a0948767dbe1de8e54"
+  }
+}

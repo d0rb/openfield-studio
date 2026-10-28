@@ -1,0 +1,191 @@
+{
+ "version": 2,
+ "what": "The Lobby's trailer: hard cuts of recorded takes, each with its own sound, levelled to -16 LUFS, with title cards in the site's type over some cuts. Every segment names its take; the Lobby opens it on a click.",
+ "seconds": 33.5,
+ "files": {
+  "video": "trailer.mp4",
+  "small": "trailer-640.mp4",
+  "hd": "trailer-hd.mp4",
+  "poster": "trailer.webp"
+ },
+ "titles": [
+  {
+   "at": 0.3,
+   "seconds": 2.1,
+   "text": "Nothing here / was filmed."
+  },
+  {
+   "at": 3.0,
+   "seconds": 2.6,
+   "text": "Pick the / camera move."
+  },
+  {
+   "at": 10.8,
+   "seconds": 2.4,
+   "text": "One take flies / into the next."
+  },
+  {
+   "at": 20.2,
+   "seconds": 1.6,
+   "text": "Made with / open weights."
+  },
+  {
+   "at": 29.4,
+   "seconds": 2.3,
+   "text": "Every take / keeps a receipt."
+  },
+  {
+   "at": 31.9,
+   "seconds": 1.6,
+   "text": "Open weights only. / Every take keeps its receipt.",
+   "card": true
+  }
+ ],
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 2.7,
+   "take": "tk_20261026_202643_8fbb",
+   "label": "Dolly in · Tomas",
+   "from": 0.9
+  },
+  {
+   "start": 2.7,
+   "end": 6.1,
+   "take": "tk_20261026_201948_1d50",
+   "label": "Bullet time · Tomas",
+   "from": 0.3
+  },
+  {
+   "start": 6.1,
+   "end": 8.3,
+   "take": "tk_20261023_094205_8a11",
+   "label": "Dolly out · Oskar",
+   "from": 0.8
+  },
+  {
+   "start": 8.3,
+   "end": 10.5,
+   "take": "tk_20261022_231725_3dee",
+   "label": "Crash zoom in · Mara",
+   "from": 1.0
+  },
+  {
+   "start": 10.5,
+   "end": 13.5,
+   "take": "tk_20261023_095051_b57e",
+   "label": "Push through · a transition",
+   "from": 4.4
+  },
+  {
+   "start": 13.5,
+   "end": 15.5,
+   "take": "tk_20261023_094522_51f5",
+   "label": "The dragon glides",
+   "from": 1.0
+  },
+  {
+   "start": 15.5,
+   "end": 17.9,
+   "take": "tk_20261025_140558_8a2f",
+   "label": "FPV drone · a kayak",
+   "from": 1.0
+  },
+  {
+   "start": 17.9,
+   "end": 19.9,
+   "take": "tk_20261023_081319_fada",
+   "label": "Crash zoom · the cat DJ",
+   "from": 1.4
+  },
+  {
+   "start": 19.9,
+   "end": 22.1,
+   "take": "tk_20261022_134358_a709",
+   "label": "Ignite · Ines",
+   "from": 2.4
+  },
+  {
+   "start": 22.1,
+   "end": 24.1,
+   "take": "tk_20261022_134831_3ffc",
+   "label": "Gold · Ines",
+   "from": 2.6
+  },
+  {
+   "start": 24.1,
+   "end": 27.1,
+   "take": "tk_20261022_180938_a0b7",
+   "label": "A spoken line · Oskar",
+   "from": 0.4
+  },
+  {
+   "start": 27.1,
+   "end": 29.1,
+   "take": "tk_20261024_232528_8944",
+   "label": "Dutch angle",
+   "from": 1.0
+  },
+  {
+   "start": 29.1,
+   "end": 33.5,
+   "take": "tk_20261025_140001_1069",
+   "label": "Orbit 180 · Oskar",
+   "from": 0.4
+  }
+ ],
+ "made_from": [
+  {
+   "take": "tk_20261026_202643_8fbb",
+   "take_mp4_sha256": "a50afcda3fc847433af505ca7ff85bbfe6353fdd5775a8add787db1bcc64770e"
+  },
+  {
+   "take": "tk_20261026_201948_1d50",
+   "take_mp4_sha256": "c92b84e21c04e1382abfc4c56011ce2f81b75a68fa97caf5aa99949aaa1b1fdb"
+  },
+  {
+   "take": "tk_20261023_094205_8a11",
+   "take_mp4_sha256": "e95f48fba43b345bf19a0dfc2731e0e826ed348d65cd54003d17d0e1f2b3f296"
+  },
+  {
+   "take": "tk_20261022_231725_3dee",
+   "take_mp4_sha256": "875a37411865914ad509da754c295fc02b7fa627484aae255b2964741ba2922f"
+  },
+  {
+   "take": "tk_20261023_095051_b57e",
+   "take_mp4_sha256": "624dc1999ab1e2c6fcf53f22608b54079c803be61340db885ab83a20d116415f"
+  },
+  {
+   "take": "tk_20261023_094522_51f5",
+   "take_mp4_sha256": "3d65376ad0e8e631b531322c05ffd32cbd973d8dbd7742c2ad8d27b570df4a49"
+  },
+  {
+   "take": "tk_20261025_140558_8a2f",
+   "take_mp4_sha256": "e184a194397baf95e2359363c4c9643b019f05191cbbef6dd8f2c2d759d67234"
+  },
+  {
+   "take": "tk_20261023_081319_fada",
+   "take_mp4_sha256": "2307502cbb2e7ffc6b0c0614a4bd9dec926f35a4dda6c163553f72f25fa1d80d"
+  },
+  {
+   "take": "tk_20261022_134358_a709",
+   "take_mp4_sha256": "12d2ac68734f705411d8a05ee19616e291558a323547b28565f6c9225b01f22c"
+  },
+  {
+   "take": "tk_20261022_134831_3ffc",
+   "take_mp4_sha256": "f7fc465a4fe82d30a37188e7dbd63319ffbd94e12712727abe511d1cd5244baf"
+  },
+  {
+   "take": "tk_20261022_180938_a0b7",
+   "take_mp4_sha256": "6f154351f12cb58c3a11df26647d5aae5ccdc4676f2937a041b08d941c235cbb"
+  },
+  {
+   "take": "tk_20261024_232528_8944",
+   "take_mp4_sha256": "62894cb7ce20a4208772a02f750ff487cd498a0def74bcb4d18b62943f3f7200"
+  },
+  {
+   "take": "tk_20261025_140001_1069",
+   "take_mp4_sha256": "1817f02fbf131bbb8d6f4045a7a003097309e0dbf591d2faf1b9c4a44a52c32c"
+  }
+ ]
+}

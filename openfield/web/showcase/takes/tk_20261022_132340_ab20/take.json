@@ -1,0 +1,140 @@
+{
+  "id": "tk_20261022_132340_ab20",
+  "kind": "direct",
+  "label": "dolly in: Mara stands on an empty rooftop at dusk facing t",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T13:23:40Z",
+  "updated_at": "2026-10-22T13:25:35Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Mara stands on an empty rooftop at dusk facing the camera, the city skyline behind her, then looks off to the side as the wind lifts her hair",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "dolly_in",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "city air, a light wind",
+    "seed": 95,
+    "orientation": "landscape",
+    "cast_refs": [
+      "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+    ],
+    "source_sha256": "6a5229468efeb69b4c76d803764b905bdef8620e21b8e518ff523f94c9765204",
+    "cast_name": "Mara",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "The hero still is the person's own image; nothing was rendered for it."
+  ],
+  "replay": false,
+  "recipe_hash": "a9886cc7435d21994c0ab23d31b36c09075e45af1151373dd1ca50298580ac8b",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7091211408023806,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7091211408023806
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        645,
+        73,
+        62,
+        78
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.709 >= threshold 0.363 (best reference 0)",
+      "face_px": 62,
+      "enlarged": 2.58
+    },
+    "anchor_1": {
+      "status": "pass",
+      "score": 0.6902525893561026,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6902525893561026
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        635,
+        66,
+        95,
+        126
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.690 >= threshold 0.363 (best reference 0)",
+      "face_px": 95,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.42708832693167176,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.42708832693167176
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        604,
+        53,
+        87,
+        113
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.427 >= threshold 0.363 (best reference 0)",
+      "face_px": 87,
+      "enlarged": null,
+      "frame": "last",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "from-image-mara",
+  "showcase_sha": "09ffc6764cff7221"
+}

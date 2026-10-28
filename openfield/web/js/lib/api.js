@@ -48,18 +48,37 @@ const mediaBase = (take) => (typeof take === "object" && take.media_base) || `/a
 
 export const http = {
   kind: "http",
+  /** The live app runs on a computer, not from a site: there is no address of its own to hand out. */
+  site: async () => ({ site_url: null, repo_url: null }),
   status: () => get("/api/status"),
   moves: () => get("/api/moves"),
   recorded: () => get("/api/replay/recorded"),
+  /** The showcase's preview loops ({ takes, moves, effects }), or null when this install has none. */
+  previews: () => fetch("/showcase/previews.json").then((r) => (r.ok ? r.json() : null)).catch(() => null),
+  /** A URL for a file the showcase ships beside its takes (a preview loop, its poster). */
+  asset: (path) => `/${path}`,
   recreate: (recordedId) => post("/api/replay/recreate", { id: recordedId }),
   plan: (body) => post("/api/direct/plan", body),
+  /** How long a shot of this shape took on this install's backend: measured, or null. */
+  estimate: (params) => get(`/api/direct/estimate${query(params)}`),
   setBackend: (mode) => post("/api/backend", { mode }),
+  /** Probe a target the person typed: nothing switches. `{ health, target, warnings, preflight }`. */
+  testBackend: (body) => post("/api/backend/test", body),
+  /** Switch new takes to a target that answered; returns the new status. */
+  connectBackend: (body) => post("/api/backend/connect", body),
+  forgetBackend: () => post("/api/backend/forget"),
   fetchFaceModels: () => post("/api/models/face"),
 
   takes: (params) => get(`/api/takes${query(params)}`),
   take: (id) => get(`/api/takes/${id}`),
   startDirect: (body) => post("/api/takes/direct", body),
+  startDirectFromImage: (form) => postForm("/api/takes/direct/from-image", form),
   startReshoot: (form) => postForm("/api/takes/reshoot", form),
+  startShots: (form) => postForm("/api/takes/shots", form),
+  startTransition: (body) => post("/api/takes/transition", body),
+  startExtend: (body) => post("/api/takes/extend", body),
+  startUpscale: (body) => post("/api/takes/upscale", body),
+  startEdit: (form) => postForm("/api/takes/edit", form),
   approve: (id, reroll = []) => post(`/api/takes/${id}/approve`, { reroll }),
   cancel: (id) => post(`/api/takes/${id}/cancel`),
   remove: (id) => del(`/api/takes/${id}`),
@@ -76,6 +95,16 @@ export const http = {
     const form = new FormData();
     form.append("file", file);
     return postForm("/api/receipts/import", form);
+  },
+
+  /** The Chat room: the person's own agent on this computer, driving the studio through its MCP tools. */
+  chat: {
+    info: () => get("/api/chat"),
+    send: (text) => post("/api/chat/messages", { text }),
+    stop: () => post("/api/chat/stop"),
+    reset: () => post("/api/chat/reset"),
+    settings: (body) => post("/api/chat/settings", body),
+    eventsUrl: (since = 0) => `/api/chat/events?since=${since}`,
   },
 
   cast: {

@@ -1,0 +1,73 @@
+{
+  "id": "tk_20261023_091828_20b9",
+  "kind": "direct",
+  "label": "static: A dancer spins through a cloud of bright coloure",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:18:28Z",
+  "updated_at": "2026-10-23T09:21:32Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A dancer spins through a cloud of bright coloured powder in a white studio",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "slow_motion"
+    },
+    "audio": null,
+    "seed": 582,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "68f582ca08bd586b460bd8f1fe14d72f957b1978b481d3f381419de4307da03b",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fx-slow-motion",
+  "showcase_sha": "bf4f03546fbd399d"
+}

@@ -3,9 +3,12 @@
 
 import { CONSENT, IMAGE_TYPES, KINDS, LIMITS, candidatesOf, characterBody, initialCast, initialCharacter, suggestName, toForm, validate, validateCharacter } from "../lib/cast.js";
 import { portraitTakes } from "../lib/takes.js";
-import { bytes, h, icon, renderList } from "./dom.js";
+import { fileOf, fromRecorded, posterAttrs, titleOf } from "../lib/stages.js";
+import { phone, savingData } from "../lib/pictures.js";
+import { bytes, flip, h, icon, renderList } from "./dom.js";
 import { field, pill, section, segmented, textField } from "./controls.js";
 import { setDirect } from "./direct.js";
+import { hoverClip, hoverPlay } from "./hoverplay.js";
 
 const setCast = (forms, patch) => forms.set((s) => ({ castForm: { ...s.castForm, ...patch } }));
 const setCharacter = (forms, patch) => forms.set((s) => ({ character: { ...s.character, ...patch } }));
@@ -15,16 +18,53 @@ export function createCastStation(ctx) {
   const locked = () => Boolean(store.get().status?.backend?.locked) || api.kind === "static";
   const candidates = h("section", { class: "cast-candidates", hidden: true });
   const grid = h("div", { class: "cast-grid" });
-  const empty = h("div", { class: "empty" }, icon("users-round", "lg"), h("h2", null, "No characters yet"),
-    h("p", null, "Generate an invented character from a description, or add photos you have the right to use. Pick them in Direct to keep the same face across shots."));
+  const empty = h("div", { class: "empty" }, h("img", { class: "empty-art", src: "art/art-cast.webp", alt: "", loading: "lazy", decoding: "async" }), h("h2", null, "No characters yet"),
+    h("p", null, "Make one from a description, or add photos."));
+  const note = h("p", { class: "hint cast-note" }, "Generated characters are invented. Photos need the right to use them.");
   const el = h("section", { class: "cast-station", "aria-label": "Cast" },
     h("div", { class: "station-head" }, h("h1", null, "Cast"), h("p", null, "Characters, products and places you reuse across shots.")),
-    candidates, grid, empty);
+    candidates, grid, note, empty);
   let armed = null;
 
+  // the takes a character is in: Direct takes cast with them and re-shoots that made them the new character,
+  // in the showcase's reel order, then newest first
+  function appearances(name) {
+    const s = store.get();
+    const own = new Set(s.takes.map((t) => t.id));
+    const reel = new Map((s.status?.hero_reel ?? []).map((id, i) => [id, i]));
+    const place = (t) => reel.get(t.id) ?? reel.size;
+    return [...s.takes, ...s.recorded.filter((r) => !own.has(r.id)).map(fromRecorded)]
+      .filter((t) => t.status === "succeeded" && !t.replay && (t.recipe?.cast_name === name || t.recipe?.reference_name === name) && fileOf(t, "poster"))
+      .map((t, i) => ({ t, i })).sort((a, b) => place(a.t) - place(b.t) || a.i - b.i).map(({ t }) => t);
+  }
+  function appearsRow(c) {
+    const shots = appearances(c.name);
+    if (!shots.length) return null;
+    return h("div", { class: "cast-appears", "data-sig": shots.slice(0, 4).map((t) => t.id).join() + `|${shots.length}` },
+      h("span", { class: "cast-appears-label" }, `In ${shots.length} take${shots.length === 1 ? "" : "s"}`),
+      h("div", { class: "cast-appears-row" }, ...shots.slice(0, 4).map((t) => {
+        const open = h("button", { type: "button", class: "cast-take", "aria-label": `Open ${titleOf(t)}`, title: titleOf(t) },
+          h("img", { ...posterAttrs(store.get(), t, api, "80px"), alt: "", loading: "lazy", draggable: "false" }));
+        open.addEventListener("click", () => ui.openTake(t.id));
+        hoverPlay(open, hoverClip(store, t, api)); // the take plays in its thumb under the hand; the portrait above never does
+        return open;
+      })));
+  }
+
+  // a portrait: the reference alone, or with the hosted copy's 768px one beside it (a phone or a data saver keeps to the small one)
+  function portrait(c, ref) {
+    const url = (file) => api.cast.refUrl(c.id, file);
+    const small = ref.small; // the export's 768px copy (hosted copy only)
+    if (!small) return h("img", { src: url(ref.file), alt: c.name, loading: "lazy", decoding: "async" });
+    if (phone() || savingData()) return h("img", { src: url(small.file), alt: c.name, loading: "lazy", decoding: "async" }); // a 3x phone would ask for the PNG
+    return h("img", { src: url(ref.file), srcset: `${url(small.file)} ${small.width}w, ${url(ref.file)} ${ref.size?.[0] ?? 1024}w`,
+      sizes: "(max-width: 719px) 92vw, 322px", alt: c.name, loading: "lazy", decoding: "async" });
+  }
+
   function card(c) {
-    const first = c.refs?.[0]?.file;
+    const ref = c.refs?.[0];
     const use = h("button", { type: "button", class: "btn secondary sm" }, icon("clapperboard", "sm"), "Use in Direct");
+    use.title = `${c.name} keeps the same face across shots`;
     use.addEventListener("click", () => { setDirect(forms, { castId: c.id }); ui.go("direct"); });
     const del = h("button", { type: "button", class: "btn ghost sm quiet-danger icon-only", "aria-label": `Delete ${c.name}` }, icon("trash-2", "sm"));
     del.addEventListener("click", () => {
@@ -33,14 +73,19 @@ export function createCastStation(ctx) {
       controller.removeCast(c.id);
     });
     return h("article", { class: "cast-card" },
-      h("div", { class: "cast-photo" }, first ? h("img", { src: api.cast.refUrl(c.id, first), alt: `${c.name}`, loading: "lazy" }) : icon("image", "lg"), c.refs?.length > 1 ? h("span", { class: "tile-badge" }, `${c.refs.length} photos`) : null),
-      h("div", { class: "cast-meta" }, h("b", null, c.name), pill(c.kind), c.origin ? pill("Generated", "accent") : null),
-      h("p", { class: "hint" }, c.consent_text ?? ""),
-      h("div", { class: "cast-actions" }, use, del));
+      h("div", { class: "cast-photo" }, ref?.file ? portrait(c, ref) : icon("image", "lg"),
+        h("span", { class: "cast-name" }, c.name), c.refs?.length > 1 ? h("span", { class: "tile-badge" }, `${c.refs.length} photos`) : null),
+      h("div", { class: "cast-meta" }, pill(c.kind), c.origin ? Object.assign(pill("Generated", null, { dot: true }), { title: "An invented person, made from a description" }) : null, c.bundled ? pill("Showcase") : null, h("span", { class: "grow" }), use, c.bundled ? null : del), // bundled members come with the showcase
+      appearsRow(c) ?? h("div", { class: "cast-appears", hidden: true }));
   }
 
   function updateCard(node, c) {
+    const row = appearsRow(c);
+    const old = node.querySelector(".cast-appears");
+    if (row && old?.dataset.sig !== row.dataset.sig) old.replaceWith(row);
+    else if (!row && old && !old.hidden) old.replaceWith(h("div", { class: "cast-appears", hidden: true }));
     const del = node.querySelector("button.quiet-danger");
+    if (!del) return;
     const label = armed === c.id ? "Delete?" : null;
     del.replaceChildren(...(label ? [label] : [icon("trash-2", "sm")]));
     del.classList.toggle("icon-only", !label);
@@ -62,7 +107,7 @@ export function createCastStation(ctx) {
       discard.addEventListener("click", () => controller.remove(take.id));
       return h("div", { class: "candidate-set" },
         h("div", { class: "candidate-head" }, h("h2", null, "Generated characters"), h("span", { class: "hint" }, take.recipe?.description ?? take.label),
-          live ? pill(take.status === "failed" ? "Failed" : "Generating…", take.status === "failed" ? "red" : "accent") : pill("Invented people. Keep the one you like.", "accent"),
+          live ? pill(take.status === "failed" ? "Failed" : "Generating…", take.status === "failed" ? "red" : "accent") : pill("Invented people. Keep the one you like."),
           h("span", { class: "grow" }), discard),
         live && take.status !== "failed" ? h("div", { class: "bar" }, h("span", { style: { "--p": String(take.progress ?? 0) } })) : null,
         take.status === "failed" ? h("p", { class: "hint" }, take.error?.message ?? "Generation failed.") : null,
@@ -72,12 +117,13 @@ export function createCastStation(ctx) {
 
   function paint() {
     const casts = store.get().cast;
-    renderList(grid, casts, (c) => c.id, card, updateCard);
+    flip(grid, () => renderList(grid, casts, (c) => c.id, card, updateCard), { keys: casts.map((c) => c.id) }); // a card added or deleted: the others glide, a new one settles in
     grid.hidden = casts.length === 0;
+    note.hidden = !store.get().cast.length;
     empty.hidden = casts.length > 0 || !candidates.hidden;
     candidateRow();
   }
-  store.subscribe((_, changed) => changed.some((k) => ["cast", "takes", "status"].includes(k)) && paint());
+  store.subscribe((_, changed) => changed.some((k) => ["cast", "takes", "recorded", "status"].includes(k)) && paint());
   paint();
   return { el, locked };
 }
@@ -85,14 +131,14 @@ export function createCastStation(ctx) {
 export function createCastDock(ctx) {
   const { api, store, forms, controller } = ctx;
   const el = h("div", { class: "dock-pane", "data-pane": "settings" });
-  const lock = h("p", { class: "hint lock-note" }, icon("lock", "sm"), "Replay cannot make or save characters. Connect a backend to generate one, or install OpenField to add photos.");
+  const lock = h("p", { class: "hint lock-note" }, icon("lock", "sm"), "Replay cannot make characters. Connect a backend.");
 
   // -- generate -------------------------------------------------------------------------------
   const description = textField({ id: "ch-desc", multiline: true, rows: 3, maxlength: LIMITS.description[1], placeholder: "A woman in her late twenties with short dark hair, freckles and a yellow rain jacket", onInput: (v) => setCharacter(forms, { description: v }) });
   const count = segmented({ label: "How many", options: [1, 2, 3, 4].map((n) => ({ value: n, label: String(n) })), value: 3, onChange: (n) => setCharacter(forms, { count: n }) });
   const seed = textField({ id: "ch-seed", type: "number", inputmode: "numeric", placeholder: "Random", onInput: (v) => setCharacter(forms, { seed: v }) });
   const gen = h("button", { type: "button", class: "btn primary" }, icon("user-round-plus"), "Generate");
-  const fDesc = field("Description", description.el, { id: "ch-desc", hint: "Always an invented person. It will not look like anyone real." });
+  const fDesc = field("Description", description.el, { id: "ch-desc", hint: "Always an invented person." });
   const fSeed = field("Seed", seed.el, { id: "ch-seed" });
   gen.addEventListener("click", async () => {
     const s = forms.get().character;

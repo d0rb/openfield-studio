@@ -122,6 +122,15 @@ def map_error(exc: BaseException, job_id: str | None = None) -> BackendError:
     return BackendError("unexpected", f"{type(exc).__name__}: {_clip(str(exc))}", job_id=job_id)
 
 
+async def _looks_like_comfyui(http: httpx.AsyncClient, base: str) -> bool:
+    """True when the address answers ComfyUI's own `/system_stats` (so it is the server, not the proxy)."""
+    try:
+        response = await http.get(f"{base.rstrip('/')}/system_stats", timeout=5.0)
+        return response.status_code == 200 and isinstance(response.json(), dict) and "system" in response.json()
+    except (httpx.HTTPError, ValueError):
+        return False
+
+
 def _clip(text: str, limit: int = 400) -> str:
     return text if len(text) <= limit else text[: limit - 1] + "…"
 
@@ -130,14 +139,28 @@ def _clip_dict(info: dict[str, Any]) -> dict[str, Any]:
     return {k: (_clip(v, 1200) if isinstance(v, str) else v) for k, v in info.items()}
 
 
+DEFAULT_REQUEST_TIMEOUT = 600.0  # one HTTP call to the target: an upload, or a long poll of a job that is still rendering
+
+
+def request_timeout_from_env() -> float:
+    """OPENFIELD_REQUEST_TIMEOUT in seconds, or the default; a Wan Animate 2 pass on a cold box can hold one call open
+    for minutes, and the whole render keeps its own, longer budget."""
+    raw = os.environ.get("OPENFIELD_REQUEST_TIMEOUT", "").strip()
+    try:
+        value = float(raw) if raw else DEFAULT_REQUEST_TIMEOUT
+    except ValueError:
+        return DEFAULT_REQUEST_TIMEOUT
+    return value if value > 0 else DEFAULT_REQUEST_TIMEOUT
+
+
 class SdkBackend:
     locked = False
 
     def __init__(self, *, base_url: str | None = None, api_key: str | None = None,
-                 request_timeout: float = 180.0) -> None:
+                 request_timeout: float | None = None) -> None:
         self.base_url = base_url or None
         self._api_key = api_key or None
-        self._request_timeout = request_timeout
+        self._request_timeout = request_timeout if request_timeout is not None else request_timeout_from_env()
         self.kind, self.label = classify(self.base_url)
         # the offline dev stack names itself, so what it makes can never pass for a real render
         self.label = os.environ.get("OPENFIELD_BACKEND_LABEL") or self.label
@@ -151,20 +174,43 @@ class SdkBackend:
             return AsyncComfy(api_key=self._api_key, timeout=self._request_timeout)
 
     async def health(self) -> dict[str, Any]:
+        """Reachability of the target, with a stable `code` when it is not ready.
+
+        A GPU box answers `/api/v2/health` only through comfy-api-proxy; a plain ComfyUI on that address answers
+        404 there and 200 on its own `/system_stats`, which is the most common mistake and gets its own code.
+        """
         base = self.base_url or f"https://{CLOUD_HOST}"
         headers = {"Authorization": f"Bearer {self._api_key}", "X-API-Key": self._api_key} \
             if self._api_key else {}
-        url = f"{base.rstrip('/')}/api/v2/health" if self.kind == "pod" else f"{base.rstrip('/')}/api/user"
+        url = (f"{base.rstrip('/')}/api/v2/health" if self.kind == "pod"
+               else f"{base.rstrip('/')}/api/user" if self.kind == "cloud"
+               else f"{base.rstrip('/')}/api/v2/jobs?limit=1")  # a deployment speaks v2 only: a guarded route proves the key
+        plain_comfy = False
         try:
             async with httpx.AsyncClient(timeout=10.0) as http:
                 response = await http.get(url, headers=headers)
+                if self.kind == "pod" and response.status_code == 404:
+                    plain_comfy = await _looks_like_comfyui(http, base)
+                elif self.kind == "pod" and response.status_code == 200:
+                    # the proxy answers /health to anyone; whether our token holds shows on a guarded route
+                    guarded = await http.get(f"{base.rstrip('/')}/api/v2/jobs", headers=headers, params={"limit": 1})
+                    if guarded.status_code in {401, 403}:
+                        response = guarded
         except httpx.HTTPError as exc:
-            return {"ok": False, "kind": self.kind, "label": self.label, "detail": map_error(exc).args[0]}
+            mapped = map_error(exc)
+            return {"ok": False, "kind": self.kind, "label": self.label, "code": mapped.code, "detail": str(mapped),
+                    "authenticated": bool(self._api_key)}
         ok = response.status_code == 200
+        code = None if ok else "http_error"
         detail = "ready" if ok else f"HTTP {response.status_code}"
         if response.status_code in {401, 403}:
-            detail = "key rejected" if self._api_key else "needs an API key"
-        return {"ok": ok, "kind": self.kind, "label": self.label, "detail": detail,
+            code = "unauthorized" if self._api_key else "missing_api_key"
+            detail = "key rejected" if self._api_key else ("needs a token" if self.kind == "pod" else "needs an API key")
+        if plain_comfy:
+            code = "not_a_proxy"
+            detail = ("This is ComfyUI itself. OpenField needs comfy-api-proxy in front of it "
+                      "(one command; see docs/CONNECT.md).")
+        return {"ok": ok, "kind": self.kind, "label": self.label, "detail": detail, "code": code,
                 "authenticated": bool(self._api_key)}
 
     async def run(

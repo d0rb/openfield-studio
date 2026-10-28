@@ -1,0 +1,17 @@
+{
+  "title": "OpenField Studio: the hero loop",
+  "_comment": "The README's first image: the wall playing the dolly-in, then the footage following the move. Record on the hosted Replay at 1280x720 and turn it into a GIF: python scripts/record_demo.py --url http://127.0.0.1:8080/ --out data-dev/hero --width 1280 --height 720 --fps 12, then ffmpeg -i data-dev/hero/demo.mp4 -vf \"fps=12,scale=1200:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=192[p];[b][p]paletteuse=dither=bayer:bayer_scale=5\" docs/media/hero.gif",
+  "steps": [
+    { "do": "hold", "ms": 2600 },
+    { "do": "click", "selector": "#tab-settings" },
+    { "do": "click", "selector": ".move-tile", "text": "Crane up" },
+    { "do": "until", "expr": "window.openfield.store.get().selected === 'tk_20261020_155211_cd12'", "label": "the crane-up take" },
+    { "do": "hold", "ms": 2400 },
+    { "do": "click", "selector": ".move-tile", "text": "Track right" },
+    { "do": "until", "expr": "window.openfield.store.get().selected === 'tk_20261020_160826_64a9'", "label": "the track-right take" },
+    { "do": "hold", "ms": 2400 },
+    { "do": "click", "selector": ".move-tile", "text": "Dolly in" },
+    { "do": "until", "expr": "window.openfield.store.get().selected === 'tk_20261020_153056_2c1e'", "label": "the dolly-in take" },
+    { "do": "hold", "ms": 1800 }
+  ]
+}

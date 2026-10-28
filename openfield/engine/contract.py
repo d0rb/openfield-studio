@@ -29,11 +29,15 @@ CONTRACTS: dict[str, Contract] = {
          "first_frame": "image"}, ("video",)),
     "ltx25_flf2v": Contract(
         {"prompt": "text", "seed": "seed", "duration": "int", "width": "int", "height": "int",
-         "first_frame": "image", "last_frame": "image"}, ("video",)),
+         "first_frame": "image", "last_frame": "image", "mids": "guide_list"},
+        ("video",), frozenset({"mids"})),
     "wan_animate2": Contract(
         {"prompt": "text", "motion_prompt": "text", "seed": "seed", "reference_image": "image",
          "pose_video": "video", "width": "int", "height": "int"},
         ("video",), frozenset({"motion_prompt", "width", "height"})),
+    "esrgan_upscale": Contract(
+        {"video": "video", "width": "int", "height": "int", "upscale_method": "choice"},
+        ("video",), frozenset({"upscale_method"})),
 }
 
 
@@ -46,6 +50,8 @@ def check_contract(name: str, template: Template) -> list[str]:
     for slot_name, kind in contract.slots.items():
         slot = template.slots.get(slot_name)
         if slot is None:
+            if slot_name in contract.optional:
+                continue
             issues.append(f"missing slot {slot_name!r} ({kind})")
         elif slot.kind != kind:
             issues.append(f"slot {slot_name!r} is {slot.kind!r}, the pipeline needs {kind!r}")

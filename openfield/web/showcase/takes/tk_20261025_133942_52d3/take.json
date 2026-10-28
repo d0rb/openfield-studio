@@ -1,0 +1,120 @@
+{
+  "id": "tk_20261025_133942_52d3",
+  "kind": "direct",
+  "label": "truck left: Noor in a white spacesuit with the helmet off st",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-25T13:39:42Z",
+  "updated_at": "2026-10-25T13:41:20Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "truck_left",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "wind over sand, a faint rumble",
+    "seed": 620,
+    "orientation": "landscape",
+    "cast_refs": [
+      "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+    ],
+    "quality": "draft",
+    "cast_name": "Noor",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "mirrored: the hero is flipped, the truck right is rendered on it, and the video is flipped back in code, so the camera travels the other way through the same scene"
+  ],
+  "replay": false,
+  "recipe_hash": "666dd4eea463913b61240ef3c679bc97cc110edac26b16aa9b4209c966214b6a",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8291869108458124,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8291869108458124
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        309,
+        85,
+        111,
+        141
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.829 >= threshold 0.363 (best reference 0)",
+      "face_px": 111,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.764900444405225,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.764900444405225
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        309,
+        84,
+        111,
+        142
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.765 >= threshold 0.363 (best reference 0)",
+      "face_px": 111,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    896,
+    512
+  ],
+  "showcase_name": "r11-mv-truck-left",
+  "showcase_sha": "325ceddb4e9295ae"
+}

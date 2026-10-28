@@ -1,0 +1,58 @@
+{
+  "id": "tk_20261024_192756_a60e",
+  "kind": "export",
+  "label": "reel of 2 takes",
+  "status": "succeeded",
+  "stage": "done",
+  "progress": 1.0,
+  "created_at": "2026-10-24T19:27:56Z",
+  "updated_at": "2026-10-24T19:28:00Z",
+  "recipe": {
+    "kind": "export",
+    "format": "reel",
+    "sources": [
+      "tk_20261024_191646_2f3a",
+      "tk_20261024_190502_b09b"
+    ],
+    "crossfade_s": 0.4,
+    "lufs": -14.0
+  },
+  "parent": "tk_20261024_191646_2f3a",
+  "backend": {
+    "kind": "local",
+    "label": "ffmpeg"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 17.54,
+  "size": [
+    1280,
+    704
+  ]
+}

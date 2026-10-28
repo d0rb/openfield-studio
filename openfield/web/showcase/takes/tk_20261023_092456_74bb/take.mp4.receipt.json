@@ -1,0 +1,175 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_092456_74bb",
+    "kind": "direct",
+    "created_at": "2026-10-23T09:27:56Z",
+    "label": "loop: A campfire burns under a sky full of stars in a "
+  },
+  "inputs": {
+    "subject": "A campfire burns under a sky full of stars in a quiet desert, sparks drifting up",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "loop",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "loop",
+    "mode": "keyframed",
+    "final_prompt": "A campfire burns under a sky full of stars in a quiet desert, sparks drifting up. Shot on 35mm film with fine organic grain with a warm vintage prime lens with soft contrast, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. A seamless loop: the camera holds its frame while the scene moves and breathes, and every motion returns exactly to where it began, so the last frame flows back into the first. Constraint: the frame holds; the motion comes back to its start. Sound: a crackling fire, crickets.",
+    "seed": 601,
+    "orientation": "landscape",
+    "audio": "a crackling fire, crickets",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/01_hero/image.png"
+      }
+    ],
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "recipe_hash": "5df5cb6c44e027c832014b96cdd45c832a1eb19f06202fd93019448117485f09"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "41d6efb234af431c399ae93f8dee4a13df0bd2c6f930f794f25ac4f67563f6bc",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_t2i",
+        "workflow_sha256": "c4e7e3f6f8ed25a926d76998afe687e4702b5892dad46b1e055dcd322faaf8ce",
+        "job_id": "8a432028-a52f-4222-99c9-2a94553ea730"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "1cca0bfd96bfd342fbad3eaf3db67c8e31416cff9ad3e05575521b9d498c508c",
+        "job_id": "1ed84fbb-cc66-46d2-9581-47db8a6966c5"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {}
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "8a432028-a52f-4222-99c9-2a94553ea730,1ed84fbb-cc66-46d2-9581-47db8a6966c5",
+    "timings": {
+      "total_s": 180.0
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "b4a7bfceb24e69310e162b343fd60fc695d3e9c9332235c76b3265a6d1b1cac2",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "24c57759f76c13ee3e31fbe850548722b9ab7fdb5107e689e4b5c4c8b2000c12"
+  }
+}

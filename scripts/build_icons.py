@@ -20,29 +20,61 @@ JS_ROOT = ROOT / "openfield" / "web"
 
 # every icon the interface can draw, by Lucide name
 ICONS = [
-    # stations
-    "users-round", "clapperboard", "repeat-2", "film",
+    # stations (the ticket is the Lobby, the message the Chat room)
+    "ticket", "users-round", "clapperboard", "repeat-2", "film", "grid-3x3", "message-square",
     # transport and player
     "play", "pause", "volume-2", "volume-x", "maximize", "repeat", "circle-play",
     # actions
     "x", "check", "upload", "folder-open", "trash-2", "dices", "square", "refresh-cw", "undo-2", "link", "package",
-    "file-json", "user-round-plus", "smartphone", "image",
+    "file-json", "user-round-plus", "smartphone", "image", "arrow-left-right", "chevrons-right", "send", "columns-2",
     # disclosure
-    "chevron-down", "chevron-right", "chevron-left", "panel-right",
+    "chevron-down", "chevron-up", "chevron-right", "chevron-left", "panel-right",
     # state and trust
-    "triangle-alert", "circle-alert", "lock", "shield-check", "badge-check", "circle-dashed", "info", "ban", "clock", "cloud",
+    "triangle-alert", "circle-alert", "lock", "shield-check", "circle-dashed", "info", "ban", "clock", "cloud",
     "scan-face",
 ]
 
 
+SIZES = {"sm", "lg"}  # icon()'s second argument: a size, never a name
+
+
+def icon_calls(text: str) -> list[str]:
+    """The argument text of every icon(...) call, its parentheses balanced (a string's own brackets do not count)."""
+    calls = []
+    for match in re.finditer(r"\bicon\(", text):
+        depth, i, quote = 1, match.end(), ""
+        while i < len(text) and depth:
+            c = text[i]
+            if quote:
+                if c == "\\":
+                    i += 1
+                elif c == quote:
+                    quote = ""
+            elif c in "\"'`":
+                quote = c
+            elif c in "([{":
+                depth += 1
+            elif c in ")]}":
+                depth -= 1
+            i += 1
+        calls.append(text[match.end():i - 1])
+    return calls
+
+
+# a quoted name in a name's place inside an icon(...) call: the first argument, or a branch of ? :, ??, || or &&; a word
+# right after a comparison (=== "failed") is a value the code tests, not an icon
+ICON_NAME = re.compile(r"""(?:^|\?\??|:|\|\||&&)\s*["']([a-z0-9-]+)["']""")
+
+
 def used_names() -> set[str]:
-    """Icon names the JavaScript and HTML actually reference: icon("name") and #i-name."""
+    """Icon names the JavaScript and HTML actually reference: every name an icon(...) call can draw, #i-name and data-icon."""
     names: set[str] = set()
     for path in JS_ROOT.rglob("*"):
         if path.suffix not in {".js", ".html", ".css"} or not path.is_file():
             continue
         text = path.read_text(encoding="utf-8")
-        names.update(re.findall(r"""icon\(\s*["']([a-z0-9-]+)["']""", text))
+        for args in icon_calls(text):
+            names.update(set(ICON_NAME.findall(args)) - SIZES)
         names.update(re.findall(r"#i-([a-z0-9-]+)", text))
         names.update(re.findall(r"""data-icon=["']([a-z0-9-]+)["']""", text))
     return names

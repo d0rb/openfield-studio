@@ -1,0 +1,181 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_143354_e0bc",
+    "kind": "direct",
+    "created_at": "2026-10-22T14:35:29Z",
+    "label": "lazy susan: A dented steel thermos on a wooden table, steam "
+  },
+  "inputs": {
+    "subject": "A dented steel thermos on a wooden table, steam curling from its open cup, morning light",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 50,
+      "aperture": "f4",
+      "lighting": "window",
+      "movement": "lazy_susan",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "none",
+      "grade": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "lazy_susan",
+    "mode": "prompt_only",
+    "final_prompt": "A dented steel thermos on a wooden table, steam curling from its open cup, morning light. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 50mm (natural), at f/4 with moderate depth of field; soft window light from one side. A turntable shot: the camera is locked off while the subject rotates slowly on the spot, showing every side like a product on a lazy Susan. Constraint: camera locked off, the subject turns a full circle, constant lighting. Sound: a kettle ticking as it cools, a wooden chair creaking.",
+    "seed": 156,
+    "orientation": "landscape",
+    "audio": "a kettle ticking as it cools, a wooden chair creaking",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      }
+    ],
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "recipe_hash": "c3c7be050f67fdd46d76e210a67afa3937bf9f1e2b44b925c4c0cde3da6ce8e2"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "54af9fd576e4bbdcc90cf388f8972312141d676e548600f5dc5ba00fa688d990",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_t2i",
+        "workflow_sha256": "e8fa259d81d748e4f34dc8827c31e63ddd3e8725892326eaf1ea9679d89a2ece",
+        "job_id": "81627b29-d489-4db9-8751-0fbf85c6b61d"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "37dae8a8229f25083e8edc94ad51345152ccf6cd1baf590bad316d7e5880b4df",
+        "job_id": "6a933fb5-803c-456c-904e-f4d2ee9b6c1a"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {}
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "81627b29-d489-4db9-8751-0fbf85c6b61d,6a933fb5-803c-456c-904e-f4d2ee9b6c1a",
+    "timings": {
+      "total_s": 95.0
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "70e39fb0ff16672bd5444907f84792c55f1490eec3f9bc4a934eb153438ff4a3",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "c9a2a35510c0b48378a9324cecfc533f7053398c5e82093659278f361dfe38ae"
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_193105_34f3",
+    "kind": "direct",
+    "created_at": "2026-10-22T19:35:59Z",
+    "label": "crane up: A lighthouse on a black rock in a storm, waves b"
+  },
+  "inputs": {
+    "subject": "A lighthouse on a black rock in a storm, waves bursting white against its base",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "overhead_fall",
+      "movement": "crane_up",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "crane_up",
+    "mode": "keyframed",
+    "final_prompt": "A lighthouse on a black rock in a storm, waves bursting white against its base. Shot on 35mm film with fine organic grain with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; a single overhead light falling from above. The camera cranes upward and tilts down slightly to keep the subject framed, rising smoothly, moving at a steady pace. Constraint: vertical travel with a slight tilt, fixed focal length, no zoom. Sound: crashing waves, howling wind, the foghorn.",
+    "seed": 191,
+    "orientation": "landscape",
+    "audio": "crashing waves, howling wind, the foghorn",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_anchor_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "recipe_hash": "d5b616659a72cfe977e28da27f9141f22fb3cf44c15832708cfa156099bd366f"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "460c07b63c038cc58dea87ed315cebdcbd209b4fa4aa7c9c3c31ea6dd795de94",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_t2i",
+        "workflow_sha256": "1537050cb1070bd75a3615831b5495ff1014f805ca2d4d017a386a3e678962a5",
+        "job_id": "2408ea8e-78be-4a96-a66e-4d3bf4e4f793"
+      },
+      {
+        "stage": "anchor_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "7996b26d5660fdd1614f312686e96a9139a21b560cea38eb51de157ed9de99e0",
+        "job_id": "00ce17e6-363f-4ede-99fb-48beb813ee71"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "6ef6846c1917b7e325f12ca3f4e891f659ea9c9767d4af19d39aa5546424d635",
+        "job_id": "b11ab28f-2963-4afa-b279-1e9d854b3a19"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {}
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "2408ea8e-78be-4a96-a66e-4d3bf4e4f793,00ce17e6-363f-4ede-99fb-48beb813ee71,b11ab28f-2963-4afa-b279-1e9d854b3a19",
+    "timings": {
+      "total_s": 293.7
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "01a31a11f52a362c46beb31db90f9aca6d8463f692369fc7c7987dda4a1c2d60",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "5953ea0ded1a96044cd17b41257375c0fdbba97e142f61f400b2b28c8e8e19df"
+  }
+}

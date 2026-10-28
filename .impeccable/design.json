@@ -1,311 +1,852 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-17T12:00:00Z",
+  "generatedAt": "2026-10-25T20:00:00Z",
   "title": "Design System: OpenField Studio",
   "extensions": {
     "colorMeta": {
       "ground": {
         "role": "neutral",
-        "displayName": "Ground",
-        "canonical": "#0f1115",
+        "displayName": "Lacquer Black",
+        "canonical": "#0d0c0b",
         "tonalRamp": [
-          "#090b0f",
-          "#14161a",
-          "#1f2226",
-          "#2c2e32",
-          "#45484d",
-          "#6f7277",
-          "#abaeb4",
-          "#ebeef5"
+          "#050504",
+          "#0d0c0b",
+          "#121110",
+          "#1b1917",
+          "#232020",
+          "#2b2824",
+          "#6f6962",
+          "#ebe8e3"
         ]
       },
       "panel": {
         "role": "neutral",
-        "displayName": "Panel",
-        "canonical": "#14171c",
+        "displayName": "Flight Case",
+        "canonical": "#121110",
         "tonalRamp": []
       },
       "raised": {
         "role": "neutral",
-        "displayName": "Raised",
-        "canonical": "#1a1d23",
+        "displayName": "Raised Case",
+        "canonical": "#1b1917",
         "tonalRamp": []
       },
       "hover": {
         "role": "neutral",
-        "displayName": "Hover",
-        "canonical": "#21252d",
+        "displayName": "Hover Step",
+        "canonical": "#232020",
         "tonalRamp": []
       },
       "pressed": {
         "role": "neutral",
-        "displayName": "Pressed",
-        "canonical": "#272c35",
+        "displayName": "Pressed Step",
+        "canonical": "#2b2824",
         "tonalRamp": []
       },
       "screen": {
         "role": "neutral",
-        "displayName": "Screen",
-        "canonical": "#08090b",
+        "displayName": "Dark Screen",
+        "canonical": "#050504",
+        "tonalRamp": []
+      },
+      "surface-tint": {
+        "role": "neutral",
+        "displayName": "Surface Tint",
+        "canonical": "rgb(255 255 255 / 0.04)",
         "tonalRamp": []
       },
       "line": {
         "role": "neutral",
-        "displayName": "Hairline",
-        "canonical": "#262b34",
+        "displayName": "Gaffer Hairline",
+        "canonical": "#211f1c",
         "tonalRamp": []
       },
       "line-strong": {
         "role": "neutral",
-        "displayName": "Hairline Strong",
-        "canonical": "#323844",
+        "displayName": "Strong Hairline",
+        "canonical": "#2e2b27",
         "tonalRamp": []
       },
       "control-line": {
         "role": "neutral",
         "displayName": "Control Edge",
-        "canonical": "#667080",
+        "canonical": "#6f6962",
         "tonalRamp": []
       },
       "control-line-hover": {
         "role": "neutral",
         "displayName": "Control Edge Hover",
-        "canonical": "#7a8494",
+        "canonical": "#887f76",
+        "tonalRamp": []
+      },
+      "grid-line": {
+        "role": "neutral",
+        "displayName": "Floor Grid",
+        "canonical": "rgb(235 232 227 / 0.07)",
+        "tonalRamp": []
+      },
+      "on-media-line": {
+        "role": "neutral",
+        "displayName": "On-Media Line",
+        "canonical": "rgb(235 232 227 / 0.32)",
         "tonalRamp": []
       },
       "text": {
         "role": "neutral",
-        "displayName": "Text",
-        "canonical": "#e6e8eb",
+        "displayName": "Marquee White",
+        "canonical": "#ebe8e3",
         "tonalRamp": [
-          "#0a0b0d",
-          "#202224",
-          "#393b3d",
-          "#545558",
-          "#7e8083",
-          "#a3a5a7",
-          "#c9cbcd",
-          "#edeff2"
+          "#0d0c0b",
+          "#2b2824",
+          "#4a463f",
+          "#6f6962",
+          "#908a82",
+          "#aba59d",
+          "#d0ccc5",
+          "#ebe8e3"
         ]
       },
       "text-2": {
         "role": "neutral",
-        "displayName": "Text 2",
-        "canonical": "#a6adb9",
+        "displayName": "White 2",
+        "canonical": "#aba59d",
         "tonalRamp": []
       },
       "text-3": {
         "role": "neutral",
-        "displayName": "Text 3",
-        "canonical": "#8d95a3",
+        "displayName": "White 3",
+        "canonical": "#908a82",
+        "tonalRamp": []
+      },
+      "on-media": {
+        "role": "neutral",
+        "displayName": "On Media",
+        "canonical": "#f4f1ec",
         "tonalRamp": []
       },
       "accent": {
         "role": "primary",
-        "displayName": "Signal Indigo",
-        "canonical": "oklch(64% 0.193 275)",
+        "displayName": "Ticket Orange",
+        "canonical": "#ff7a1a",
         "tonalRamp": [
-          "#14005b",
-          "#1a007b",
-          "#281a9b",
-          "#3c3fbd",
-          "#626ff1",
-          "#8395ff",
-          "#a7bdff",
-          "#c9e2ff"
+          "#3d1a00",
+          "#6b2d00",
+          "#9a4200",
+          "#c75800",
+          "#ee6c0e",
+          "#ff7a1a",
+          "#ff8c3c",
+          "#ffa35f"
         ]
       },
       "accent-fill": {
         "role": "primary",
-        "displayName": "Indigo Fill",
-        "canonical": "#5667f0",
+        "displayName": "Ticket Orange Fill",
+        "canonical": "#ff7a1a",
         "tonalRamp": []
       },
       "accent-fill-hover": {
         "role": "primary",
-        "displayName": "Indigo Fill Hover",
-        "canonical": "#4f5fe8",
+        "displayName": "Orange Fill Hover",
+        "canonical": "#ff8c3c",
         "tonalRamp": []
       },
       "accent-fill-press": {
         "role": "primary",
-        "displayName": "Indigo Fill Pressed",
-        "canonical": "#4a5ae0",
+        "displayName": "Orange Fill Press",
+        "canonical": "#ee6c0e",
         "tonalRamp": []
       },
       "accent-text": {
         "role": "primary",
-        "displayName": "Indigo Text",
-        "canonical": "#8e9bff",
+        "displayName": "Orange Ink",
+        "canonical": "#ffa35f",
         "tonalRamp": []
       },
       "accent-soft": {
         "role": "primary",
-        "displayName": "Indigo Wash",
-        "canonical": "rgb(109 124 255 / 0.14)",
+        "displayName": "Orange Wash",
+        "canonical": "rgb(255 122 26 / 0.16)",
+        "tonalRamp": []
+      },
+      "on-accent": {
+        "role": "primary",
+        "displayName": "Marks On Orange",
+        "canonical": "#141311",
         "tonalRamp": []
       },
       "green": {
-        "role": "state",
-        "displayName": "Pass Green",
-        "canonical": "oklch(73% 0.136 159)",
+        "role": "secondary",
+        "displayName": "Pass Brass",
+        "canonical": "#cdb07a",
         "tonalRamp": [
-          "#001700",
-          "#003203",
-          "#004e1e",
-          "#006a38",
-          "#069862",
-          "#46be85",
-          "#71e6aa",
-          "#97ffce"
+          "#2b2418",
+          "#463a26",
+          "#64543a",
+          "#86714e",
+          "#a8895a",
+          "#cdb07a",
+          "#ddc79c",
+          "#efe3c8"
         ]
       },
       "green-soft": {
         "role": "state",
-        "displayName": "Pass Green Wash",
-        "canonical": "rgb(76 195 138 / 0.14)",
+        "displayName": "Pass Brass Wash",
+        "canonical": "rgb(205 176 122 / 0.13)",
         "tonalRamp": []
       },
       "amber": {
         "role": "state",
-        "displayName": "Replay Amber",
-        "canonical": "oklch(76% 0.136 79)",
+        "displayName": "Waiting Amber",
+        "canonical": "#e9c43a",
         "tonalRamp": [
-          "#250000",
-          "#420e00",
-          "#5f2b00",
-          "#7d4800",
-          "#ab7400",
-          "#d2992b",
-          "#fabf58",
-          "#ffe37e"
+          "#33290a",
+          "#524213",
+          "#766019",
+          "#9c7f20",
+          "#c4a22c",
+          "#e9c43a",
+          "#f0d672",
+          "#f7e9b2"
         ]
       },
       "amber-soft": {
         "role": "state",
-        "displayName": "Replay Amber Wash",
-        "canonical": "rgb(224 166 60 / 0.14)",
+        "displayName": "Amber Wash",
+        "canonical": "rgb(233 196 58 / 0.14)",
         "tonalRamp": []
       },
       "red": {
         "role": "state",
-        "displayName": "Fault Red",
-        "canonical": "oklch(71% 0.158 18)",
+        "displayName": "Failed Red",
+        "canonical": "#f0625f",
         "tonalRamp": [
-          "#350000",
-          "#560001",
-          "#780019",
-          "#991e33",
-          "#cd515c",
-          "#f7777f",
-          "#ff9da4",
-          "#ffc1c7"
+          "#3a1414",
+          "#5e1f1f",
+          "#862a2b",
+          "#b8373a",
+          "#d94c4b",
+          "#f0625f",
+          "#f5918f",
+          "#fac4c2"
         ]
       },
       "red-soft": {
         "role": "state",
-        "displayName": "Fault Red Wash",
-        "canonical": "rgb(242 114 123 / 0.14)",
+        "displayName": "Red Wash",
+        "canonical": "rgb(240 98 95 / 0.14)",
         "tonalRamp": []
       },
       "danger-fill": {
         "role": "state",
         "displayName": "Danger Fill",
-        "canonical": "#c73e49",
+        "canonical": "#b8373a",
         "tonalRamp": []
       },
       "danger-fill-hover": {
         "role": "state",
         "displayName": "Danger Fill Hover",
-        "canonical": "#b5353f",
+        "canonical": "#a52f32",
         "tonalRamp": []
       },
       "on-fill": {
-        "role": "neutral",
-        "displayName": "On Fill",
+        "role": "state",
+        "displayName": "Marks On Danger",
         "canonical": "#ffffff",
+        "tonalRamp": []
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Scrim",
+        "canonical": "rgb(5 5 4 / 0.78)",
+        "tonalRamp": []
+      },
+      "scrim-strong": {
+        "role": "neutral",
+        "displayName": "Scrim Strong",
+        "canonical": "rgb(5 5 4 / 0.92)",
+        "tonalRamp": []
+      },
+      "brass": {
+        "role": "secondary",
+        "displayName": "Brass",
+        "canonical": "#a8895a",
+        "tonalRamp": [
+          "#2a2216",
+          "#43361f",
+          "#5e4c2c",
+          "#7a633b",
+          "#a8895a",
+          "#c0a172",
+          "#d6b77f",
+          "#eadbbc"
+        ]
+      },
+      "brass-hi": {
+        "role": "secondary",
+        "displayName": "Brass Light",
+        "canonical": "#d6b77f",
+        "tonalRamp": []
+      },
+      "marquee-ink": {
+        "role": "tertiary",
+        "displayName": "Marquee Ink",
+        "canonical": "#1a1511",
+        "tonalRamp": []
+      },
+      "card-stock": {
+        "role": "tertiary",
+        "displayName": "Card Stock",
+        "canonical": "#ebe3d2",
+        "tonalRamp": [
+          "#221c16",
+          "#5a5045",
+          "#8c8070",
+          "#b5aa98",
+          "#d3c9b6",
+          "#ebe3d2",
+          "#f3eee3",
+          "#faf7f1"
+        ]
+      },
+      "card-ink": {
+        "role": "tertiary",
+        "displayName": "Card Ink",
+        "canonical": "#221c16",
+        "tonalRamp": []
+      },
+      "card-ink-2": {
+        "role": "tertiary",
+        "displayName": "Card Ink 2",
+        "canonical": "#5a5045",
+        "tonalRamp": []
+      },
+      "mat": {
+        "role": "neutral",
+        "displayName": "Mat",
+        "canonical": "#050403",
         "tonalRamp": []
       }
     },
     "typographyMeta": {
       "headline": {
         "displayName": "Headline",
-        "purpose": "The running-render name only (22px, 600)."
+        "purpose": "Station headings, the approval and empty-state headings, the take name in the running status block (.run-name). Largest Barlow in the app (--fs-xl)."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Station, monitor, empty-state and approval headings (18px, 600)."
+        "purpose": "The Take tab's take name (three-line clamp), a cast name on its scrim strip (.cast-name), and the shot-card subject field at 400 / 1.5 (--fs-lg)."
       },
-      "subtitle": {
-        "displayName": "Subtitle",
-        "purpose": "Take header in the details dock; prompt field text (16px)."
+      "subhead": {
+        "displayName": "Subhead",
+        "purpose": "The dock's section heads (.section-head) in text, the wordmark, the chosen move's name (.move-name strong), a sheet's title, the candidate set's heading: Barlow 600 at --fs-md, sentence case, untracked."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Default UI text (14px, 1.4286)."
+        "purpose": "Default copy, take rows, move cards, the large secondary button's label (--fs-md)."
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Fields, notices, report rows, verdict hints, station subtitles, the crumb (500 text), the 'Recent takes' head (500 text-3), the move's one-line info and the camera-position readout under the dials (.move-meta, .angle-readout, text-3), keyboard-sheet descriptions; the code sheet's pre in mono at 1.5 (--fs-sm)."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Button labels; the primary sets 600 uppercase tracked 0.08em."
       },
       "label": {
-        "displayName": "Label",
-        "purpose": "Buttons, inputs, tabs, dock section heads (13px, 500)."
+        "displayName": "Camera-report label",
+        "purpose": "Every field label, tab, the stills-strip label, the 'More moves' group titles (600), rail name, rocker segment (the camera-position dials' abbreviated stops F FR R BR B BL L FL, Low Eye Up High, Close Mid Wide are the same segment) and tape chip (0.04em for the compact ones); the .caps utility. Section heads are no longer labels."
       },
-      "caption": {
-        "displayName": "Caption",
-        "purpose": "Field labels, segmented options, pills, hints. 12px floor."
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Mono readouts: timecode burn-in, tally, split tags, badges, the plan line in the monitor head, step names, still and stage-card captions (an approval card's role name with its evidence hint in text-3 at the right), the stage view's 'Planned camera' caption, key hints, the short checksum; the .num and .mono utilities. A section head's meta and the plan line's measured time are the same face at 400 / 0.02em in text-3; the tape-mark numbers are the same face at 600 in plan units. The trailer chip on the Lobby's screen is the same face at 600 / 0.6875rem / 0.02em in text."
       },
-      "mono": {
-        "displayName": "Mono",
-        "purpose": "Seeds, hashes and timecodes only."
+      "reading": {
+        "displayName": "Identity reading",
+        "purpose": "The identity score: card-ink on the receipt stub (deep amber on drift); brass on pass, amber on drift, text-3 when n/a in the stations' identity rows."
+      },
+      "timecode": {
+        "displayName": "Timecode",
+        "purpose": "The transport clock (.tc), bright 600; the duration twin at 400 in text-3."
+      },
+      "fs-2xl": {
+        "displayName": "1.5rem (reserved)",
+        "purpose": "Defined in tokens.css as --fs-2xl, unused by the shipped CSS since the running take name moved to --fs-xl."
+      },
+      "fs-3xl": {
+        "displayName": "2rem (reserved)",
+        "purpose": "Defined in tokens.css as --fs-3xl, unused by the shipped CSS."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Barlow Condensed 800 at clamp(2.25rem, 3.6vw, 3.5rem): the Lobby's headline only (.lobby-headline)."
+      },
+      "marquee": {
+        "displayName": "Marquee",
+        "purpose": "Barlow Condensed 800 in marquee-ink at 4.1cqw of the board's width: the letters hung on the rendered board (.marquee-row .letter). The middle row swaps its count every 5.6 s."
+      },
+      "sign": {
+        "displayName": "Sign",
+        "purpose": "Barlow Condensed 800: the Lobby's section heads (.lobby-h2: Now showing, Camera moves, Effects, Name the move, How a take is made, Latest takes), a sign over the wall, never a label over a heading."
+      },
+      "poster-title": {
+        "displayName": "Poster title",
+        "purpose": "Barlow Condensed 800 uppercase: a one-sheet's title (.sheet-title), held to two lines so a row's titles share a line, 1.125rem on phones; a programme card's 1.375rem."
+      },
+      "stub-head": {
+        "displayName": "Stub head",
+        "purpose": "Barlow Condensed 800: RECEIPT on the receipt stub (.verdict-head); a ticket's TAKE at 0.8125rem."
+      },
+      "card-title": {
+        "displayName": "Card title",
+        "purpose": "Barlow Condensed 600: a lobby card's title band (.card-title), ellipsised."
+      },
+      "billing": {
+        "displayName": "Billing",
+        "purpose": "Barlow Condensed 300 caps: a poster's models and 'showing since' date (.billing), connecting words small and lowercase; the screen's credit under the reel and the Lobby's credits at 0.8125rem."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Barlow 400 at 1.0625rem / 1.5 in text-2: the Lobby's pitch sentence (.lobby-lede); a gallery's lede (.show-lede) is 0.8125rem / 1.5, up to 62ch."
+      },
+      "stamp": {
+        "displayName": "Stamp",
+        "purpose": "Barlow Condensed 600, 0.12em: the Recorded take stamp on a live poster (.real-stamp)."
+      },
+      "show-name": {
+        "displayName": "Show name",
+        "purpose": "Barlow Condensed 800 uppercase, ellipsised: a gallery frame's name (.show-name) in Camera moves and Effects, 1rem on phones; the group or kind under it is Barlow 0.75rem text-3."
       }
+    },
+    "fontFaces": [
+      {
+        "family": "Barlow",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "files": [
+          "openfield/web/fonts/barlow-latin-400.woff2",
+          "openfield/web/fonts/barlow-latin-500.woff2",
+          "openfield/web/fonts/barlow-latin-600.woff2"
+        ],
+        "licence": "openfield/web/fonts/OFL-Barlow.txt",
+        "subset": "latin",
+        "display": "swap"
+      },
+      {
+        "family": "Barlow Condensed",
+        "weights": [
+          300,
+          600,
+          800
+        ],
+        "files": [
+          "openfield/web/fonts/barlow-condensed-latin-300.woff2",
+          "openfield/web/fonts/barlow-condensed-latin-600.woff2",
+          "openfield/web/fonts/barlow-condensed-latin-800.woff2"
+        ],
+        "licence": "openfield/web/fonts/OFL-Barlow.txt",
+        "subset": "latin",
+        "display": "swap",
+        "token": "--display"
+      },
+      {
+        "family": "Overpass Mono",
+        "weights": "300 700 (variable)",
+        "files": [
+          "openfield/web/fonts/overpass-mono-latin-wght.woff2"
+        ],
+        "licence": "openfield/web/fonts/OFL-OverpassMono.txt",
+        "subset": "latin",
+        "display": "swap"
+      }
+    ],
+    "iconography": {
+      "set": "Lucide",
+      "sprite": "openfield/web/icons/sprite.svg",
+      "builder": "scripts/build_icons.py",
+      "licence": "openfield/web/icons/LICENSE-lucide.txt (ISC)",
+      "sizes": {
+        "sm": "14px",
+        "default": "16px",
+        "lg": "20px"
+      },
+      "stroke": "1.5px, round caps and joins, currentColor, no fill (the big-play glyph is filled)",
+      "brandMark": "A 20x20 inline SVG floor-tape T (rect 2,4 16x3 over rect 8.5,7 3x9, rx 0.5) filled accent-fill, no box; the favicon (icons/favicon.svg) is the same T in #ff7a1a on a #0d0c0b square with rx 4; theme-color #121110.",
+      "railProps": "The rail's room signs are rendered props (art/btn-<room>.webp, 42px, 28px on phones), blended with lighten behind a round fall-off mask (none on the Lobby's marquee strip); not icons. The room's name is printed beside each."
+    },
+    "imagery": {
+      "rule": "Colour comes from the pictures. Every raster and loop in openfield/web/art was rendered on the project's own rented GPU with open weights through the app's audited templates (Qwen-Image 2.1 qwen21_t2i stills, LTX 2.5 ltx25_flf2v loops) and is listed in art/manifest.json with size, bytes, sha256 and its render (kind, prompt, seed, size, template, workflow sha256, models, audit, source sha256); each still ships a prompt sidecar <file>.json. Pictures carry no words; text, counts, icons and labels stay HTML/CSS. Key art at brightness 0.92 / saturate 0.95 at rest, brightened on a live poster; never tinted.",
+      "ratios": "1280:704 for the Lobby's screen and a move page's take (the takes' own frame), 27:40 one-sheet (square key art at its top, masked from 62%), 7:2 marquee, 16:9 gallery frames, cards, programme, empty-room art and footage, 9:16 portrait, 3:4 cast, 1:1 candidates.",
+      "stations": "Footage, stills, posters and cast photos are the only saturated things; shown unfiltered, cropped to 16:9 (9:16 portrait), 3:4 cast, 1:1 candidates. A move tile is glyph-only at rest; the poster frame of its newest take shows only as a response (0.75 on hover or focus, 0.85 when checked) with the track in on-media under a dark halo. Over a finished take the stage view sits on an opaque screen card, never on the footage. Synthetic dev-stack frames are labelled by the wall tally state 'fake' (amber) and never ship.",
+      "trailer": "art/trailer.mp4 (1024x564), art/trailer-640.mp4 for phones, poster art/trailer.webp: hard cuts of recorded takes with their own sound, levelled to -16 LUFS; art/trailer.json names each segment's take and label; listed in art/manifest.json."
     },
     "shadows": [
       {
-        "name": "float",
-        "value": "0 6px 16px rgb(0 0 0 / 0.5), 0 1px 3px rgb(0 0 0 / 0.4)",
-        "purpose": "The only shadow: menu, notices, floating dock below 1180px, sticky reel bar."
+        "name": "case-shadow",
+        "value": "0 22px 38px -14px rgb(0 0 0 / 0.75), 0 6px 12px -6px rgb(0 0 0 / 0.6)",
+        "purpose": "Things hung in the Lobby (one-sheets, gallery frames, the quiz's screen, lobby and programme cards) and an empty room's picture."
+      },
+      {
+        "name": "case-trim",
+        "value": "0 0 0 6px var(--mat), 0 0 0 7px var(--brass)",
+        "purpose": "A case's black mat and 1px brass line, drawn as rings: 6px / 7px on a poster, 8px / 9px on the screen and the quiz's screen, 5px / 6px on a gallery frame."
+      },
+      {
+        "name": "screen-case",
+        "value": "0 0 0 8px var(--mat), 0 0 0 9px var(--brass), 0 34px 64px -20px rgb(0 0 0 / 0.85), 0 12px 24px -10px rgb(0 0 0 / 0.6)",
+        "purpose": "The Lobby's screen: the widest case, hung deeper than a poster."
+      },
+      {
+        "name": "case-live",
+        "value": "0 0 0 6px var(--mat), 0 0 0 7px var(--brass-hi), 0 28px 46px -14px rgb(0 0 0 / 0.85), 0 8px 16px -6px rgb(0 0 0 / 0.65)",
+        "purpose": "A hovered, focused or playing poster, and a hovered or focused gallery frame (5px / 6px trim, with a 3px lift): the case light rises."
+      },
+      {
+        "name": "card-lift",
+        "value": "transform: translateY(-3px); box-shadow: 0 30px 44px -16px rgb(0 0 0 / 0.85), 0 8px 14px -6px rgb(0 0 0 / 0.6)",
+        "purpose": "A hovered or focused lobby or programme card."
+      },
+      {
+        "name": "printed-foot",
+        "value": "linear-gradient(to bottom, rgb(5 4 3 / 0), rgb(5 4 3 / 0.62) 45%, rgb(5 4 3 / 0.9)); text-shadow: 0 1px 2px rgb(5 4 3 / 0.9)",
+        "purpose": "A poster's own printed shadow under its type; the Takes wall tile prints top and bottom the same way."
+      },
+      {
+        "name": "tally-rim",
+        "value": "0 0 0 1.5px rgb(5 4 3 / 0.7)",
+        "purpose": "A 6px tally dot over bright footage; no glow."
+      },
+      {
+        "name": "shadow-float",
+        "value": "0 12px 28px rgb(0 0 0 / 0.55), 0 2px 6px rgb(0 0 0 / 0.4)",
+        "purpose": "Only for things that float: menus, notices, the sheets (the move page included), the sticky reel bar, the dock when it floats below 1180px, and the Play button over a still picture on a move page or in the quiz."
+      },
+      {
+        "name": "selected-ring",
+        "value": "0 0 0 1px var(--accent)",
+        "purpose": "The current filmstrip tile, with an accent border: a 2px orange edge."
+      },
+      {
+        "name": "inset-edge",
+        "value": "inset 0 0 0 1px var(--line-strong)",
+        "purpose": "The checked rocker segment; the off switch and a pressed toggle button (.btn[aria-pressed=true]) use the same inset with --control-line."
+      },
+      {
+        "name": "track-halo-tile",
+        "value": "filter: drop-shadow(0 0 1px rgb(5 5 4 / 1)) drop-shadow(0 1px 2px rgb(5 5 4 / 0.9))",
+        "purpose": "A move tile's glyph while its poster shows (hover, focus or checked). The stage inset over the wall needs none: it is an opaque screen card."
+      },
+      {
+        "name": "lift",
+        "value": "transform: translateY(-1px)",
+        "purpose": "Hovered filmstrip frames, move cards, cast cards and a cast card's take frames, over --t-fast."
       }
     ],
     "motion": [
       {
         "name": "ease",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Every state transition."
+        "purpose": "The one curve for every transition."
       },
       {
         "name": "t-fast",
         "value": "120ms",
-        "purpose": "Hover, colour and border changes."
+        "purpose": "Colour and edge changes on controls, tiles and rows; poster opacity; the 1px lifts; the player and OSD fade-in; the opacity of entering menus, notices and sheets."
       },
       {
         "name": "t-base",
         "value": "180ms",
-        "purpose": "Switches, dock slide, chevrons, path draw, play-button fade."
+        "purpose": "The dock slide (grid-template-columns), the outgoing take's crossfade, the switch thumb, section chevrons, the guide fade, the standby stage's fade-in, the station fade-in, and the settle (translate) of menus, notices and sheets."
+      },
+      {
+        "name": "marquee-hang",
+        "value": "from { opacity: 0; transform: translateY(-55%) rotate(-4deg) } 60% { opacity: 1; transform: translateY(6%) rotate(1deg) }; 520ms var(--ease), delay calc(var(--i) * 26ms + 150ms)",
+        "purpose": "The marquee's letters are hung one by one on load."
+      },
+      {
+        "name": "lobby-dust",
+        "value": "translate3d(0,0,0) scale(1.04) to translate3d(-2.5%,1.5%,0) scale(1.1), 38s linear infinite alternate",
+        "purpose": "The rendered dust in the projector beam drifts over the front."
+      },
+      {
+        "name": "lobby-leak",
+        "value": "opacity 0 -> 0.85 -> 0, translateX(-38%) -> 26%, 900ms var(--ease), once",
+        "purpose": "One rendered light leak passes across a poster as it comes alive."
+      },
+      {
+        "name": "poster-live",
+        "value": ".sheet-key opacity 0.001 after 160ms; .sheet-take fade in 420ms; .real-stamp opacity 200ms after 160ms; .ticket translateY(calc(100% + 12px)) -> 0 over 260ms after 120ms",
+        "purpose": "The key art gives way to the recorded take; the stamp appears; the ticket rises."
+      },
+      {
+        "name": "screen-open",
+        "value": "two mat bands 50.5% tall translateY to -101% / 101%, 900ms var(--ease) after 280ms, both",
+        "purpose": "The screen's masking parts from the middle on the first visit of a session (sessionStorage), never under reduced motion or Save-Data."
+      },
+      {
+        "name": "marquee-drop",
+        "value": "opacity 1 -> 0, translateY(70%) rotate(6deg), 420ms var(--ease), 14ms apart; swap every 5600ms",
+        "purpose": "The marquee's middle count changes: the old letters drop and the next count is hung."
+      },
+      {
+        "name": "lobby-rise",
+        "value": "opacity 0 translateY(14px) -> none, 560ms var(--ease); posters 45ms apart, camera moves 40ms apart (capped at 12)",
+        "purpose": "The poster wall and the camera-move grid rise in a wave the first time they come into view."
+      },
+      {
+        "name": "gallery-flip",
+        "value": "FLIP translate -> none 460ms; entering frames opacity 0 translateY(14px) -> none 380ms, 26ms apart, at most 260ms",
+        "purpose": "A gallery filter change reflows the camera-move grid."
+      },
+      {
+        "name": "scrub",
+        "value": "pointermove (mouse only) sets currentTime = x / width * duration on rAF; .scrub-line width var(--scrub), opacity over 120ms",
+        "purpose": "The mouse drives a gallery frame's or a Takes wall tile's take; leaving hands it back to its loop."
+      },
+      {
+        "name": "rotating-display",
+        "value": "every 3000ms one on-screen poster comes alive, 3 awake (1 on phones); 9000ms rest after pointer or focus",
+        "purpose": "The poster wall wakes on its own like a lobby's rotating display."
+      },
+      {
+        "name": "card-drift",
+        "value": "translateX(-var(--loop)) linear infinite over max(40s, 4.5s per card); paused on hover or focus-within",
+        "purpose": "The latest takes drift past like film through a gate, edges masked over the gutter."
       },
       {
         "name": "progress",
-        "value": "400ms",
-        "purpose": "Progress bar fill."
+        "value": ".bar > span { clip-path: inset(0 calc((1 - var(--p)) * 100%) 0 0); transition: clip-path 400ms var(--ease) }",
+        "purpose": "The bulb row lights from the left; bulbs are clipped whole, never stretched."
+      },
+      {
+        "name": "starting-style",
+        "value": "@starting-style { .station:not([hidden]), .screen > .player, .screen > .screen-path, .screen > .osd, .sheet-scrim { opacity: 0 } .menu:not([hidden]) { opacity: 0; translate: 0 -4px } .notice { opacity: 0; translate: 0 -8px } .sheet { translate: 0 8px } }",
+        "purpose": "CSS-only entrances: a station when shown, the wall's contents on a cut, menus settling from above, notices sliding down, sheets rising. No script, nothing else moves on load."
+      },
+      {
+        "name": "crossfade",
+        "value": ".screen > .player-out { transition: opacity 180ms var(--ease) } .player-out.leaving { opacity: 0 }",
+        "purpose": "The previous take's last frame stays on the wall (z 1, object-fit contain) while the next loads, then lets go."
+      },
+      {
+        "name": "dock-slide",
+        "value": ".app { transition: grid-template-columns 180ms var(--ease) } .app[data-dock=closed] { ... 0 }",
+        "purpose": "The dock slides when '[' closes or opens it; cinema ('C') collapses rail, slate bar and dock the same way."
+      },
+      {
+        "name": "stage-seek",
+        "value": ".sv-lit { pathLength 1; stroke-dasharray 1; stroke-dashoffset = 1 - t } frame, rays, lens, drop line, dot and .sv-mark.lit set by seek(t), t = currentTime / duration",
+        "purpose": "The stage view's camera travels its path and the tape marks light only with the footage's own time; it never animates on a timer."
+      },
+      {
+        "name": "stage-drag",
+        "value": ".move-preview { touch-action: none; cursor: grab } .move-preview.dragging { cursor: grabbing } @media (pointer: coarse) { .move-preview { touch-action: pan-y } }; pointer capture, 36px per stop: sideways steps the Around dial (wrapping), up or down the Height dial (clamped; ignored for touch)",
+        "purpose": "Dragging the dock's stage figure sets where the camera starts through the same dials; the stage redraws to the pivoted path, nothing animates."
+      },
+      {
+        "name": "guides",
+        "value": ".g-safe, .g-cross { opacity: 0.45 } .is-playing 0.25; running or compare 0, over --t-base",
+        "purpose": "The wall's frame guides step back while the take plays and leave while it renders or compares."
+      },
+      {
+        "name": "pulse",
+        "value": "opacity to 0.35 at 50%, 1.2s (tally) / 1.6s (active step), ease-in-out infinite",
+        "purpose": "A running render blinks the tally and the active step mark."
+      },
+      {
+        "name": "slide",
+        "value": "translate -100% to 280%, 1.5s var(--ease) infinite",
+        "purpose": "The indeterminate bulb row: a 36% run of lit bulbs slides across."
+      },
+      {
+        "name": "breathe",
+        "value": "opacity to 0.55 at 50%, 1.6s ease-in-out infinite",
+        "purpose": "Skeleton blocks."
+      },
+      {
+        "name": "hover-preview",
+        "value": "muted looping video.preview inside a filmstrip tile, move tile or move card on pointerenter / focus",
+        "purpose": "A real render plays under the pointer on posters, filmstrip tiles, move tiles and move cards, one at a time; never under reduced motion or Save-Data."
       },
       {
         "name": "reduced-motion",
-        "value": "0.001ms",
-        "purpose": "Under prefers-reduced-motion all durations collapse."
+        "value": "animation-duration 0.001ms, iteration-count 1, transition-duration 0.001ms, scroll-behavior auto",
+        "purpose": "prefers-reduced-motion: reduce holds every state still. Save-Data does the same for the Lobby's CSS loops through :root.hold-still, set by main.js from holdStill()."
+      }
+    ],
+    "layout": [
+      {
+        "name": "rail-w",
+        "value": "64px"
+      },
+      {
+        "name": "topbar-h",
+        "value": "48px (44px at max-width 719px)"
+      },
+      {
+        "name": "dock-w",
+        "value": "340px (0 when closed; rail and top bar also 0 in cinema)"
+      },
+      {
+        "name": "control-h",
+        "value": "32px"
+      },
+      {
+        "name": "stage-padding",
+        "value": "16px 24px 24px (12px on phones)"
+      },
+      {
+        "name": "stage-gap",
+        "value": "12px"
+      },
+      {
+        "name": "monitor-head-min-h",
+        "value": "28px, one line, nowrap"
+      },
+      {
+        "name": "stage-view-box",
+        "value": "100 x 62 plan units (aspect-ratio 100 / 62), 7 units padding, az 58deg el 24deg floor -0.5"
+      },
+      {
+        "name": "stage-inset-w",
+        "value": "clamp(140px, 24%, 220px), 12px from the wall's lower left, z 4"
+      },
+      {
+        "name": "stage-standby-w",
+        "value": "min(64%, 520px), centred on the empty wall"
+      },
+      {
+        "name": "run-core",
+        "value": "left 16px, bottom 76px, max-width 440px"
+      },
+      {
+        "name": "filmstrip-tile-w",
+        "value": "104px"
+      },
+      {
+        "name": "move-grid",
+        "value": "4 columns, 6px gutters, 76px tiles, 44px glyph"
+      },
+      {
+        "name": "angle-dials",
+        "value": "three .field stacks 12px apart (Around 8 stops, Height 4, Distance 3); dial segments min-width 24px, padding-inline 6px; .angle-line flex, 8px gap, min-height 24px, readout flex 1, 'As shot' ghost small at the right"
+      },
+      {
+        "name": "cast-takes-row",
+        "value": "4 columns, 6px gutters, 16:9"
+      },
+      {
+        "name": "phone-rail-h",
+        "value": "56px"
+      },
+      {
+        "name": "z-dock",
+        "value": "20"
+      },
+      {
+        "name": "z-float",
+        "value": "30"
+      },
+      {
+        "name": "z-menu",
+        "value": "40 (notices and sheets)"
+      },
+      {
+        "name": "z-skip",
+        "value": "60"
+      },
+      {
+        "name": "lobby-gutter",
+        "value": "clamp(16px, 4vw, 56px); 12px on phones"
+      },
+      {
+        "name": "lobby-sections",
+        "value": "gap clamp(32px, 4vw, 52px); the dock's column goes to 0 at 1180px and up; stage padding 0"
+      },
+      {
+        "name": "poster-wall",
+        "value": "centred flex wall, --per-row 5 (4 under 1180px, 3 under 900px, 2 on phones); gaps clamp(32px, 3.2vw, 44px) / clamp(22px, 2.4vw, 32px) (30px / 20px on phones); padding 7px"
+      },
+      {
+        "name": "lobby-front",
+        "value": "grid minmax(0, 1.55fr) minmax(320px, 1fr) (1.3fr / 300px from 900 to 1179px, one column under 900px), gap clamp(28px, 3.4vw, 56px)"
+      },
+      {
+        "name": "lobby-screen",
+        "value": "1280 / 704 frame, margin 9px for the case; reel 8px below, cuts flex by share, 3px gap, 24px tall; min(100% - 18px, 760px) under 900px"
+      },
+      {
+        "name": "lobby-move-grid",
+        "value": "4 columns (3 under 900px, 2 on phones), gaps clamp(20px, 2.2vw, 30px) / clamp(14px, 1.6vw, 22px) (18px / 12px on phones); show-card padding 6px"
+      },
+      {
+        "name": "effect-rail",
+        "value": "grid-auto-columns clamp(232px, 24vw, 340px), gap clamp(14px, 1.6vw, 22px), edge to edge past the gutter, scroll-snap x mandatory, no scrollbar"
+      },
+      {
+        "name": "move-page",
+        "value": "min(1200px, 100%) x min(92vh, 980px); body 1.75fr / minmax(240px, 1fr), one column under 900px; 16px padding and gap"
+      },
+      {
+        "name": "quiz-show",
+        "value": "minmax(0, 1.3fr) / minmax(280px, 1fr), gap clamp(20px, 2.6vw, 40px); choices 52px min; one column on phones"
+      },
+      {
+        "name": "marquee",
+        "value": "min(100%, 720px), 7:2; letters inset 27% 7%"
+      },
+      {
+        "name": "card-row",
+        "value": "grid-auto-columns max(250px, calc((100% - 60px) / 4)); gap 20px; scroll-snap x; drifting: clamp(250px, 22vw, 320px), edge mask over the lobby gutter; 78% on phones"
+      },
+      {
+        "name": "rail-item",
+        "value": "64px tall, 42px prop (56px / 28px on phones)"
+      },
+      {
+        "name": "takes-wall",
+        "value": "auto-fill minmax(232px, 1fr), dense, gap 6px; first tile spans 2x2 from 900px"
       }
     ],
     "breakpoints": [
       {
+        "name": "lobby-programme",
+        "value": "max-width: 1179px",
+        "purpose": "Lobby: the programme drops to two columns, the poster wall to four a row, the front's columns to 1.3fr / 300px (from 900px)."
+      },
+      {
+        "name": "lobby-stack",
+        "value": "max-width: 899px",
+        "purpose": "Lobby: the front stacks and centres with the screen first at min(100% - 18px, 760px); the wall three a row; the camera moves three columns; a move page one column."
+      },
+      {
         "name": "dock-floats",
-        "value": "1179px",
-        "purpose": "Max width at which the dock floats over the workspace."
+        "value": "max-width: 1179px",
+        "purpose": "The dock leaves the grid and floats fixed over the stage with --shadow-float, sliding 180ms."
       },
       {
         "name": "phone",
-        "value": "719px",
-        "purpose": "Max width for the bottom station bar and full-width sheet."
+        "value": "max-width: 719px",
+        "purpose": "Lobby: gutter 12px, poster wall two a row, camera moves two columns, filters one swiping row, no rail arrows, the screen's reel hidden and the 640px trailer, the quiz stacked, programme one column, lobby cards 78%, poster titles 1.125rem. Stations: Rail becomes a 56px bottom bar with 28px props, slate bar 44px, stage padding 12px, dock full width, wall sized by width, the shot card stacks with the field at 72 to 120px and the primary full width, the scrubber on its own row, monitor-head buttons 36px, labels collapse to icons, timecode burn-in, step names, the stage inset and the '?' key button hidden."
       },
       {
-        "name": "short-viewport",
-        "value": "760px height",
-        "purpose": "Compacts the filmstrip at 720px wide and up."
+        "name": "short",
+        "value": "max-height: 760px and min-width: 720px",
+        "purpose": "The filmstrip head is hidden."
+      },
+      {
+        "name": "take-list-920",
+        "value": "@container (max-width: 920px)",
+        "purpose": "Length and identity columns drop from take rows."
+      },
+      {
+        "name": "take-list-520",
+        "value": "@container (max-width: 520px)",
+        "purpose": "Date and kind drop; the row becomes thumb / text / state."
       }
     ]
   },
@@ -314,136 +855,308 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The one filled action per region: Shoot, Recreate, Approve.",
-      "html": "<button class=\"ds-btn ds-btn-primary\">Shoot</button>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: 6px; font-family: var(--font, Inter, system-ui, sans-serif); font-size: 0.8125rem; font-weight: 500; line-height: 1; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary { background: #5667f0; color: #fff; } .ds-btn-primary:hover { background: #4f5fe8; } .ds-btn-primary:active { background: #4a5ae0; } .ds-btn:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; }"
+      "description": "A roll ticket: ticket-orange stock with dark marks, a 5px notch cut from the middle of each end (6px on the large one). The one action under the eye (Start directing, Shoot, Recreate, Approve and shoot). Disabled or quiet it goes grey and keeps its shape, never muddy orange.",
+      "html": "<button class=\"ds-btn-primary\" title=\"Shoot (Ctrl+Enter)\">Shoot</button> <button class=\"ds-btn-primary ds-quiet\" title=\"Shoot (Ctrl+Enter)\">Shoot</button> <button class=\"ds-btn-primary\" disabled>Shoot</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 16px; -webkit-mask: radial-gradient(circle 5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat; mask: radial-gradient(circle 5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat; border: 1px solid transparent; border-radius: var(--radius-s, 3px); background: var(--accent-fill, #ff7a1a); color: var(--on-accent, #141311); font: 600 0.8125rem/1 Barlow, system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover:not(:disabled) { background: var(--accent-fill-hover, #ff8c3c); } .ds-btn-primary:active:not(:disabled) { background: var(--accent-fill-press, #ee6c0e); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: 2px; } .ds-btn-primary.ds-quiet:not(:disabled) { background: var(--raised, #1b1917); border-color: var(--line-strong, #2e2b27); color: var(--text-2, #aba59d); } .ds-btn-primary.ds-quiet:hover:not(:disabled) { background: var(--hover, #232020); color: var(--text, #ebe8e3); } .ds-btn-primary:disabled { background: var(--raised, #1b1917); border-color: var(--line-strong, #2e2b27); color: var(--text-3, #908a82); cursor: not-allowed; }"
     },
     {
-      "name": "Secondary Button",
+      "name": "Lobby Screen",
+      "kind": "custom",
+      "refersTo": "screen-frame",
+      "description": "The Lobby's front: the trailer of recorded takes in a 1280:704 frame in the widest case (8px mat, 1px brass, a deep shadow), the trailer chip naming the take on screen, the round sound switch, and the reel under it: one cut per segment, as wide as its share, drawn as marquee bulbs lit in accent up to the playhead.",
+      "html": "<figure class=\"ds-screen\"><div class=\"ds-frame\"><span class=\"ds-pic\"></span><button class=\"ds-chip\"><span>Dolly in &middot; Tomas &middot; LTX 2.5</span><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m9 18 6-6-6-6\"/></svg></button><button class=\"ds-sound\" aria-pressed=\"false\" aria-label=\"Sound: these takes have their own sound\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 4.7a.7.7 0 0 0-1.2-.5L6.4 7.6A1.4 1.4 0 0 1 5.4 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.4a1.4 1.4 0 0 1 1 .4l3.4 3.4a.7.7 0 0 0 1.2-.5z\"/><line x1=\"22\" x2=\"16\" y1=\"9\" y2=\"15\"/><line x1=\"16\" x2=\"22\" y1=\"9\" y2=\"15\"/></svg></button></div><ol class=\"ds-reel\"><li style=\"--share:8\"><button style=\"--through:1\" aria-label=\"Play from Dolly in\"><span></span></button></li><li style=\"--share:10\"><button style=\"--through:0.45\" aria-label=\"Play from Bullet time\"><span></span></button></li><li style=\"--share:7\"><button style=\"--through:0\" aria-label=\"Play from Orbit\"><span></span></button></li><li style=\"--share:12\"><button style=\"--through:0\" aria-label=\"Play from Crane up\"><span></span></button></li></ol></figure>",
+      "css": ".ds-screen { width: 440px; margin: 12px; display: grid; gap: 8px; } .ds-frame { position: relative; aspect-ratio: 1280 / 704; overflow: hidden; background: var(--screen, #050504); box-shadow: 0 0 0 8px var(--mat, #050403), 0 0 0 9px var(--brass, #a8895a), 0 34px 64px -20px rgb(0 0 0 / 0.85), 0 12px 24px -10px rgb(0 0 0 / 0.6); } .ds-pic { position: absolute; inset: 0; background: radial-gradient(circle at 55% 40%, #6a5a4e, #1c1714 55%, #050504); } .ds-chip { position: absolute; top: 10px; left: 10px; display: inline-flex; align-items: center; gap: 4px; min-height: 26px; padding: 3px 6px 3px 9px; border: 1px solid var(--control-line, #6f6962); border-radius: var(--radius-s, 3px); background: var(--scrim-strong, rgb(5 5 4 / 0.92)); color: var(--text, #ebe8e3); font: 600 0.6875rem/1.2 'Overpass Mono', ui-monospace, monospace; letter-spacing: 0.02em; cursor: pointer; } .ds-sound { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--control-line, #6f6962); border-radius: 50%; background: var(--scrim-strong, rgb(5 5 4 / 0.92)); color: var(--text, #ebe8e3); cursor: pointer; } .ds-chip:focus-visible, .ds-sound:focus-visible, .ds-reel button:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: 2px; } .ds-reel { display: flex; gap: 3px; list-style: none; margin: 8px 0 0; padding: 0; } .ds-reel li { flex: var(--share, 1) 1 0; min-width: 8px; } .ds-reel button { position: relative; display: block; width: 100%; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; } .ds-reel button::before, .ds-reel span { position: absolute; top: 9px; bottom: 9px; left: 0; -webkit-mask: radial-gradient(circle 2.4px at 5.5px 50%, #000 96%, #0000) 0 0 / 11px 100% repeat-x; mask: radial-gradient(circle 2.4px at 5.5px 50%, #000 96%, #0000) 0 0 / 11px 100% repeat-x; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-reel button::before { content: ''; right: 0; background: var(--line-strong, #2e2b27); } .ds-reel span { width: calc(var(--through, 0) * 100%); background: var(--accent, #ff7a1a); } .ds-reel button:hover::before { background: var(--control-line, #6f6962); }"
+    },
+    {
+      "name": "Show Card and Gallery Filters",
+      "kind": "card",
+      "refersTo": "show-card",
+      "description": "The Lobby's galleries: filters that read as tabs (pressed grey with an orange line inside the foot), then 16:9 frames in a small case (5px mat, 1px brass, the case shadow) playing the move's proof take. Hover or focus lifts the frame 3px under brass-light trim; under the mouse the frame scrubs its take, with a 3px accent line along the foot. The name is Barlow Condensed 800 caps over the group in text-3.",
+      "html": "<div class=\"ds-show\"><div class=\"ds-filters\" role=\"group\" aria-label=\"Show camera moves\"><button class=\"ds-filter\" aria-pressed=\"true\">Featured <span>12</span></button><button class=\"ds-filter\" aria-pressed=\"false\">All <span>42</span></button><button class=\"ds-filter\" aria-pressed=\"false\">Dolly &amp; push <span>6</span></button></div><a class=\"ds-card\" href=\"#\"><span class=\"ds-frame2\"><span class=\"ds-pic2\"></span><span class=\"ds-scrub\" style=\"--scrub:0.42\"></span></span><span class=\"ds-name\">Dolly in</span><span class=\"ds-meta\">Dolly &amp; push</span></a></div>",
+      "css": ".ds-show { display: grid; gap: 16px; width: 300px; padding: 8px; font-family: Barlow, system-ui, sans-serif; } .ds-filters { display: flex; flex-wrap: wrap; gap: 8px; } .ds-filter { display: inline-flex; align-items: baseline; gap: 7px; min-height: 32px; padding: 7px 12px 6px; border: 1px solid var(--line-strong, #2e2b27); border-radius: var(--radius-s, 3px); background: transparent; color: var(--text-2, #aba59d); font: 600 0.8125rem/1.1 Barlow, system-ui, sans-serif; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-filter span { font: 500 0.75rem 'Overpass Mono', ui-monospace, monospace; color: var(--text-3, #908a82); } .ds-filter:hover { background: var(--hover, #232020); border-color: var(--control-line, #6f6962); color: var(--text, #ebe8e3); } .ds-filter[aria-pressed=\"true\"] { background: var(--pressed, #2b2824); border-color: var(--control-line, #6f6962); color: var(--text, #ebe8e3); box-shadow: inset 0 -2px 0 var(--accent, #ff7a1a); } .ds-filter:focus-visible, .ds-card:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: 2px; } .ds-card { display: grid; gap: 5px; padding: 6px; color: var(--text, #ebe8e3); text-decoration: none; } .ds-frame2 { position: relative; display: block; aspect-ratio: 16 / 9; margin-bottom: 9px; overflow: hidden; background: var(--screen, #050504); box-shadow: 0 0 0 5px var(--mat, #050403), 0 0 0 6px var(--brass, #a8895a), 0 22px 38px -14px rgb(0 0 0 / 0.75), 0 6px 12px -6px rgb(0 0 0 / 0.6); transition: box-shadow 180ms cubic-bezier(0.16,1,0.3,1), transform 180ms cubic-bezier(0.16,1,0.3,1); } .ds-pic2 { position: absolute; inset: 0; background: linear-gradient(120deg, #2b2119, #6b5440 55%, #1a1410); } .ds-scrub { position: absolute; left: 0; bottom: 0; height: 3px; width: calc(var(--scrub, 0) * 100%); background: var(--accent, #ff7a1a); opacity: 0; transition: opacity 120ms cubic-bezier(0.16,1,0.3,1); } .ds-card:hover .ds-scrub { opacity: 1; } .ds-card:is(:hover, :focus-visible) .ds-frame2 { transform: translateY(-3px); box-shadow: 0 0 0 5px var(--mat, #050403), 0 0 0 6px var(--brass-hi, #d6b77f), 0 28px 46px -14px rgb(0 0 0 / 0.85), 0 8px 16px -6px rgb(0 0 0 / 0.65); } .ds-name { font: 800 1.125rem/1 'Barlow Condensed', Barlow, system-ui, sans-serif; letter-spacing: 0.01em; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ds-meta { font-size: 0.75rem; color: var(--text-3, #908a82); } @media (prefers-reduced-motion: reduce) { .ds-frame2, .ds-scrub { transition: none; } }"
+    },
+    {
+      "name": "One-Sheet",
+      "kind": "card",
+      "refersTo": "one-sheet",
+      "description": "An app as a poster in its case: 27:40 on a black mat with a 1px brass trim and the case shadow; square key art falling away into the dark; the title, tagline and billing in the lower third. Under the pointer or focus it comes alive: brass-light trim, the recorded take, a Recorded take stamp and the orange ticket stub rising with the billing.",
+      "html": "<a class=\"ds-sheet\" href=\"#\"><span class=\"ds-art\"><span class=\"ds-key\"></span><span class=\"ds-stamp\">Recorded take</span><span class=\"ds-ticket\"><b>Take</b><span class=\"ds-tid\">20261022_235556</span><span class=\"ds-tgrid\"><span><i>Seed</i>534</span><span><i>Steps</i>25</span><span><i>Length</i>2.4 s</span><span><i>Audit</i>Open weights</span></span></span></span><span class=\"ds-type\"><span class=\"ds-title\">Swap the face</span><span class=\"ds-tag\">A cast member's face on the take.</span><span class=\"ds-bill\">Qwen-Image 2.1 · showing since 22 Oct</span></span></a>",
+      "css": ".ds-sheet { position: relative; display: block; width: 180px; aspect-ratio: 27 / 40; margin: 8px; color: var(--on-media, #f4f1ec); text-decoration: none; background: var(--mat, #050403); box-shadow: 0 0 0 6px var(--mat, #050403), 0 0 0 7px var(--brass, #a8895a), var(--case-shadow, 0 22px 38px -14px rgb(0 0 0 / 0.75), 0 6px 12px -6px rgb(0 0 0 / 0.6)); transition: box-shadow 180ms cubic-bezier(0.16,1,0.3,1); font-family: Barlow, system-ui, sans-serif; } .ds-art { position: absolute; inset: 0; overflow: hidden; background: var(--screen, #050504); } .ds-key { position: absolute; inset: 0 0 auto; aspect-ratio: 1; background: radial-gradient(circle at 50% 40%, #6b4a2a, #1a120b 60%, #050403); -webkit-mask: linear-gradient(to bottom, #000 62%, #0000 99%); mask: linear-gradient(to bottom, #000 62%, #0000 99%); transition: opacity 420ms; } .ds-art::after { content: ''; position: absolute; inset: 45% 0 0; background: linear-gradient(to bottom, rgb(5 4 3 / 0), rgb(5 4 3 / 0.62) 45%, rgb(5 4 3 / 0.9)); } .ds-type { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; display: grid; gap: 5px; padding: 0 12px 12px; text-align: center; text-shadow: 0 1px 2px rgb(5 4 3 / 0.9); transition: opacity 160ms; } .ds-title { font: 800 1.3rem/0.92 'Barlow Condensed', Barlow, system-ui, sans-serif; letter-spacing: 0.01em; text-transform: uppercase; } .ds-tag { font-size: 0.75rem; line-height: 1.3; color: rgb(244 241 236 / 0.86); } .ds-bill { font: 300 0.625rem/1.2 'Barlow Condensed', Barlow, system-ui, sans-serif; letter-spacing: 0.07em; text-transform: uppercase; color: rgb(244 241 236 / 0.74); } .ds-stamp { position: absolute; top: 10px; left: 10px; z-index: 2; padding: 3px 6px 2px; border: 1.5px solid var(--brass-hi, #d6b77f); color: var(--brass-hi, #d6b77f); background: rgb(5 4 3 / 0.72); font: 600 0.6875rem/1.1 'Barlow Condensed', Barlow, system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; transform: rotate(-4deg); opacity: 0; transition: opacity 200ms 160ms; } .ds-ticket { position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 3; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 8px; row-gap: 3px; padding: 7px 9px 7px 14px; background: var(--accent-fill, #ff7a1a); color: var(--on-accent, #141311); transform: translateY(calc(100% + 12px)); transition: transform 260ms cubic-bezier(0.16,1,0.3,1) 120ms; -webkit-mask: radial-gradient(circle 5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat; mask: radial-gradient(circle 5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat; } .ds-ticket b { font: 800 0.8125rem/1 'Barlow Condensed', Barlow, system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; } .ds-tid { align-self: center; font: 0.625rem/1 'Overpass Mono', ui-monospace, monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .ds-tgrid { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 2px 10px; padding-top: 4px; border-top: 1px dashed rgb(20 19 17 / 0.4); font: 600 0.6875rem/1.2 'Overpass Mono', ui-monospace, monospace; } .ds-tgrid i { font: normal 600 0.625rem 'Barlow Condensed', Barlow, system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.72; margin-right: 4px; } .ds-sheet:hover, .ds-sheet:focus-visible { box-shadow: 0 0 0 6px var(--mat, #050403), 0 0 0 7px var(--brass-hi, #d6b77f), 0 28px 46px -14px rgb(0 0 0 / 0.85), 0 8px 16px -6px rgb(0 0 0 / 0.65); outline: none; } .ds-sheet:is(:hover, :focus-visible) .ds-key { opacity: 0.35; } .ds-sheet:is(:hover, :focus-visible) .ds-stamp { opacity: 1; } .ds-sheet:is(:hover, :focus-visible) .ds-sheet:is(:hover, :focus-visible) .ds-ticket { transform: translateY(0); }"
+    },
+    {
+      "name": "Marquee",
+      "kind": "custom",
+      "refersTo": "marquee",
+      "description": "Real letters hung one by one on the rendered letter board (art/marquee.webp, lighten-blended): NOW SHOWING, one count at a time (camera moves, effects, recorded takes, swapped every 5.6 s), OPEN WEIGHTS ONLY. The snippet stands in for the rendered board with a plain lit panel; one sr-only sentence speaks for the aria-hidden letters.",
+      "html": "<div class=\"ds-marquee\"><p><span class=\"ds-sr\">Now showing</span><span aria-hidden=\"true\"><span style=\"--i:0\">N</span><span style=\"--i:1\">O</span><span style=\"--i:2\">W</span><span class=\"ds-gap\"></span><span style=\"--i:3\">S</span><span style=\"--i:4\">H</span><span style=\"--i:5\">O</span><span style=\"--i:6\">W</span><span style=\"--i:7\">I</span><span style=\"--i:8\">N</span><span style=\"--i:9\">G</span></span></p><p><span>42 CAMERA MOVES</span></p><p><span>OPEN WEIGHTS ONLY</span></p></div>",
+      "css": ".ds-marquee { display: grid; align-content: space-evenly; width: 420px; aspect-ratio: 7 / 2; padding: 4% 7%; background: #f3efe6; box-shadow: inset 0 0 0 10px #2a2016; } .ds-marquee p { margin: 0; text-align: center; font: 800 1.25rem/1 'Barlow Condensed', Barlow, system-ui, sans-serif; letter-spacing: 0.05em; color: var(--marquee-ink, #1a1511); } .ds-marquee [aria-hidden] > span { display: inline-block; animation: ds-hang 520ms cubic-bezier(0.16,1,0.3,1) both; animation-delay: calc(var(--i) * 26ms + 150ms); } .ds-gap { width: 0.42em; } .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } @keyframes ds-hang { from { opacity: 0; transform: translateY(-55%) rotate(-4deg); } 60% { opacity: 1; transform: translateY(6%) rotate(1deg); } to { opacity: 1; transform: none; } } @media (prefers-reduced-motion: reduce) { .ds-marquee [aria-hidden] > span { animation: none; } }"
+    },
+    {
+      "name": "Lobby Card and Programme Card",
+      "kind": "card",
+      "refersTo": "lobby-card",
+      "description": "A take (or a step of how a take is made) printed on card stock with the case shadow: a 16:9 picture, a title band over a 2px card-ink rule with the card number in mono, and on a programme card two lines of text. Hover or focus lifts it 3px.",
+      "html": "<a class=\"ds-lcard\" href=\"#\"><span class=\"ds-pic\"></span><span class=\"ds-band\"><span class=\"ds-ct\">Dolly in · Tomas</span><span class=\"ds-no\">No. 1</span></span></a> <a class=\"ds-lcard ds-prog\" href=\"#\"><span class=\"ds-pic\"></span><span class=\"ds-band\"><span class=\"ds-pt\">The stills</span><span class=\"ds-no\">No. 3</span></span><span class=\"ds-px\">Approve cheap stills first. The video waits for your yes.</span></a>",
+      "css": ".ds-lcard { display: inline-grid; grid-template-columns: minmax(0, 1fr); gap: 8px; width: 250px; padding: 10px 10px 14px; margin: 8px; vertical-align: top; background: var(--card-stock, #ebe3d2); color: var(--card-ink, #221c16); text-decoration: none; box-shadow: var(--case-shadow, 0 22px 38px -14px rgb(0 0 0 / 0.75), 0 6px 12px -6px rgb(0 0 0 / 0.6)); transition: transform 180ms cubic-bezier(0.16,1,0.3,1), box-shadow 180ms cubic-bezier(0.16,1,0.3,1); font-family: Barlow, system-ui, sans-serif; } .ds-lcard:hover, .ds-lcard:focus-visible { transform: translateY(-3px); box-shadow: 0 30px 44px -16px rgb(0 0 0 / 0.85), 0 8px 14px -6px rgb(0 0 0 / 0.6); } .ds-lcard:focus-visible { outline: 2px solid #a8480a; outline-offset: 2px; } .ds-pic { display: block; aspect-ratio: 16 / 9; background: linear-gradient(135deg, #3a2a1c, #0b0907); } .ds-band { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding-top: 4px; border-top: 2px solid var(--card-ink, #221c16); } .ds-ct { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 600 0.9375rem/1.15 'Barlow Condensed', Barlow, sans-serif; } .ds-pt { font: 800 1.375rem/1 'Barlow Condensed', Barlow, sans-serif; text-transform: uppercase; } .ds-no { flex: none; font: 0.75rem 'Overpass Mono', ui-monospace, monospace; color: var(--card-ink-2, #5a5045); } .ds-px { font-size: 0.8125rem; line-height: 1.45; color: var(--card-ink-2, #5a5045); }"
+    },
+    {
+      "name": "Secondary, Ghost and Pressed Buttons",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Default button for everything that is not the main action.",
-      "html": "<button class=\"ds-btn ds-btn-secondary\">Open in ComfyUI</button>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: 6px; font-family: var(--font, Inter, system-ui, sans-serif); font-size: 0.8125rem; font-weight: 500; line-height: 1; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary { background: #1a1d23; color: #e6e8eb; border-color: #323844; } .ds-btn-secondary:hover { background: #21252d; border-color: #667080; } .ds-btn-secondary:active { background: #272c35; } .ds-btn:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; }"
+      "description": "A raised flight-case button with a strong hairline edge, its ghost twin, and a toggle that is on: pressed in (pressed tone, control-line edge, text), never a second accent.",
+      "html": "<button class=\"ds-btn-secondary\">Recreate</button> <button class=\"ds-btn-ghost\">Cancel</button> <button class=\"ds-btn-ghost\" aria-pressed=\"true\">Loop</button>",
+      "css": ".ds-btn-secondary, .ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: var(--radius-s, 3px); font: 500 0.8125rem/1 Barlow, system-ui, sans-serif; color: var(--text, #ebe8e3); cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary { background: var(--raised, #1b1917); border-color: var(--line-strong, #2e2b27); } .ds-btn-secondary:hover { background: var(--hover, #232020); border-color: var(--control-line, #6f6962); } .ds-btn-secondary:active { background: var(--pressed, #2b2824); } .ds-btn-ghost { background: transparent; color: var(--text-2, #aba59d); } .ds-btn-ghost:hover { background: var(--hover, #232020); color: var(--text, #ebe8e3); } .ds-btn-ghost:active { background: var(--pressed, #2b2824); } .ds-btn-ghost[aria-pressed=\"true\"], .ds-btn-secondary[aria-pressed=\"true\"] { background: var(--pressed, #2b2824); color: var(--text, #ebe8e3); box-shadow: inset 0 0 0 1px var(--control-line, #6f6962); } .ds-btn-secondary:focus-visible, .ds-btn-ghost:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: 2px; }"
     },
     {
-      "name": "Text Field",
+      "name": "Camera-Report Field",
       "kind": "input",
       "refersTo": "input",
-      "description": "Ground well with a 3:1 control edge; focus is an accent ring.",
-      "html": "<label class=\"ds-field\"><span class=\"ds-label\">Seed</span><input class=\"ds-input\" value=\"48213\"></label>",
-      "css": ".ds-field { display: grid; gap: 4px; } .ds-label { font-size: 0.75rem; font-weight: 500; color: #a6adb9; } .ds-input { height: 32px; padding: 0 10px; background: #0f1115; border: 1px solid #667080; border-radius: 6px; color: #e6e8eb; font-size: 0.8125rem; font-family: ui-monospace, Consolas, monospace; } .ds-input:hover { border-color: #7a8494; } .ds-input:focus-visible { outline: 2px solid #6d7cff; outline-offset: 0; border-color: #6d7cff; }"
+      "description": "A small tracked label over a ground well with a control edge; the value at the label's right is mono.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-label\">Seed <span class=\"ds-value\">10942449</span></span><input class=\"ds-input\" value=\"10942449\"></label>",
+      "css": ".ds-field { display: grid; gap: 4px; width: 240px; font-family: Barlow, system-ui, sans-serif; } .ds-label { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3, #908a82); } .ds-value { font-family: 'Overpass Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: 0; text-transform: none; color: var(--text, #ebe8e3); } .ds-input { height: 32px; padding: 0 10px; background: var(--ground, #0d0c0b); border: 1px solid var(--control-line, #6f6962); border-radius: var(--radius-s, 3px); color: var(--text, #ebe8e3); font: 400 0.8125rem/1 Barlow, system-ui, sans-serif; transition: border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-input:hover { border-color: var(--control-line-hover, #887f76); } .ds-input:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: 0; border-color: var(--accent, #ff7a1a); } .ds-input[aria-invalid=\"true\"] { border-color: var(--red, #f0625f); }"
     },
     {
-      "name": "Segmented Control",
-      "kind": "custom",
-      "refersTo": "segmented",
-      "description": "Pick-one among a few options; selected fills Pressed with a strong inset ring.",
-      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button role=\"radio\" aria-checked=\"true\">5 s</button><button role=\"radio\" aria-checked=\"false\">8 s</button><button role=\"radio\" aria-checked=\"false\">10 s</button></div>",
-      "css": ".ds-seg { display: flex; gap: 2px; padding: 2px; background: #0f1115; border: 1px solid #667080; border-radius: 6px; } .ds-seg > button { flex: 1; height: 26px; padding: 0 8px; border: 0; border-radius: 4px; background: transparent; color: #a6adb9; font-family: inherit; font-size: 0.75rem; font-weight: 500; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-seg > button:hover:not([aria-checked=\"true\"]) { background: #1a1d23; color: #e6e8eb; } .ds-seg > button[aria-checked=\"true\"] { background: #272c35; color: #e6e8eb; box-shadow: inset 0 0 0 1px #323844; } .ds-seg > button:focus-visible { outline: 2px solid #6d7cff; }"
+      "name": "Section Head",
+      "kind": "nav",
+      "refersTo": "section-head",
+      "description": "The dock's first level: a sentence-case Barlow 600 head in text with its section's values as mono meta in text-3 and a chevron; the tracked labels beneath are the second level. Nothing in between.",
+      "html": "<button class=\"ds-section-head\" aria-expanded=\"false\"><span>Shot</span><span class=\"ds-meta\">35 mm · 5 s · Slow · 16:9</span><span class=\"ds-grow\"></span><svg viewBox=\"0 0 24 24\"><path d=\"m6 9 6 6 6-6\"/></svg></button>",
+      "css": ".ds-section-head { display: flex; align-items: center; gap: 8px; width: 340px; height: 36px; padding: 0 16px; background: transparent; border: 0; border-bottom: 1px solid var(--line, #211f1c); color: var(--text, #ebe8e3); font: 600 0.9375rem/1.45 Barlow, system-ui, sans-serif; text-align: left; cursor: pointer; } .ds-section-head:hover { background: rgb(255 255 255 / 0.04); } .ds-meta { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 400 0.75rem/1 'Overpass Mono', ui-monospace, monospace; letter-spacing: 0.02em; color: var(--text-3, #908a82); } .ds-grow { flex: 1; } .ds-section-head svg { width: 14px; height: 14px; fill: none; stroke: var(--text-3, #908a82); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: rotate 180ms cubic-bezier(0.16,1,0.3,1); } .ds-section-head[aria-expanded=\"false\"] svg { rotate: -90deg; } .ds-section-head:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: -2px; }"
     },
     {
-      "name": "Status Pills",
+      "name": "Tape Chip",
       "kind": "chip",
       "refersTo": "pill",
-      "description": "20px pills; amber Replay, accent Recorded take, green verified.",
-      "html": "<span class=\"ds-pill ds-pill-amber\"><i></i>Replay</span> <span class=\"ds-pill ds-pill-accent\">Recorded take</span> <span class=\"ds-pill ds-pill-green\"><i></i>Open weights</span>",
-      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 6px; height: 20px; padding: 0 8px; border-radius: 999px; font-family: inherit; font-size: 0.75rem; font-weight: 500; line-height: 1; white-space: nowrap; } .ds-pill i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; } .ds-pill-amber { background: rgb(224 166 60 / 0.14); color: #e0a63c; } .ds-pill-accent { background: rgb(109 124 255 / 0.14); color: #8e9bff; } .ds-pill-green { background: rgb(76 195 138 / 0.14); color: #4cc38a; }"
+      "description": "A 20px strip of tape with 2px corners, uppercase and tracked. Informational chips (Keyframed, Recorded take, Generated) are neutral, with a dot where the word is a status; green / amber / red wash the chip for state; the accent tone is kept for a chip that asks for an action.",
+      "html": "<span class=\"ds-pill\">Keyframed</span> <span class=\"ds-pill\"><i class=\"ds-dot\"></i>Recorded take</span> <span class=\"ds-pill\" data-tone=\"green\"><i class=\"ds-dot\"></i>Same person 0.81</span> <span class=\"ds-pill\" data-tone=\"amber\"><i class=\"ds-dot\"></i>Replay</span> <span class=\"ds-pill\" data-tone=\"red\"><i class=\"ds-dot\"></i>Failed</span> <span class=\"ds-pill ds-lg\" data-tone=\"green\"><i class=\"ds-dot\"></i>Open weights only</span>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 6px; height: 20px; padding: 0 7px; border-radius: 2px; background: var(--raised, #1b1917); border: 1px solid var(--line-strong, #2e2b27); color: var(--text-2, #aba59d); font: 500 0.75rem/1 Barlow, system-ui, sans-serif; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; } .ds-pill.ds-lg { height: 24px; padding: 0 10px; } .ds-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; } .ds-pill[data-tone=\"green\"] { background: var(--green-soft, rgb(205 176 122 / 0.13)); border-color: transparent; color: var(--green, #cdb07a); } .ds-pill[data-tone=\"amber\"] { background: var(--amber-soft, rgb(233 196 58 / 0.14)); border-color: transparent; color: var(--amber, #e9c43a); } .ds-pill[data-tone=\"red\"] { background: var(--red-soft, rgb(240 98 95 / 0.14)); border-color: transparent; color: var(--red, #f0625f); } .ds-pill[data-tone=\"accent\"] { background: var(--accent-soft, rgb(255 122 26 / 0.16)); border-color: transparent; color: var(--accent-text, #ffa35f); }"
     },
     {
-      "name": "Prompt Bar",
+      "name": "Slate Bar Brand and Station Rail",
+      "kind": "nav",
+      "refersTo": "rail",
+      "description": "The brand: a floor-tape T in ticket orange with no box beside the wordmark. The 64px flight-case rail of six rooms: a rendered prop (art/btn-<room>.webp, 42px, lighten-blended, dimmed until hovered or current) over a tracked label; the current room gets a surface tint, a brighter prop and a 2px orange bar at the left edge. The snippet stands in for the props with neutral blocks; the real props are pictures with provenance.",
+      "html": "<div class=\"ds-brand\"><svg class=\"ds-mark\" viewBox=\"0 0 20 20\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"16\" height=\"3\" rx=\"0.5\"/><rect x=\"8.5\" y=\"7\" width=\"3\" height=\"9\" rx=\"0.5\"/></svg><span class=\"ds-wordmark\">OpenField Studio</span><span class=\"ds-crumb\"><svg viewBox=\"0 0 24 24\"><path d=\"m9 18 6-6-6-6\"/></svg><b>Direct</b></span></div><nav class=\"ds-rail\"><a class=\"ds-rail-item\" aria-current=\"page\" href=\"#\"><svg viewBox=\"0 0 24 24\"><path d=\"M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z\"/><path d=\"m6.2 5.3 3.1 3.9\"/><path d=\"m12.4 3.4 3.1 4\"/><path d=\"M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z\"/></svg>Direct</a><a class=\"ds-rail-item\" href=\"#\"><svg viewBox=\"0 0 24 24\"><path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"/><path d=\"M3 3v5h5\"/></svg>Re-shoot</a><a class=\"ds-rail-item\" href=\"#\"><svg viewBox=\"0 0 24 24\"><path d=\"M18 21a8 8 0 0 0-16 0\"/><circle cx=\"10\" cy=\"8\" r=\"5\"/><path d=\"M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3\"/></svg>Cast</a><a class=\"ds-rail-item\" href=\"#\"><svg viewBox=\"0 0 24 24\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M7 3v18\"/><path d=\"M3 7.5h4\"/><path d=\"M3 12h18\"/><path d=\"M3 16.5h4\"/><path d=\"M17 3v18\"/><path d=\"M17 7.5h4\"/><path d=\"M17 16.5h4\"/></svg>Takes</a></nav>",
+      "css": ".ds-brand { display: flex; align-items: center; gap: 8px; height: 48px; padding: 0 16px; background: var(--panel, #121110); border-bottom: 1px solid var(--line, #211f1c); font-family: Barlow, system-ui, sans-serif; color: var(--text, #ebe8e3); } .ds-mark { width: 20px; height: 20px; fill: var(--accent-fill, #ff7a1a); } .ds-wordmark { font-size: 0.9375rem; font-weight: 600; white-space: nowrap; } .ds-crumb { display: flex; align-items: center; gap: 8px; margin-left: 4px; font-size: 0.8125rem; color: var(--text-2, #aba59d); } .ds-crumb svg { width: 14px; height: 14px; fill: none; stroke: var(--text-3, #908a82); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-crumb b { font-weight: 500; color: var(--text, #ebe8e3); } .ds-rail { display: flex; flex-direction: column; gap: 4px; width: 64px; padding: 8px 0; background: var(--panel, #121110); border-right: 1px solid var(--line, #211f1c); } .ds-rail-item { position: relative; display: grid; justify-items: center; align-content: center; gap: 5px; height: 64px; color: var(--text-3, #908a82); font: 500 0.75rem/1 Barlow, system-ui, sans-serif; letter-spacing: 0.04em; text-decoration: none; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-rail-item svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-rail-item:hover, .ds-rail-item[aria-current=\"page\"] { background: rgb(255 255 255 / 0.04); color: var(--text, #ebe8e3); } .ds-rail-item[aria-current=\"page\"] svg { color: var(--accent, #ff7a1a); } .ds-rail-item[aria-current=\"page\"]::before { content: ''; position: absolute; left: 0; top: 10px; bottom: 10px; width: 2px; background: var(--accent, #ff7a1a); } .ds-rail-item:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: -2px; }"
+    },
+    {
+      "name": "LED Wall OSD",
       "kind": "custom",
-      "refersTo": "prompt-bar",
-      "description": "Raised bar with the subject field, the plan line and the large Shoot button.",
-      "html": "<div class=\"ds-prompt\"><div class=\"ds-prompt-text\">A lighthouse keeper climbing at dusk</div><div class=\"ds-prompt-foot\"><p class=\"ds-plan\"><b>Dolly in</b><span>/</span>Stills first<span>/</span>2 stills + 1 shot, 5 s</p><button class=\"ds-shoot\">Shoot</button></div></div>",
-      "css": ".ds-prompt { display: grid; gap: 8px; padding: 12px 12px 12px 16px; background: #1a1d23; border: 1px solid #323844; border-radius: 10px; font-family: inherit; color: #e6e8eb; } .ds-prompt:hover { border-color: #667080; } .ds-prompt:focus-within { border-color: #6d7cff; outline: 1px solid #6d7cff; } .ds-prompt-text { font-size: 1rem; line-height: 1.5; min-height: 48px; } .ds-prompt-foot { display: flex; align-items: center; gap: 12px; } .ds-plan { flex: 1; margin: 0; font-size: 0.8125rem; line-height: 1.4; color: #a6adb9; } .ds-plan b { font-weight: 600; color: #e6e8eb; } .ds-plan span { margin: 0 8px; color: #8d95a3; } .ds-shoot { height: 40px; padding: 0 16px; border: 0; border-radius: 6px; background: #5667f0; color: #fff; font: 500 0.875rem Inter, system-ui, sans-serif; cursor: pointer; } .ds-shoot:hover { background: #4f5fe8; } .ds-shoot:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; }"
+      "refersTo": "wall",
+      "description": "The wall's on-screen display: frame guides and centre mark at 0.45, the burned timecode top-left, the tally top-right pulsing orange while running; all on scrim chips in mono. The stage inset sits at the lower left on an opaque dark-wall card.",
+      "html": "<div class=\"ds-wall\"><svg class=\"ds-guides\" viewBox=\"0 0 160 90\" preserveAspectRatio=\"none\"><rect class=\"ds-safe\" x=\"8\" y=\"4.5\" width=\"144\" height=\"81\"/><line class=\"ds-cross\" x1=\"76\" y1=\"45\" x2=\"84\" y2=\"45\"/><line class=\"ds-cross\" x1=\"80\" y1=\"41\" x2=\"80\" y2=\"49\"/></svg><span class=\"ds-osd ds-tc\">00:00:02:12</span><span class=\"ds-osd ds-tally\" data-state=\"running\">Rendering</span><div class=\"ds-inset\"></div></div>",
+      "css": ".ds-wall { position: relative; width: 320px; aspect-ratio: 16/9; background: var(--screen, #050504); border: 1px solid var(--line-strong, #2e2b27); border-radius: 2px; color: var(--on-media, #f4f1ec); overflow: hidden; } .ds-guides { position: absolute; inset: 0; width: 100%; height: 100%; } .ds-safe, .ds-cross { fill: none; stroke: var(--on-media, #f4f1ec); stroke-width: 1px; vector-effect: non-scaling-stroke; opacity: 0.45; } .ds-osd { position: absolute; top: 12px; display: inline-flex; align-items: center; gap: 6px; height: 20px; padding: 0 6px; border-radius: 2px; background: var(--scrim, rgb(5 5 4 / 0.78)); font: 500 0.75rem/1 'Overpass Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; } .ds-tc { left: 12px; } .ds-tally { right: 12px; text-transform: uppercase; } .ds-tally::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--text-3, #908a82); } .ds-tally[data-state=\"running\"] { color: var(--accent-text, #ffa35f); } .ds-tally[data-state=\"running\"]::before { background: var(--accent, #ff7a1a); animation: ds-pulse 1.2s ease-in-out infinite; } .ds-tally[data-state=\"ready\"]::before { background: var(--green, #cdb07a); } .ds-tally[data-state=\"replay\"]::before, .ds-tally[data-state=\"fake\"]::before { background: var(--amber, #e9c43a); } .ds-tally[data-state=\"failed\"]::before { background: var(--red, #f0625f); } .ds-inset { position: absolute; left: 12px; bottom: 12px; width: 24%; min-width: 70px; aspect-ratio: 100/62; padding: 6px; background: var(--screen, #050504); border: 1px solid var(--on-media-line, rgb(235 232 227 / 0.32)); border-radius: 2px; } @keyframes ds-pulse { 50% { opacity: 0.35; } } @media (prefers-reduced-motion: reduce) { .ds-tally::before { animation: none !important; } }"
     },
     {
-      "name": "Move Pad Tile",
+      "name": "Stage View",
       "kind": "custom",
-      "refersTo": "move-tile",
-      "description": "Camera move as a path glyph over its name; selected takes the accent border and wash.",
-      "html": "<button class=\"ds-move\" aria-checked=\"false\"><svg viewBox=\"0 0 36 36\" width=\"36\" height=\"36\"><circle cx=\"18\" cy=\"10\" r=\"3\" fill=\"#8d95a3\"/><path d=\"M10 30 L18 20\" fill=\"none\" stroke=\"#a6adb9\" stroke-width=\"2.5\" stroke-linecap=\"round\"/></svg>Dolly in</button> <button class=\"ds-move\" aria-checked=\"true\"><svg viewBox=\"0 0 36 36\" width=\"36\" height=\"36\"><circle cx=\"18\" cy=\"10\" r=\"3\" fill=\"#8d95a3\"/><path d=\"M26 30 L18 20\" fill=\"none\" stroke=\"#8e9bff\" stroke-width=\"2.5\" stroke-linecap=\"round\"/></svg>Orbit</button>",
-      "css": ".ds-move { display: inline-grid; justify-items: center; gap: 4px; width: 76px; min-height: 64px; padding: 6px 0 5px; background: #1a1d23; border: 1px solid #323844; border-radius: 6px; color: #a6adb9; font-family: inherit; font-size: 0.75rem; font-weight: 500; line-height: 1.2; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-move:hover { background: #21252d; color: #e6e8eb; } .ds-move[aria-checked=\"true\"] { border-color: #6d7cff; background: rgb(109 124 255 / 0.14); color: #e6e8eb; } .ds-move:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; }"
+      "refersTo": "stage-view",
+      "description": "The set seen from above and to one side (az 58deg, el 24deg, floor -0.5) in a 100x62 box: tape-line floor, the subject's ellipse and post, the path in text-3 with the travelled part lit in accent, the camera as a frustum with its drop line, numbered tape marks that fill orange once reached. Static snapshot at t = 0.5 of a dolly in; in the app seek(t) moves it with the take.",
+      "html": "<figure class=\"ds-stage\"><svg viewBox=\"0 0 100 62\" role=\"img\" aria-label=\"Planned camera for Dolly in\"><path class=\"ds-sv-grid\" d=\"M0 28 L100 -5 M0 38 L100 5 M0 48 L100 15 M0 58 L100 25 M0 68 L100 35 M0 78 L100 45 M-10 0 L60 62 M2 0 L72 62 M14 0 L84 62 M26 0 L96 62 M38 0 L108 62 M50 0 L120 62\"/><ellipse class=\"ds-sv-foot\" cx=\"38\" cy=\"36\" rx=\"6\" ry=\"2.8\"/><path class=\"ds-sv-drop\" d=\"M68 41 L68 47.5\"/><circle class=\"ds-sv-dot\" cx=\"68\" cy=\"47.5\" r=\"0.9\"/><path class=\"ds-sv-path\" d=\"M78 44 L58 38\"/><path class=\"ds-sv-lit\" d=\"M78 44 L58 38\" pathLength=\"1\" style=\"stroke-dashoffset:0.5\"/><path class=\"ds-sv-post\" d=\"M38 36 L38 14\"/><circle class=\"ds-sv-head\" cx=\"38\" cy=\"14\" r=\"1.5\"/><path class=\"ds-sv-rays\" d=\"M68 41 L59.5 34.5 M68 41 L64.5 36 M68 41 L64.5 42.5 M68 41 L59.5 41\"/><path class=\"ds-sv-frame\" d=\"M59.5 34.5 L64.5 36 L64.5 42.5 L59.5 41 Z\"/><g class=\"ds-sv-mark ds-lit\" transform=\"translate(78 44)\"><circle r=\"3\"/><text text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"3.4\">1</text></g><g class=\"ds-sv-mark\" transform=\"translate(58 38)\"><circle r=\"3\"/><text text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"3.4\">2</text></g><circle class=\"ds-sv-cam\" cx=\"68\" cy=\"41\" r=\"2\"/></svg><figcaption>Planned camera</figcaption></figure>",
+      "css": ".ds-stage { display: grid; gap: 2px; width: 300px; margin: 0; padding: 6px; background: var(--ground, #0d0c0b); border: 1px solid var(--line-strong, #2e2b27); border-radius: var(--radius-s, 3px); } .ds-stage svg { display: block; width: 100%; height: auto; aspect-ratio: 100 / 62; overflow: hidden; } .ds-sv-grid { fill: none; stroke: var(--grid-line, rgb(235 232 227 / 0.07)); stroke-width: 1px; vector-effect: non-scaling-stroke; } .ds-sv-foot { fill: none; stroke: var(--line-strong, #2e2b27); stroke-width: 1px; vector-effect: non-scaling-stroke; } .ds-sv-post { stroke: var(--text-2, #aba59d); stroke-width: 1.5px; stroke-linecap: round; vector-effect: non-scaling-stroke; } .ds-sv-head { fill: var(--text-2, #aba59d); } .ds-sv-path, .ds-sv-lit { fill: none; stroke: var(--text-3, #908a82); stroke-width: 0.5px; stroke-linecap: round; stroke-linejoin: round; } .ds-sv-lit { stroke: var(--accent, #ff7a1a); stroke-width: 0.75px; stroke-dasharray: 1; } .ds-sv-drop { stroke: var(--text-3, #908a82); stroke-width: 0.3px; stroke-dasharray: 1 0.8; } .ds-sv-dot { fill: var(--text-3, #908a82); } .ds-sv-mark circle { fill: var(--ground, #0d0c0b); stroke: var(--accent, #ff7a1a); stroke-width: 1px; vector-effect: non-scaling-stroke; } .ds-sv-mark text { fill: var(--accent-text, #ffa35f); font-family: 'Overpass Mono', ui-monospace, monospace; font-weight: 600; } .ds-sv-mark.ds-lit circle { fill: var(--accent-fill, #ff7a1a); stroke: var(--ground, #0d0c0b); } .ds-sv-mark.ds-lit text { fill: var(--on-accent, #141311); } .ds-sv-rays, .ds-sv-frame, .ds-sv-cam { fill: none; stroke: var(--accent, #ff7a1a); stroke-width: 1px; stroke-linejoin: round; vector-effect: non-scaling-stroke; } .ds-sv-rays { opacity: 0.5; } .ds-sv-frame { fill: var(--accent-soft, rgb(255 122 26 / 0.16)); } .ds-sv-cam { fill: var(--accent-fill, #ff7a1a); stroke: var(--ground, #0d0c0b); } .ds-stage figcaption { font: 400 0.75rem/1.45 'Overpass Mono', ui-monospace, monospace; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-3, #908a82); text-align: center; }"
     },
     {
-      "name": "Filmstrip Tile",
+      "name": "Move Tile",
       "kind": "card",
-      "refersTo": "filmstrip-tile",
-      "description": "132px 16:9 take thumbnail with a flag, badge and progress bar; current take is ringed in accent.",
-      "html": "<button class=\"ds-tile\" aria-current=\"true\"><span class=\"ds-tile-frame\"><span class=\"ds-tile-flag\">Recorded</span><span class=\"ds-tile-badge\">0:05</span></span><span class=\"ds-tile-name\">Lighthouse dolly</span></button>",
-      "css": ".ds-tile { display: grid; gap: 4px; width: 132px; padding: 0; background: none; border: 0; text-align: left; color: #e6e8eb; font-family: inherit; cursor: pointer; } .ds-tile-frame { position: relative; display: block; aspect-ratio: 16 / 9; background: #08090b; border: 1px solid #262b34; border-radius: 6px; overflow: hidden; } .ds-tile:hover .ds-tile-frame { border-color: #667080; } .ds-tile[aria-current=\"true\"] .ds-tile-frame { border-color: #6d7cff; box-shadow: 0 0 0 1px #6d7cff; } .ds-tile-flag, .ds-tile-badge { position: absolute; padding: 1px 6px; border-radius: 4px; background: rgb(8 9 11 / 0.82); font-size: 0.75rem; font-weight: 500; } .ds-tile-flag { left: 6px; top: 6px; color: #8e9bff; } .ds-tile-badge { right: 6px; bottom: 6px; color: #e6e8eb; font-variant-numeric: tabular-nums; } .ds-tile-name { font-size: 0.75rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .ds-tile:focus-visible { outline: 2px solid #6d7cff; outline-offset: 2px; border-radius: 6px; }"
+      "refersTo": "move-tile",
+      "description": "One of the 12 promoted moves on a ground tile: a small copy of the stage (track in text at 2px beside a dim subject post, start disc, arrowhead). A move whose flag is set plays its loop under the glyph at rest (0.5, 0.92 on hover, focus or checked); otherwise the poster frame of its newest take shows only as a response (0.75 on hover or focus, 0.85 when checked). Over footage the track is on-media with a dark halo and the name sits on a scrim chip; checked turns the track orange on an orange wash.",
+      "html": "<div class=\"ds-move-grid\"><button class=\"ds-move-tile\" role=\"radio\" aria-checked=\"true\"><span class=\"ds-poster\"></span><svg class=\"ds-tile-plan\" viewBox=\"0 0 100 100\"><path class=\"ds-tpost\" d=\"M30 62 L30 38\"/><circle class=\"ds-tsubject\" cx=\"30\" cy=\"38\" r=\"5.5\"/><path class=\"ds-tp\" d=\"M78 72 L50 50\"/><circle class=\"ds-tstart\" cx=\"78\" cy=\"72\" r=\"4\"/><path class=\"ds-thead\" d=\"M-4 -3.2 L4 0 L-4 3.2 Z\" transform=\"translate(50 50) rotate(-142) scale(1.6)\"/></svg><span>Dolly in</span></button><button class=\"ds-move-tile\" role=\"radio\" aria-checked=\"false\"><span class=\"ds-poster\"></span><svg class=\"ds-tile-plan\" viewBox=\"0 0 100 100\"><path class=\"ds-tpost\" d=\"M30 62 L30 38\"/><circle class=\"ds-tsubject\" cx=\"30\" cy=\"38\" r=\"5.5\"/><path class=\"ds-tp\" d=\"M44 78 Q 80 60 62 30\"/><circle class=\"ds-tstart\" cx=\"44\" cy=\"78\" r=\"4\"/><path class=\"ds-thead\" d=\"M-4 -3.2 L4 0 L-4 3.2 Z\" transform=\"translate(62 30) rotate(-110) scale(1.6)\"/></svg><span>Arc left</span></button><button class=\"ds-move-tile\" role=\"radio\" aria-checked=\"false\"><svg class=\"ds-glyph\" viewBox=\"0 0 100 100\"><rect class=\"ds-tframe ds-faint\" x=\"22\" y=\"32.6\" width=\"56\" height=\"34.7\" rx=\"3\"/><rect class=\"ds-tframe\" x=\"33\" y=\"39.5\" width=\"34\" height=\"21\" rx=\"3\"/></svg><span>Zoom in</span></button></div>",
+      "css": ".ds-move-grid { display: grid; grid-template-columns: repeat(3, 76px); gap: 6px; } .ds-move-tile { position: relative; display: grid; justify-items: center; align-content: start; gap: 4px; min-height: 76px; padding: 6px 0 5px; overflow: hidden; background: var(--ground, #0d0c0b); border: 1px solid var(--line, #211f1c); border-radius: var(--radius-s, 3px); color: var(--text-2, #aba59d); font: 500 0.75rem/1.2 Barlow, system-ui, sans-serif; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-poster { position: absolute; inset: 0; background: #6a5238; opacity: 0; transition: opacity 120ms cubic-bezier(0.16,1,0.3,1); } .ds-move-tile:is(:hover, :focus-visible) .ds-poster { opacity: 0.75; } .ds-move-tile[aria-checked=\"true\"] .ds-poster { opacity: 0.85; } .ds-tile-plan, .ds-glyph { position: relative; z-index: 2; width: 44px; height: 44px; } .ds-glyph { width: 36px; height: 36px; } .ds-move-tile > span { position: relative; z-index: 2; } .ds-tsubject { fill: var(--text-3, #908a82); } .ds-tpost { fill: none; stroke: var(--text-3, #908a82); stroke-width: 2.5px; stroke-linecap: round; } .ds-tp { fill: none; stroke: var(--text, #ebe8e3); stroke-width: 2px; stroke-linecap: round; } .ds-tstart, .ds-thead { fill: var(--text-2, #aba59d); } .ds-tframe { fill: none; stroke: var(--text-2, #aba59d); stroke-width: 2.5px; } .ds-tframe.ds-faint { stroke: var(--text-3, #908a82); stroke-dasharray: 3 3; } .ds-move-tile:is(:hover, :focus-visible, [aria-checked=\"true\"]) .ds-poster ~ .ds-tile-plan { filter: drop-shadow(0 0 1px rgb(5 5 4 / 1)) drop-shadow(0 1px 2px rgb(5 5 4 / 0.9)); } .ds-move-tile:is(:hover, :focus-visible, [aria-checked=\"true\"]) .ds-poster ~ .ds-tile-plan .ds-tp, .ds-move-tile:is(:hover, :focus-visible, [aria-checked=\"true\"]) .ds-poster ~ .ds-tile-plan .ds-tpost { stroke: var(--on-media, #f4f1ec); } .ds-move-tile:is(:hover, :focus-visible, [aria-checked=\"true\"]) .ds-poster ~ .ds-tile-plan .ds-tstart, .ds-move-tile:is(:hover, :focus-visible, [aria-checked=\"true\"]) .ds-poster ~ .ds-tile-plan .ds-thead, .ds-move-tile:is(:hover, :focus-visible, [aria-checked=\"true\"]) .ds-poster ~ .ds-tile-plan .ds-tsubject { fill: var(--on-media, #f4f1ec); } .ds-move-tile:is(:hover, :focus-visible, [aria-checked=\"true\"]) .ds-poster ~ span { padding: 1px 5px; border-radius: 2px; background: var(--scrim, rgb(5 5 4 / 0.78)); color: var(--on-media, #f4f1ec); } .ds-move-tile:hover { background: var(--hover, #232020); border-color: var(--control-line, #6f6962); color: var(--text, #ebe8e3); } .ds-move-tile[aria-checked=\"true\"] { background: var(--accent-soft, rgb(255 122 26 / 0.16)); border-color: var(--accent, #ff7a1a); color: var(--text, #ebe8e3); } .ds-move-tile[aria-checked=\"true\"] .ds-tp { stroke: var(--accent, #ff7a1a) !important; } .ds-move-tile[aria-checked=\"true\"] .ds-tstart, .ds-move-tile[aria-checked=\"true\"] .ds-thead { fill: var(--accent, #ff7a1a) !important; } .ds-move-tile:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: 2px; }"
+    },
+    {
+      "name": "Where The Camera Starts",
+      "kind": "custom",
+      "refersTo": "segmented-dial",
+      "description": "Three camera-report fields after the chosen move: Around, Height and Distance as dials (the ordinary rocker with 6px side padding and 24px minimum segments; abbreviated stops carry their full name as aria-label and title), then the readout line in the move-info role: the position in words, a circle-dashed 'Not yet tested with a real render' (badge-check in green once tested), and a ghost 'As shot' that shows only when a position is set.",
+      "html": "<div class=\"ds-angles\"><div class=\"ds-field\"><span class=\"ds-label\">Around</span><div class=\"ds-seg ds-dial\" role=\"radiogroup\" aria-label=\"Around\"><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Front\" title=\"Front\">F</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Front-right quarter\" title=\"Front-right quarter\">FR</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Right\" title=\"Right\">R</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Back-right quarter\" title=\"Back-right quarter\">BR</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Back\" title=\"Back\">B</button><button type=\"button\" role=\"radio\" aria-checked=\"true\" aria-label=\"Back-left quarter\" title=\"Back-left quarter\">BL</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Left\" title=\"Left\">L</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Front-left quarter\" title=\"Front-left quarter\">FL</button></div></div><div class=\"ds-field\"><span class=\"ds-label\">Height</span><div class=\"ds-seg ds-dial\" role=\"radiogroup\" aria-label=\"Height\"><button type=\"button\" role=\"radio\" aria-checked=\"true\" aria-label=\"Low angle\" title=\"Low angle\">Low</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Eye level\" title=\"Eye level\">Eye</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Elevated\" title=\"Elevated\">Up</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"High angle\" title=\"High angle\">High</button></div></div><div class=\"ds-field\"><span class=\"ds-label\">Distance</span><div class=\"ds-seg ds-dial\" role=\"radiogroup\" aria-label=\"Distance\"><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Close-up\" title=\"Close-up\">Close</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Medium\" title=\"Medium\">Mid</button><button type=\"button\" role=\"radio\" aria-checked=\"true\" aria-label=\"Wide\" title=\"Wide\">Wide</button></div></div><div class=\"ds-angle-line\"><p class=\"ds-move-meta\" aria-live=\"polite\">Back-left quarter<span class=\"ds-sep\">·</span>Low angle<span class=\"ds-sep\">·</span>Wide<span class=\"ds-sep\">·</span><svg viewBox=\"0 0 24 24\"><path d=\"M10.1 2.18a9.9 9.9 0 0 1 3.8 0\"/><path d=\"M17.6 3.71a9.9 9.9 0 0 1 2.69 2.7\"/><path d=\"M21.82 10.1a9.9 9.9 0 0 1 0 3.8\"/><path d=\"M20.29 17.6a9.9 9.9 0 0 1-2.7 2.69\"/><path d=\"M13.9 21.82a9.9 9.9 0 0 1-3.8 0\"/><path d=\"M6.4 20.29a9.9 9.9 0 0 1-2.69-2.7\"/><path d=\"M2.18 13.9a9.9 9.9 0 0 1 0-3.8\"/><path d=\"M3.71 6.4a9.9 9.9 0 0 1 2.7-2.69\"/></svg>Not yet tested with a real render</p><button type=\"button\" class=\"ds-btn-ghost-sm\" title=\"Back to the camera position the hero was shot from\"><svg viewBox=\"0 0 24 24\"><path d=\"M9 14 4 9l5-5\"/><path d=\"M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11\"/></svg>As shot</button></div></div>",
+      "css": ".ds-angles { display: grid; gap: 12px; width: 308px; font-family: Barlow, system-ui, sans-serif; } .ds-field { display: grid; gap: 4px; } .ds-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3, #908a82); } .ds-seg { display: flex; gap: 2px; padding: 2px; background: var(--ground, #0d0c0b); border: 1px solid var(--control-line, #6f6962); border-radius: var(--radius-s, 3px); } .ds-seg > button { flex: 1; min-width: 0; height: 26px; padding: 0 8px; border: 0; border-radius: 2px; background: transparent; color: var(--text-2, #aba59d); font: 500 0.75rem/1 Barlow, system-ui, sans-serif; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-seg.ds-dial > button { min-width: 24px; padding-inline: 6px; } .ds-seg > button:hover:not([aria-checked=\"true\"]) { background: var(--raised, #1b1917); color: var(--text, #ebe8e3); } .ds-seg > button[aria-checked=\"true\"] { background: var(--pressed, #2b2824); color: var(--text, #ebe8e3); box-shadow: inset 0 0 0 1px var(--line-strong, #2e2b27); } .ds-seg > button:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: 0; } .ds-angle-line { display: flex; align-items: center; gap: 8px; min-height: 24px; } .ds-move-meta { flex: 1; min-width: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; font-size: 0.8125rem; line-height: 1.45; color: var(--text-3, #908a82); } .ds-sep { opacity: 0.6; } .ds-move-meta svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-move-meta[data-tested=\"true\"] svg { color: var(--green, #cdb07a); } .ds-btn-ghost-sm { display: inline-flex; align-items: center; gap: 8px; height: 26px; padding: 0 8px; border: 1px solid transparent; border-radius: var(--radius-s, 3px); background: transparent; color: var(--text-2, #aba59d); font: 500 0.75rem/1 Barlow, system-ui, sans-serif; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-ghost-sm svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-btn-ghost-sm:hover { background: var(--hover, #232020); color: var(--text, #ebe8e3); } .ds-btn-ghost-sm:focus-visible { outline: 2px solid var(--accent, #ff7a1a); outline-offset: 2px; }"
+    },
+    {
+      "name": "Receipt Stub",
+      "kind": "custom",
+      "refersTo": "verdict",
+      "description": "The Take panel's receipt as a ticket stub on card stock: 7px notches at both ends, a dashed tear line, RECEIPT and the take id, the billing in its one order (seed, steps, length, recipe, then GPU time and cost at $0.71 an hour), then three rows between dashed rules: the open-weights chip, the identity reading with its pass tick at 0.363, the checksum with its hash, its link and a 'Check it in this browser' link that hashes receipt.json with WebCrypto. Passes edged in brass, drift in deep amber, failure in deep red, always with words.",
+      "html": "<div class=\"ds-stub\"><div class=\"ds-stub-head\"><span>Receipt</span><span class=\"ds-num\">tk_20261023_075446_a580</span></div><dl class=\"ds-stub-bill\"><dt>Seed</dt><dd>612</dd><dt>Steps</dt><dd>25</dd><dt>Length</dt><dd>5.0 s</dd><dt>GPU</dt><dd>221 s</dd><dt>Cost</dt><dd>&asymp; 4.4&cent;</dd></dl><div class=\"ds-stub-row\"><span class=\"ds-chip ds-pass\"><i></i>Open weights only</span><p>Every model in this take's workflows is an open-weights file.</p></div><div class=\"ds-stub-row ds-id\"><div class=\"ds-reading\" role=\"img\" aria-label=\"Same person, score 0.70\"><b>0.70</b><span class=\"ds-scale\"><span style=\"width:70%\"></span><i style=\"left:36%\"></i></span></div><div><strong>Same person</strong><p>Passes at 0.363 or higher.</p></div></div><div class=\"ds-stub-row\"><span class=\"ds-chip ds-pass\"><i></i>Checksum matches</span><span class=\"ds-num ds-hash\">668f79d467a107e6…</span> <a href=\"#\">receipt.json</a></div></div>",
+      "css": ".ds-stub { position: relative; width: 300px; padding: 2px 4px 6px 16px; background: var(--card-stock, #ebe3d2); color: var(--card-ink, #221c16); font-family: Barlow, system-ui, sans-serif; -webkit-mask: radial-gradient(circle 7px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 7px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat; mask: radial-gradient(circle 7px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 7px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat; } .ds-stub::before { content: ''; position: absolute; left: 8px; top: 12px; bottom: 12px; border-left: 1.5px dashed rgb(34 28 22 / 0.35); } .ds-stub-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 10px 10px 6px 12px; font: 800 1rem/1 'Barlow Condensed', Barlow, system-ui, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; } .ds-num { font-family: 'Overpass Mono', ui-monospace, monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.02em; text-transform: none; color: var(--card-ink-2, #5a5045); font-variant-numeric: tabular-nums; } .ds-stub-bill { display: flex; flex-wrap: wrap; gap: 2px 12px; margin: 0; padding: 0 10px 8px 12px; font-size: 0.75rem; } .ds-stub-bill dt { font-family: 'Barlow Condensed', Barlow, system-ui, sans-serif; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--card-ink-2, #5a5045); } .ds-stub-bill dd { margin: 0 6px 0 -8px; font: 600 0.75rem 'Overpass Mono', ui-monospace, monospace; } .ds-stub-row { display: grid; gap: 6px; justify-items: start; padding: 10px 10px 10px 12px; border-top: 1px dashed rgb(34 28 22 / 0.28); font-size: 0.8125rem; } .ds-stub-row p { margin: 0; font-size: 0.75rem; color: var(--card-ink-2, #5a5045); } .ds-stub-row.ds-id { display: flex; align-items: center; gap: 12px; } .ds-chip { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; border: 1px solid rgb(34 28 22 / 0.3); border-radius: 2px; font: 500 0.75rem/1 Barlow, system-ui, sans-serif; letter-spacing: 0.04em; text-transform: uppercase; } .ds-chip.ds-pass { border-color: var(--brass, #a8895a); } .ds-chip i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; } .ds-reading { display: grid; gap: 5px; width: 96px; } .ds-reading b { font: 600 1.25rem/1 'Overpass Mono', ui-monospace, monospace; } .ds-scale { position: relative; height: 3px; background: rgb(34 28 22 / 0.18); } .ds-scale span { position: absolute; inset: 0 auto 0 0; background: var(--card-ink, #221c16); } .ds-scale i { position: absolute; top: -3px; width: 1px; height: 9px; background: var(--card-ink, #221c16); } .ds-hash { margin-right: 8px; } .ds-stub a { color: var(--card-ink, #221c16); text-decoration-color: rgb(34 28 22 / 0.45); text-underline-offset: 0.18em; } .ds-stub a:focus-visible { outline: 2px solid #a8480a; outline-offset: 2px; }"
+    },
+    {
+      "name": "Stage Card",
+      "kind": "card",
+      "refersTo": "stage-card",
+      "description": "One still in the 'Stills first, then the shot' strip: a 16:9 frame on the dark wall with a hairline edge, under it a mono uppercase caption with a green check when approved and the stage's identity score toned green or amber. The approval cards on the wall are the same caption grammar: the role name at the left ('Angled still', 'End state', or 'Hero still' / 'Anchor N' when no evidence can be printed) and the evidence ('Back-left quarter, low angle, wide', the transformation's label) as a text-3 hint at the right.",
+      "html": "<div class=\"ds-stages\"><div class=\"ds-strip-label\">Stills first, then the shot</div><div class=\"ds-stages-row\"><figure class=\"ds-stage-card\"><span class=\"ds-stage-img\"></span><figcaption><span class=\"ds-stage-name\"><svg viewBox=\"0 0 24 24\"><path d=\"M20 6 9 17l-5-5\"/></svg>Hero still</span><span class=\"ds-num\" data-tone=\"green\">0.81</span></figcaption></figure><figure class=\"ds-stage-card\"><span class=\"ds-stage-img\"></span><figcaption><span class=\"ds-stage-name\"><svg viewBox=\"0 0 24 24\"><path d=\"M20 6 9 17l-5-5\"/></svg>Anchor 1</span><span class=\"ds-num\" data-tone=\"green\">0.77</span></figcaption></figure><figure class=\"ds-stage-card\"><span class=\"ds-stage-img\"></span><figcaption><span class=\"ds-stage-name\">Shot</span><span class=\"ds-num\" data-tone=\"green\">0.70</span></figcaption></figure></div></div>",
+      "css": ".ds-stages { display: grid; gap: 8px; width: 340px; padding: 12px 16px; border-bottom: 1px solid var(--line, #211f1c); font-family: Barlow, system-ui, sans-serif; } .ds-strip-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3, #908a82); } .ds-stages-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 8px; } .ds-stage-card { display: grid; gap: 4px; margin: 0; min-width: 0; overflow: hidden; } .ds-stage-img { display: block; width: 100%; aspect-ratio: 16/9; background: var(--screen, #050504); border: 1px solid var(--line-strong, #2e2b27); border-radius: 2px; } .ds-stage-card figcaption { display: flex; align-items: center; gap: 4px; font: 400 0.75rem/1.45 'Overpass Mono', ui-monospace, monospace; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2, #aba59d); white-space: nowrap; } .ds-stage-name { flex: 1; min-width: 0; display: inline-flex; align-items: center; gap: 3px; overflow: hidden; text-overflow: ellipsis; } .ds-stage-name svg { flex: none; width: 14px; height: 14px; fill: none; stroke: var(--green, #cdb07a); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; } .ds-num { font-variant-numeric: tabular-nums; } .ds-num[data-tone=\"green\"] { color: var(--green, #cdb07a); } .ds-num[data-tone=\"amber\"] { color: var(--amber, #e9c43a); }"
+    },
+    {
+      "name": "Bulb Progress Row",
+      "kind": "custom",
+      "refersTo": "bar",
+      "description": "Render progress as a row of marquee bulbs: 2.4px-radius dots at an 11px pitch, unlit in line-strong; the lit row in ticket orange is clipped from the left so bulbs light whole. Indeterminate slides a run of lit bulbs.",
+      "html": "<div class=\"ds-bar\" role=\"progressbar\" aria-valuenow=\"55\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"--p:0.55\"><span></span></div>",
+      "css": ".ds-bar { position: relative; width: 320px; height: 8px; overflow: hidden; background: radial-gradient(circle at 4px 4px, var(--line-strong, #2e2b27) 2.4px, #0000 2.9px) 0 0 / 11px 8px repeat-x; } .ds-bar > span { display: block; width: 100%; height: 100%; background: radial-gradient(circle at 4px 4px, var(--accent, #ff7a1a) 2.4px, #0000 2.9px) 0 0 / 11px 8px repeat-x; clip-path: inset(0 calc((1 - var(--p, 0)) * 100%) 0 0); transition: clip-path 400ms cubic-bezier(0.16,1,0.3,1); }"
     }
   ],
   "narrative": {
-    "northStar": "The Edit Bay",
-    "overview": "OpenField Studio is the category standard played straight: a dark, colour-neutral AI-video workbench in the lineage of Frame.io (how footage is shown and judged), Linear (controls, density, states), Runway (the category itself) and DaVinci Resolve (panels around a viewer). Convention is the commitment. A 52px top bar, a 64px icon rail, a centre column with a prompt bar over a 16:9 monitor over a filmstrip, and a 360px settings dock: someone who has used any of those tools can operate it cold.\n\nThe interface stays quiet so the footage is the only saturated thing on screen. Surfaces step through six near-neutral blue-greys; text is cool grey; a single indigo accent marks the primary action, selection, focus and progress and nothing else. What the system owns is provenance without friction: the receipt, the open-weights audit and the identity score sit one click from every take, and Replay never dresses up as a render.\n\nThe recorded visual rejections are ornament, gimmick and irony: no gradients, glass, glow or kickers, and no quirk smuggled in to be memorable. The memorable moment is functional: choosing a camera move draws its path with numbered anchors while the plan line recounts the real renders.",
+    "northStar": "The Cinema Lobby",
+    "overview": "OpenField Studio is a cinema lobby at night with the screening room behind its doors. The Lobby, the first of seven rooms, opens on a widescreen screen in a brass-trimmed case playing the trailer, a cut of recorded takes with their own sound. A chip on the picture names the take on screen and opens it, and a reel of marquee bulbs under the screen lights along each cut as it plays. Beside the screen a rendered letter board hangs real letters one by one and swaps its middle line between the counts the room can play: the camera moves, the effects and the recorded takes. Below it the wall hangs every app as a one-sheet in a lit poster case. Square key art rendered on our own GPU falls away into the dark of the sheet, the title sits in tall condensed capitals in the lower third, and a billing block names the models and how long it has been showing. Under the pointer or keyboard focus a poster comes alive into its recorded take with a Recorded take stamp and an orange ticket stub, and a few posters at a time wake on their own. Then come the galleries. Every camera move that held plays its take in a smaller case, the mouse scrubs the take so the hand drives the camera, and each move opens a page of its own. The effects run on a rail, Name the move plays in the room, the programme and the latest takes are lobby cards printed on card stock, the latest takes drift past like film through a gate, and the credits say where every picture came from.\n\nBehind the doors the stations (Cast, Direct, Shots, Re-shoot, Takes) are the screening room, and they stay the quiet virtual-production stage they were. The footage plays on an LED wall with hairline frame guides, a burned-in timecode and a tally lamp. The camera move is the set seen from above and to one side, with the camera travelling its path in step with the take and numbered tape marks lighting as the shot reaches each approved still. The settings read as a camera report. The lobby enters the stations only as atoms: the primary action is a roll ticket with notched ends, the Take panel's receipt is a ticket stub on card stock, render progress is a row of marquee bulbs, the rail's signs are rendered props, and an empty room shows its rendered set before its words. The ground is lacquer black, warm, never blue. The interface owns four colours: lacquer black and its charcoal steps, marquee white on the letter board, ticket orange for the one action under the eye, and brass for trim and passes. Every other hue comes from the pictures, and every picture was rendered with open weights and ships with its receipt. Nothing hangs or plays without a real take behind it, and the build has no CSS glow or glass, no system display faces, no glyph icons and no kickers.\n\nDensity depends on the room. The Lobby is a room you are persuaded in: generous gutters (`lobby-gutter`), 32 to 52px between sections, posters five to a row on a wall with 32 to 44px between rows, gallery frames four to a row. The stations are working-monitor density: 32px controls, 12px gutters on the stage, 16px in the dock, an 8-point rhythm with a 4-point half step. The Lobby moves more than the stations, and every motion in it is physical. On the first visit of a session the screen's black masking parts from the middle. The marquee's letters hang one by one and later drop and rehang to change a count, the dust in the projector beam drifts, the posters and the gallery frames rise in a wave the first time they come into view, a live poster's leak passes once and its ticket rises, a few posters at a time wake on their own, the mouse scrubs a take across its frame and the latest takes drift past. In the stations nothing moves on load except a 180 ms fade, a take crossfades into the next, the bulbs light as a render progresses and the stage's camera moves only because the footage does. Reduced motion and Save-Data hold every state still.",
     "keyCharacteristics": [
-      "Dark neutral ground, tonal layering instead of shadows; one floating-layer shadow.",
-      "One accent (indigo), spent on action, selection, focus and progress only.",
-      "One family (Inter), one control vocabulary (segmented, slider, select, switch), one icon stroke (Lucide, 1.5px).",
-      "4/8-point spacing, 6px control radius, 10px container radius, 1px hairlines.",
-      "Motion shows state only, 120 to 400 ms, none on load, reduced motion honoured.",
-      "Honest provenance: Replay is amber and says \"a recording played back\"."
+      "Lacquer-black warm charcoal ground; the interface's colours are black, marquee white on the board (card stock its printed twin), ticket orange for the one action, brass for trim and passes; every other hue is a picture",
+      "The Lobby: a cased screen playing the trailer over a reel of bulbs, a marquee of hung letters carrying true counts, one-sheets in brass-trimmed cases that come alive into their recorded takes, galleries of camera moves and effects whose frames the mouse scrubs, lobby cards on card stock",
+      "The screening room: the LED wall and the stage view with the travelling camera are the interface; the dock reads as a camera report",
+      "Barlow Condensed for what a cinema prints or hangs (marquee letters, poster, card and gallery titles, billing, the stamp, stub heads); Barlow for words; Overpass Mono tabular for every figure",
+      "Lobby atoms in the stations: roll-ticket primary buttons, the receipt as a ticket stub, a bulb row for progress, rendered props on the rail, rendered sets in empty rooms",
+      "Every raster rendered with open weights on our own GPU and listed with its provenance in `art/manifest.json`; text, icons and labels stay HTML and CSS",
+      "Passes are brass and say so in words; drift is amber; failure is red",
+      "Equipment edges in the stations (2 to 4px corners, tape chips, hairlines); print in the lobby is square and cut, never rounded",
+      "AA contrast, keyboard operable (a \"?\" sheet lists every key), reduced motion respected"
     ],
     "rules": [
       {
-        "name": "The Footage-Only Saturation Rule",
-        "body": "Nothing in the chrome is saturated except the footage and the single accent. State hues appear as small pills, dots and arcs, never as panels.",
+        "name": "The Four Colours Rule",
+        "body": "The interface owns four colours: lacquer black (the charcoal ramp from `screen` to `pressed`), marquee white on the rendered letter board (with card stock as its printed twin), ticket orange for the one action, and brass for trim and passes. Amber and red are state. Anything else on the screen is a picture.",
         "section": "colors"
       },
       {
-        "name": "The One Accent Rule",
-        "body": "Indigo means act, selected, focused or in progress. A decorative use is a defect.",
+        "name": "The Colour Comes From The Pictures Rule",
+        "body": "No surface, panel, chip, icon or line of type carries a hue beyond the four colours and the two state colours. Key art, loops, footage, stills, cast photos and the rail's props carry the colour, with at most a light grade (key art at brightness 0.92 and saturation 0.95 at rest, brightened on a live poster; rail props at saturation 0.7 until hovered) and never a tint. Where type or a line must read over a picture it gets a printed shadow inside the picture, a dark halo, a scrim or an opaque dark card.",
         "section": "colors"
       },
       {
-        "name": "The Replay Is Amber Rule",
-        "body": "A replayed run always carries the amber Replay pill and the words \"a recording played back\"; a real recorded render carries the accent \"Recorded take\" pill. They are never the same colour.",
+        "name": "The One Action Colour Rule",
+        "body": "Ticket orange appears only on the object being acted on or watched: the primary action, the ticket rising on the live poster, the lit bulbs, the reel's playhead, the scrub line under the hand, the chosen path's travelled part with its camera and marks, the active room, focus and selection, the running tally. A toggle that is on is pressed in grey (`pressed`, `control-line` edge). A chosen gallery filter is pressed grey with the orange line of a chosen tab along its foot. An informational chip is neutral with a dot. If two things on a screen are orange and neither is under the eye, one is wrong.",
         "section": "colors"
       },
       {
-        "name": "The Twelve Floor Rule",
-        "body": "No text under 12px (--fs-xs). Smaller is a defect.",
+        "name": "The Passes Are Brass And Speak Rule",
+        "body": "A pass is brass and always carries its word (Open weights only, Checksum matches, Same person, Correct). Drift is amber and failure is red, and neither is ever shown by colour alone. Every tally, chip and step mark pairs its colour with a word or a dot shape, the identity reading prints its number and marks the pass line with a tick, and a reached tape mark changes fill and ink as well as hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Primary Goes Grey Rule",
+        "body": "A primary action that is not the action of the moment becomes a raised grey case with a strong hairline: `text-3` marks when it is disabled, `text-2` marks (`.is-quiet`, still a working button) while the take it owns is rendering or waiting for approval. It keeps its notched ticket shape; it is never a dimmed, muddy orange.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flags Gate Rule",
+        "body": "The catalog's flags decide what the Lobby shows. A poster hangs only when its feature's real render held, or when it is a room of its own with no flag. A camera move or an effect plays in a gallery only when its flag is set and its take has a loop, and the marquee counts only those. The interface prints no tested labels: nothing untested hangs, plays or is counted, and a new option stays off the wall until a real render of it is checked.",
+        "section": "colors"
+      },
+      {
+        "name": "The Condensed Is Print Rule",
+        "body": "Barlow Condensed sets only what a cinema would print or hang: marquee letters, the Lobby's headline and signs, poster, card and gallery titles, billing, the stamp and stub heads, the credits. It never sets a control, a field, a dock head or a sentence of interface copy; those stay Barlow, and the roll-ticket primary's label is Barlow too.",
         "section": "typography"
       },
       {
-        "name": "The Numerals Stay Still Rule",
-        "body": "Numbers that change (timecodes, scores, counts, slider values) use tabular numerals.",
+        "name": "The One Billing Order Rule",
+        "body": "Every ticket and stub prints its facts in one order and never guesses: seed, steps, length, recipe, audit (`lib/billing.js`). The receipt and a move page add GPU time and its cost at $0.71 an hour after them, once the receipt has recorded the time. A field the take did not record is left out, and steps appear only for takes whose stills were rendered. A poster's billing prints its models, then \"showing since\" the date of its proof take.",
         "section": "typography"
       },
       {
-        "name": "The Sentence Case Rule",
-        "body": "Labels are sentence case at rest. No uppercase, no tracked small caps, no kickers above headings.",
+        "name": "The Every Figure In Mono Rule",
+        "body": "Timecode, coordinates, seeds, hashes, counts, sizes, durations and identity scores are set in Overpass Mono with tabular numerals, including the tape-mark numbers inside the stage view, the plan line, a section head's meta, a card's number, the ticket's, the stub's and a move page's values, the trailer chip, a gallery filter's count and the Lobby's proof line. Marquee letters are the one exception: a count hung on the board is matter, set in the board's condensed letters. A number in Barlow is a defect.",
         "section": "typography"
       },
       {
-        "name": "The Flat-Until-Floating Rule",
-        "body": "A surface that sits in the layout has no shadow. A surface that overlaps other content has the Float shadow and a line-strong border. No hard offset shadows, no glow.",
+        "name": "The Camera-Report Label Rule",
+        "body": "A field label is 0.75rem, 500, uppercase, tracked 0.08em, in `text-3`; the value beside it is mono in `text`. Labels never get larger, heavier or coloured to make a hierarchy; position and the value do that. The heads above the labels are not labels: they are Barlow 600 at 0.9375rem in `text`, sentence case, with their values as mono meta, so the dock has exactly two levels, a sentence-case head and its tracked labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Is Not A Readout Rule",
+        "body": "A note inside a readout (the plan line's warning, the locked note, the re-roll control under a still) drops back to Barlow 0.8125rem, untracked, sentence case; a long one is shortened and carries its full sentence as a title.",
+        "section": "typography"
+      },
+      {
+        "name": "The Abbreviation Speaks Its Full Name Rule",
+        "body": "A rocker may print a stop as an abbreviation when its stops will not fit as words (the Around dial's F FR R BR B BL L FL in 308px; Up for elevated, Mid for medium), but every abbreviated stop carries its full name as the button's `aria-label` and `title` (\"Front-right quarter\", \"Close-up\"), and the full names are printed again, untracked, in the readout beneath the dials and in the plan line, so nobody has to decode the tape.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Not Box Rule",
+        "body": "In the stations, regions are separated by a 1px `line` rule, not enclosed. The shot card is a hairline under the subject field; the filmstrip sits under a hairline; the take list and candidate set have a top and bottom rule and no fill; the dock sections and the stills strip are rules. A filled panel is reserved for things that genuinely float (menus, notices, the sheets, the reel bar) or that are objects (cast cards, move cards, raised buttons, the stage-view figure, the stage inset, and the receipt stub, which is a printed ticket).",
+        "section": "layout"
+      },
+      {
+        "name": "The Lobby Gives Back The Column Rule",
+        "body": "The Lobby has no dock, no Take tab and no stage padding; it is the one room that scrolls as a page. Every other room keeps the stage grid and the dock.",
+        "section": "layout"
+      },
+      {
+        "name": "The Screen Leads Rule",
+        "body": "The Lobby opens on footage. The screen takes the wider column of the front and comes first when the front stacks, and every gallery frame plays a recorded take, so the first thing anyone sees moving is a take the studio made.",
+        "section": "layout"
+      },
+      {
+        "name": "The Wall Owns The Centre Rule",
+        "body": "The LED wall takes at least 60% of the centre width at 1440 and all the height the shot card, monitor head, transport and filmstrip leave it. Nothing else in the stage column grows; the shot card is one row, the monitor head is one line and the filmstrip is one row of frames so the wall gets the height. In cinema it gets the window.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hung And Floating Cast Shadows Rule",
+        "body": "A shadow means the thing hangs on the lobby's wall or floats above the stage. Hung things are a case (poster, screen, gallery frame, the quiz's screen), a lobby or programme card and an empty room's picture, and they take the case shadow. Floating things are a menu, notice, sheet, reel bar or floating dock, and they take the float shadow. Controls, station tiles, the wall and the dock never carry one. There are no hard offset shadows and no glow. Halos and rims under marks over footage are the dark colour.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Rendered Light Rule",
+        "body": "Light in the Lobby comes from renders (`ov-beams`, `ov-dust`, `ov-leak`, blended with `screen` at 0.42 to 0.85) or from the art itself; never a CSS glow, bloom, glass or backdrop blur. The only drawn gradients are a picture's printed shadow under its type, the fader's hard-stop fill, the pending Shots tile's shimmer, and masks that cut shape (the ticket notches, key art falling away into the sheet, the beam's fade, the bulbs, the round fall-off of a rail prop, the edge fade of the drifting latest takes).",
+        "section": "elevation"
+      },
+      {
+        "name": "The Scrim Not Blur Rule",
+        "body": "Anything printed on footage sits on a 78% dark scrim (92% for the running status block, a move card's glyph chip, the trailer chip and the sound switch) or under a printed foot; the sheets sit on the same scrim over the app; there is no backdrop blur or glass anywhere.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do keep the footage as the only saturated thing: chrome is the six-step neutral ladder plus one indigo.",
-      "Do use the accent for the primary action, selection, focus and progress only, and the lighter accent-text for text on dark.",
-      "Do show Replay as an amber pill with \"a recording played back\"; use \"Recorded take\" in the accent for real recorded renders; say \"Nothing was rendered just now\" where it applies.",
-      "Do keep text at 12px or larger and interactive targets at 24px or larger (controls are 26 to 40px).",
-      "Do give every control a visible 2px accent focus ring and keep control edges at 3:1 (control-line).",
-      "Do animate only to show state, 120 to 400 ms with the cubic-bezier(0.16, 1, 0.3, 1) ease: 120 ms for hover and color, 180 ms for toggles, panels and path draws, 400 ms for progress. Nothing animates on load. Honour prefers-reduced-motion.",
-      "Do spend cheap before expensive: stills for approval before video, and let the plan line count real renders.",
-      "Do keep content-safety and consent copy plain, complete and in the interface, in Text colour.",
-      "Do say what is missing and how to fix it in notices and empty states; never fake a render, a price or a count.",
-      "Do size the Monitor to the footage's aspect ratio, and use tabular numerals for anything that changes."
+      "**Do** hang every app as a one-sheet (square key art, title in condensed capitals, tagline, billing) whose proof is a recorded take, and let it come alive into that take with its ticket on hover and on focus.",
+      "**Do** open the Lobby on the screen: the trailer of recorded takes in a cased 1280:704 frame, a chip naming the take on screen, the reel of bulbs lit to the playhead, the masking parting once a session.",
+      "**Do** let every gallery frame play its proof take and let the mouse scrub it, with a 3px `accent` line along the foot, and give every camera move a page of its own with the stage view drawn in step with the take.",
+      "**Do** keep the palette to the four colours: lacquer black, marquee white on the board (card stock as its print), ticket orange for the one action, brass for trim and passes; let the pictures carry every other hue.",
+      "**Do** print passes in brass with their word (Open weights only, Checksum matches, Same person); drift in amber, failure in red.",
+      "**Do** ship every raster and loop with its provenance in `art/manifest.json` (file, size, sha256, and the render's kind, prompt, seed, template, workflow sha256, models, audit and source sha256) and a prompt sidecar beside each still; keep text, icons and labels in HTML and CSS over the pictures.",
+      "**Do** print billing in one order everywhere (seed, steps, length, recipe, audit) and leave out what the take did not record.",
+      "**Do** carry only counts read from the data on the marquee and the proof line.",
+      "**Do** cut tickets, never round them: notched ends on the primary (5px, 6px large), the rising ticket (5px) and the receipt stub (7px), square corners on all lobby print.",
+      "**Do** keep ticket orange for the object under the eye only: the primary action, the ticket on a live poster, the lit bulbs, the travelled path with its camera and reached marks, the active room, focus, selection, the running tally.",
+      "**Do** set every figure (timecode, coordinates, seeds, hashes, counts, durations, scores, the tape-mark numbers, a section head's meta) in Overpass Mono with tabular numerals.",
+      "**Do** draw the stage as one orthographic view (azimuth 58°, elevation 24°, floor -0.5) in a 100 by 62 box, non-scaling 1px strokes for grid, marks and camera, the path in `text-3` with the travelled part lit in `accent`, and let only the footage's time move it.",
+      "**Do** play a move tile's loop under its glyph at rest only when the move's flag is set (0.5, 0.92 on hover, focus or when checked), keep the drawing alone otherwise with the poster frame as a response (0.75 on hover or focus, 0.85 when checked), and print the line in `on-media` with a dark halo and the name on a scrim chip whenever footage shows.",
+      "**Do** separate regions with 1px `line` hairlines; enclose only things that float or are objects.",
+      "**Do** give the dock two levels only: a sentence-case Barlow 600 head with mono meta, then tracked 0.75rem labels in `text-3` over mono values in `text`.",
+      "**Do** lay the Take panel out as a receipt: the ticket stub first (RECEIPT, the take id, the billing, then the three verdict rows), the stills strip, one lead action (a large secondary when it is not the action of the moment), then the detail sections.",
+      "**Do** re-rank take rows in place and keep a changed state lit (`accent-soft`, the tally, a tone chip) until it is noticed.",
+      "**Do** keep corners at 2 to 4px, status chips as tape strips (3px), and the only circles as dots, radios and the big play; the brand mark has no box.",
+      "**Do** step station surfaces by tone (`raised` to `hover` to `pressed`) for interaction, show a toggle that is on as `pressed` with a `control-line` edge, lift objects 1px under the pointer, reserve `--shadow-float` for menus, notices, sheets, the reel bar and the floating dock, and `--case-shadow` for things hung in the Lobby and an empty room's picture.",
+      "**Do** print anything on footage on a `scrim` chip in `on-media` mono; a name on a photo sits on a scrim strip; the stage over footage sits on an opaque `screen` card with an `on-media-line` edge.",
+      "**Do** label any synthetic or replayed frame on the wall with its tally state (amber) in words; ship no synthetic frames.",
+      "**Do** keep every station entrance a CSS `@starting-style` transition (120 ms opacity, 180 ms settle), crossfade takes over 180 ms, show progress as a bulb row, honour reduced motion and Save-Data, and keep a 2px orange focus outline on every control (darkened orange on card stock).",
+      "**Do** record a camera position as three camera-report fields (Around, Height, Distance) whose dials are the ordinary rocker, print the full position in words beneath them, and let the stage figure drag as a second way to set the same dials (grab cursor, 36px per stop, `pan-y` on touch).",
+      "**Do** name an approval card by its role only with the evidence beside it (\"Angled still\" with the position, \"End state\" with the transformation), and fall back to \"Hero still\" / \"Anchor N\" otherwise.",
+      "**Do** let the catalog's flags decide what hangs, plays and is counted in the Lobby, and print no tested labels."
     ],
     "donts": [
-      "Don't add gradients, glass, blur, glow, or decorative colour to the chrome.",
-      "Don't add kickers, eyebrows, uppercase tracked labels or glyph-as-icon decoration; icons are Lucide SVGs at one stroke weight.",
-      "Don't use a second accent, or colour a panel with a state hue; state is a pill, dot or arc.",
-      "Don't put a shadow on anything that does not overlap other content, and never a hard offset shadow.",
-      "Don't introduce a display face or a second sans family; mono is for seeds, hashes and timecodes only.",
-      "Don't let Replay read as a render: no spinner, no \"Rendering\", no accent colour on a replayed run.",
-      "Don't use native controls where the vocabulary exists; pick-one is segmented, a value is a slider with a number box, an option is a switch.",
-      "Don't put pure white anywhere but on text over an accent or danger fill and on the comparator divider."
+      "**Don't** hang a poster or a gallery frame without a real recorded take behind it, or hang, play or count anything whose flag is not set.",
+      "**Don't** print a tested label, a status band or a Coming soon wall in the Lobby. The flags gate what hangs and plays, and the room says nothing more about testing.",
+      "**Don't** put words, numbers or logos inside a render, or ship a raster without its manifest entry; text, counts, icons and labels are HTML and CSS.",
+      "**Don't** set controls, fields, dock heads or interface sentences in Barlow Condensed; it is print only.",
+      "**Don't** use green anywhere; a pass is brass.",
+      "**Don't** use blue-black or cool greys; every dark surface is warm charcoal from the `screen` to `pressed` ramp, and card stock is the only light one.",
+      "**Don't** add CSS glows, blooms, glass or backdrop blur; light in the Lobby is a screen-blended render, and the only drawn gradients are a picture's printed shadow under its type, the fader's hard-stop fill, the pending shimmer and shape masks.",
+      "**Don't** put a second accent or a hue on a resting surface, chip, icon or panel; brass is trim and passes, amber and red are state, and an informational chip (Recorded take, Keyframed, Generated) is neutral with a dot.",
+      "**Don't** make a pressed toggle orange; loop, 9:16 and Play all read as pressed in, grey.",
+      "**Don't** put a key hint on the primary button; the shortcut lives in its title and in the \"?\" sheet.",
+      "**Don't** set numbers in Barlow or use proportional figures anywhere.",
+      "**Don't** use pills (999px), corners above 4px, hard offset shadows, or shadows on station cards, tiles and controls; only things hung in the Lobby (and an empty room's picture) carry the case shadow.",
+      "**Don't** box the shot card, the stills strip, the take list, the candidate set or the dock sections; they are bounded by hairlines. The receipt is the one printed object in the dock, a ticket stub.",
+      "**Don't** print a take's name under its filmstrip tile; the frame is the tile and the name is its tooltip.",
+      "**Don't** dim a disabled or waiting primary to muddy orange; it goes grey (`raised`, `line-strong`, `text-3` disabled / `text-2` quiet).",
+      "**Don't** show footage under a move tile's track at rest when the move's flag is not set, and don't scale the stage view's marks or strokes with its size. They are fixed on screen (1.35x in the dense inset only).",
+      "**Don't** draw flat top or side plan views, a gauge or a ring for the identity score; the stage is one three-quarter view and the score is a figure over a hairline scale with the pass line as a tick.",
+      "**Don't** set section heads as tracked capitals; the only tracked capitals are field labels, tabs, chips and the primary button.",
+      "**Don't** use system display faces, glyph or emoji icons, kickers or eyebrows above headings, or decorative labels.",
+      "**Don't** let the dock or filmstrip take height from the wall at 1440; in the stations the wall is the largest thing on screen.",
+      "**Don't** print an abbreviated stop without its full name as the button's `aria-label` and `title`, and don't abbreviate where the words fit; don't colour a set dial, a dial that is set is pressed grey like every other rocker.",
+      "**Don't** show a sheet hint or Play all over an empty sheet; the empty state carries its own sentence."
     ]
   }
 }

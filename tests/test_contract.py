@@ -1,3 +1,4 @@
+import copy
 from pathlib import Path
 
 import pytest
@@ -25,6 +26,20 @@ def test_contract_reports_missing_and_mistyped_slots():
     assert any("slot 'duration' is 'text'" in i for i in issues)
     assert "missing output 'video'" in issues
     assert check_contract("nonsense", template) == ["no contract is defined for template 'nonsense'"]
+
+
+def test_ltx25_flf2v_contract_treats_mids_as_optional():
+    template = load_template("ltx25_flf2v", WORKFLOWS)
+    assert check_contract("ltx25_flf2v", template) == []
+
+    missing_optional = copy.deepcopy(template)
+    del missing_optional.slots["mids"]
+    assert check_contract("ltx25_flf2v", missing_optional) == []
+
+    missing_required = copy.deepcopy(template)
+    del missing_required.slots["seed"]
+    issues = check_contract("ltx25_flf2v", missing_required)
+    assert "missing slot 'seed' (seed)" in issues
 
 
 def test_optional_reference_list_strips_placeholder_inputs_when_absent(tmp_path):

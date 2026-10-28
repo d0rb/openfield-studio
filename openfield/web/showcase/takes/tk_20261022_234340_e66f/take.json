@@ -1,0 +1,344 @@
+{
+  "id": "tk_20261022_234340_e66f",
+  "kind": "shots",
+  "label": "shots: Noor in a white spacesuit with the helmet off st",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T23:43:40Z",
+  "updated_at": "2026-10-22T23:47:12Z",
+  "recipe": {
+    "kind": "shots",
+    "source_sha256": "e04d5a90a0976463e99ab09944636b8baf7db8dd7462615d6be6ca62b6a6561c",
+    "board": [
+      "front/eye/wide",
+      "front_left/eye/medium",
+      "front_right/eye/medium",
+      "front/eye/close",
+      "left/eye/medium",
+      "right/eye/medium",
+      "front/low/medium",
+      "front/high/medium",
+      "back/eye/medium"
+    ],
+    "seed": 510,
+    "cast_refs": [
+      "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+    ],
+    "take": "tk_20261022_230114_75f2",
+    "cast_name": "Noor"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "Nine Qwen-Image 2.1 edits of one still, one per camera position; each was checked against the cast. The take plays the nine stills in order, 0.6 s each: no video model ran."
+  ],
+  "replay": false,
+  "recipe_hash": "77a395e26ae1a8ff2beb54d56a86c6bf9bc89e4a217c291c38618fee102f5df9",
+  "shots": [
+    {
+      "index": 1,
+      "angle": "front/eye/wide",
+      "label": "Wide",
+      "file": "runs/01_shot_1/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.6022277006382651
+      }
+    },
+    {
+      "index": 2,
+      "angle": "front_left/eye/medium",
+      "label": "Three-quarter left",
+      "file": "runs/02_shot_2/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.8594418991490438
+      }
+    },
+    {
+      "index": 3,
+      "angle": "front_right/eye/medium",
+      "label": "Three-quarter right",
+      "file": "runs/03_shot_3/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.8330758604743113
+      }
+    },
+    {
+      "index": 4,
+      "angle": "front/eye/close",
+      "label": "Close-up",
+      "file": "runs/04_shot_4/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.850466822779894
+      }
+    },
+    {
+      "index": 5,
+      "angle": "left/eye/medium",
+      "label": "Profile left",
+      "file": "runs/05_shot_5/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.5734660649896904
+      }
+    },
+    {
+      "index": 6,
+      "angle": "right/eye/medium",
+      "label": "Profile right",
+      "file": "runs/06_shot_6/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.681269454979484
+      }
+    },
+    {
+      "index": 7,
+      "angle": "front/low/medium",
+      "label": "Low angle",
+      "file": "runs/07_shot_7/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.8761506114383646
+      }
+    },
+    {
+      "index": 8,
+      "angle": "front/high/medium",
+      "label": "High angle",
+      "file": "runs/08_shot_8/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.8641730901739436
+      }
+    },
+    {
+      "index": 9,
+      "angle": "back/eye/medium",
+      "label": "From behind",
+      "file": "runs/09_shot_9/image.png",
+      "identity": {
+        "status": "n/a",
+        "score": null
+      }
+    }
+  ],
+  "board": "board.jpg",
+  "identity": {
+    "shot_1": {
+      "status": "pass",
+      "score": 0.6022277006382651,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6022277006382651
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        652,
+        259,
+        42,
+        54
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.602 >= threshold 0.363 (best reference 0)",
+      "face_px": 42,
+      "enlarged": 3.81
+    },
+    "shot_2": {
+      "status": "pass",
+      "score": 0.8594418991490438,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8594418991490438
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        598,
+        151,
+        171,
+        225
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.859 >= threshold 0.363 (best reference 0)",
+      "face_px": 171,
+      "enlarged": null
+    },
+    "shot_3": {
+      "status": "pass",
+      "score": 0.8330758604743113,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8330758604743113
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        583,
+        144,
+        172,
+        222
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.833 >= threshold 0.363 (best reference 0)",
+      "face_px": 172,
+      "enlarged": null
+    },
+    "shot_4": {
+      "status": "pass",
+      "score": 0.850466822779894,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.850466822779894
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        562,
+        109,
+        214,
+        288
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.850 >= threshold 0.363 (best reference 0)",
+      "face_px": 214,
+      "enlarged": null
+    },
+    "shot_5": {
+      "status": "pass",
+      "score": 0.5734660649896904,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.5734660649896904
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        677,
+        169,
+        131,
+        202
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.573 >= threshold 0.363 (best reference 0)",
+      "face_px": 131,
+      "enlarged": null
+    },
+    "shot_6": {
+      "status": "pass",
+      "score": 0.681269454979484,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.681269454979484
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        630,
+        184,
+        131,
+        193
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.681 >= threshold 0.363 (best reference 0)",
+      "face_px": 131,
+      "enlarged": null
+    },
+    "shot_7": {
+      "status": "pass",
+      "score": 0.8761506114383646,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8761506114383646
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        600,
+        121,
+        139,
+        183
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.876 >= threshold 0.363 (best reference 0)",
+      "face_px": 139,
+      "enlarged": null
+    },
+    "shot_8": {
+      "status": "pass",
+      "score": 0.8641730901739436,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8641730901739436
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        600,
+        145,
+        121,
+        174
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.864 >= threshold 0.363 (best reference 0)",
+      "face_px": 121,
+      "enlarged": null
+    },
+    "shot_9": {
+      "status": "n/a",
+      "score": null,
+      "threshold": 0.363,
+      "best_ref": null,
+      "per_ref": [
+        null
+      ],
+      "faces_in_candidate": 0,
+      "candidate_box": null,
+      "refs_used": 0,
+      "reason": "no face detected in the candidate",
+      "face_px": null,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.4,
+  "size": [
+    1344,
+    768
+  ],
+  "showcase_name": "v1-shots-noor-mars",
+  "showcase_sha": "9ec26e9d2bc05982"
+}

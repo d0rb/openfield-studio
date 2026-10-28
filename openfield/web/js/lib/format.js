@@ -29,6 +29,9 @@ export function shortId(id) {
   return m ? `${m[3]}` : String(id ?? "").slice(-4);
 }
 
+/** Words as the server keeps them: trimmed, each run of whitespace one space. */
+export const squash = (text) => String(text ?? "").split(/\s+/).filter(Boolean).join(" ");
+
 /** Order-insensitive deep equality for plain JSON values (used to tell if a recipe was edited). */
 export function sameRecipe(a, b) {
   if (Object.is(a, b)) return true;

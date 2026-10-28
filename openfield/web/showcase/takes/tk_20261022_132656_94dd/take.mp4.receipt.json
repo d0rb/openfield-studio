@@ -1,0 +1,244 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_132656_94dd",
+    "kind": "direct",
+    "created_at": "2026-10-22T13:29:13Z",
+    "label": "dolly in: Mara stands at the end of a harbour pier at gold"
+  },
+  "inputs": {
+    "subject": "Mara stands at the end of a harbour pier at golden hour holding a lantern, looking out to sea, her yellow jacket catching the light",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "contre_jour",
+      "movement": "dolly_in",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "none",
+      "grade": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "dolly_in",
+    "mode": "keyframed",
+    "final_prompt": "Mara stands at the end of a harbour pier at golden hour holding a lantern, looking out to sea, her yellow jacket catching the light. Shot on 35mm film with fine organic grain with a warm vintage prime lens with soft contrast, 35mm (natural), at f/4 with moderate depth of field; strong backlight (contre-jour) with a glowing rim. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving slowly. Constraint: physical camera travel, fixed focal length, no zoom, constant lens height. Sound: water against the pier, gulls, a soft wind.",
+    "seed": 71,
+    "orientation": "landscape",
+    "audio": "water against the pier, gulls, a soft wind",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_anchor_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Mara",
+      "refs": [
+        "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+      ]
+    },
+    "recipe_hash": "c83ede8b263bb462b60167e8536d18c5fb890132a68ca7c0330f53c5c22b55a2"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "4661fe4d9b6eafe96d338a46a4f58c4bd33670552fd2ea2bc1b5347a74580673",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "dffb3fe5885c4a58a65dc49e5fd5313975788ce9e6d6e62524d83471fb9b510b",
+        "job_id": "5725c751-4e95-495d-bca0-fd6d2fe450ba"
+      },
+      {
+        "stage": "anchor_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "b073aba604785500987a9a81823a1f845ed544349b9df848bb9adb37b5d43912",
+        "job_id": "f31bf136-a9ec-4e73-b037-f9418ff75b50"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "16abe82c11c0b2bb5b84610d06572204ba6237b14484bca4060e0fe2995299a7",
+        "job_id": "1bfffbc4-fa6b-40b0-90bb-ebbd5522f59c"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8034784357658703,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8034784357658703,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8034784357658703
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          566,
+          100,
+          143,
+          191
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.803 >= threshold 0.363 (best reference 0)",
+        "face_px": 143,
+        "enlarged": null
+      },
+      "anchor_1": {
+        "status": "pass",
+        "score": 0.6689620912405094,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.6689620912405094
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          501,
+          99,
+          137,
+          176
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.669 >= threshold 0.363 (best reference 0)",
+        "face_px": 137,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.6896291526494115,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.6896291526494115
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          540,
+          85,
+          136,
+          179
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.690 >= threshold 0.363 (best reference 0)",
+        "face_px": 136,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "5725c751-4e95-495d-bca0-fd6d2fe450ba,f31bf136-a9ec-4e73-b037-f9418ff75b50,1bfffbc4-fa6b-40b0-90bb-ebbd5522f59c",
+    "timings": {
+      "total_s": 137.1
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "e77f667204953c618707cdf20219b33b9ba53102f64efbf0ac0b97e2ed63cb04",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "4292fe6cac88ed22fa164c3246fa6006b16e09cc965e4c6498d07e72949c27af"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261025_134738_e8d6",
+    "kind": "direct",
+    "created_at": "2026-10-25T13:49:31Z",
+    "label": "crane down: Noor in a white spacesuit with the helmet off st"
+  },
+  "inputs": {
+    "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "crane_down",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "crane_down",
+    "mode": "keyframed",
+    "final_prompt": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest. The camera cranes downward from a high vantage toward the subject, settling at eye level, moving at a steady pace. The camera descends smoothly and ends at eye level with the subject. We hear wind over sand, a faint rumble.",
+    "seed": 620,
+    "orientation": "landscape",
+    "audio": "wind over sand, a faint rumble",
+    "quality": "draft",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_anchor_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Noor",
+      "refs": [
+        "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+      ]
+    },
+    "recipe_hash": "da1c8eadbb9df0bf06793ab9bfcc11636ead933607bfe1a80eb7de357d4413cb"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "481489709fc27d8ddc7724700c793dd515480babc2b95a3d232098792981892e",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "3183446026e6733d7945762b38389a27bef4128908d8c32fc6fc6846275f4013",
+        "job_id": "bf19e5e9-fcdc-4315-ae77-331975dedc9c"
+      },
+      {
+        "stage": "anchor_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "d20710fe94174684c44c485befcf91d49aa4fc30bf5de37e66834f087ac91e41",
+        "job_id": "9594153a-b6cf-4003-b738-680b76838d1d"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "722f6bd86c6df0b89f73d1b217342e31b88417ed522550a5ba25bc99c9f84790",
+        "job_id": "f245f5e5-d1e2-4c7f-84d6-6b27a2bde784"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "drift",
+    "score": 0.49946707247504135,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.42410028886271856,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.42410028886271856
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          460,
+          100,
+          39,
+          51
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.424 >= threshold 0.363 (best reference 0)",
+        "face_px": 39,
+        "enlarged": 4.0
+      },
+      "anchor_1": {
+        "status": "pass",
+        "score": 0.49946707247504135,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.49946707247504135
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          456,
+          112,
+          38,
+          49
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.499 >= threshold 0.363 (best reference 0)",
+        "face_px": 38,
+        "enlarged": 4.0
+      },
+      "shoot_1": {
+        "status": "drift",
+        "score": 0.3494116784123401,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.3494116784123401
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          460,
+          100,
+          39,
+          51
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.349 < threshold 0.363 (best reference 0)",
+        "face_px": 39,
+        "enlarged": 4.0,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "bf19e5e9-fcdc-4315-ae77-331975dedc9c,9594153a-b6cf-4003-b738-680b76838d1d,f245f5e5-d1e2-4c7f-84d6-6b27a2bde784",
+    "timings": {
+      "total_s": 113.4
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "385fa7ad6c6f83004b8bc9afd20bc30b37848aebad3c603594c933b41c5ea1ae",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "ca88c1a38aa637f5f88b3184fa5f3c95b32aa2df18741383db027fddea69cc25"
+  }
+}

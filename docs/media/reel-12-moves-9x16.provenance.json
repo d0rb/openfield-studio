@@ -1,0 +1,209 @@
+{
+  "schema": "openfield.reel-provenance/1",
+  "generated_at": "2026-10-26T21:24:35Z",
+  "output": {
+    "file": "reel-12-moves-9x16.mp4",
+    "format": "9x16",
+    "sha256": "0032d26b43c841733a17dde60a2d814a6e4d20d2fe194dec83d9fca8096a5e2a",
+    "bytes": 11158525,
+    "duration_s": 27.0,
+    "width": 720,
+    "height": 1280
+  },
+  "seconds_per_clip": 2.5,
+  "crossfade_s": 0.3,
+  "takes": [
+    {
+      "index": 0,
+      "move": "static",
+      "sheet": "sheet-static",
+      "take": "tk_20261020_152914_6488",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "a9e92d606ff47deb0ce75a17f3747d29993996d51e046bcea5d28d43ba65ce43",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 1,
+      "move": "dolly_in",
+      "sheet": "sheet-dolly-in",
+      "take": "tk_20261026_202643_8fbb",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "76f4e8962fe0311619a75ec829f4b81d392c5d2162598f0afbcbd87927fb98b0",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 2,
+      "move": "dolly_out",
+      "sheet": "sheet-dolly-out",
+      "take": "tk_20261020_153314_4ad9",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "eab53a157261a1ffdbebc5d550bf9fc34e395618c33a4fcddf69362b6c54dae5",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 3,
+      "move": "optical_zoom_in",
+      "sheet": "sheet-optical-zoom-in",
+      "take": "tk_20261025_154212_0052",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "2bdebbd5fcefb90f8f1fbd8735290104a063d073702b739fd632db4ee8be147a",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 4,
+      "move": "orbit_90",
+      "sheet": "sheet-orbit-90",
+      "take": "tk_20261020_155942_4978",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "96814e0b43db25aab57115a63aa371c17923319573231e215bfcd9b02dfab60d",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 5,
+      "move": "orbit_180",
+      "sheet": "sheet-orbit-180",
+      "take": "tk_20261025_140001_1069",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "6cb3f023ea0729cc1ce6dfbaf8eb4f68e23117ca1b807e494a95b7c68c9b7fb7",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 6,
+      "move": "track_left",
+      "sheet": "sheet-track-left",
+      "take": "tk_20261025_133804_ef0e",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "90fc622f8bf697d1e1e9b15742cad409b3b25f0c99ea8b883a159b43fc8912b2",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 7,
+      "move": "track_right",
+      "sheet": "sheet-track-right",
+      "take": "tk_20261020_160826_64a9",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "ba438d7029f1c5433a878fb543f29aadd1677a44500e8eaa2b923c552a66a667",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 8,
+      "move": "crane_up",
+      "sheet": "sheet-crane-up",
+      "take": "tk_20261020_150711_c874",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "a5e16890ee9a864247082c2852e41315434658b079c6f5b133572512ef720dd9",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 9,
+      "move": "crane_down",
+      "sheet": "sheet-crane-down",
+      "take": "tk_20261025_134738_e8d6",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "ca88c1a38aa637f5f88b3184fa5f3c95b32aa2df18741383db027fddea69cc25",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 10,
+      "move": "crash_zoom_in",
+      "sheet": "sheet-crash-zoom-in",
+      "take": "tk_20261023_081319_fada",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "a8d63313fab4c7e3b82c00d1b54e5c59f9c2db47e25e625c028f0cbed2936e54",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    },
+    {
+      "index": 11,
+      "move": "bullet_time",
+      "sheet": "sheet-bullet-time",
+      "take": "tk_20261026_201948_1d50",
+      "receipt_alg": "sha256",
+      "receipt_sha256": "729f03bf962e5aa0fe454b4b81f439789ee11ab1da6386c157e5bd89f37c0668",
+      "source_seconds": 5.042,
+      "seconds": 2.5,
+      "focus_x": 0.5
+    }
+  ],
+  "operation": {
+    "ffmpeg": "ffmpeg version 7.1-full_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers",
+    "trim": {
+      "t": 2.5,
+      "video": "libx264 -preset medium -crf 18 -pix_fmt yuv420p",
+      "audio": "aac 192k 48000 Hz",
+      "argv": [
+        "-i",
+        "<take.mp4>",
+        "-t",
+        "2.500",
+        "-map",
+        "0:v:0",
+        "-map",
+        "0:a:0?",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "medium",
+        "-crf",
+        "18",
+        "-pix_fmt",
+        "yuv420p",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "192k",
+        "-ar",
+        "48000",
+        "-movflags",
+        "+faststart",
+        "<clip.mp4>"
+      ]
+    },
+    "vertical": {
+      "function": "openfield.engine.video.crop_9x16",
+      "height": 1280,
+      "focus_x": {
+        "static": 0.5,
+        "dolly_in": 0.5,
+        "dolly_out": 0.5,
+        "optical_zoom_in": 0.5,
+        "orbit_90": 0.5,
+        "orbit_180": 0.5,
+        "track_left": 0.5,
+        "track_right": 0.5,
+        "crane_up": 0.5,
+        "crane_down": 0.5,
+        "crash_zoom_in": 0.5,
+        "bullet_time": 0.5
+      }
+    },
+    "concat": {
+      "function": "openfield.engine.video.concat",
+      "crossfade_s": 0.3,
+      "lufs": -14.0,
+      "fps": 24,
+      "transition": "xfade=fade / acrossfade=qsin"
+    }
+  }
+}

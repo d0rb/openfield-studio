@@ -1,0 +1,182 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261025_142556_1936",
+    "kind": "direct",
+    "created_at": "2026-10-25T14:30:34Z",
+    "label": "static: A grand piano stands alone in an empty ballroom "
+  },
+  "inputs": {
+    "subject": "A grand piano stands alone in an empty ballroom with tall windows, morning light on the parquet",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "ruin",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "A grand piano stands alone in an empty ballroom with tall windows, morning light on the parquet. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves. Decades pass in a time-lapse over the same scene: paint peels, surfaces crack and stain, rust spreads, dust settles and plants creep into the cracks until it stands weathered and abandoned, the camera holding steady. We hear a long held piano note, wind through broken glass.",
+    "seed": 1601,
+    "orientation": "landscape",
+    "audio": "a long held piano note, wind through broken glass",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "transformation": "ruin",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_transform_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "recipe_hash": "b0cdecbd0803a905689ba9bd532eeb0ae80ab7131f540265ff4ecc8e50421ec0"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "af114faf9f83b0edf67800341edfc210a5d39917c3478323f21168bbf4d3a52f",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_t2i",
+        "workflow_sha256": "3d04e4d6a60852fb39b5cb4897836a593d2348bfca5468076bf28b35b5b2e069",
+        "job_id": "2bdcef2d-a447-458b-853c-49166aaf6aeb"
+      },
+      {
+        "stage": "transform_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "bb7b583b3dcb95d9fc57ac75cfe3f59d1641c01e40654dddcebfdc288b6c91c1",
+        "job_id": "b408c0dc-af00-4b4a-b0dc-49d095c36d6f"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "5cc84913a4ec0d12020f341d8a32f58c465f5ed6a034f372201876ca017bf2b6",
+        "job_id": "9e669ae8-f91a-481a-808d-d40b13e6a1cc"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {}
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "2bdcef2d-a447-458b-853c-49166aaf6aeb,b408c0dc-af00-4b4a-b0dc-49d095c36d6f,9e669ae8-f91a-481a-808d-d40b13e6a1cc",
+    "timings": {
+      "total_s": 277.9
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "0dbaf5eb45fcb5660e0d4e411839f5417bf1b090ca5c105864d67ede693a2146",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "a662774e8cf920b107a60e921c9afe87e510a0490b84e87de192e74268433e29"
+  }
+}

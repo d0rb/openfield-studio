@@ -1,0 +1,98 @@
+{
+  "id": "tk_20261023_090103_13a2",
+  "kind": "direct",
+  "label": "static: Ines looks into the mirror of a vintage theatre ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:01:03Z",
+  "updated_at": "2026-10-23T09:04:28Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines looks into the mirror of a vintage theatre dressing room ringed with bulbs",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "age"
+    },
+    "audio": null,
+    "seed": 577,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (age): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "4b2e0309646cb57a48c10e3754e9fffcce9854f6a138d853447d357bdc7522c0",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.9227352410789859,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.9227352410789859
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        705,
+        86,
+        198,
+        247
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.923 >= threshold 0.363 (best reference 0)",
+      "face_px": 198,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fx-age",
+  "showcase_sha": "8bff9b9840897741"
+}

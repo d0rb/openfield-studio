@@ -11,6 +11,7 @@ import json
 import re
 import secrets
 import shutil
+from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 
@@ -47,10 +48,11 @@ class CastError(ValueError):
 
 
 class CastStore:
-    def __init__(self, root: Path, gate: Any = None) -> None:
+    def __init__(self, root: Path, gate: Any = None, shelf: Iterable[Path] = ()) -> None:
         self.root = Path(root)
         self.root.mkdir(parents=True, exist_ok=True)
         self.gate = gate  # a FaceGate, or a callable returning the current one
+        self.shelf = [Path(p) for p in shelf]  # read-only folders of bundled members (the showcase's characters)
 
     def _gate(self) -> Any:
         return self.gate() if callable(self.gate) else self.gate
@@ -59,6 +61,16 @@ class CastStore:
         if not CAST_ID.match(cast_id):
             raise CastError(f"not a cast id: {cast_id!r}")
         return self.root / cast_id
+
+    def _home(self, cast_id: str) -> Path:
+        """The folder a cast member lives in: the user's own store first, then the bundled shelf."""
+        own = self._dir(cast_id)
+        if (own / "cast.json").is_file():
+            return own
+        for base in self.shelf:
+            if (base / cast_id / "cast.json").is_file():
+                return base / cast_id
+        return own
 
     def create(self, name: str, kind: str, consent: str, images: list[tuple[str, bytes]],
                origin: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -121,32 +133,41 @@ class CastStore:
         return entry
 
     def get(self, cast_id: str) -> dict[str, Any]:
+        home = self._home(cast_id)
         try:
-            return json.loads((self._dir(cast_id) / "cast.json").read_text(encoding="utf-8"))
+            cast = json.loads((home / "cast.json").read_text(encoding="utf-8"))
         except FileNotFoundError:
             raise CastError(f"no such cast: {cast_id}") from None
+        if home.parent != self.root:
+            cast["bundled"] = True  # comes with the showcase: listed and usable, never deleted from here
+        return cast
 
     def list(self) -> list[dict[str, Any]]:
-        casts = []
-        for entry in self.root.iterdir():
-            if entry.is_dir() and CAST_ID.match(entry.name):
-                try:
-                    casts.append(self.get(entry.name))
-                except (CastError, ValueError):
-                    continue
-        return sorted(casts, key=lambda c: c["created_at"], reverse=True)
+        casts: dict[str, dict[str, Any]] = {}
+        for base in (self.root, *self.shelf):
+            if not base.is_dir():
+                continue
+            for entry in base.iterdir():
+                if entry.is_dir() and CAST_ID.match(entry.name) and entry.name not in casts:
+                    try:
+                        casts[entry.name] = self.get(entry.name)
+                    except (CastError, ValueError):
+                        continue
+        return sorted(casts.values(), key=lambda c: c["created_at"], reverse=True)
 
     def delete(self, cast_id: str) -> None:
+        if self._home(cast_id).parent != self.root:
+            raise CastError("this cast member comes with the showcase and cannot be deleted")
         shutil.rmtree(self._dir(cast_id), ignore_errors=True)
 
     def ref_paths(self, cast_id: str) -> list[Path]:
         cast = self.get(cast_id)
-        return [self._dir(cast_id) / "refs" / r["file"] for r in cast["refs"]]
+        return [self._home(cast_id) / "refs" / r["file"] for r in cast["refs"]]
 
     def ref_file(self, cast_id: str, filename: str) -> Path:
         if not SAFE_PART.match(filename):
             raise CastError("bad file name")
-        path = self._dir(cast_id) / "refs" / filename
+        path = self._home(cast_id) / "refs" / filename
         if not path.is_file():
             raise CastError("no such file")
         return path

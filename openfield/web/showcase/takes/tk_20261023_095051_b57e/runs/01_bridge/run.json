@@ -1,0 +1,41 @@
+{
+  "stage": "bridge",
+  "template": "ltx25_flf2v",
+  "workflow_sha256": "0dd44ed05046fef89ba05a4d882adcdd3bd83983fc1958749e55218e799fbd04",
+  "snapped": {},
+  "job_id": "af3d9b68-e117-49ab-8e7f-4f48849fcb0c",
+  "backend": "pod",
+  "timings": {
+    "submit_s": 4.47,
+    "total_s": 57.03
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "node_id": "68",
+      "name": "ltx2.5_flf2v_00019_.mp4",
+      "content_type": "video/mp4",
+      "kind": "video",
+      "file": "video.mp4",
+      "size_bytes": 2760951
+    }
+  ],
+  "assets": [
+    {
+      "node": "31",
+      "input": "image",
+      "slot": "first_frame",
+      "name": "first_frame.png",
+      "sha256": "5c5e471ca6f326c80d593829495a75306e192f770d55e1875e8a97da82dc6dea",
+      "from": "inputs/first_last_frame.png"
+    },
+    {
+      "node": "39",
+      "input": "image",
+      "slot": "last_frame",
+      "name": "last_frame.png",
+      "sha256": "80d20960c74e0824379e092957c246aa121792202d2992ac1df55b299cbdad14",
+      "from": "inputs/second_first_frame.png"
+    }
+  ]
+}

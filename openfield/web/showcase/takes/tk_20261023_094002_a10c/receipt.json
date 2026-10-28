@@ -1,0 +1,86 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_094002_a10c",
+    "kind": "upscale",
+    "created_at": "2026-10-23T09:42:03Z",
+    "label": "upscale 2K: Mara stands at the end of a harbour pier at "
+  },
+  "inputs": {
+    "take": {
+      "id": "tk_20261022_132535_ed1c",
+      "sha256": "0e63519c3c48159c68530f20667a5d0ba8fa7e82201a5cb35de591b3b12a4723"
+    },
+    "target": "2k",
+    "size": [
+      2560,
+      1462
+    ],
+    "recipe_hash": "14541c318c216f497b9e3162b2bda3c31f6fa72ef0a1d5c0f2d516bbbc7bf6ad"
+  },
+  "workflow": {
+    "template": "esrgan_upscale",
+    "sha256": "6641356f078a1301d61b0f217b6221c1ea3bc7ee036b46cd4ab8bb564c6f8bc8",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "upscale",
+        "template": "esrgan_upscale",
+        "workflow_sha256": "235d137222badcda32ca26f38aad9d6f7e407b060f646f762bb0579ed47b3f4a",
+        "job_id": "958440ac-5320-482a-ac7e-38c790920e11"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "upscaler:real-esrgan",
+      "file": "RealESRGAN_x4plus.safetensors",
+      "license": "BSD 3-Clause License",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Real-ESRGAN_repackaged/resolve/main/RealESRGAN_x4plus.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {},
+    "skipped": {
+      "upscale": "an upscale has no cast or photo to check against; the take it enlarges keeps its own identity result"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "958440ac-5320-482a-ac7e-38c790920e11",
+    "timings": {
+      "total_s": 120.7
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "87583378c88f6c490635f3bccfc90f6d3db9fcdb2da85587bc7fce5d8ef22d27",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "42081ff99f7b29b8885e4a8573287e4cb352bf91ad300f6046ff0477f2a193bd"
+  }
+}

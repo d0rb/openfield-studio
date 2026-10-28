@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import * as reshoot from "../../openfield/web/js/lib/reshoot.js";
 import * as cast from "../../openfield/web/js/lib/cast.js";
 import { decodeRecipeLink, linkFromHash, remix } from "../../openfield/web/js/lib/remix.js";
-import { validate as validateDirect } from "../../openfield/web/js/lib/direct.js";
+import { actionNote, initialDirect, validate as validateDirect } from "../../openfield/web/js/lib/direct.js";
 
 const read = (name) => JSON.parse(readFileSync(new URL(`./fixtures/${name}`, import.meta.url), "utf8"));
 const catalog = read("catalog.json");
@@ -50,6 +50,17 @@ test("the re-shoot form carries exactly what was filled in", () => {
   const viaCast = reshoot.toForm({ ...reshoot.initialReshoot(), clip, castId: "ca_1", refIndex: 2, prompt: "a courier" }, FakeForm);
   assert.deepEqual(viaCast.keys().sort(), ["cast_id", "prompt", "ref_index", "source"]);
   assert.equal(viaCast.get("ref_index"), "2");
+});
+
+test("a face-only re-shoot needs a character from Cast and sends only the Cast", () => {
+  assert.equal(reshoot.initialReshoot().faceOnly, false);
+  const ready = { ...reshoot.initialReshoot(), clip: file("walk.mp4"), prompt: "a courier", faceOnly: true };
+  assert.deepEqual(reshoot.validate(ready).map((p) => p.field), ["reference"]);
+  assert.match(reshoot.validate({ ...ready, referenceFile: file("m.png") })[0].message, /only taken from a Cast/, "an uploaded image is no source for a face");
+  assert.deepEqual(reshoot.validate({ ...ready, castId: "ca_1" }), []);
+  const form = reshoot.toForm({ ...ready, castId: "ca_1", refIndex: 3, referenceFile: file("m.png") }, FakeForm);
+  assert.deepEqual(form.keys().sort(), ["cast_id", "face_only", "prompt", "source"]);
+  assert.equal(form.get("face_only"), "true");
 });
 
 // -- Cast ----------------------------------------------------------------------------------------
@@ -115,14 +126,14 @@ test("remixing a direct take fills the form and says what must be supplied again
   const result = remix({ verified: null, recipe }, catalog);
   assert.equal(result.form, "direct");
   assert.equal(result.state.subject, "A lighthouse at dusk");
-  assert.equal(result.state.quick, true);
+  assert.equal(result.state.quick, false, "orbit_90 is a one-still move: its prompt_only mode is not quick mode");
   assert.equal(result.state.orientation, "portrait");
   assert.equal(result.state.rig.movement, "orbit_90");
   assert.deepEqual(validateDirect(result.state, catalog), []);
   assert.deepEqual(result.needs, ['the character "Mara" (pick it again in Cast)']);
-  assert.match(result.notice, /nothing here is checked or signed/);
+  assert.match(result.notice, /Nothing in it is checked/);
   assert.match(remix({ verified: true, recipe }, catalog).notice, /checksum matches/);
-  assert.match(remix({ verified: false, recipe }, catalog).notice, /checksum does not match/);
+  assert.match(remix({ verified: false, recipe }, catalog).notice, /checksum does not match/i);
 });
 
 test("remixing other kinds of receipt, and the ones that cannot be remixed", () => {
@@ -137,7 +148,32 @@ test("remixing other kinds of receipt, and the ones that cannot be remixed", () 
 
   const exported = remix({ verified: true, recipe: { kind: "export", inputs: {} } }, catalog);
   assert.equal(exported.form, null);
-  assert.match(exported.notice, /made from its source take/);
-  assert.match(remix({ verified: true, recipe: { kind: "mystery" } }, catalog).notice, /not one OpenField can rebuild/);
+  assert.match(exported.notice, /Open the source take/);
+  assert.match(remix({ verified: true, recipe: { kind: "mystery" } }, catalog).notice, /cannot rebuild a take/);
   assert.equal(remix({}, catalog).form, null);
+});
+
+test("a remix of a take that started from a photo asks for the image again", async () => {
+  const { remix } = await import("../../openfield/web/js/lib/remix.js");
+  const imported = { verified: true, recipe: { kind: "direct", inputs: { subject: "Me on a pier", rig: { movement: "dolly_in" }, seed: 3, source: { sha256: "abc", size: [1344, 768] } } } };
+  const result = remix(imported, null);
+  assert.equal(result.form, "direct");
+  assert.equal(result.state.heroMode, "image");
+  assert.ok(result.needs.some((n) => /your image/.test(n)));
+});
+
+// -- A move played backwards --------------------------------------------------------------------
+
+test("a move played backwards takes no action, line or effect, and the form says so before the server does", () => {
+  const reversed = catalog.moves.filter((m) => m.reversed).map((m) => m.id);
+  assert.deepEqual(reversed, ["pedestal_down", "through_object"]);
+  const base = { ...initialDirect(catalog), subject: "Oskar at a table in a fisherman's hut at dusk" };
+  const plain = { ...base, rig: { ...base.rig, movement: "through_object" } };
+  assert.deepEqual(validateDirect(plain, catalog), []);
+  assert.match(actionNote(plain, catalog), /played backwards\. Your still ends the shot/);
+  const busy = { ...plain, action: "He stands up and leaves", line: "Over here.", rig: { ...plain.rig, effect: "rain" } };
+  assert.deepEqual(validateDirect(busy, catalog).map((p) => p.field), ["action", "line", "effect"]);
+  for (const p of validateDirect(busy, catalog)) assert.match(p.message, /^Through object is played backwards, so /);
+  const forward = { ...busy, rig: { ...busy.rig, movement: "dolly_out" } };
+  assert.deepEqual(validateDirect(forward, catalog), [], "the same shot on a move shot forwards is fine");
 });

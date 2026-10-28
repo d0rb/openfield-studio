@@ -1,0 +1,357 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261026_213744_0fb9",
+    "kind": "direct",
+    "created_at": "2026-10-26T21:50:34Z",
+    "label": "vertigo: Ines stands still in a long, narrow library corr"
+  },
+  "inputs": {
+    "subject": "Ines stands still in a long, narrow library corridor at night, shelves receding to a single lit window far behind her, looking at the camera",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "practicals",
+      "movement": "vertigo",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "vertigo",
+    "mode": "keyframed",
+    "final_prompt": "Ines stands still in a long, narrow library corridor at night, shelves receding to a single lit window far behind her, looking at the camera. The camera dollies out, pulling back from the subject on a smooth track and revealing the setting, moving at a steady pace. The camera travels backward on its track and arrives at a wide view with the whole setting around the subject. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; practical lights in the scene making warm pools of light. We hear the hush of a library at night, a clock ticking.",
+    "seed": 1361,
+    "orientation": "landscape",
+    "audio": "the hush of a library at night, a clock ticking",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "reframe": {
+      "zoom": [
+        1.0,
+        1.7176
+      ],
+      "keyframes": 21,
+      "rendered": [
+        1920,
+        1088
+      ],
+      "size": [
+        1280,
+        704
+      ],
+      "upscaled_at_most": 1.145,
+      "how": "rendered as a dolly-out, then zoomed in code as the camera backs away, so the subject keeps its size",
+      "track": "face",
+      "tracked": true,
+      "found": 21,
+      "samples": 21,
+      "face_height_px": [
+        292,
+        173
+      ],
+      "path": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.25,
+          1.0069
+        ],
+        [
+          0.5,
+          1.0775
+        ],
+        [
+          0.75,
+          1.1274
+        ],
+        [
+          1.0,
+          1.2373
+        ],
+        [
+          1.25,
+          1.2807
+        ],
+        [
+          1.5,
+          1.3036
+        ],
+        [
+          1.75,
+          1.3519
+        ],
+        [
+          2.0,
+          1.4175
+        ],
+        [
+          2.25,
+          1.4747
+        ],
+        [
+          2.5,
+          1.5052
+        ],
+        [
+          2.75,
+          1.545
+        ],
+        [
+          3.0,
+          1.5956
+        ],
+        [
+          3.25,
+          1.6133
+        ],
+        [
+          3.5,
+          1.6404
+        ],
+        [
+          3.75,
+          1.6497
+        ],
+        [
+          4.0,
+          1.6591
+        ],
+        [
+          4.25,
+          1.6686
+        ],
+        [
+          4.5,
+          1.7176
+        ],
+        [
+          4.75,
+          1.7176
+        ],
+        [
+          5.0,
+          1.7176
+        ]
+      ]
+    },
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_anchor_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Ines",
+      "refs": [
+        "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+      ]
+    },
+    "recipe_hash": "3083a9979b00550841c767f44ea57967d8b8039cd451405f60643c00bdbd1a19"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "3159a3ab2e2bf68a03d3b9bb59e128af93c8dd7bc6bb01304a447ea1cdaf315b",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "1c4cbe25b82b82ed9236db196d6842c9d40b8e993695b88f36006c41f5725a84",
+        "job_id": "6adf0705-dc9e-42d7-a916-9ba897f0a7e7"
+      },
+      {
+        "stage": "anchor_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "db44f69f721fb6e0b0dc0bb6cfaef682256d7d0266c876780d7944c1fb10b2a7",
+        "job_id": "a441e838-fb84-4398-9284-9ae3311faf40"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "3277e4d3305964349b0ad83031fa079fe65db89f07f9dc4d0e3daf5363abf2c6",
+        "job_id": "fa5725e2-6ab6-4330-a9cf-636b06c0e81b"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.9036272242285006,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.9036272242285006,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.9036272242285006
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          486,
+          142,
+          155,
+          206
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.904 >= threshold 0.363 (best reference 0)",
+        "face_px": 155,
+        "enlarged": null
+      },
+      "anchor_1": {
+        "status": "pass",
+        "score": 0.7576989479721786,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7576989479721786
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          565,
+          166,
+          88,
+          113
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.758 >= threshold 0.363 (best reference 0)",
+        "face_px": 88,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.8113832661089381,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8113832661089381
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          463,
+          130,
+          143,
+          187
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.811 >= threshold 0.363 (best reference 0)",
+        "face_px": 143,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "6adf0705-dc9e-42d7-a916-9ba897f0a7e7,a441e838-fb84-4398-9284-9ae3311faf40,fa5725e2-6ab6-4330-a9cf-636b06c0e81b",
+    "timings": {
+      "total_s": 770.2
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "a51cc5be000c2c96baeb2edaa9c8bb8aedb399d919254a4dfc97e2132377bfa0",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "547ccce06601e40ef5db78af655f5c54289cad74cda774baa564613c0d2d4741"
+  }
+}

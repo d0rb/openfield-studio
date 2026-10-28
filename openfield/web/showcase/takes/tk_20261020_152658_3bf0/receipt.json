@@ -1,0 +1,166 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261020_152658_3bf0",
+    "kind": "direct",
+    "created_at": "2026-10-20T15:29:14Z",
+    "label": "dolly out: Fishing boats moored in a small harbour at first"
+  },
+  "inputs": {
+    "subject": "Fishing boats moored in a small harbour at first light, mist over the water",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 24,
+      "aperture": "f11",
+      "lighting": "soft_cross",
+      "movement": "dolly_out",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "move": "dolly_out",
+    "mode": "keyframed",
+    "final_prompt": "Fishing boats moored in a small harbour at first light, mist over the water. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 24mm (wide), stopped down to f/11 with deep focus; soft cross lighting that sculpts the subject. The camera dollies out, pulling back from the subject on a smooth track and revealing the setting, moving slowly. Constraint: physical camera travel, fixed focal length, no zoom, constant lens height. Sound: gulls, water against hulls, rope creaking.",
+    "negative": "blurry, out of focus, distorted, warped or melting faces, extra limbs, jittery motion, flicker, morphing objects, text, subtitles, watermark, logo, low quality",
+    "seed": 52,
+    "orientation": "landscape",
+    "audio": "gulls, water against hulls, rope creaking",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_anchor_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "recipe_hash": "e0d610f7dff316478dfb6d6058628728f3f356d85613d8ac532c3f845426a3f1"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "de6f8652ad41a459143b7e78653ff807302b690b4cadfb9977bfd2780a4a94bb",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_t2i",
+        "workflow_sha256": "81a4a91db52d5f20a574d70ff3eb6fc915249dd7fa80a4dc5a67c3c4f6719f0e",
+        "job_id": "e8760de6-80b5-486b-a335-0c28c5c2302a"
+      },
+      {
+        "stage": "anchor_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "0f890f9941368504a3deab0129b978d204bf0a47e8b5d8081ef8a29d5a417f47",
+        "job_id": "f3a8e454-5d75-47cf-8f1b-893352d468ad"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "ac52832eb9d4a75adbeaa0481c73b6309a3c7ea8877c1bb46cfd4c83614fc443",
+        "job_id": "7528a06d-8dab-4b14-a8f2-a06991573e41"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {}
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "e8760de6-80b5-486b-a335-0c28c5c2302a,f3a8e454-5d75-47cf-8f1b-893352d468ad,7528a06d-8dab-4b14-a8f2-a06991573e41",
+    "timings": {
+      "total_s": 136.3
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "bfa2c570e4c3e1dc4d3d68ca5090f92653db951c49fd799668b76d865939f85a",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "45ea1fbbc7d360a0d13ea52905e685d6d8b11917b99636b1c1783c4ade533b96"
+  }
+}

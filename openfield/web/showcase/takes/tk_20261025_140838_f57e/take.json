@@ -1,0 +1,118 @@
+{
+  "id": "tk_20261025_140838_f57e",
+  "kind": "direct",
+  "label": "robot arm: Tomas in a white chef's jacket plates a dessert ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-25T14:08:38Z",
+  "updated_at": "2026-10-25T14:11:16Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Tomas in a white chef's jacket plates a dessert on a steel counter in a bright kitchen",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "robot_arm",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "a quiet kitchen hum, a spoon on porcelain",
+    "seed": 1615,
+    "orientation": "landscape",
+    "cast_refs": [
+      "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+    ],
+    "quality": "draft",
+    "cast_name": "Tomas",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "de1faa54cfce2cbb90e99e15d93d310397a0fe6e662b432ef4b7f9fe2703db94",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7072132919544885,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7072132919544885
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        373,
+        56,
+        88,
+        124
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.707 >= threshold 0.363 (best reference 0)",
+      "face_px": 88,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.7127141481281406,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7127141481281406
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        373,
+        57,
+        88,
+        122
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.713 >= threshold 0.363 (best reference 0)",
+      "face_px": 88,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    896,
+    512
+  ],
+  "showcase_name": "r11-mv-robot-arm",
+  "showcase_sha": "8007777615f14f50"
+}

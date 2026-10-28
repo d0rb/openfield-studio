@@ -1,0 +1,121 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_093828_fbda",
+    "kind": "extend",
+    "created_at": "2026-10-23T09:39:14Z",
+    "label": "extend: A surfer rides a glowing wave of molten lava und"
+  },
+  "inputs": {
+    "take": {
+      "id": "tk_20261022_232205_71d1",
+      "sha256": "ef98250b082a5201406e7b7a4799da8861a2e0a53a7f4a1c883d5cfea72d1a76",
+      "frame": "inputs/last_frame.png"
+    },
+    "seconds": 3,
+    "seed": 650,
+    "final_prompt": "The same shot continues without a cut from where it ended: A surfer rides a glowing wave of molten lava under a black sky, sparks flying off the board. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera tracks sideways to the right, parallel to the subject at constant distance, the background sliding behind it, moving at a steady pace. Constraint: lateral travel only, constant distance, fixed focal length, no zoom. Sound: a deep rumble, hissing steam, crackling sparks.",
+    "frame": [
+      1280,
+      704
+    ],
+    "recipe_hash": "ab16b4e3703d59774e4d804baf64d76a705b257b9e606278381c2b1ae6f919aa"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "836346b37af584420051baf28a4313be4f9c29cee663108c4c638db1b2e1c707",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "extend",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "e2899fa3b22c8372b5a58d55a2e058d120a54f3fc7a86a8848d5828dcc603fa9",
+        "job_id": "1726c13b-f77c-4c0e-a462-3c8b7028fabb"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {},
+    "skipped": {
+      "extend": "an extension continues a finished take; that take keeps its own identity result"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "1726c13b-f77c-4c0e-a462-3c8b7028fabb",
+    "timings": {
+      "total_s": 46.0
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "f540a4ddc5c664966076f0d654d9053bafc7100b6da9ba95b42d8e702930bbef",
+      "seconds": 7.96
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "e491ddcd6f223ca579a2480048f6c32b894b58a84db68bce295c27e94c7019f0"
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "id": "tk_20261020_150711_c874",
+  "kind": "direct",
+  "label": "crane up: Mara stands on a rooftop at sunrise and looks ou",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-20T15:07:11Z",
+  "updated_at": "2026-10-20T15:09:29Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Mara stands on a rooftop at sunrise and looks out over the city, wind in her jacket",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "contre_jour",
+      "movement": "crane_up",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "wind, a distant train, birdsong",
+    "seed": 12,
+    "orientation": "landscape",
+    "cast_refs": [
+      "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+    ],
+    "cast_name": "Mara",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "eb9a4967fae601bdf54eff937f8fc1d201251daf2d1cf79e4353a08eb2ea9547",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7683132097794327,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7683132097794327
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        576,
+        142,
+        251,
+        347
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.768 >= threshold 0.363 (best reference 0)"
+    },
+    "anchor_1": {
+      "status": "pass",
+      "score": 0.7086932397134087,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7086932397134087
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        636,
+        168,
+        117,
+        159
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.709 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.7613454187203211,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7613454187203211
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        548,
+        117,
+        248,
+        338
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.761 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "mara-rooftop-crane-up",
+  "showcase_sha": "175049e3ea80d5f1"
+}

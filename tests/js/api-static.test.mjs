@@ -1,8 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 
-import { createStaticApi, LOCKED_MESSAGE } from "../../openfield/web/js/lib/api-static.js";
+import { createStaticApi, LOCKED_MESSAGE, shelfEntry } from "../../openfield/web/js/lib/api-static.js";
 import { ApiError } from "../../openfield/web/js/lib/api.js";
+import { overall, perStage, ringState } from "../../openfield/web/js/lib/identity.js";
 
 const SOURCE = {
   id: "tk_20261016_120000_aaaa",
@@ -123,8 +125,10 @@ test("reads come from the manifest and the take folders", async () => {
 test("every write is refused with the same plain explanation", async () => {
   const { api } = await build();
   const writes = [
-    () => api.plan({}), () => api.setBackend("sdk"), () => api.fetchFaceModels(), () => api.startDirect({}),
-    () => api.startReshoot(new FormData()), () => api.approve("x"), () => api.exportVertical("x"),
+    () => api.plan({}), () => api.setBackend("sdk"), () => api.testBackend({}), () => api.connectBackend({}),
+    () => api.forgetBackend(), () => api.fetchFaceModels(), () => api.startDirect({}), () => api.startDirectFromImage(new FormData()),
+    () => api.startReshoot(new FormData()), () => api.startEdit(new FormData()), () => api.startExtend({ take: "x", seconds: 3 }),
+    () => api.startTransition({ first: "a", second: "b", style: "dissolve", seconds: 2, idea: "Through the fire." }), () => api.approve("x"), () => api.exportVertical("x"),
     () => api.exportReel(["a", "b"]), () => api.importReceipt(null), () => api.cast.create(new FormData()),
     () => api.cast.remove("x"), () => api.cast.generate({ description: "a sailor" }),
     () => api.cast.fromTake("tk_x", 1, "Sailor"), () => api.remove(SOURCE.id), () => api.cancel(SOURCE.id),
@@ -287,4 +291,132 @@ test("a recording without optional fields still ends with the same defaults the 
   assert.deepEqual(done.notes, []);
   assert.equal(done.audit, null);
   assert.deepEqual(done.outputs, bare.outputs);
+});
+
+test("the hosted copy answers an estimate with nothing measured, because it renders nothing", async () => {
+  const { api } = await build();
+  const estimate = await api.estimate({ quality: "draft", movement: "dolly_in", duration_seconds: 5 });
+  assert.equal(estimate.seconds, null);
+  assert.equal(estimate.basis, "Replay renders nothing");
+});
+
+test("the site says where the hosted copy lives, and the file is read once", async () => {
+  const site = { site_url: "https://owner.github.io/studio/", repo_url: "https://github.com/owner/studio" };
+  const { api, log } = await build({ "static/site.json": site });
+  assert.deepEqual(await api.site(), site);
+  assert.deepEqual(await api.site(), site, "the same answer the second time");
+  assert.equal(log.filter((url) => url.endsWith("static/site.json")).length, 1, "the file is fetched once");
+});
+
+test("a site file that cannot be read leaves the addresses empty", async () => {
+  const missing = await build(); // no static/site.json at all
+  assert.deepEqual(await missing.api.site(), { site_url: null, repo_url: null });
+
+  const timers = manualTimers();
+  const offline = await createStaticApi({
+    fetchImpl: async (url) => {
+      if (url.endsWith("static/site.json")) throw new Error("offline");
+      return fetchFor({ "static/manifest.json": MANIFEST })(url);
+    },
+    timers,
+  });
+  assert.deepEqual(await offline.site(), { site_url: null, repo_url: null });
+});
+
+test("the live app has no site of its own, and asks for nothing", async () => {
+  const { http } = await import("../../openfield/web/js/lib/api.js");
+  assert.deepEqual(await http.site(), { site_url: null, repo_url: null });
+});
+
+// -- the recorded shelf: an export lists its recorded takes by id, and the page joins them from the takes ---------------------------------------
+
+/** A recorded take as the export lists it in `takes`: its own state as well as the fields the shelf shows. */
+const FULL = {
+  id: "tk_20261017_100000_dddd", kind: "direct", label: "full: A lighthouse", status: "succeeded", stage: "done", progress: 1, replay: false,
+  created_at: "2026-10-17T10:00:00Z", updated_at: "2026-10-17T10:05:00Z", media_base: "showcase/takes/tk_20261017_100000_dddd",
+  recipe_hash: "hash-dddd", recipe: { subject: "A lighthouse", rig: { movement: "static" } }, outputs: [{ role: "video", file: "take.mp4" }],
+  identity: { hero: { status: "pass", score: 0.8, threshold: 0.363 } }, audit: { result: "pass" }, notes: ["a note"], seconds: 5,
+  shots: [{ index: 1, file: "runs/03_shot_1/image.png" }], board: ["front"], edit: { before: "runs/01_hero/image.png" },
+  anchors: [{ index: 0 }], size: [1280, 704], backend: { kind: "pod" }, parent: null, error: null, showcase_name: "x", showcase_sha: "y",
+};
+const LEAN = { id: "tk_20261016_110000_cccc", kind: "reshoot", label: "lean", status: "succeeded", created_at: "2026-10-16T11:00:00Z",
+  media_base: "showcase/takes/tk_20261016_110000_cccc", recipe_hash: "hash-cccc", recipe: { prompt: "a dancer" }, outputs: [], identity: null, seconds: null };
+const SHELF_KEYS = ["id", "kind", "label", "recipe_hash", "recipe", "outputs", "created_at", "identity", "audit", "notes", "seconds", "shots", "board", "edit", "media_base"];
+
+test("a manifest that lists its recorded takes by id joins them from the takes, in the list's order", async () => {
+  const manifest = { ...MANIFEST, takes: [FULL, SOURCE, LEAN], recorded: [LEAN.id, FULL.id, "tk_20261001_000000_gone"] };
+  const { api } = await build({ "static/manifest.json": manifest });
+  const shelf = await api.recorded();
+  assert.deepEqual(shelf.map((r) => r.id), [LEAN.id, FULL.id], "the list's order; an id the manifest holds no take for is left out");
+  assert.equal(await api.recorded(), shelf, "joined once, not on every ask");
+  assert.deepEqual((await api.takes()).map((t) => t.id), [FULL.id, SOURCE.id, LEAN.id], "the takes themselves are all still there, newest first");
+});
+
+test("a joined entry has exactly the fields the server lists, and nothing of the take's own state", async () => {
+  const { api } = await build({ "static/manifest.json": { ...MANIFEST, takes: [FULL, LEAN], recorded: [FULL.id, LEAN.id] } });
+  const [full, lean] = await api.recorded();
+  assert.deepEqual(Object.keys(full), SHELF_KEYS, "the server's order");
+  assert.deepEqual(full, {
+    id: FULL.id, kind: "direct", label: FULL.label, recipe_hash: "hash-dddd", recipe: FULL.recipe, outputs: FULL.outputs, created_at: FULL.created_at,
+    identity: FULL.identity, audit: FULL.audit, notes: FULL.notes, seconds: 5, shots: FULL.shots, board: FULL.board, edit: FULL.edit, media_base: FULL.media_base,
+  });
+  for (const own of ["status", "stage", "progress", "replay", "updated_at", "anchors", "size", "backend", "parent", "error", "showcase_name", "showcase_sha"]) {
+    assert.ok(!(own in full), `${own} is the take's, not the shelf's`);
+  }
+  // what a take does not have is not listed (the server lists a field only when the take has it), and no key holds undefined
+  assert.deepEqual(Object.keys(lean), ["id", "kind", "label", "recipe_hash", "recipe", "outputs", "created_at", "media_base"]);
+  assert.ok(Object.values(lean).every((v) => v !== undefined));
+});
+
+test("a take that has no creation time, or no media folder, is listed the way the server lists it", () => {
+  assert.deepEqual(shelfEntry({ id: "a", kind: "direct", label: "x", recipe_hash: "h", recipe: {}, outputs: [] }),
+    { id: "a", kind: "direct", label: "x", recipe_hash: "h", recipe: {}, outputs: [], created_at: null });
+  assert.equal(shelfEntry({ id: "a", seconds: 0 }).seconds, 0, "a length of zero is a length");
+});
+
+test("a manifest that lists its recorded takes as objects still works, and a list may mix the two", async () => {
+  const { api } = await build();
+  assert.deepEqual(await api.recorded(), MANIFEST.recorded, "an older export: the entries are the shelf");
+  const take = await api.recreate(SOURCE.id);
+  assert.equal(take.replay_of, SOURCE.id);
+
+  const mixed = { ...MANIFEST, takes: [FULL, SOURCE, LEAN], recorded: [{ id: SOURCE.id, label: SOURCE.label, media_base: SOURCE.media_base }, FULL.id] };
+  const both = await build({ "static/manifest.json": mixed });
+  assert.deepEqual((await both.api.recorded()).map((r) => r.id), [SOURCE.id, FULL.id]);
+  assert.equal((await both.api.recorded())[0], mixed.recorded[0], "an entry that is an object is used as it is");
+});
+
+test("only takes on the shelf can be recreated, by id or by entry, and the replay carries the take's own fields", async () => {
+  const manifest = { ...MANIFEST, takes: [FULL, SOURCE, LEAN], recorded: [FULL.id] };
+  const { api } = await build({ "static/manifest.json": manifest });
+  const replay = await api.recreate(FULL.id);
+  assert.equal(replay.replay_of, FULL.id);
+  assert.equal(replay.recipe_hash, "hash-dddd");
+  assert.equal(replay.media_base, FULL.media_base);
+  await assert.rejects(api.recreate(LEAN.id), (e) => e.code === "replay_unavailable", "a take that is listed but not on the shelf");
+  await assert.rejects(api.recreate("tk_nope"), (e) => e.code === "replay_unavailable");
+});
+
+test("an empty or missing shelf is an empty shelf", async () => {
+  assert.deepEqual(await (await build({ "static/manifest.json": { ...MANIFEST, recorded: [] } })).api.recorded(), []);
+  const without = { ...MANIFEST };
+  delete without.recorded;
+  assert.deepEqual(await (await build({ "static/manifest.json": without })).api.recorded(), []);
+});
+
+test("the face check reads the same from the slimmed identity the export lists as from the whole report", () => {
+  // the keys the export keeps (static_export.py IDENTITY_KEYS), read from the file so the two sides stay one list
+  const keys = [...readFileSync(new URL("../../openfield/static_export.py", import.meta.url), "utf8").match(/IDENTITY_KEYS = \(([^)]*)\)/)[1].matchAll(/"([a-z_]+)"/g)].map((m) => m[1]);
+  assert.deepEqual(keys, ["status", "score", "threshold", "retried"]);
+  const whole = { best_ref: 0, per_ref: [0.8], faces_in_candidate: 1, candidate_box: [1, 2, 3, 4], refs_used: 1, reason: "cosine 0.8", face_px: 155, enlarged: null, frame: "first", frames_checked: 3 };
+  const reports = {
+    hero: { status: "pass", score: 0.9, threshold: 0.363, ...whole },
+    shoot_1: { status: "drift", score: 0.2, threshold: 0.363, retried: true, ...whole },
+    face: { status: "n/a", score: null, threshold: 0.363, ...whole },
+    edit: { status: "unavailable", threshold: 0.363, ...whole },
+  };
+  const slim = Object.fromEntries(Object.entries(reports).map(([stage, r]) => [stage, Object.fromEntries(keys.filter((k) => k in r).map((k) => [k, r[k]]))]));
+  assert.deepEqual(overall(slim), overall(reports));
+  assert.deepEqual(perStage(slim), perStage(reports));
+  for (const stage of Object.keys(reports)) assert.deepEqual(ringState(slim[stage]), ringState(reports[stage]), stage);
 });

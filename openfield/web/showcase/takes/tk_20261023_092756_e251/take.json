@@ -1,0 +1,72 @@
+{
+  "id": "tk_20261023_092756_e251",
+  "kind": "direct",
+  "label": "loop: A pink neon sign reading OPEN flickers above a r",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:27:56Z",
+  "updated_at": "2026-10-23T09:30:56Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A pink neon sign reading OPEN flickers above a rain-soaked alley at night",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "practicals",
+      "movement": "loop",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "steady rain, a buzzing neon tube",
+    "seed": 602,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "06f1c13501693641d18109618fac8e41cfb9771ba44f8ccb3bb8e48536b1abda",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v3-loop-neon-rain",
+  "showcase_sha": "cada6c0526513b29"
+}

@@ -1,0 +1,222 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_000207_c125",
+    "kind": "direct",
+    "created_at": "2026-10-23T00:03:10Z",
+    "label": "static: Mara stands at the end of a harbour pier at gold"
+  },
+  "inputs": {
+    "subject": "Mara stands at the end of a harbour pier at golden hour holding a lantern, looking into the camera, her yellow jacket catching the light",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 50,
+      "aperture": "f1.4",
+      "lighting": "contre_jour",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Mara stands at the end of a harbour pier at golden hour holding a lantern, looking into the camera, her yellow jacket catching the light. Shot on 35mm film with fine organic grain with a warm vintage prime lens with soft contrast, 50mm (natural), wide open at f/1.4 with very shallow depth of field; strong backlight (contre-jour) with a glowing rim. The camera is locked off on a tripod; only the subject moves. Constraint: no camera movement, no zoom, no drift. The person in the shot speaks in French, in a calm, low voice, unhurried, lips moving with the words: \"Nous partons aux premières lueurs.\" Sound: water lapping against wood, a distant bell.",
+    "seed": 160,
+    "orientation": "landscape",
+    "audio": "water lapping against wood, a distant bell",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "dialogue": {
+      "line": "Nous partons aux premières lueurs.",
+      "delivery": "calm",
+      "tested": true,
+      "language": "French"
+    },
+    "anchors": [
+      {
+        "index": 0,
+        "file": "inputs/hero.png"
+      }
+    ],
+    "cast": {
+      "name": "Mara",
+      "refs": [
+        "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+      ]
+    },
+    "source": {
+      "sha256": "31b4c04d18d1f2abe9b22f21dd2f948ac65bd6b300faa11640cd76ae868fc629",
+      "original_size": [
+        1344,
+        768
+      ],
+      "crop": [
+        0,
+        0,
+        1344,
+        768
+      ],
+      "size": [
+        1344,
+        768
+      ],
+      "identity_reference": "cast"
+    },
+    "recipe_hash": "ef0bce5009f797fb28ea9668275a1345bee65d07f391a920356d9818564818c6"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "3effeb128c2e81c90f7cdfc5090e81d019fcaeb0671f03d701a8d16f160bccb0",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "03bd2caec3ac9ae28e74bbb2ab61f9bf6d4b82a32656089c4559b05576d5cb9a",
+        "job_id": "bb835618-5577-44e7-b6f2-9476e1baed0c"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.7422173860300273,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.693585185554785,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.693585185554785
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          599,
+          137,
+          140,
+          189
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.694 >= threshold 0.363 (best reference 0)",
+        "face_px": 140,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.7422173860300273,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7422173860300273
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          481,
+          93,
+          287,
+          372
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.742 >= threshold 0.363 (best reference 0)",
+        "face_px": 287,
+        "enlarged": null,
+        "frame": "last",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "bb835618-5577-44e7-b6f2-9476e1baed0c",
+    "timings": {
+      "total_s": 62.6
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "a341c1c98d951d6cc00cb084c5c57e7d51cb63ca572ba3c690d5caa3a5c9e4a8",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "db35defc30db06d423b6120e346c720cebfd7b37d3a95a3167719f2af8b5a88f"
+  }
+}

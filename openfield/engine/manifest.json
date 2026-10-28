@@ -2,7 +2,7 @@
   "source": {
     "repo": "Comfy-Org/workflow_templates",
     "ref": "04a508b31bec1818e48122ca0761c1de4140a234",
-    "generated": "2026-10-16"
+    "generated": "2026-10-23"
   },
   "templates": {
     "video_ltx2_5_flf2v": {
@@ -198,6 +198,25 @@
         "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
         "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
         "wan_animate_2_int8_convrot.safetensors"
+      ]
+    },
+    "utility-gan_upscaler": {
+      "group": "esrgan",
+      "sha256": "7df9fb1b355252bcd548d44b253a8c116004338bb3ec13e5974b000bbc6183d6",
+      "bytes": 7588,
+      "node_types": [
+        "CreateVideo",
+        "GetVideoComponents",
+        "ImageUpscaleWithModel",
+        "LoadVideo",
+        "SaveVideo",
+        "UpscaleModelLoader"
+      ],
+      "models": [
+        "RealESRGAN_x4plus.safetensors"
+      ],
+      "added_node_types": [
+        "ImageScale"
       ]
     }
   },
@@ -398,6 +417,24 @@
       ]
     },
     {
+      "name": "RealESRGAN_x4plus.safetensors",
+      "directory": "upscale_models",
+      "repo": "Comfy-Org/Real-ESRGAN_repackaged",
+      "revision": "main",
+      "path": "RealESRGAN_x4plus.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Real-ESRGAN_repackaged/resolve/main/RealESRGAN_x4plus.safetensors",
+      "bytes": 66857836,
+      "sha256": "37f9a931c215f040aa6d50f711f2cb115f713c46df1d0d6469a8bd7bfe9a60bb",
+      "optional": false,
+      "templates": [
+        "utility-gan_upscaler"
+      ],
+      "required": true,
+      "used_by": [
+        "esrgan_upscale"
+      ]
+    },
+    {
       "name": "Wan2_1_VAE_bf16.safetensors",
       "directory": "vae",
       "repo": "Comfy-Org/Wan-Animate-2",
@@ -488,7 +525,9 @@
     "GetVideoComponents",
     "ImageCompare",
     "ImageFromBatch",
+    "ImageScale",
     "ImageStitch",
+    "ImageUpscaleWithModel",
     "KSampler",
     "KSamplerSelect",
     "LTXVAddGuide",
@@ -528,6 +567,7 @@
     "TextGenerateLTX2Prompt",
     "TrimVideoLatent",
     "UNETLoader",
+    "UpscaleModelLoader",
     "VAEDecode",
     "VAEDecodeTiled",
     "VAELoader",

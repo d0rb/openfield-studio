@@ -37,6 +37,9 @@ NOTES = """
   built with it must show "Built with Qwen". The still-image step is a swappable slot.
 - **LTX 2.5** is gated on Hugging Face (one click on "Agree and Access" shares your contact
   details with Lightricks). Free commercial use applies below $10M annual revenue.
+- **Real-ESRGAN** (the video upscaler, 67 MB, not gated) is BSD-3-Clause as the Comfy-Org repack's model card
+  declares. The upstream repository states BSD-3-Clause for its code and names no separate licence for the
+  weights, so the weights' own terms are not confirmed from the authors.
 - **Face check** (optional, local): YuNet (MIT) and SFace (Apache-2.0) from the OpenCV Zoo, downloaded
   on demand and checked against pinned SHA-256 hashes.
 - This list covers weights. Python dependencies carry their own licences (see `pyproject.toml`).

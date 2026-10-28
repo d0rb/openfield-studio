@@ -104,6 +104,9 @@ def test_a_page_on_another_origin_cannot_start_a_render_or_change_anything(clien
         assert r.status_code == 403, headers  # even where an older FastAPI would parse text/plain as JSON
     assert client.post("/api/models/face", headers={"Sec-Fetch-Site": "cross-site"}).status_code == 403
     assert client.post("/api/backend", json={"mode": "replay"}, headers={"Sec-Fetch-Site": "same-site"}).status_code == 403
+    for path, body in (("/api/backend/test", {"base_url": "http://127.0.0.1:9"}),
+                       ("/api/backend/connect", {"base_url": "http://127.0.0.1:9"}), ("/api/backend/forget", {})):
+        assert client.post(path, json=body, headers={"Sec-Fetch-Site": "same-site"}).status_code == 403, path
     assert client.post("/api/cast", data={"name": "X", "kind": "character", "consent": "mine"},
                        files=[("files", ("x.png", png_bytes(), "image/png"))], headers=EVIL).status_code == 403
     assert client.delete("/api/cast/ca_12345678", headers=EVIL).status_code == 403

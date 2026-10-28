@@ -126,7 +126,15 @@ def _bare_name(path: str) -> str:
     return parts[-1] if parts else path
 
 
+_SECRET_TEXT = re.compile(r"(?i)(bearer\s+)[A-Za-z0-9._~+/=-]{8,}|\bcomfyui-[A-Za-z0-9]{16,}|\bhf_[A-Za-z0-9]{30,}")
+
+
+def _redact(found: re.Match[str]) -> str:
+    return f"{found.group(1) or ''}[redacted]"
+
+
 def _scrub_text(text: str) -> str:
+    text = _SECRET_TEXT.sub(_redact, text)  # a key quoted inside an error message never reaches a file or the page
     if _WHOLE_PATH.fullmatch(text):
         return _bare_name(text)
     return _EMBEDDED_PATH.sub(lambda found: _bare_name(found.group()), text)

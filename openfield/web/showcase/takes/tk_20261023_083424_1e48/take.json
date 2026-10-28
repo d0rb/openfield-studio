@@ -1,0 +1,122 @@
+{
+  "id": "tk_20261023_083424_1e48",
+  "kind": "direct",
+  "label": "dolly out: Tomas as a lone astronaut walks across the surfa",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:34:24Z",
+  "updated_at": "2026-10-23T08:39:23Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Tomas as a lone astronaut walks across the surface of the moon, the Earth rising behind him",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "dolly_out",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "bts"
+    },
+    "audio": null,
+    "seed": 570,
+    "orientation": "landscape",
+    "cast_refs": [
+      "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+    ],
+    "prompt_only": true,
+    "cast_name": "Tomas",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "quick mode: one still and a camera instruction, no anchor stills",
+    "transformation (behind the scenes): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "e54ea493133e64cbc5e7c6343724fd05f99ecf14602a4ecc34794bd7bfe31edb",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.6973007412912339,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6973007412912339
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        406,
+        99,
+        119,
+        164
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.697 >= threshold 0.363 (best reference 0)",
+      "face_px": 119,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.6076054616799493,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6076054616799493
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        386,
+        83,
+        113,
+        150
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.608 >= threshold 0.363 (best reference 0)",
+      "face_px": 113,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fx-bts",
+  "showcase_sha": "37dce8fc2cfff107"
+}

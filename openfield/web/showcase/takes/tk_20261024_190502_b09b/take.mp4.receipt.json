@@ -1,0 +1,265 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261024_190502_b09b",
+    "kind": "direct",
+    "created_at": "2026-10-24T19:10:00Z",
+    "label": "static: Tomas, a samurai in black lacquered armour witho"
+  },
+  "inputs": {
+    "subject": "Tomas, a samurai in black lacquered armour without a helmet, stern and unsmiling, stands medium-wide on a rain-soaked Tokyo street at night, a sheathed katana at his left hip, pink and cyan neon signs reflecting in puddles, rain falling.",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "rain",
+      "grade": "teal_orange",
+      "score": "synth_pulse",
+      "soundscape": "none",
+      "angle": "right/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Tomas, a samurai in black lacquered armour without a helmet, stern and unsmiling, stands medium-wide on a rain-soaked Tokyo street at night, a sheathed katana at his left hip, pink and cyan neon signs reflecting in puddles, rain falling. He turns his head and shoulders to face the camera, draws the katana fully out of its scabbard in one smooth motion, and raises the blade to a high guard beside his head, his stern eyes fixed on the camera. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves. Heavy rain falls across the whole frame, drops streaking through the lamplight and beading on hair and cloth, wet ground catching the reflections. Shot on 35mm film with fine organic grain with an anamorphic lens with oval bokeh and horizontal flares, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject, graded teal and orange, cool shadows against warm skin and highlights. We hear heavy rain on asphalt, the ring of steel as the katana leaves the scabbard, buzzing neon. The music is a low pulsing synth, continuing across the whole shot.",
+    "seed": 412552808,
+    "orientation": "landscape",
+    "audio": "heavy rain on asphalt, the ring of steel as the katana leaves the scabbard, buzzing neon",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "action": "He turns his head and shoulders to face the camera, draws the katana fully out of its scabbard in one smooth motion, and raises the blade to a high guard beside his head, his stern eyes fixed on the camera.",
+    "angle": {
+      "id": "right/eye/medium",
+      "label": "Right side · Eye level · Medium",
+      "azimuth_deg": 90,
+      "elevation_deg": 0,
+      "distance": 1.0,
+      "directive": "Re-shoot the same scene from the right side view, the camera rotated 90 degrees to the right, the subject in profile, an eye-level shot, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 将镜头向右旋转90度。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。",
+      "tested": true,
+      "source_file": "runs/01_hero/image.png"
+    },
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/02_angle/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Tomas",
+      "refs": [
+        "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+      ]
+    },
+    "recipe_hash": "c16f2f9034e1afc622531e8d28306ba7cb80e6d7ec4594cbfd7c000f10bd7603"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "46f0e5e4de510e84b47f850c1d75c6543b94a70fed5a5c56f455b3cba148a388",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "54f0d4f7fa18179cfe0a825273560698ef971fab4a381b4e4ea44ffe8590b536",
+        "job_id": "25e9fabf-814a-4371-ad65-d40b8eafc25f"
+      },
+      {
+        "stage": "angle",
+        "template": "qwen21_edit",
+        "workflow_sha256": "ca648fd9525429fd35c0d038084dc273325665b727ea24e62b6a2075ab317ec0",
+        "job_id": "dfdf7d04-2795-4d26-afe3-e10800cfc3b8"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "8a85fce05ad60e4e4aeb3ec83e12661dc7447a148d7e52834573d7c514d3f705",
+        "job_id": "4df66753-8d36-4487-b8c2-e462713d21f2"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8294877406489369,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8294877406489369,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8294877406489369
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          561,
+          71,
+          140,
+          195
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.829 >= threshold 0.363 (best reference 0)",
+        "face_px": 140,
+        "enlarged": null
+      },
+      "angle": {
+        "status": "pass",
+        "score": 0.5545966290187784,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.5545966290187784
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          589,
+          56,
+          121,
+          183
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.555 >= threshold 0.363 (best reference 0)",
+        "face_px": 121,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.5679896610011181,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.5679896610011181
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          561,
+          47,
+          110,
+          170
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.568 >= threshold 0.363 (best reference 0)",
+        "face_px": 110,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "25e9fabf-814a-4371-ad65-d40b8eafc25f,dfdf7d04-2795-4d26-afe3-e10800cfc3b8,4df66753-8d36-4487-b8c2-e462713d21f2",
+    "timings": {
+      "total_s": 298.2
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "e65ce114cd8b0defc5b69b4cadb843f421eb8af3522c5e17b6f82896283b5a11",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "66b323b36dd766194203e6779db1f36f5e2a64d2c99738908b5e871f42f736c0"
+  }
+}

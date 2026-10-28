@@ -1,0 +1,98 @@
+{
+  "id": "tk_20261023_084643_7561",
+  "kind": "direct",
+  "label": "static: Noor lands in a superhero crouch on a rooftop at",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:46:43Z",
+  "updated_at": "2026-10-23T08:50:35Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Noor lands in a superhero crouch on a rooftop at night, a red cape flaring",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "comic"
+    },
+    "audio": null,
+    "seed": 573,
+    "orientation": "landscape",
+    "cast_refs": [
+      "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+    ],
+    "cast_name": "Noor",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (comic book): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "c0f228996a9c77deb14ad17086a60af4a953ca65e71aa48517673945b5691d1e",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8435796033743624,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8435796033743624
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        616,
+        84,
+        127,
+        161
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.844 >= threshold 0.363 (best reference 0)",
+      "face_px": 127,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fx-comic",
+  "showcase_sha": "5debd6898b321b6c"
+}

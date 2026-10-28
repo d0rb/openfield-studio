@@ -1,0 +1,59 @@
+{
+  "id": "tk_20261025_155332_efdb",
+  "kind": "upscale",
+  "label": "upscale 4K: A white lighthouse on a cliff above the sea ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-25T15:53:32Z",
+  "updated_at": "2026-10-25T15:55:44Z",
+  "recipe": {
+    "kind": "upscale",
+    "take": "tk_20261025_140319_a4ab",
+    "target": "4k"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "Upscaled with Real-ESRGAN x4plus (open weights), the model of ComfyUI's own Video Upscale graph, then resized to 3840x2194. Each frame is enlarged on its own: the model redraws fine detail from that frame's pixels as a GAN upscaler does, and nothing beyond that is invented. The motion and the sound are the take's own."
+  ],
+  "replay": false,
+  "recipe_hash": "57ae03482f523220c5d96c07d7389d2a249c354ea19a20b3191558d7ecdba2fa",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    3840,
+    2194
+  ],
+  "showcase_name": "r11-up-4k",
+  "showcase_sha": "a6a643a259817267"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "tk_20261023_085408_dab1",
+  "kind": "direct",
+  "label": "static: A grand clock tower stands over an empty city sq",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:54:08Z",
+  "updated_at": "2026-10-23T08:57:32Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A grand clock tower stands over an empty city square at noon",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "melt"
+    },
+    "audio": null,
+    "seed": 575,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (melt): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "4f3370f7854d3683d9d86b07609a87c94cfc6d6c178d9dca0e4b27f00c6a8252",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fx-melt",
+  "showcase_sha": "c62337177742fd42"
+}

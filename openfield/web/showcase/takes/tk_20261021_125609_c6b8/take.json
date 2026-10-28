@@ -1,0 +1,85 @@
+{
+  "id": "tk_20261021_125609_c6b8",
+  "kind": "reshoot",
+  "label": "re-shoot: a woman in her late twenties with short dark hai",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-21T12:56:09Z",
+  "updated_at": "2026-10-21T12:59:37Z",
+  "recipe": {
+    "kind": "reshoot",
+    "prompt": "a woman in her late twenties with short dark hair, freckles and a yellow rain jacket",
+    "background": "a rainy street at night lit by neon signs",
+    "motion": "",
+    "seed": 61,
+    "source_sha256": "c1b9d2bef6370ac3238f4f2182d8f9b3137874cfe59b663525bb20165ae5d8f0",
+    "reference_sha256": "6a5229468efeb69b4c76d803764b905bdef8620e21b8e518ff523f94c9765204",
+    "reference_name": "Mara"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "Source footage rendered with LTX 2.5 (the showcase's own dance-source take: an invented dancer on a rooftop); no real person was filmed."
+  ],
+  "replay": false,
+  "recipe_hash": "d783be0b41269ed6c0a7d8497c8b69353fa4a5d918f802dad558e9b1cb727fd8",
+  "identity": {
+    "motion": {
+      "status": "drift",
+      "score": 0.29650574007135333,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.29650574007135333
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        392,
+        36,
+        47,
+        61
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.297 < threshold 0.363 (best reference 0)",
+      "frame": "mid",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    848,
+    480
+  ],
+  "showcase_name": "reshoot-mara",
+  "showcase_sha": "4d60d4be37c1ba08"
+}

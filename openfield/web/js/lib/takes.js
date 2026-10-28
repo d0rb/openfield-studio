@@ -1,11 +1,11 @@
 // The Takes list: what is shown, in what order, and how takes relate to each other.
 // Generated-character takes belong to the Cast station and never clutter the film ledger.
 
-export const FILM_KINDS = new Set(["direct", "reshoot", "export"]);
+export const FILM_KINDS = new Set(["direct", "reshoot", "export", "transition", "shots", "edit", "extend", "upscale"]);
 
 const newestFirst = (a, b) => b.created_at.localeCompare(a.created_at);
 
-/** Takes for the ledger: films and exports, newest first. */
+/** Takes for the ledger: films (shots, re-shoots, bridges, boards and edits) and exports, newest first. */
 export function ledgerTakes(takes, { kind = null, status = null } = {}) {
   return takes
     .filter((t) => FILM_KINDS.has(t.kind) && (!kind || t.kind === kind) && (!status || t.status === status))
@@ -46,6 +46,9 @@ export function statusLabel(take) {
   if (take.status === "succeeded") return take.replay ? "Replay" : "Done";
   return { queued: "Queued", running: "Running", awaiting_approval: "Needs your approval", failed: "Failed", canceled: "Canceled" }[take.status] ?? take.status;
 }
+
+/** The crop focus remembered for a take's 9:16 export, or the centre. */
+export const cropFocus = (map, takeId) => map.get(takeId) ?? 0.5;
 
 /** The place a recipe can be reloaded into: the form it came from. */
 export const formFor = (take) => (take.kind === "reshoot" ? "reshoot" : take.kind === "direct" ? "direct" : null);

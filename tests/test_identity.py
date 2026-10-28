@@ -175,6 +175,47 @@ def test_largest_face_is_the_one_compared(tmp_path):
     assert set(recognizer.widths) == {60}
 
 
+def test_a_small_candidate_face_is_embedded_from_an_enlarged_crop(tmp_path):
+    detector = FakeDetector({1: [face_row(8, 8, 20, 20)]})
+    recognizer = FakeRecognizer({1: [1, 0, 0, 0]})
+    gate = FaceGate(tmp_path, detector=detector, recognizer=recognizer)
+    image = write_png(tmp_path / "small.png", 1, size=64)
+    report = gate.check([image], image)
+    assert report.status == "pass"
+    assert report.enlarged == 4.0
+    assert report.face_px == 20
+    assert report.candidate_box == (8, 8, 20, 20)  # still in original coordinates
+    assert any(h > 64 or w > 64 for h, w in detector.seen)
+
+
+def test_a_face_at_the_small_face_boundary_is_not_enlarged(tmp_path):
+    detector = FakeDetector({1: [face_row(20, 20, 120, 120)]})
+    recognizer = FakeRecognizer({1: [1, 0, 0, 0]})
+    gate = FaceGate(tmp_path, detector=detector, recognizer=recognizer)
+    image = write_png(tmp_path / "big.png", 1, size=256)
+    report = gate.check([image], image)
+    assert report.enlarged is None
+    assert report.face_px == 120
+
+
+def test_enlarge_false_keeps_a_small_face_at_its_original_size(tmp_path):
+    detector = FakeDetector({1: [face_row(8, 8, 20, 20)]})
+    recognizer = FakeRecognizer({1: [1, 0, 0, 0]})
+    gate = FaceGate(tmp_path, detector=detector, recognizer=recognizer, enlarge=False)
+    image = write_png(tmp_path / "small.png", 1, size=64)
+    report = gate.check([image], image)
+    assert report.enlarged is None
+    assert report.face_px == 20
+
+
+def test_report_to_dict_carries_face_size_and_enlargement(tmp_path):
+    detector = FakeDetector({1: [face_row(8, 8, 20, 20)]})
+    gate = FaceGate(tmp_path, detector=detector, recognizer=FakeRecognizer({1: [1, 0, 0, 0]}))
+    image = write_png(tmp_path / "small.png", 1, size=64)
+    data = gate.check([image], image).to_dict()
+    assert (data["face_px"], data["enlarged"]) == (20, 4.0)
+
+
 def test_faceless_candidate_is_not_applicable(rig):
     report = rig.gate.check([rig.image("a.png", 1)], rig.image("sky.png", 9))
     assert report.status == "n/a"
@@ -411,7 +452,8 @@ def test_references_without_faces_are_cached_too(rig):
     rig.gate.check(refs, candidate)
     detections = len(rig.detector.seen)
     rig.gate.check(refs, candidate)
-    assert len(rig.detector.seen) == detections + 1
+    # the cached references are not re-detected, but the small candidate face is: original + crop
+    assert len(rig.detector.seen) == detections + 2
 
 
 # --- report -----------------------------------------------------------------------------

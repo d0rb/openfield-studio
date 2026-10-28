@@ -1,14 +1,458 @@
 {
+ "action_max": 300,
+ "angles": {
+  "azimuths": [
+   {
+    "degrees": 0,
+    "id": "front",
+    "label": "Front"
+   },
+   {
+    "degrees": 45,
+    "id": "front_right",
+    "label": "Front-right quarter"
+   },
+   {
+    "degrees": 90,
+    "id": "right",
+    "label": "Right side"
+   },
+   {
+    "degrees": 135,
+    "id": "back_right",
+    "label": "Back-right quarter"
+   },
+   {
+    "degrees": 180,
+    "id": "back",
+    "label": "Back"
+   },
+   {
+    "degrees": 225,
+    "id": "back_left",
+    "label": "Back-left quarter"
+   },
+   {
+    "degrees": 270,
+    "id": "left",
+    "label": "Left side"
+   },
+   {
+    "degrees": 315,
+    "id": "front_left",
+    "label": "Front-left quarter"
+   }
+  ],
+  "default": "front/eye/medium",
+  "distances": [
+   {
+    "id": "close",
+    "label": "Close-up",
+    "scale": 0.6
+   },
+   {
+    "id": "medium",
+    "label": "Medium",
+    "scale": 1.0
+   },
+   {
+    "id": "wide",
+    "label": "Wide",
+    "scale": 1.8
+   }
+  ],
+  "elevations": [
+   {
+    "degrees": -30,
+    "id": "low",
+    "label": "Low angle"
+   },
+   {
+    "degrees": 0,
+    "id": "eye",
+    "label": "Eye level"
+   },
+   {
+    "degrees": 30,
+    "id": "elevated",
+    "label": "Elevated"
+   },
+   {
+    "degrees": 60,
+    "id": "high",
+    "label": "High angle"
+   }
+  ],
+  "tested": [
+   "back/elevated/close",
+   "back/elevated/medium",
+   "back/elevated/wide",
+   "back/eye/close",
+   "back/eye/medium",
+   "back/eye/wide",
+   "back/high/close",
+   "back/high/medium",
+   "back/high/wide",
+   "back/low/close",
+   "back/low/medium",
+   "back/low/wide",
+   "back_left/elevated/medium",
+   "back_left/elevated/wide",
+   "back_left/eye/medium",
+   "back_left/eye/wide",
+   "back_left/high/close",
+   "back_left/high/medium",
+   "back_left/high/wide",
+   "back_left/low/medium",
+   "back_left/low/wide",
+   "back_right/elevated/medium",
+   "back_right/elevated/wide",
+   "back_right/eye/medium",
+   "back_right/high/close",
+   "back_right/high/medium",
+   "back_right/high/wide",
+   "back_right/low/medium",
+   "back_right/low/wide",
+   "front/elevated/close",
+   "front/elevated/medium",
+   "front/elevated/wide",
+   "front/eye/close",
+   "front/eye/wide",
+   "front/high/close",
+   "front/high/medium",
+   "front/high/wide",
+   "front/low/close",
+   "front/low/medium",
+   "front_left/eye/medium",
+   "front_right/eye/close",
+   "front_right/eye/medium",
+   "left/elevated/close",
+   "left/elevated/medium",
+   "left/elevated/wide",
+   "left/eye/close",
+   "left/eye/medium",
+   "left/eye/wide",
+   "left/high/close",
+   "left/high/medium",
+   "left/high/wide",
+   "left/low/close",
+   "left/low/medium",
+   "left/low/wide",
+   "right/elevated/close",
+   "right/elevated/medium",
+   "right/elevated/wide",
+   "right/eye/close",
+   "right/eye/medium",
+   "right/high/close",
+   "right/high/medium",
+   "right/high/wide",
+   "right/low/close",
+   "right/low/medium",
+   "right/low/wide"
+  ]
+ },
  "defaults": {
+  "angle": "front/eye/medium",
   "aperture": "f4",
   "duration_seconds": 5,
+  "effect": "none",
   "focal_length_mm": 35,
+  "grade": "none",
   "lens": "clean_sharp",
   "lighting": "soft_cross",
   "movement": "dolly_in",
+  "score": "none",
   "sensor": "modern_digital",
+  "soundscape": "none",
   "speed": "steady"
  },
+ "dialogue": {
+  "deliveries": [
+   {
+    "id": "natural",
+    "label": "Natural"
+   },
+   {
+    "id": "calm",
+    "label": "Calm"
+   },
+   {
+    "id": "whisper",
+    "label": "Whisper"
+   },
+   {
+    "id": "tender",
+    "label": "Tender"
+   },
+   {
+    "id": "urgent",
+    "label": "Urgent"
+   },
+   {
+    "id": "shout",
+    "label": "Shout"
+   },
+   {
+    "id": "radio",
+    "label": "Radio"
+   },
+   {
+    "id": "announcer",
+    "label": "Announcer"
+   }
+  ],
+  "dub_tested": true,
+  "language_max_chars": 40,
+  "max_chars": 200,
+  "tested": true
+ },
+ "edits": {
+  "lights": [
+   {
+    "id": "left",
+    "label": "Left"
+   },
+   {
+    "id": "right",
+    "label": "Right"
+   },
+   {
+    "id": "back",
+    "label": "Back"
+   },
+   {
+    "id": "top",
+    "label": "Top"
+   },
+   {
+    "id": "golden",
+    "label": "Golden"
+   },
+   {
+    "id": "blue",
+    "label": "Blue"
+   },
+   {
+    "id": "neon",
+    "label": "Neon"
+   },
+   {
+    "id": "candle",
+    "label": "Candle"
+   }
+  ],
+  "max_chars": 160,
+  "presets": [
+   {
+    "id": "face_swap",
+    "label": "Swap the face",
+    "needs_cast": true,
+    "needs_detail": false,
+    "tested": true
+   },
+   {
+    "id": "character_swap",
+    "label": "Swap the person",
+    "needs_cast": true,
+    "needs_detail": false,
+    "tested": true
+   },
+   {
+    "id": "remove",
+    "label": "Remove something",
+    "needs_cast": false,
+    "needs_detail": true,
+    "tested": true
+   },
+   {
+    "id": "outfit",
+    "label": "Change the outfit",
+    "needs_cast": false,
+    "needs_detail": true,
+    "tested": true
+   },
+   {
+    "id": "relight",
+    "label": "Relight",
+    "needs_cast": false,
+    "needs_detail": true,
+    "tested": true
+   },
+   {
+    "id": "custom",
+    "label": "Your words",
+    "needs_cast": false,
+    "needs_detail": true,
+    "tested": true
+   }
+  ]
+ },
+ "effects": [
+  {
+   "id": "none",
+   "kind": "prompt",
+   "label": "None",
+   "tested": false
+  },
+  {
+   "id": "rain",
+   "kind": "prompt",
+   "label": "Rain",
+   "tested": true
+  },
+  {
+   "id": "lightning",
+   "kind": "prompt",
+   "label": "Lightning",
+   "tested": true
+  },
+  {
+   "id": "time_freeze",
+   "kind": "prompt",
+   "label": "Time freeze",
+   "tested": true
+  },
+  {
+   "id": "dust",
+   "kind": "prompt",
+   "label": "Dust",
+   "tested": true
+  },
+  {
+   "id": "fog",
+   "kind": "prompt",
+   "label": "Fog",
+   "tested": true
+  },
+  {
+   "id": "slow_motion",
+   "kind": "prompt",
+   "label": "Slow motion",
+   "tested": true
+  },
+  {
+   "id": "ignite",
+   "kind": "keyframed",
+   "label": "Ignite",
+   "tested": true
+  },
+  {
+   "id": "freeze",
+   "kind": "keyframed",
+   "label": "Freeze",
+   "tested": true
+  },
+  {
+   "id": "gold",
+   "kind": "keyframed",
+   "label": "Gold statue",
+   "tested": true
+  },
+  {
+   "id": "bloom",
+   "kind": "keyframed",
+   "label": "Bloom",
+   "tested": true
+  },
+  {
+   "id": "night",
+   "kind": "keyframed",
+   "label": "Day to night",
+   "tested": true
+  },
+  {
+   "id": "age",
+   "kind": "keyframed",
+   "label": "Age",
+   "tested": true
+  },
+  {
+   "id": "snowfall",
+   "kind": "keyframed",
+   "label": "Snowfall",
+   "tested": true
+  },
+  {
+   "id": "ruin",
+   "kind": "keyframed",
+   "label": "Ruin",
+   "tested": true
+  },
+  {
+   "id": "bts",
+   "kind": "keyframed",
+   "label": "Behind the scenes",
+   "tested": true
+  },
+  {
+   "id": "vanish",
+   "kind": "keyframed",
+   "label": "Vanish",
+   "tested": true
+  },
+  {
+   "id": "clones",
+   "kind": "keyframed",
+   "label": "Clones",
+   "tested": true
+  },
+  {
+   "id": "comic",
+   "kind": "keyframed",
+   "label": "Comic book",
+   "tested": true
+  },
+  {
+   "id": "painting",
+   "kind": "keyframed",
+   "label": "Oil painting",
+   "tested": true
+  },
+  {
+   "id": "melt",
+   "kind": "keyframed",
+   "label": "Melt",
+   "tested": true
+  },
+  {
+   "id": "flood",
+   "kind": "keyframed",
+   "label": "Flood",
+   "tested": true
+  }
+ ],
+ "effects_tested": [
+  "age",
+  "bloom",
+  "bts",
+  "clones",
+  "comic",
+  "dust",
+  "flood",
+  "fog",
+  "freeze",
+  "gold",
+  "ignite",
+  "lightning",
+  "melt",
+  "night",
+  "painting",
+  "rain",
+  "ruin",
+  "slow_motion",
+  "snowfall",
+  "time_freeze",
+  "vanish"
+ ],
+ "extend": {
+  "seconds": [
+   3,
+   5
+  ],
+  "tested": true
+ },
+ "face_only_tested": true,
+ "from_image_tested": true,
  "groups": [
   {
    "id": "lock",
@@ -54,6 +498,7 @@
    "anchors": 1,
    "edits": [],
    "featured": true,
+   "frozen": false,
    "group": "lock",
    "group_label": "Lock & aim",
    "hold": "no camera movement, no zoom, no drift",
@@ -69,6 +514,7 @@
     }
    ],
    "label": "Static",
+   "made": null,
    "mode": "prompt_only",
    "path": [
     {
@@ -89,14 +535,15 @@
     }
    ],
    "phrase": "The camera is locked off on a tripod; only the subject moves.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has panned about 35 degrees to the left from the same position."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "lock",
    "group_label": "Lock & aim",
    "hold": "pure rotation, camera position fixed, no tilt, no zoom",
@@ -120,7 +567,8 @@
     }
    ],
    "label": "Pan left",
-   "mode": "keyframed",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -315,15 +763,16 @@
      "z": -1.0
     }
    ],
-   "phrase": "The camera pans smoothly to the left on a fixed tripod, revealing more of the scene.",
-   "validated": false
+   "phrase": "The camera pans to the left, swivelling in place so the view sweeps sideways across the landscape.",
+   "reversed": false,
+   "validated": true,
+   "words": "The camera pans to the left, swivelling in place so the view sweeps sideways across the landscape, moving at a steady pace. The camera turns in place to the left and settles on the new view, level and at the same height."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has panned about 35 degrees to the right from the same position."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "lock",
    "group_label": "Lock & aim",
    "hold": "pure rotation, camera position fixed, no tilt, no zoom",
@@ -347,7 +796,8 @@
     }
    ],
    "label": "Pan right",
-   "mode": "keyframed",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -542,15 +992,16 @@
      "z": -1.0
     }
    ],
-   "phrase": "The camera pans smoothly to the right on a fixed tripod, revealing more of the scene.",
-   "validated": false
+   "phrase": "The camera pans to the right, swivelling in place so the view sweeps sideways across the landscape.",
+   "reversed": false,
+   "validated": true,
+   "words": "The camera pans to the right, swivelling in place so the view sweeps sideways across the landscape, moving at a steady pace. The camera turns in place to the right and settles on the new view, level and at the same height."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has tilted up about 25 degrees from the same position."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "lock",
    "group_label": "Lock & aim",
    "hold": "pure rotation, camera position fixed, no pan, no zoom",
@@ -574,7 +1025,8 @@
     }
    ],
    "label": "Tilt up",
-   "mode": "keyframed",
+   "made": "Rendered from a still camera, then the frame tilted upward in code across the render.",
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -769,15 +1221,16 @@
      "z": -1.0
     }
    ],
-   "phrase": "The camera tilts up smoothly on a fixed tripod.",
-   "validated": false
+   "phrase": "The camera tilts upward, swivelling in place from the subject up toward the sky.",
+   "reversed": false,
+   "validated": true,
+   "words": "The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has tilted down about 25 degrees from the same position."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "lock",
    "group_label": "Lock & aim",
    "hold": "pure rotation, camera position fixed, no pan, no zoom",
@@ -801,7 +1254,8 @@
     }
    ],
    "label": "Tilt down",
-   "mode": "keyframed",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -996,13 +1450,16 @@
      "z": -1.0
     }
    ],
-   "phrase": "The camera tilts down smoothly on a fixed tripod.",
-   "validated": false
+   "phrase": "The camera tilts downward, swivelling in place from the subject down toward the ground.",
+   "reversed": false,
+   "validated": true,
+   "words": "The camera tilts downward, swivelling in place from the subject down toward the ground, moving at a steady pace. The camera turns downward in place and settles on the lower view."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "lock",
    "group_label": "Lock & aim",
    "hold": "one decisive swing, then a steady frame",
@@ -1026,7 +1483,8 @@
     }
    ],
    "label": "Whip pan",
-   "mode": "experimental",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -1222,7 +1680,9 @@
     }
    ],
    "phrase": "A fast whip pan: the camera swings sideways, motion blur streaks across the frame, then settles.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "A fast whip pan: the camera swings sideways, motion blur streaks across the frame, then settles. After one fast swing the frame comes to rest on a new, steady view."
   },
   {
    "anchors": 2,
@@ -1230,6 +1690,7 @@
     "Same scene, subject, wardrobe, lighting and style as the reference. The camera is now much closer to the subject, about half the original distance, framing tighter at the same angle and focal length."
    ],
    "featured": true,
+   "frozen": false,
    "group": "dolly",
    "group_label": "Dolly & push",
    "hold": "physical camera travel, fixed focal length, no zoom, constant lens height",
@@ -1253,6 +1714,7 @@
     }
    ],
    "label": "Dolly in",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -1449,7 +1911,9 @@
     }
    ],
    "phrase": "The camera dollies in toward the subject on a smooth track, parallax shifting in the background.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. The camera travels forward on its track and arrives at a close view of the subject, the lens height unchanged."
   },
   {
    "anchors": 2,
@@ -1457,6 +1921,7 @@
     "Same scene, subject, wardrobe, lighting and style as the reference. The camera has pulled back to nearly twice the distance, the subject smaller in frame with more of the environment visible, same angle and focal length."
    ],
    "featured": true,
+   "frozen": false,
    "group": "dolly",
    "group_label": "Dolly & push",
    "hold": "physical camera travel, fixed focal length, no zoom, constant lens height",
@@ -1480,6 +1945,7 @@
     }
    ],
    "label": "Dolly out",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -1676,7 +2142,9 @@
     }
    ],
    "phrase": "The camera dollies out, pulling back from the subject on a smooth track and revealing the setting.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera dollies out, pulling back from the subject on a smooth track and revealing the setting, moving at a steady pace. The camera travels backward on its track and arrives at a wide view with the whole setting around the subject."
   },
   {
    "anchors": 2,
@@ -1684,6 +2152,7 @@
     "Same scene, subject, wardrobe, lighting and style as the reference. The camera has moved slightly closer, framing a little tighter."
    ],
    "featured": false,
+   "frozen": false,
    "group": "dolly",
    "group_label": "Dolly & push",
    "hold": "small physical move, fixed focal length, no zoom",
@@ -1707,6 +2176,7 @@
     }
    ],
    "label": "Push in",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -1903,7 +2373,9 @@
     }
    ],
    "phrase": "A slow, subtle push-in toward the point of interest.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "A slow, subtle push-in toward the point of interest, moving at a steady pace. The camera eases a short way forward and ends a little closer on the subject."
   },
   {
    "anchors": 2,
@@ -1911,6 +2383,7 @@
     "Same scene, subject, wardrobe, lighting and style as the reference. The camera has moved slightly farther away, framing a little wider."
    ],
    "featured": false,
+   "frozen": false,
    "group": "dolly",
    "group_label": "Dolly & push",
    "hold": "small physical move, fixed focal length, no zoom",
@@ -1934,6 +2407,7 @@
     }
    ],
    "label": "Pull out",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -2130,12 +2604,17 @@
     }
    ],
    "phrase": "A slow, subtle pull-out away from the point of interest.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "A slow, subtle pull-out away from the point of interest, moving at a steady pace. The camera eases a short way back and ends a little wider around the subject."
   },
   {
-   "anchors": 1,
-   "edits": [],
+   "anchors": 2,
+   "edits": [
+    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has pulled back to nearly twice the distance, the subject smaller in frame with more of the environment visible, same angle and focal length."
+   ],
    "featured": false,
+   "frozen": false,
    "group": "dolly",
    "group_label": "Dolly & push",
    "hold": "subject size constant while the background perspective changes",
@@ -2158,8 +2637,9 @@
      "z": -1.6
     }
    ],
-   "label": "Vertigo",
-   "mode": "experimental",
+   "label": "Dolly zoom (vertigo)",
+   "made": "Rendered as a dolly-out, then zoomed in code as the camera backs away, so the subject keeps its size. The zoom follows the face it finds in the render.",
+   "mode": "keyframed",
    "path": [
     {
      "fov": 40.0,
@@ -2355,14 +2835,15 @@
     }
    ],
    "phrase": "A dolly-zoom (vertigo effect): the camera moves back while zooming in so the subject keeps its size and the background appears to stretch.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera dollies out, pulling back from the subject on a smooth track and revealing the setting, moving at a steady pace. The camera travels backward on its track and arrives at a wide view with the whole setting around the subject."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. Same viewpoint and perspective, framed tighter as if zoomed in 2x, no parallax change."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": true,
+   "frozen": false,
    "group": "zoom",
    "group_label": "Zoom & focus",
    "hold": "locked tripod, zero camera travel, zero parallax, optical lens change only",
@@ -2386,7 +2867,8 @@
     }
    ],
    "label": "Zoom in",
-   "mode": "keyframed",
+   "made": "Rendered from a still camera, then the lens narrowed in code from the whole frame to 1.5x.",
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -2582,14 +3064,15 @@
     }
    ],
    "phrase": "The lens zooms in optically from a locked tripod; the subject grows larger.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. Same viewpoint and perspective, framed wider as if zoomed out, no parallax change."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "zoom",
    "group_label": "Zoom & focus",
    "hold": "locked tripod, zero camera travel, zero parallax, optical lens change only",
@@ -2613,7 +3096,8 @@
     }
    ],
    "label": "Zoom out",
-   "mode": "keyframed",
+   "made": "Rendered from a still camera, then the lens widened in code from 1.5x to the whole frame.",
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -2808,13 +3292,16 @@
      "z": -1.0
     }
    ],
-   "phrase": "The lens zooms out optically from a locked tripod, revealing more of the frame.",
-   "validated": false
+   "phrase": "The lens zooms out optically while the camera stays planted, the frame widening around the subject.",
+   "reversed": false,
+   "validated": true,
+   "words": "The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "zoom",
    "group_label": "Zoom & focus",
    "hold": "camera still, only the focus plane moves",
@@ -2830,6 +3317,7 @@
     }
    ],
    "label": "Rack focus",
+   "made": null,
    "mode": "experimental",
    "path": [
     {
@@ -2849,15 +3337,16 @@
      "z": -1.0
     }
    ],
-   "phrase": "Focus pulls from the foreground to the subject; the sharp plane shifts and the bokeh changes.",
-   "validated": false
+   "phrase": "A rack focus: an object close to the lens starts sharp while the subject behind it is soft, then the focus pulls back until the subject is crisp and the foreground object melts into blur.",
+   "reversed": false,
+   "validated": false,
+   "words": "A rack focus: an object close to the lens starts sharp while the subject behind it is soft, then the focus pulls back until the subject is crisp and the foreground object melts into blur, moving at a steady pace. The camera holds still and the focus finishes sharp on the subject, the foreground melted into soft blur."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has orbited 90 degrees around the subject to its right, seeing it in profile at the same distance and height, the subject centred."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": true,
+   "frozen": false,
    "group": "orbit",
    "group_label": "Orbit & arc",
    "hold": "constant radius, constant height, subject remains centred, no subject spin",
@@ -2937,7 +3426,8 @@
     }
    ],
    "label": "Orbit 90",
-   "mode": "keyframed",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -3133,15 +3623,15 @@
     }
    ],
    "phrase": "The camera orbits 90 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera orbits 90 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles a quarter turn at the same distance and height and ends with the subject seen from the side, still centred."
   },
   {
-   "anchors": 3,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has orbited 90 degrees around the subject to its right, seeing it in profile.",
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has orbited 180 degrees around the subject, now seeing it from behind."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": true,
+   "frozen": false,
    "group": "orbit",
    "group_label": "Orbit & arc",
    "hold": "constant radius, constant height, subject remains centred, no subject spin",
@@ -3221,7 +3711,8 @@
     }
    ],
    "label": "Orbit 180",
-   "mode": "keyframed",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -3417,7 +3908,9 @@
     }
    ],
    "phrase": "The camera orbits 180 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera orbits 180 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles halfway round at the same distance and height and ends behind the subject, who stays centred and facing the same way."
   },
   {
    "anchors": 5,
@@ -3427,6 +3920,7 @@
     "Same scene, subject, wardrobe, lighting and style as the reference. The camera has orbited 270 degrees around the subject, seeing its left profile."
    ],
    "featured": false,
+   "frozen": false,
    "group": "orbit",
    "group_label": "Orbit & arc",
    "hold": "constant radius, constant height, subject remains centred, no subject spin",
@@ -3570,6 +4064,7 @@
     }
    ],
    "label": "Orbit 360",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -3766,14 +4261,17 @@
     }
    ],
    "phrase": "The camera makes a full 360 degree orbit around the subject at constant distance, the subject staying centred while the background rotates behind it.",
-   "validated": false
+   "reversed": false,
+   "validated": false,
+   "words": "The camera makes a full 360 degree orbit around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles all the way round at the same distance and height and ends where it began, the subject centred throughout."
   },
   {
    "anchors": 2,
    "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has arced about 40 degrees to the left around the subject at the same distance."
+    "Re-shoot the same scene with the camera moved 45 degrees to the left around the subject, at the same distance and height. The subject does not turn: they still look toward where the camera stood before, so the new view shows their face at a three-quarter angle and the setting behind them has swung round. \u5c06\u955c\u5934\u5411\u5de6\u65cb\u8f6c45\u5ea6\uff0c\u4e3b\u4f53\u5728\u573a\u666f\u4e2d\u7684\u671d\u5411\u4e0d\u53d8\uff0c\u4e0d\u8981\u8f6c\u5411\u955c\u5934\u3002"
    ],
-   "featured": true,
+   "featured": false,
+   "frozen": false,
    "group": "orbit",
    "group_label": "Orbit & arc",
    "hold": "constant distance, subject remains in frame, no zoom",
@@ -3790,37 +4288,38 @@
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.17364817766693033,
+     "x": -0.19509032201612825,
      "y": 0.0,
-     "yaw": 10.0,
-     "z": -0.984807753012208
+     "yaw": 11.25,
+     "z": -0.9807852804032304
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.3420201433256687,
+     "x": -0.3826834323650898,
      "y": 0.0,
-     "yaw": 20.0,
-     "z": -0.9396926207859084
+     "yaw": 22.5,
+     "z": -0.9238795325112867
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.49999999999999994,
+     "x": -0.5555702330196022,
      "y": 0.0,
-     "yaw": 29.999999999999996,
-     "z": -0.8660254037844387
+     "yaw": 33.75,
+     "z": -0.8314696123025452
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.6427876096865393,
+     "x": -0.7071067811865476,
      "y": 0.0,
-     "yaw": 40.0,
-     "z": -0.766044443118978
+     "yaw": 45.0,
+     "z": -0.7071067811865476
     }
    ],
    "label": "Arc left",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -3834,197 +4333,200 @@
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.03019968307250962,
+     "x": -0.03392875165497883,
      "y": 0.0,
-     "yaw": 1.7391304347826086,
-     "z": -0.9973578700890796
+     "yaw": 1.9565217391304348,
+     "z": -0.9966583096353444
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.06039936614501924,
+     "x": -0.06785750330995766,
      "y": 0.0,
-     "yaw": 3.4782608695652173,
-     "z": -0.9947157401781593
+     "yaw": 3.9130434782608696,
+     "z": -0.9933166192706888
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.09059904921752887,
+     "x": -0.10178625496493647,
      "y": 0.0,
-     "yaw": 5.217391304347826,
-     "z": -0.992073610267239
+     "yaw": 5.869565217391304,
+     "z": -0.9899749289060332
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.12079873229003849,
+     "x": -0.1357150066199153,
      "y": 0.0,
-     "yaw": 6.956521739130435,
-     "z": -0.9894314803563187
+     "yaw": 7.826086956521739,
+     "z": -0.9866332385413777
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.1509984153625481,
+     "x": -0.1696437582748941,
      "y": 0.0,
-     "yaw": 8.695652173913043,
-     "z": -0.9867893504453983
+     "yaw": 9.782608695652174,
+     "z": -0.9832915481767222
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.18096869791296244,
+     "x": -0.20324654420521351,
      "y": 0.0,
-     "yaw": 10.434782608695652,
-     "z": -0.982846225524108
+     "yaw": 11.739130434782608,
+     "z": -0.9783111174514068
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.21025077889709087,
+     "x": -0.2358714329615547,
      "y": 0.0,
-     "yaw": 12.173913043478262,
-     "z": -0.9750001155717081
+     "yaw": 13.695652173913045,
+     "z": -0.9684144656441123
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.23953285988121925,
+     "x": -0.2684963217178958,
      "y": 0.0,
-     "yaw": 13.91304347826087,
-     "z": -0.9671540056193082
+     "yaw": 15.652173913043477,
+     "z": -0.9585178138368177
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.2688149408653477,
+     "x": -0.30112121047423696,
      "y": 0.0,
-     "yaw": 15.652173913043478,
-     "z": -0.9593078956669082
+     "yaw": 17.608695652173914,
+     "z": -0.9486211620295231
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.29809702184947606,
+     "x": -0.3337460992305781,
      "y": 0.0,
-     "yaw": 17.391304347826086,
-     "z": -0.9514617857145083
+     "yaw": 19.565217391304348,
+     "z": -0.9387245102222286
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.3273791028336045,
+     "x": -0.36637098798691925,
      "y": 0.0,
-     "yaw": 19.130434782608695,
-     "z": -0.9436156757621084
+     "yaw": 21.52173913043478,
+     "z": -0.928827858414934
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.3557575221669149,
+     "x": -0.3977170672046126,
      "y": 0.0,
-     "yaw": 20.869565217391305,
-     "z": -0.9332867758292589
+     "yaw": 23.478260869565215,
+     "z": -0.915843887275744
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.3832322798494073,
+     "x": -0.4277843368836582,
      "y": 0.0,
-     "yaw": 22.60869565217391,
-     "z": -0.9204750859159598
+     "yaw": 25.43478260869565,
+     "z": -0.8997725968046585
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.4107070375318997,
+     "x": -0.4578516065627039,
      "y": 0.0,
-     "yaw": 24.347826086956523,
-     "z": -0.9076633960026607
+     "yaw": 27.39130434782609,
+     "z": -0.883701306333573
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.43818179521439204,
+     "x": -0.4879188762417495,
      "y": 0.0,
-     "yaw": 26.08695652173913,
-     "z": -0.8948517060893616
+     "yaw": 29.347826086956523,
+     "z": -0.8676300158624876
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.46565655289688446,
-     "y": 0.0,
-     "yaw": 27.826086956521735,
-     "z": -0.8820400161760625
-    },
-    {
-     "fov": 40.0,
-     "pitch": 0.0,
-     "x": -0.4931313105793768,
-     "y": 0.0,
-     "yaw": 29.565217391304344,
-     "z": -0.8692283262627635
-    },
-    {
-     "fov": 40.0,
-     "pitch": 0.0,
-     "x": -0.518624470828679,
+     "x": -0.5179861459207951,
      "y": 0.0,
      "yaw": 31.304347826086953,
-     "z": -0.8529844089150308
+     "z": -0.8515587253914021
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.543457098600251,
+     "x": -0.5480534155998408,
      "y": 0.0,
-     "yaw": 33.04347826086956,
-     "z": -0.8355964157558202
+     "yaw": 33.26086956521739,
+     "z": -0.8354874349203166
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.5682897263718231,
+     "x": -0.5753358697370299,
      "y": 0.0,
-     "yaw": 34.78260869565217,
-     "z": -0.8182084225966096
+     "yaw": 35.21739130434783,
+     "z": -0.8152483734613282
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.5931223541433951,
+     "x": -0.6016900520269334,
      "y": 0.0,
-     "yaw": 36.52173913043478,
-     "z": -0.8008204294373992
+     "yaw": 37.17391304347826,
+     "z": -0.793620055006372
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.6179549819149672,
+     "x": -0.6280442343168369,
      "y": 0.0,
-     "yaw": 38.26086956521739,
-     "z": -0.7834324362781886
+     "yaw": 39.130434782608695,
+     "z": -0.771991736551416
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": -0.6427876096865393,
+     "x": -0.6543984166067405,
      "y": 0.0,
-     "yaw": 40.0,
-     "z": -0.766044443118978
+     "yaw": 41.086956521739125,
+     "z": -0.7503634180964598
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.6807525988966441,
+     "y": 0.0,
+     "yaw": 43.04347826086956,
+     "z": -0.7287350996415036
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.7071067811865476,
+     "y": 0.0,
+     "yaw": 45.0,
+     "z": -0.7071067811865476
     }
    ],
-   "phrase": "The camera arcs to the left around the subject, a gentle curved move of about 40 degrees.",
-   "validated": false
+   "phrase": "The camera arcs to the left around the subject, a gentle curved move of about 45 degrees.",
+   "reversed": false,
+   "validated": false,
+   "words": "The camera arcs to the left around the subject, a gentle curved move of about 45 degrees, moving at a steady pace. The camera ends at the same distance on a three-quarter view of the subject, who keeps facing the same way while the setting swings round behind them."
   },
   {
    "anchors": 2,
    "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has arced about 40 degrees to the right around the subject at the same distance."
+    "Re-shoot the same scene with the camera moved 45 degrees to the right around the subject, at the same distance and height. The subject does not turn: they still look toward where the camera stood before, so the new view shows their face at a three-quarter angle and the setting behind them has swung round. \u5c06\u955c\u5934\u5411\u53f3\u65cb\u8f6c45\u5ea6\uff0c\u4e3b\u4f53\u5728\u573a\u666f\u4e2d\u7684\u671d\u5411\u4e0d\u53d8\uff0c\u4e0d\u8981\u8f6c\u5411\u955c\u5934\u3002"
    ],
-   "featured": true,
+   "featured": false,
+   "frozen": false,
    "group": "orbit",
    "group_label": "Orbit & arc",
    "hold": "constant distance, subject remains in frame, no zoom",
@@ -4041,37 +4543,38 @@
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.17364817766693033,
+     "x": 0.19509032201612825,
      "y": 0.0,
-     "yaw": -10.0,
-     "z": -0.984807753012208
+     "yaw": -11.25,
+     "z": -0.9807852804032304
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.3420201433256687,
+     "x": 0.3826834323650898,
      "y": 0.0,
-     "yaw": -20.0,
-     "z": -0.9396926207859084
+     "yaw": -22.5,
+     "z": -0.9238795325112867
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.49999999999999994,
+     "x": 0.5555702330196022,
      "y": 0.0,
-     "yaw": -29.999999999999996,
-     "z": -0.8660254037844387
+     "yaw": -33.75,
+     "z": -0.8314696123025452
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.6427876096865393,
+     "x": 0.7071067811865476,
      "y": 0.0,
-     "yaw": -40.0,
-     "z": -0.766044443118978
+     "yaw": -45.0,
+     "z": -0.7071067811865476
     }
    ],
    "label": "Arc right",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -4085,197 +4588,198 @@
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.03019968307250962,
+     "x": 0.03392875165497883,
      "y": 0.0,
-     "yaw": -1.7391304347826086,
-     "z": -0.9973578700890796
+     "yaw": -1.9565217391304348,
+     "z": -0.9966583096353444
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.06039936614501924,
+     "x": 0.06785750330995766,
      "y": 0.0,
-     "yaw": -3.4782608695652173,
-     "z": -0.9947157401781593
+     "yaw": -3.9130434782608696,
+     "z": -0.9933166192706888
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.09059904921752887,
+     "x": 0.10178625496493647,
      "y": 0.0,
-     "yaw": -5.217391304347826,
-     "z": -0.992073610267239
+     "yaw": -5.869565217391304,
+     "z": -0.9899749289060332
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.12079873229003849,
+     "x": 0.1357150066199153,
      "y": 0.0,
-     "yaw": -6.956521739130435,
-     "z": -0.9894314803563187
+     "yaw": -7.826086956521739,
+     "z": -0.9866332385413777
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.1509984153625481,
+     "x": 0.1696437582748941,
      "y": 0.0,
-     "yaw": -8.695652173913043,
-     "z": -0.9867893504453983
+     "yaw": -9.782608695652174,
+     "z": -0.9832915481767222
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.18096869791296244,
+     "x": 0.20324654420521351,
      "y": 0.0,
-     "yaw": -10.434782608695652,
-     "z": -0.982846225524108
+     "yaw": -11.739130434782608,
+     "z": -0.9783111174514068
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.21025077889709087,
+     "x": 0.2358714329615547,
      "y": 0.0,
-     "yaw": -12.173913043478262,
-     "z": -0.9750001155717081
+     "yaw": -13.695652173913045,
+     "z": -0.9684144656441123
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.23953285988121925,
+     "x": 0.2684963217178958,
      "y": 0.0,
-     "yaw": -13.91304347826087,
-     "z": -0.9671540056193082
+     "yaw": -15.652173913043477,
+     "z": -0.9585178138368177
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.2688149408653477,
+     "x": 0.30112121047423696,
      "y": 0.0,
-     "yaw": -15.652173913043478,
-     "z": -0.9593078956669082
+     "yaw": -17.608695652173914,
+     "z": -0.9486211620295231
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.29809702184947606,
+     "x": 0.3337460992305781,
      "y": 0.0,
-     "yaw": -17.391304347826086,
-     "z": -0.9514617857145083
+     "yaw": -19.565217391304348,
+     "z": -0.9387245102222286
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.3273791028336045,
+     "x": 0.36637098798691925,
      "y": 0.0,
-     "yaw": -19.130434782608695,
-     "z": -0.9436156757621084
+     "yaw": -21.52173913043478,
+     "z": -0.928827858414934
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.3557575221669149,
+     "x": 0.3977170672046126,
      "y": 0.0,
-     "yaw": -20.869565217391305,
-     "z": -0.9332867758292589
+     "yaw": -23.478260869565215,
+     "z": -0.915843887275744
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.3832322798494073,
+     "x": 0.4277843368836582,
      "y": 0.0,
-     "yaw": -22.60869565217391,
-     "z": -0.9204750859159598
+     "yaw": -25.43478260869565,
+     "z": -0.8997725968046585
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.4107070375318997,
+     "x": 0.4578516065627039,
      "y": 0.0,
-     "yaw": -24.347826086956523,
-     "z": -0.9076633960026607
+     "yaw": -27.39130434782609,
+     "z": -0.883701306333573
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.43818179521439204,
+     "x": 0.4879188762417495,
      "y": 0.0,
-     "yaw": -26.08695652173913,
-     "z": -0.8948517060893616
+     "yaw": -29.347826086956523,
+     "z": -0.8676300158624876
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.46565655289688446,
-     "y": 0.0,
-     "yaw": -27.826086956521735,
-     "z": -0.8820400161760625
-    },
-    {
-     "fov": 40.0,
-     "pitch": 0.0,
-     "x": 0.4931313105793768,
-     "y": 0.0,
-     "yaw": -29.565217391304344,
-     "z": -0.8692283262627635
-    },
-    {
-     "fov": 40.0,
-     "pitch": 0.0,
-     "x": 0.518624470828679,
+     "x": 0.5179861459207951,
      "y": 0.0,
      "yaw": -31.304347826086953,
-     "z": -0.8529844089150308
+     "z": -0.8515587253914021
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.543457098600251,
+     "x": 0.5480534155998408,
      "y": 0.0,
-     "yaw": -33.04347826086956,
-     "z": -0.8355964157558202
+     "yaw": -33.26086956521739,
+     "z": -0.8354874349203166
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.5682897263718231,
+     "x": 0.5753358697370299,
      "y": 0.0,
-     "yaw": -34.78260869565217,
-     "z": -0.8182084225966096
+     "yaw": -35.21739130434783,
+     "z": -0.8152483734613282
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.5931223541433951,
+     "x": 0.6016900520269334,
      "y": 0.0,
-     "yaw": -36.52173913043478,
-     "z": -0.8008204294373992
+     "yaw": -37.17391304347826,
+     "z": -0.793620055006372
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.6179549819149672,
+     "x": 0.6280442343168369,
      "y": 0.0,
-     "yaw": -38.26086956521739,
-     "z": -0.7834324362781886
+     "yaw": -39.130434782608695,
+     "z": -0.771991736551416
     },
     {
      "fov": 40.0,
      "pitch": 0.0,
-     "x": 0.6427876096865393,
+     "x": 0.6543984166067405,
      "y": 0.0,
-     "yaw": -40.0,
-     "z": -0.766044443118978
+     "yaw": -41.086956521739125,
+     "z": -0.7503634180964598
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.6807525988966441,
+     "y": 0.0,
+     "yaw": -43.04347826086956,
+     "z": -0.7287350996415036
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.7071067811865476,
+     "y": 0.0,
+     "yaw": -45.0,
+     "z": -0.7071067811865476
     }
    ],
-   "phrase": "The camera arcs to the right around the subject, a gentle curved move of about 40 degrees.",
-   "validated": false
+   "phrase": "The camera arcs to the right around the subject, a gentle curved move of about 45 degrees.",
+   "reversed": false,
+   "validated": false,
+   "words": "The camera arcs to the right around the subject, a gentle curved move of about 45 degrees, moving at a steady pace. The camera ends at the same distance on a three-quarter view of the subject, who keeps facing the same way while the setting swings round behind them."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has moved sideways to the left by about one subject-width, parallel to the subject, same distance and angle."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": true,
+   "frozen": false,
    "group": "track",
    "group_label": "Track & truck",
    "hold": "lateral travel only, constant distance, fixed focal length, no zoom",
@@ -4299,7 +4803,8 @@
     }
    ],
    "label": "Track left",
-   "mode": "keyframed",
+   "made": "Rendered as its mirror image (track right), then flipped back in code.",
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -4495,14 +5000,15 @@
     }
    ],
    "phrase": "The camera tracks sideways to the left, parallel to the subject at constant distance, the background sliding behind it.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera tracks sideways to the right, parallel to the subject at constant distance, the background sliding behind it, moving at a steady pace. The camera glides sideways to the right at the same distance, the subject keeping its size while the background slides past."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has moved sideways to the right by about one subject-width, parallel to the subject, same distance and angle."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": true,
+   "frozen": false,
    "group": "track",
    "group_label": "Track & truck",
    "hold": "lateral travel only, constant distance, fixed focal length, no zoom",
@@ -4526,7 +5032,8 @@
     }
    ],
    "label": "Track right",
-   "mode": "keyframed",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -4722,14 +5229,15 @@
     }
    ],
    "phrase": "The camera tracks sideways to the right, parallel to the subject at constant distance, the background sliding behind it.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera tracks sideways to the right, parallel to the subject at constant distance, the background sliding behind it, moving at a steady pace. The camera glides sideways to the right at the same distance, the subject keeping its size while the background slides past."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has slid left without rotating, the subject now toward the right of frame."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "track",
    "group_label": "Track & truck",
    "hold": "lateral travel, no rotation, fixed focal length, no zoom",
@@ -4753,7 +5261,8 @@
     }
    ],
    "label": "Truck left",
-   "mode": "keyframed",
+   "made": "Rendered as its mirror image (truck right), then flipped back in code.",
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -4949,14 +5458,15 @@
     }
    ],
    "phrase": "The camera trucks left without rotating, sliding past the scene.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera trucks right, sliding sideways past the scene while facing the same direction, moving at a steady pace. The camera slides to the right facing the same direction the whole time, the scene passing across the frame."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has slid right without rotating, the subject now toward the left of frame."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "track",
    "group_label": "Track & truck",
    "hold": "lateral travel, no rotation, fixed focal length, no zoom",
@@ -4980,7 +5490,8 @@
     }
    ],
    "label": "Truck right",
-   "mode": "keyframed",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -5176,7 +5687,9 @@
     }
    ],
    "phrase": "The camera trucks right without rotating, sliding past the scene.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera trucks right, sliding sideways past the scene while facing the same direction, moving at a steady pace. The camera slides to the right facing the same direction the whole time, the scene passing across the frame."
   },
   {
    "anchors": 2,
@@ -5184,6 +5697,7 @@
     "Same scene, subject, wardrobe, lighting and style as the reference. The camera is now raised about two metres higher, looking down at a steeper angle with more of the ground visible."
    ],
    "featured": true,
+   "frozen": false,
    "group": "crane",
    "group_label": "Crane & altitude",
    "hold": "vertical travel with a slight tilt, fixed focal length, no zoom",
@@ -5207,6 +5721,7 @@
     }
    ],
    "label": "Crane up",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -5403,14 +5918,17 @@
     }
    ],
    "phrase": "The camera cranes upward and tilts down slightly to keep the subject framed, rising smoothly.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera cranes upward and tilts down slightly to keep the subject framed, rising smoothly, moving at a steady pace. The camera rises smoothly and ends high above, looking down over the subject and the setting."
   },
   {
    "anchors": 2,
    "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera is now lower, at eye level, close to the subject."
+    "Same scene, subject, wardrobe, lighting and style as the reference. The camera is now lowered to eye level, looking straight at the subject, the horizon at the middle of the frame."
    ],
    "featured": true,
+   "frozen": false,
    "group": "crane",
    "group_label": "Crane & altitude",
    "hold": "vertical travel with a slight tilt, fixed focal length, no zoom",
@@ -5434,6 +5952,7 @@
     }
    ],
    "label": "Crane down",
+   "made": null,
    "mode": "keyframed",
    "path": [
     {
@@ -5630,14 +6149,15 @@
     }
    ],
    "phrase": "The camera cranes downward from a high vantage toward the subject, settling at eye level.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera cranes downward from a high vantage toward the subject, settling at eye level, moving at a steady pace. The camera descends smoothly and ends at eye level with the subject."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has risen straight up without tilting, the subject lower in frame."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "crane",
    "group_label": "Crane & altitude",
    "hold": "pure vertical travel, no tilt, fixed focal length, no zoom",
@@ -5661,7 +6181,8 @@
     }
    ],
    "label": "Pedestal up",
-   "mode": "keyframed",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -5857,14 +6378,15 @@
     }
    ],
    "phrase": "The camera rises straight up without tilting, the frame lifting away from the subject.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "The camera rises straight up, level and facing the same way, the frame lifting away from the subject, moving at a steady pace. The camera rises straight up facing the same way and ends higher, the subject lower in the frame."
   },
   {
-   "anchors": 2,
-   "edits": [
-    "Same scene, subject, wardrobe, lighting and style as the reference. The camera has dropped straight down without tilting, the subject higher in frame."
-   ],
+   "anchors": 1,
+   "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "crane",
    "group_label": "Crane & altitude",
    "hold": "pure vertical travel, no tilt, fixed focal length, no zoom",
@@ -5888,7 +6410,8 @@
     }
    ],
    "label": "Pedestal down",
-   "mode": "keyframed",
+   "made": "Rendered as its reverse (pedestal up), then played backwards in code.",
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -6084,12 +6607,15 @@
     }
    ],
    "phrase": "The camera sinks straight down without tilting, the subject rising in the frame.",
-   "validated": false
+   "reversed": true,
+   "validated": false,
+   "words": "The camera rises straight up, level and facing the same way, the frame lifting away from the subject, moving at a steady pace. The camera rises straight up facing the same way and ends higher, the subject lower in the frame."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "crane",
    "group_label": "Crane & altitude",
    "hold": "camera directly above, perpendicular to the ground",
@@ -6104,7 +6630,8 @@
      "z": 0.0
     }
    ],
-   "label": "Top down",
+   "label": "Overhead",
+   "made": null,
    "mode": "experimental",
    "path": [
     {
@@ -6124,13 +6651,16 @@
      "z": 0.0
     }
    ],
-   "phrase": "An overhead top-down view looking straight down at the scene.",
-   "validated": false
+   "phrase": "A bird's-eye view from directly above: the camera looks straight down at the ground and the subject from the top, holding high overhead.",
+   "reversed": false,
+   "validated": true,
+   "words": "A bird's-eye view from directly above: the camera looks straight down at the ground and the subject from the top, holding high overhead, moving at a steady pace. The camera looks straight down from directly above for the whole shot."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "crane",
    "group_label": "Crane & altitude",
    "hold": "camera near the floor, tilted up, no movement",
@@ -6146,7 +6676,8 @@
     }
    ],
    "label": "Low angle",
-   "mode": "experimental",
+   "made": null,
+   "mode": "prompt_only",
    "path": [
     {
      "fov": 40.0,
@@ -6166,12 +6697,15 @@
     }
    ],
    "phrase": "A low-angle shot from near the ground looking up at the subject, making it feel imposing.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "A low-angle shot from near the ground looking up at the subject, making it feel imposing, moving at a steady pace. The camera stays low near the ground, looking up, steady for the whole shot."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "crane",
    "group_label": "Crane & altitude",
    "hold": "large smooth arc, gradual rise, steady horizon",
@@ -6235,6 +6769,7 @@
     }
    ],
    "label": "Helicopter",
+   "made": null,
    "mode": "experimental",
    "path": [
     {
@@ -6430,13 +6965,16 @@
      "z": 0.4999999999999998
     }
    ],
-   "phrase": "An aerial helicopter shot: the camera flies in a wide sweeping arc, rising and circling.",
-   "validated": false
+   "phrase": "Aerial footage from a helicopter high above: the camera flies forward over the landscape and sweeps in a wide circle around the subject far below, rising slowly, the horizon level.",
+   "reversed": false,
+   "validated": true,
+   "words": "Aerial footage from a helicopter high above: the camera flies forward over the landscape and sweeps in a wide circle around the subject far below, rising slowly, the horizon level, moving at a steady pace. The camera flies a wide smooth arc while rising, the horizon level, and ends high above the scene."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "story",
    "group_label": "Handheld & story",
    "hold": "gentle shake only, no large camera moves",
@@ -6452,6 +6990,7 @@
     }
    ],
    "label": "Handheld",
+   "made": null,
    "mode": "prompt_only",
    "path": [
     {
@@ -6472,12 +7011,15 @@
     }
    ],
    "phrase": "Handheld camera with natural, subtle shake and small reframing, a documentary feel.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "Handheld camera with natural, subtle shake and small reframing, a documentary feel. The frame breathes with a light handheld sway and small reframes, staying on the subject."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "story",
    "group_label": "Handheld & story",
    "hold": "continuous fast flight, no cuts",
@@ -6557,6 +7099,7 @@
     }
    ],
    "label": "FPV drone",
+   "made": null,
    "mode": "experimental",
    "path": [
     {
@@ -6752,13 +7295,16 @@
      "z": 0.9396926207859084
     }
    ],
-   "phrase": "An FPV drone flight: fast dives and swoops through the scene with sharp banked turns.",
-   "validated": false
+   "phrase": "First-person drone footage: the camera races low and fast toward the subject, then swoops up and over them in one continuous banking flight.",
+   "reversed": false,
+   "validated": true,
+   "words": "First-person drone footage: the camera races low and fast toward the subject, then swoops up and over them in one continuous banking flight, moving at a steady pace. The camera flies on in one continuous fast take, banking through the scene."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "story",
    "group_label": "Handheld & story",
    "hold": "mechanically smooth path, no shake",
@@ -6781,7 +7327,8 @@
      "z": -0.8
     }
    ],
-   "label": "Robot arm",
+   "label": "Robo arm",
+   "made": null,
    "mode": "experimental",
    "path": [
     {
@@ -6977,13 +7524,16 @@
      "z": -0.8
     }
    ],
-   "phrase": "A robotic motion-control arm: a precise, repeatable compound move, perfectly smooth.",
-   "validated": false
+   "phrase": "A motion-control shot: the camera glides in one perfectly smooth, precise curve toward the subject, like a robotic camera arm.",
+   "reversed": false,
+   "validated": true,
+   "words": "A motion-control shot: the camera glides in one perfectly smooth, precise curve toward the subject, like a robotic camera arm, moving at a steady pace. The camera follows one mechanically smooth path and settles precisely on the subject."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "story",
    "group_label": "Handheld & story",
    "hold": "foreground shoulder softly out of focus, no camera movement",
@@ -6999,6 +7549,7 @@
     }
    ],
    "label": "Over the shoulder",
+   "made": null,
    "mode": "prompt_only",
    "path": [
     {
@@ -7019,12 +7570,15 @@
     }
    ],
    "phrase": "An over-the-shoulder shot from just behind a person, looking toward the subject.",
-   "validated": false
+   "reversed": false,
+   "validated": true,
+   "words": "An over-the-shoulder shot from just behind a person, looking toward the subject, moving at a steady pace. The shoulder stays soft and dark in the foreground while the subject beyond it stays sharp; the camera holds steady."
   },
   {
    "anchors": 1,
    "edits": [],
    "featured": false,
+   "frozen": false,
    "group": "story",
    "group_label": "Handheld & story",
    "hold": "foreground wipes across the lens, then the subject is revealed",
@@ -7048,6 +7602,7 @@
     }
    ],
    "label": "Reveal",
+   "made": null,
    "mode": "experimental",
    "path": [
     {
@@ -7243,8 +7798,2552 @@
      "z": -0.8
     }
    ],
-   "phrase": "The camera moves past a foreground element to reveal the subject.",
-   "validated": false
+   "phrase": "The camera slides sideways past a dark object close to the lens, a pillar, a branch or a door frame, and the subject is revealed beyond it.",
+   "reversed": false,
+   "validated": true,
+   "words": "The camera slides sideways past a dark object close to the lens, a pillar, a branch or a door frame, and the subject is revealed beyond it, moving at a steady pace. The foreground element slides out of the frame and the subject is revealed, sharp and centred."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": true,
+   "frozen": false,
+   "group": "zoom",
+   "group_label": "Zoom & focus",
+   "hold": "one abrupt zoom, locked tripod, then a steady frame",
+   "id": "crash_zoom_in",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 13.333333333333334,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "label": "Crash zoom in",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 38.84057971014493,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 37.68115942028986,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 36.52173913043478,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 35.36231884057971,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 34.20289855072464,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 33.04347826086956,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 31.884057971014492,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 30.72463768115942,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 29.565217391304348,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 28.405797101449277,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 27.246376811594203,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 26.086956521739133,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 24.927536231884062,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 23.768115942028984,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 22.608695652173914,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 21.449275362318843,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 20.28985507246377,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 19.130434782608695,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 17.971014492753625,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 16.811594202898554,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 15.65217391304348,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 14.492753623188406,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 13.333333333333336,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "phrase": "A crash zoom: the lens snaps in on the subject in a fraction of a second and holds, a sudden punch of attention.",
+   "reversed": false,
+   "validated": true,
+   "words": "A crash zoom: the lens snaps in on the subject in a fraction of a second and holds, a sudden punch of attention. After one abrupt snap of the zoom the frame holds steady on a tight view of the subject."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "zoom",
+   "group_label": "Zoom & focus",
+   "hold": "one abrupt zoom, locked tripod, then a steady frame",
+   "id": "crash_zoom_out",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 100.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "label": "Crash zoom out",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 42.608695652173914,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 45.21739130434783,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 47.82608695652174,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 50.434782608695656,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 53.04347826086956,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 55.65217391304348,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 58.26086956521739,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 60.869565217391305,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 63.47826086956522,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 66.08695652173913,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 68.69565217391305,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 71.30434782608695,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 73.91304347826087,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 76.52173913043478,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 79.13043478260869,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 81.73913043478261,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 84.34782608695652,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 86.95652173913044,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 89.56521739130434,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 92.17391304347825,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 94.78260869565217,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 97.3913043478261,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 100.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "phrase": "A crash zoom out: the lens snaps wide in a fraction of a second, the subject suddenly small in its setting, then holds.",
+   "reversed": false,
+   "validated": true,
+   "words": "A crash zoom out: the lens snaps wide in a fraction of a second, the subject suddenly small in its setting, then holds. After one abrupt snap of the zoom the frame holds steady on a wide view, the subject small in the setting."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "zoom",
+   "group_label": "Zoom & focus",
+   "hold": "smooth continuous push, the eyes stay centred and sharp",
+   "id": "eyes_in",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 14.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.35
+    }
+   ],
+   "label": "Eyes in",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 38.869565217391305,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9717391304347827
+    },
+    {
+     "fov": 37.73913043478261,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9434782608695652
+    },
+    {
+     "fov": 36.608695652173914,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9152173913043479
+    },
+    {
+     "fov": 35.47826086956522,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8869565217391304
+    },
+    {
+     "fov": 34.34782608695652,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8586956521739131
+    },
+    {
+     "fov": 33.21739130434783,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8304347826086956
+    },
+    {
+     "fov": 32.08695652173913,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8021739130434782
+    },
+    {
+     "fov": 30.956521739130437,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7739130434782608
+    },
+    {
+     "fov": 29.82608695652174,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7456521739130435
+    },
+    {
+     "fov": 28.695652173913043,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7173913043478262
+    },
+    {
+     "fov": 27.565217391304348,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6891304347826086
+    },
+    {
+     "fov": 26.434782608695652,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6608695652173913
+    },
+    {
+     "fov": 25.304347826086957,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6326086956521739
+    },
+    {
+     "fov": 24.173913043478258,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6043478260869565
+    },
+    {
+     "fov": 23.043478260869566,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.5760869565217391
+    },
+    {
+     "fov": 21.91304347826087,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.5478260869565217
+    },
+    {
+     "fov": 20.782608695652176,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.5195652173913043
+    },
+    {
+     "fov": 19.652173913043477,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.4913043478260869
+    },
+    {
+     "fov": 18.52173913043478,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.46304347826086956
+    },
+    {
+     "fov": 17.391304347826086,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.4347826086956522
+    },
+    {
+     "fov": 16.260869565217394,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.40652173913043477
+    },
+    {
+     "fov": 15.130434782608695,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.3782608695652173
+    },
+    {
+     "fov": 14.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.35
+    }
+   ],
+   "phrase": "A slow macro push into the subject's eyes until they fill the frame, the rest of the face softening out of focus.",
+   "reversed": false,
+   "validated": true,
+   "words": "A slow macro push into the subject's eyes until they fill the frame, the rest of the face softening out of focus, moving at a steady pace. The push ends on an extreme close-up of the eyes, centred and sharp."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "story",
+   "group_label": "Handheld & story",
+   "hold": "subject locked to the frame, the background moves instead",
+   "id": "snorricam",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "label": "Snorricam",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "phrase": "A snorricam: the camera is rigged to the subject's body facing them, so the subject stays fixed in frame while the whole world swings and lurches behind them as they move.",
+   "reversed": false,
+   "validated": true,
+   "words": "A snorricam: the camera is rigged to the subject's body facing them, so the subject stays fixed in frame while the whole world swings and lurches behind them as they move. The subject stays fixed in the centre of the frame while the world swings around them."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "story",
+   "group_label": "Handheld & story",
+   "hold": "continuous forward travel through the opening, no cut",
+   "id": "through_object",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.09999999999999998
+    }
+   ],
+   "label": "Through object",
+   "made": "Rendered as its reverse (dolly out), then played backwards in code.",
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9608695652173913
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9217391304347826
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8826086956521739
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8434782608695652
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8043478260869565
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7652173913043478
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7260869565217392
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6869565217391305
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6478260869565218
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6086956521739131
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.5695652173913044
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.5304347826086957
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.491304347826087
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.4521739130434782
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.4130434782608695
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.3739130434782608
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.33478260869565224
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.29565217391304344
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.25652173913043474
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.21739130434782605
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.17826086956521747
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.13913043478260867
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.09999999999999998
+    }
+   ],
+   "phrase": "The camera pushes forward through an opening in the foreground, a window, a doorway or a gap, and comes out into the scene beyond it.",
+   "reversed": true,
+   "validated": true,
+   "words": "The camera dollies out, pulling back from the subject on a smooth track and revealing the setting, moving at a steady pace. The camera travels backward on its track and arrives at a wide view with the whole setting around the subject."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "story",
+   "group_label": "Handheld & story",
+   "hold": "long steady travel at time-lapse speed, horizon level",
+   "id": "hyperlapse",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.9,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.6
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6
+    }
+   ],
+   "label": "Hyperlapse",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.9,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.6
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.8217391304347826,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.556521739130435
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.7434782608695653,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.5130434782608697
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.6652173913043479,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.4695652173913045
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.5869565217391304,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.4260869565217393
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.508695652173913,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.382608695652174
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.43043478260869567,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.3391304347826087
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.3521739130434782,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.2956521739130435
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.27391304347826084,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.2521739130434784
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.19565217391304346,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.2086956521739132
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.11739130434782608,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.165217391304348
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": -0.03913043478260869,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.1217391304347828
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.03913043478260869,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0782608695652174
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.11739130434782596,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0347826086956524
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.19565217391304357,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.991304347826087
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.27391304347826095,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9478260869565218
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.35217391304347834,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9043478260869566
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.4304347826086955,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8608695652173914
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.5086956521739131,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8173913043478261
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.5869565217391305,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.773913043478261
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.6652173913043479,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7304347826086958
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.743478260869565,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6869565217391306
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.8217391304347826,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6434782608695653
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6000000000000001
+    }
+   ],
+   "phrase": "A hyperlapse: the camera travels a long way through the scene in time-lapse, people and light streaking past while the subject stays the anchor of the frame.",
+   "reversed": false,
+   "validated": true,
+   "words": "A hyperlapse: the camera travels a long way through the scene in time-lapse, people and light streaking past while the subject stays the anchor of the frame. The camera travels on at time-lapse speed in one steady line, the horizon level."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "orbit",
+   "group_label": "Orbit & arc",
+   "hold": "camera locked off, the subject turns a full circle, constant lighting",
+   "id": "lazy_susan",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "label": "Lazy Susan",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "phrase": "A turntable shot: the camera is locked off while the subject rotates slowly on the spot, showing every side like a product on a lazy Susan.",
+   "reversed": false,
+   "validated": true,
+   "words": "A turntable shot: the camera is locked off while the subject rotates slowly on the spot, showing every side like a product on a lazy Susan. The camera holds still while the subject turns a full circle on the spot, the light staying the same."
+  },
+  {
+   "anchors": 2,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "lock",
+   "group_label": "Lock & aim",
+   "hold": "the frame holds; the motion comes back to its start",
+   "id": "loop",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "label": "Loop",
+   "made": null,
+   "mode": "keyframed",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "phrase": "A seamless loop: the camera holds its frame while the scene moves and breathes, and every motion returns exactly to where it began, so the last frame flows back into the first.",
+   "reversed": false,
+   "validated": true,
+   "words": "A seamless loop: the camera holds its frame while the scene moves and breathes, and every motion returns exactly to where it began, so the last frame flows back into the first. The motion comes back round to exactly where it began, so the last frame matches the first."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": true,
+   "frozen": true,
+   "group": "orbit",
+   "group_label": "Orbit & arc",
+   "hold": "the scene stays frozen; only the camera travels",
+   "id": "bullet_time",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": -0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.19509032201612825,
+     "y": 0.0,
+     "yaw": -11.25,
+     "z": -0.9807852804032304
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.3826834323650898,
+     "y": 0.0,
+     "yaw": -22.5,
+     "z": -0.9238795325112867
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.5555702330196022,
+     "y": 0.0,
+     "yaw": -33.75,
+     "z": -0.8314696123025452
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.7071067811865476,
+     "y": 0.0,
+     "yaw": -45.0,
+     "z": -0.7071067811865476
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.8314696123025452,
+     "y": 0.0,
+     "yaw": -56.25,
+     "z": -0.5555702330196023
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9238795325112867,
+     "y": 0.0,
+     "yaw": -67.5,
+     "z": -0.38268343236508984
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9807852804032304,
+     "y": 0.0,
+     "yaw": -78.75,
+     "z": -0.19509032201612833
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 1.0,
+     "y": 0.0,
+     "yaw": -90.0,
+     "z": -6.123233995736766e-17
+    }
+   ],
+   "label": "Bullet time",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": -0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.06785750330995766,
+     "y": 0.0,
+     "yaw": -3.9130434782608696,
+     "z": -0.9933166192706888
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.1357150066199153,
+     "y": 0.0,
+     "yaw": -7.826086956521739,
+     "z": -0.9866332385413777
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.20324654420521351,
+     "y": 0.0,
+     "yaw": -11.739130434782608,
+     "z": -0.9783111174514068
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.2684963217178958,
+     "y": 0.0,
+     "yaw": -15.652173913043477,
+     "z": -0.9585178138368177
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.3337460992305781,
+     "y": 0.0,
+     "yaw": -19.565217391304348,
+     "z": -0.9387245102222286
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.3977170672046126,
+     "y": 0.0,
+     "yaw": -23.478260869565215,
+     "z": -0.915843887275744
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.4578516065627039,
+     "y": 0.0,
+     "yaw": -27.39130434782609,
+     "z": -0.883701306333573
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.5179861459207951,
+     "y": 0.0,
+     "yaw": -31.304347826086953,
+     "z": -0.8515587253914021
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.5753358697370299,
+     "y": 0.0,
+     "yaw": -35.21739130434783,
+     "z": -0.8152483734613282
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.6280442343168369,
+     "y": 0.0,
+     "yaw": -39.130434782608695,
+     "z": -0.771991736551416
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.6807525988966441,
+     "y": 0.0,
+     "yaw": -43.04347826086956,
+     "z": -0.7287350996415036
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.7287350996415036,
+     "y": 0.0,
+     "yaw": -46.95652173913043,
+     "z": -0.6807525988966441
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.7719917365514158,
+     "y": 0.0,
+     "yaw": -50.8695652173913,
+     "z": -0.6280442343168371
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.8152483734613282,
+     "y": 0.0,
+     "yaw": -54.78260869565218,
+     "z": -0.5753358697370299
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.8515587253914021,
+     "y": 0.0,
+     "yaw": -58.69565217391305,
+     "z": -0.5179861459207952
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.883701306333573,
+     "y": 0.0,
+     "yaw": -62.608695652173914,
+     "z": -0.45785160656270396
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.915843887275744,
+     "y": 0.0,
+     "yaw": -66.52173913043478,
+     "z": -0.39771706720461275
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9387245102222286,
+     "y": 0.0,
+     "yaw": -70.43478260869566,
+     "z": -0.3337460992305781
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9585178138368177,
+     "y": 0.0,
+     "yaw": -74.34782608695652,
+     "z": -0.26849632171789584
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9783111174514068,
+     "y": 0.0,
+     "yaw": -78.26086956521739,
+     "z": -0.20324654420521365
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9866332385413776,
+     "y": 0.0,
+     "yaw": -82.17391304347825,
+     "z": -0.13571500661991545
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.9933166192706888,
+     "y": 0.0,
+     "yaw": -86.08695652173913,
+     "z": -0.06785750330995768
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 1.0,
+     "y": 0.0,
+     "yaw": -90.0,
+     "z": -5.551115123125783e-17
+    }
+   ],
+   "phrase": "Bullet time: the moment is frozen in mid-air, every figure, droplet and speck of dust hanging perfectly still, while the camera alone sweeps a smooth quarter circle around the subject.",
+   "reversed": false,
+   "validated": true,
+   "words": "The camera orbits 90 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles a quarter turn at the same distance and height and ends with the subject seen from the side, still centred. The world slows and freezes mid-motion while the camera keeps moving."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "crane",
+   "group_label": "Crane & altitude",
+   "hold": "one smooth rising pull-back, horizon level",
+   "id": "aerial_pullback",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": -35.0,
+     "x": 0.0,
+     "y": 1.2,
+     "yaw": 0.0,
+     "z": -2.6
+    }
+   ],
+   "label": "Aerial pullback",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": -1.5217391304347825,
+     "x": 0.0,
+     "y": 0.05217391304347826,
+     "yaw": 0.0,
+     "z": -1.0695652173913044
+    },
+    {
+     "fov": 40.0,
+     "pitch": -3.043478260869565,
+     "x": 0.0,
+     "y": 0.10434782608695652,
+     "yaw": 0.0,
+     "z": -1.1391304347826088
+    },
+    {
+     "fov": 40.0,
+     "pitch": -4.565217391304348,
+     "x": 0.0,
+     "y": 0.15652173913043477,
+     "yaw": 0.0,
+     "z": -1.2086956521739132
+    },
+    {
+     "fov": 40.0,
+     "pitch": -6.08695652173913,
+     "x": 0.0,
+     "y": 0.20869565217391303,
+     "yaw": 0.0,
+     "z": -1.2782608695652173
+    },
+    {
+     "fov": 40.0,
+     "pitch": -7.608695652173913,
+     "x": 0.0,
+     "y": 0.2608695652173913,
+     "yaw": 0.0,
+     "z": -1.3478260869565217
+    },
+    {
+     "fov": 40.0,
+     "pitch": -9.130434782608695,
+     "x": 0.0,
+     "y": 0.31304347826086953,
+     "yaw": 0.0,
+     "z": -1.4173913043478261
+    },
+    {
+     "fov": 40.0,
+     "pitch": -10.652173913043478,
+     "x": 0.0,
+     "y": 0.3652173913043478,
+     "yaw": 0.0,
+     "z": -1.4869565217391305
+    },
+    {
+     "fov": 40.0,
+     "pitch": -12.17391304347826,
+     "x": 0.0,
+     "y": 0.41739130434782606,
+     "yaw": 0.0,
+     "z": -1.5565217391304347
+    },
+    {
+     "fov": 40.0,
+     "pitch": -13.695652173913045,
+     "x": 0.0,
+     "y": 0.46956521739130436,
+     "yaw": 0.0,
+     "z": -1.626086956521739
+    },
+    {
+     "fov": 40.0,
+     "pitch": -15.217391304347826,
+     "x": 0.0,
+     "y": 0.5217391304347826,
+     "yaw": 0.0,
+     "z": -1.6956521739130435
+    },
+    {
+     "fov": 40.0,
+     "pitch": -16.73913043478261,
+     "x": 0.0,
+     "y": 0.5739130434782609,
+     "yaw": 0.0,
+     "z": -1.7652173913043478
+    },
+    {
+     "fov": 40.0,
+     "pitch": -18.26086956521739,
+     "x": 0.0,
+     "y": 0.6260869565217391,
+     "yaw": 0.0,
+     "z": -1.8347826086956522
+    },
+    {
+     "fov": 40.0,
+     "pitch": -19.782608695652172,
+     "x": 0.0,
+     "y": 0.6782608695652174,
+     "yaw": 0.0,
+     "z": -1.9043478260869566
+    },
+    {
+     "fov": 40.0,
+     "pitch": -21.304347826086957,
+     "x": 0.0,
+     "y": 0.7304347826086957,
+     "yaw": 0.0,
+     "z": -1.973913043478261
+    },
+    {
+     "fov": 40.0,
+     "pitch": -22.82608695652174,
+     "x": 0.0,
+     "y": 0.782608695652174,
+     "yaw": 0.0,
+     "z": -2.0434782608695654
+    },
+    {
+     "fov": 40.0,
+     "pitch": -24.34782608695652,
+     "x": 0.0,
+     "y": 0.8347826086956521,
+     "yaw": 0.0,
+     "z": -2.1130434782608694
+    },
+    {
+     "fov": 40.0,
+     "pitch": -25.8695652173913,
+     "x": 0.0,
+     "y": 0.8869565217391303,
+     "yaw": 0.0,
+     "z": -2.182608695652174
+    },
+    {
+     "fov": 40.0,
+     "pitch": -27.39130434782609,
+     "x": 0.0,
+     "y": 0.9391304347826087,
+     "yaw": 0.0,
+     "z": -2.252173913043478
+    },
+    {
+     "fov": 40.0,
+     "pitch": -28.91304347826087,
+     "x": 0.0,
+     "y": 0.9913043478260869,
+     "yaw": 0.0,
+     "z": -2.321739130434783
+    },
+    {
+     "fov": 40.0,
+     "pitch": -30.434782608695652,
+     "x": 0.0,
+     "y": 1.0434782608695652,
+     "yaw": 0.0,
+     "z": -2.391304347826087
+    },
+    {
+     "fov": 40.0,
+     "pitch": -31.956521739130434,
+     "x": 0.0,
+     "y": 1.0956521739130434,
+     "yaw": 0.0,
+     "z": -2.4608695652173913
+    },
+    {
+     "fov": 40.0,
+     "pitch": -33.47826086956522,
+     "x": 0.0,
+     "y": 1.1478260869565218,
+     "yaw": 0.0,
+     "z": -2.5304347826086957
+    },
+    {
+     "fov": 40.0,
+     "pitch": -35.0,
+     "x": 0.0,
+     "y": 1.2,
+     "yaw": 0.0,
+     "z": -2.6
+    }
+   ],
+   "phrase": "An aerial pullback: the camera pulls back and rises high into the sky in one continuous move, the subject shrinking as the wide landscape opens up around them.",
+   "reversed": false,
+   "validated": true,
+   "words": "An aerial pullback: the camera pulls back and rises high into the sky in one continuous move, the subject shrinking as the wide landscape opens up around them. The camera rises and pulls back in one smooth move and ends high above, the subject small in the landscape, the horizon level."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "lock",
+   "group_label": "Lock & aim",
+   "hold": "the tilt holds at the same angle throughout; the camera never rolls further",
+   "id": "dutch_angle",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "label": "Dutch angle",
+   "made": "Rendered level, then turned 15 degrees in code.",
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "phrase": "A Dutch angle: the frame stays rolled about 20 degrees to one side for the whole shot, the horizon slanting across the frame and the roll never changing, a sense of unease.",
+   "reversed": false,
+   "validated": true,
+   "words": "The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "zoom",
+   "group_label": "Zoom & focus",
+   "hold": "fisheye distortion throughout, gentle drift only",
+   "id": "fisheye",
+   "keys": [
+    {
+     "fov": 110.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6
+    }
+   ],
+   "label": "Fisheye",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 110.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6
+    },
+    {
+     "fov": 110.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6
+    }
+   ],
+   "phrase": "An ultra-wide fisheye lens close to the subject, the edges of the frame bending in strong barrel distortion as the camera drifts.",
+   "reversed": false,
+   "validated": true,
+   "words": "An ultra-wide fisheye lens close to the subject, the edges of the frame bending in strong barrel distortion as the camera drifts, moving at a steady pace. The fisheye curve stays on the whole frame while the camera drifts gently."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "dolly",
+   "group_label": "Dolly & push",
+   "hold": "one continuous fast push, no zoom",
+   "id": "super_dolly_in",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.25
+    }
+   ],
+   "label": "Super dolly in",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.967391304347826
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9347826086956522
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.9021739130434783
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8695652173913043
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8369565217391304
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.8043478260869565
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7717391304347826
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7391304347826086
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.7065217391304348
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6739130434782609
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6413043478260869
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.6086956521739131
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.5760869565217391
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.5434782608695652
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.5108695652173914
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.4782608695652174
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.44565217391304346
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.4130434782608695
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.3804347826086957
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.34782608695652173
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.3152173913043479
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.28260869565217384
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -0.25
+    }
+   ],
+   "phrase": "A super dolly in: one long, fast push from a wide view of the setting all the way into a close-up of the subject, without a cut.",
+   "reversed": false,
+   "validated": true,
+   "words": "A super dolly in: one long, fast, continuous push from a wide view of the setting all the way into a close-up of the subject. The camera pushes forward fast in one continuous move and ends on a close-up of the subject's face."
+  },
+  {
+   "anchors": 1,
+   "edits": [],
+   "featured": false,
+   "frozen": false,
+   "group": "zoom",
+   "group_label": "Zoom & focus",
+   "hold": "the camera stays locked, only the zoom moves",
+   "id": "yoyo_zoom",
+   "keys": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 16.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 16.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "label": "YoYo zoom",
+   "made": null,
+   "mode": "prompt_only",
+   "path": [
+    {
+     "fov": 40.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 36.869565217391305,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 33.73913043478261,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 30.608695652173914,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 27.47826086956522,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 24.347826086956523,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 21.217391304347828,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 18.08695652173913,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 17.043478260869563,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 20.173913043478265,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 23.304347826086957,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 26.434782608695656,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 29.565217391304344,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 32.69565217391305,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 35.82608695652174,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 38.95652173913044,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 37.913043478260875,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 34.78260869565217,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 31.652173913043473,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 28.521739130434785,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 25.391304347826086,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 22.260869565217398,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 19.13043478260869,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    },
+    {
+     "fov": 16.0,
+     "pitch": 0.0,
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "z": -1.0
+    }
+   ],
+   "phrase": "A yo-yo zoom: the lens zooms in fast on the subject, back out, and in again, a rhythmic punch on the beat.",
+   "reversed": false,
+   "validated": true,
+   "words": "A yo-yo zoom: the lens zooms in fast on the subject, back out, and in again, a rhythmic punch on the beat. The camera stays planted while the zoom pushes in, pulls back out and pushes in again."
   }
  ],
  "options": {
@@ -7252,6 +10351,39 @@
    "f1.4",
    "f4",
    "f11"
+  ],
+  "effect": [
+   "none",
+   "rain",
+   "lightning",
+   "time_freeze",
+   "dust",
+   "fog",
+   "slow_motion",
+   "ignite",
+   "freeze",
+   "gold",
+   "bloom",
+   "night",
+   "age",
+   "snowfall",
+   "ruin",
+   "bts",
+   "vanish",
+   "clones",
+   "comic",
+   "painting",
+   "melt",
+   "flood"
+  ],
+  "grade": [
+   "none",
+   "teal_orange",
+   "kodachrome",
+   "bleach_bypass",
+   "noir_mono",
+   "pastel",
+   "cross_process"
   ],
   "lens": [
    "clean_sharp",
@@ -7269,16 +10401,184 @@
    "practicals",
    "silhouette"
   ],
+  "score": [
+   "none",
+   "solo_piano",
+   "strings",
+   "synth_pulse",
+   "drone",
+   "acoustic_guitar",
+   "no_music"
+  ],
   "sensor": [
    "modern_digital",
    "35mm_film",
    "8mm_film",
    "dv_camcorder"
   ],
+  "soundscape": [
+   "none",
+   "harbour",
+   "city_night",
+   "rain_on_glass",
+   "forest",
+   "interior_quiet",
+   "silence"
+  ],
   "speed": [
    "slow",
    "steady",
    "fast"
   ]
+ },
+ "quality": [
+  {
+   "id": "draft",
+   "label": "Draft",
+   "steps": 12,
+   "still": [
+    896,
+    512
+   ],
+   "tested": true,
+   "video": [
+    896,
+    512
+   ],
+   "what": "896\u00d7512 stills and video, 12 still steps: a quick look at the shot"
+  },
+  {
+   "id": "standard",
+   "label": "Standard",
+   "steps": 25,
+   "still": [
+    1344,
+    768
+   ],
+   "tested": true,
+   "video": [
+    1280,
+    720
+   ],
+   "what": "1344\u00d7768 stills, 1280\u00d7720 video (704 high on the still-to-video graph), 25 still steps"
+  },
+  {
+   "id": "fine",
+   "label": "Fine",
+   "steps": 30,
+   "still": [
+    1920,
+    1088
+   ],
+   "tested": true,
+   "video": [
+    1920,
+    1088
+   ],
+   "what": "1920\u00d71088 stills and video, 30 still steps: the slowest, for a final"
+  }
+ ],
+ "quality_tested": [
+  "draft",
+  "fine",
+  "standard"
+ ],
+ "shots": {
+  "board": [
+   {
+    "angle": "front/eye/wide",
+    "angle_tested": true,
+    "label": "Wide"
+   },
+   {
+    "angle": "front_left/eye/medium",
+    "angle_tested": true,
+    "label": "Three-quarter left"
+   },
+   {
+    "angle": "front_right/eye/medium",
+    "angle_tested": true,
+    "label": "Three-quarter right"
+   },
+   {
+    "angle": "front/eye/close",
+    "angle_tested": true,
+    "label": "Close-up"
+   },
+   {
+    "angle": "left/eye/medium",
+    "angle_tested": true,
+    "label": "Profile left"
+   },
+   {
+    "angle": "right/eye/medium",
+    "angle_tested": true,
+    "label": "Profile right"
+   },
+   {
+    "angle": "front/low/medium",
+    "angle_tested": true,
+    "label": "Low angle"
+   },
+   {
+    "angle": "front/high/medium",
+    "angle_tested": true,
+    "label": "High angle"
+   },
+   {
+    "angle": "back/eye/medium",
+    "angle_tested": true,
+    "label": "From behind"
+   }
+  ],
+  "seconds_each": 0.6,
+  "tested": true
+ },
+ "single_pass": true,
+ "transitions": {
+  "default": "push",
+  "idea_max": 240,
+  "seconds": [
+   2,
+   3,
+   4
+  ],
+  "styles": [
+   {
+    "id": "morph",
+    "label": "Morph",
+    "tested": false
+   },
+   {
+    "id": "whip",
+    "label": "Whip pan",
+    "tested": false
+   },
+   {
+    "id": "push",
+    "label": "Push through",
+    "tested": true
+   },
+   {
+    "id": "match",
+    "label": "Match cut",
+    "tested": false
+   }
+  ]
+ },
+ "upscale": {
+  "targets": [
+   {
+    "id": "2k",
+    "label": "2K",
+    "long_side": 2560
+   },
+   {
+    "id": "4k",
+    "label": "4K",
+    "long_side": 3840
+   }
+  ],
+  "tested": true
  }
 }

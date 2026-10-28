@@ -1,0 +1,1048 @@
+{
+  "_comment": "GPU session 9 (round 11, Oct 25-26): test it all. Every option without a checked render gets one: bullet time by construction (S1), the moves (S2, mirrors and reframes made in code), ruin (S3), the three transitions that cut (S4), angle positions off the sheet (S5), quick mode of every keyframed move (S6), 4K (S8). Blocks run by name prefix with --only.",
+  "casts": [
+    {
+      "name": "Mara",
+      "description": "a woman in her late twenties with short dark hair, freckles and a yellow rain jacket",
+      "count": 3,
+      "pick": 1,
+      "seed": 101
+    },
+    {
+      "name": "Oskar",
+      "description": "an elderly man with a white beard, weathered skin and a navy knit cap",
+      "count": 3,
+      "pick": 1,
+      "seed": 202
+    },
+    {
+      "name": "Ines",
+      "description": "a young woman with long curly auburn hair, round glasses and a mustard cardigan",
+      "count": 3,
+      "pick": 1,
+      "seed": 303
+    },
+    {
+      "name": "Noor",
+      "description": "a woman in her thirties with dark skin, cropped silver-grey hair, round glasses and a red wool coat",
+      "count": 3,
+      "pick": 1,
+      "seed": 104
+    },
+    {
+      "name": "Tomas",
+      "description": "a broad-shouldered man in his forties with a trimmed grey beard, a scar through one eyebrow and a white chef's jacket",
+      "count": 3,
+      "pick": 1,
+      "seed": 105
+    }
+  ],
+  "takes": [
+    {
+      "name": "r11-bt-dancer-a",
+      "kind": "direct",
+      "subject": "A dancer frozen mid-leap as a wall of water explodes into droplets around her in a dark studio",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "silhouette"
+      },
+      "seed": 560,
+      "audio": "a deep whoosh, droplets hanging in silence",
+      "action": "she bursts through the wall of water"
+    },
+    {
+      "name": "r11-bt-dancer-b",
+      "kind": "direct",
+      "subject": "A dancer frozen mid-leap as a wall of water explodes into droplets around her in a dark studio",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "silhouette"
+      },
+      "seed": 561,
+      "audio": "a deep whoosh, droplets hanging in silence",
+      "action": "she bursts through the wall of water"
+    },
+    {
+      "name": "r11-bt-samurai-a",
+      "kind": "direct",
+      "subject": "Tomas in black samurai armour strikes with his katana in the pouring rain on a neon-lit Tokyo street at night",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals"
+      },
+      "seed": 1140,
+      "cast": "Tomas",
+      "audio": "rain frozen in the air, a low hum",
+      "action": "sparks and raindrops burst from the blade as it strikes"
+    },
+    {
+      "name": "r11-bt-samurai-b",
+      "kind": "direct",
+      "subject": "Tomas in black samurai armour strikes with his katana in the pouring rain on a neon-lit Tokyo street at night",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals"
+      },
+      "seed": 1141,
+      "cast": "Tomas",
+      "audio": "rain frozen in the air, a low hum",
+      "action": "sparks and raindrops burst from the blade as it strikes"
+    },
+    {
+      "kind": "direct",
+      "subject": "Tomas in black samurai armour, katana raised mid-strike, on a neon-lit Tokyo street at night in the pouring rain, raindrops hanging in the air",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals",
+        "speed": "steady"
+      },
+      "cast": "Tomas",
+      "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+      "action": "sparks and raindrops burst from the blade as it strikes",
+      "name": "r11-bt3-samurai-a",
+      "seed": 1150
+    },
+    {
+      "kind": "direct",
+      "subject": "Tomas in black samurai armour, katana raised mid-strike, on a neon-lit Tokyo street at night in the pouring rain, raindrops hanging in the air",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals",
+        "speed": "steady"
+      },
+      "cast": "Tomas",
+      "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+      "action": "sparks and raindrops burst from the blade as it strikes",
+      "name": "r11-bt3-samurai-b",
+      "seed": 1151
+    },
+    {
+      "kind": "direct",
+      "subject": "A dancer suspended mid-leap above a rooftop at dusk, a burst of water droplets hanging around her, the city skyline behind her",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "soft_cross",
+        "speed": "steady"
+      },
+      "audio": "a deep slowed-down whoosh, then silence",
+      "action": "she leaps through a burst of water",
+      "name": "r11-bt3-dancer-a",
+      "seed": 570
+    },
+    {
+      "kind": "direct",
+      "subject": "A dancer suspended mid-leap above a rooftop at dusk, a burst of water droplets hanging around her, the city skyline behind her",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "soft_cross",
+        "speed": "steady"
+      },
+      "audio": "a deep slowed-down whoosh, then silence",
+      "action": "she leaps through a burst of water",
+      "name": "r11-bt3-dancer-b",
+      "seed": 571
+    },
+    {
+      "name": "r11-mv-arc-right",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "arc_right",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble"
+    },
+    {
+      "name": "r11-mv-track-left",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "track_left",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble"
+    },
+    {
+      "name": "r11-mv-truck-left",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "truck_left",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble"
+    },
+    {
+      "name": "r11-mv-tilt-up",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "tilt_up",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble"
+    },
+    {
+      "name": "r11-mv-optical-zoom-out",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "optical_zoom_out",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble"
+    },
+    {
+      "name": "r11-mv-crane-down",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "crane_down",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble"
+    },
+    {
+      "name": "r11-mv-pedestal-down",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "pedestal_down",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble"
+    },
+    {
+      "name": "r11-mv-vertigo",
+      "kind": "direct",
+      "subject": "Ines stands centred at the end of a long corridor of a grand old library, shelves receding behind her",
+      "rig": {
+        "movement": "vertigo",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals"
+      },
+      "seed": 1610,
+      "cast": "Ines",
+      "quality": "draft",
+      "audio": "a low swelling drone"
+    },
+    {
+      "name": "r11-mv-rack-focus",
+      "kind": "direct",
+      "subject": "Mara sits at a cafe window table, a white coffee cup close to the lens in the foreground",
+      "rig": {
+        "movement": "rack_focus",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "window"
+      },
+      "seed": 1611,
+      "cast": "Mara",
+      "quality": "draft",
+      "audio": "cafe murmur, a spoon against a cup"
+    },
+    {
+      "name": "r11-mv-top-down",
+      "kind": "direct",
+      "subject": "Oskar lies on his back in a meadow of wildflowers, arms spread wide",
+      "rig": {
+        "movement": "top_down",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 1612,
+      "cast": "Oskar",
+      "quality": "draft",
+      "audio": "bees, wind in the grass"
+    },
+    {
+      "name": "r11-mv-helicopter",
+      "kind": "direct",
+      "subject": "A white lighthouse on a cliff above the sea at golden hour, waves breaking on the rocks below",
+      "rig": {
+        "movement": "helicopter",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 1613,
+      "quality": "draft",
+      "audio": "wind, rotor thump far off, surf"
+    },
+    {
+      "name": "r11-mv-fpv-drone",
+      "kind": "direct",
+      "subject": "A red kayak running a white-water river through a deep red-rock canyon",
+      "rig": {
+        "movement": "fpv_drone",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 1614,
+      "quality": "draft",
+      "audio": "rushing water, wind"
+    },
+    {
+      "name": "r11-mv-robot-arm",
+      "kind": "direct",
+      "subject": "Tomas in a white chef's jacket plates a dessert on a steel counter in a bright kitchen",
+      "rig": {
+        "movement": "robot_arm",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 1615,
+      "cast": "Tomas",
+      "quality": "draft",
+      "audio": "a quiet kitchen hum, a spoon on porcelain"
+    },
+    {
+      "name": "r11-mv-reveal",
+      "kind": "direct",
+      "subject": "Ines reads a letter by a tall window in an old library, the dark edge of a bookshelf close to the lens",
+      "rig": {
+        "movement": "reveal",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "window"
+      },
+      "seed": 1616,
+      "cast": "Ines",
+      "quality": "draft",
+      "audio": "pages turning, a clock ticking"
+    },
+    {
+      "name": "r11-fx-ruin-a",
+      "kind": "direct",
+      "subject": "A grand piano stands alone in an empty ballroom with tall windows, morning light on the parquet",
+      "rig": {
+        "movement": "static",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "effect": "ruin"
+      },
+      "seed": 1601,
+      "audio": "a long held piano note, wind through broken glass"
+    },
+    {
+      "name": "r11-fx-ruin-b",
+      "kind": "direct",
+      "subject": "A grand piano stands alone in an empty ballroom with tall windows, morning light on the parquet",
+      "rig": {
+        "movement": "static",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "effect": "ruin"
+      },
+      "seed": 1602,
+      "audio": "a long held piano note, wind through broken glass"
+    },
+    {
+      "name": "r11-tr-morph",
+      "kind": "transition",
+      "first": "r11-mv-tilt-up",
+      "second": "r11-mv-helicopter",
+      "style": "morph",
+      "seconds": 3,
+      "seed": 1620,
+      "idea": "the red dune rises and reshapes into the white cliff and its lighthouse"
+    },
+    {
+      "name": "r11-tr-whip",
+      "kind": "transition",
+      "first": "r11-mv-rack-focus",
+      "second": "r11-mv-robot-arm",
+      "style": "whip",
+      "seconds": 2,
+      "seed": 1621
+    },
+    {
+      "name": "r11-tr-match",
+      "kind": "transition",
+      "first": "r11-bt-dancer-a",
+      "second": "r11-bt-samurai-a",
+      "style": "match",
+      "seconds": 3,
+      "seed": 1622,
+      "idea": "the frozen dancer's silhouette becomes the samurai's"
+    },
+    {
+      "name": "r11-ang-back-right-high-wide",
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+      "rig": {
+        "movement": "static",
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f1.4",
+        "angle": "back_right/high/wide",
+        "lighting": "contre_jour",
+        "speed": "slow"
+      },
+      "seed": 120,
+      "cast": "Oskar",
+      "quality": "draft",
+      "audio": "water lapping against wood, creaking boats, gulls"
+    },
+    {
+      "name": "r11-ang-left-low-close",
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+      "rig": {
+        "movement": "static",
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f1.4",
+        "angle": "left/low/close",
+        "lighting": "contre_jour",
+        "speed": "slow"
+      },
+      "seed": 120,
+      "cast": "Oskar",
+      "quality": "draft",
+      "audio": "water lapping against wood, creaking boats, gulls"
+    },
+    {
+      "name": "r11-ang-front-left-elevated-wide",
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+      "rig": {
+        "movement": "static",
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f1.4",
+        "angle": "front_left/elevated/wide",
+        "lighting": "contre_jour",
+        "speed": "slow"
+      },
+      "seed": 120,
+      "cast": "Oskar",
+      "quality": "draft",
+      "audio": "water lapping against wood, creaking boats, gulls"
+    },
+    {
+      "name": "r11-ang-back-low-medium",
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+      "rig": {
+        "movement": "static",
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f1.4",
+        "angle": "back/low/medium",
+        "lighting": "contre_jour",
+        "speed": "slow"
+      },
+      "seed": 120,
+      "cast": "Oskar",
+      "quality": "draft",
+      "audio": "water lapping against wood, creaking boats, gulls"
+    },
+    {
+      "name": "r11-ang-right-high-close",
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+      "rig": {
+        "movement": "static",
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f1.4",
+        "angle": "right/high/close",
+        "lighting": "contre_jour",
+        "speed": "slow"
+      },
+      "seed": 120,
+      "cast": "Oskar",
+      "quality": "draft",
+      "audio": "water lapping against wood, creaking boats, gulls"
+    },
+    {
+      "name": "r11-ang-front-right-low-wide",
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+      "rig": {
+        "movement": "static",
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f1.4",
+        "angle": "front_right/low/wide",
+        "lighting": "contre_jour",
+        "speed": "slow"
+      },
+      "seed": 120,
+      "cast": "Oskar",
+      "quality": "draft",
+      "audio": "water lapping against wood, creaking boats, gulls"
+    },
+    {
+      "name": "r11-qk-dolly-in",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "dolly_in",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-dolly-out",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "dolly_out",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-push-in",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "push_in",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-pull-out",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "pull_out",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-vertigo",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "vertigo",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-optical-zoom-in",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "optical_zoom_in",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-orbit-180",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "orbit_180",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-orbit-360",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "orbit_360",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-crane-up",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "crane_up",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-crane-down",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "crane_down",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-qk-loop",
+      "kind": "direct",
+      "subject": "Noor in a white spacesuit with the helmet off stands on a red desert dune at sunset, dust drifting off the crest",
+      "rig": {
+        "movement": "loop",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4"
+      },
+      "seed": 620,
+      "cast": "Noor",
+      "quality": "draft",
+      "audio": "wind over sand, a faint rumble",
+      "prompt_only": true
+    },
+    {
+      "name": "r11-up-4k",
+      "kind": "upscale",
+      "from": "r11-mv-helicopter",
+      "target": "4k"
+    },
+    {
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour, fishing boats moored behind him",
+      "cast": "Oskar",
+      "audio": "water lapping against wood, gulls, a distant boat engine",
+      "name": "r11-orb-90",
+      "rig": {
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady",
+        "movement": "orbit_90"
+      },
+      "seed": 21
+    },
+    {
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour, fishing boats moored behind him",
+      "cast": "Oskar",
+      "audio": "water lapping against wood, gulls, a distant boat engine",
+      "name": "r11-orb-180",
+      "rig": {
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady",
+        "movement": "orbit_180"
+      },
+      "seed": 22,
+      "prompt_only": true
+    },
+    {
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour, fishing boats moored behind him",
+      "cast": "Oskar",
+      "audio": "water lapping against wood, gulls, a distant boat engine",
+      "name": "r11-orb-360",
+      "rig": {
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady",
+        "movement": "orbit_360"
+      },
+      "seed": 23,
+      "prompt_only": true
+    },
+    {
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour, fishing boats moored behind him",
+      "cast": "Oskar",
+      "audio": "water lapping against wood, gulls, a distant boat engine",
+      "name": "r11-orb-arc-left",
+      "rig": {
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady",
+        "movement": "arc_left"
+      },
+      "seed": 24
+    },
+    {
+      "name": "r11-orb2-360",
+      "kind": "direct",
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour, fishing boats moored behind him",
+      "rig": {
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady",
+        "movement": "orbit_360"
+      },
+      "seed": 25,
+      "cast": "Oskar",
+      "prompt_only": true,
+      "audio": "water lapping against wood, gulls, a distant boat engine"
+    },
+    {
+      "name": "r11-mv2-rack-focus",
+      "kind": "direct",
+      "subject": "Mara sits at a cafe window table, a white coffee cup close to the lens in the foreground",
+      "rig": {
+        "movement": "rack_focus",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "window"
+      },
+      "seed": 1612,
+      "cast": "Mara",
+      "audio": "cafe murmur, a spoon against a cup"
+    },
+    {
+      "name": "r11-mv2-pedestal-down",
+      "kind": "direct",
+      "subject": "Oskar stands on a harbour pier at golden hour, fishing boats moored behind him",
+      "rig": {
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady",
+        "movement": "pedestal_down"
+      },
+      "seed": 640,
+      "cast": "Oskar",
+      "audio": "water lapping against wood, gulls"
+    },
+    {
+      "kind": "direct",
+      "cast": "Tomas",
+      "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+      "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+      "name": "r11-bt4-samurai-90",
+      "rig": {
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals",
+        "speed": "steady",
+        "effect": "time_freeze",
+        "movement": "orbit_90"
+      },
+      "seed": 1160
+    },
+    {
+      "kind": "direct",
+      "cast": "Tomas",
+      "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+      "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+      "name": "r11-bt4-samurai-180",
+      "rig": {
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals",
+        "speed": "steady",
+        "effect": "time_freeze",
+        "movement": "orbit_180"
+      },
+      "seed": 1161
+    },
+    {
+      "kind": "direct",
+      "audio": "a deep slowed-down whoosh, then silence",
+      "subject": "A dancer frozen mid-leap above a rooftop at dusk, a burst of water droplets hanging in the air around her, the city skyline behind her",
+      "name": "r11-bt4-dancer-90",
+      "rig": {
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "soft_cross",
+        "speed": "steady",
+        "effect": "time_freeze",
+        "movement": "orbit_90"
+      },
+      "seed": 580
+    },
+    {
+      "kind": "direct",
+      "audio": "a deep slowed-down whoosh, then silence",
+      "subject": "A dancer frozen mid-leap above a rooftop at dusk, a burst of water droplets hanging in the air around her, the city skyline behind her",
+      "name": "r11-bt4-dancer-180",
+      "rig": {
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "soft_cross",
+        "speed": "steady",
+        "effect": "time_freeze",
+        "movement": "orbit_180"
+      },
+      "seed": 581
+    },
+    {
+      "name": "r11-x-through-hut",
+      "kind": "direct",
+      "cast": "Oskar",
+      "seed": 30,
+      "subject": "Seen from outside through the open doorway of a fisherman's hut at dusk: Oskar mends a net inside by the warm light of a lantern",
+      "rig": {
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady",
+        "movement": "through_object"
+      },
+      "audio": "wind outside, a lantern's hiss, distant gulls"
+    },
+    {
+      "name": "r11-x-through-window",
+      "kind": "direct",
+      "cast": "Mara",
+      "seed": 31,
+      "subject": "Seen from the street through an old arched shop window: Mara reads a book at a table inside a warm bookshop",
+      "rig": {
+        "movement": "through_object",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals",
+        "speed": "steady"
+      },
+      "audio": "street murmur fading into a quiet shop, a page turning"
+    },
+    {
+      "name": "r11-x-push-in",
+      "kind": "direct",
+      "cast": "Oskar",
+      "seed": 32,
+      "subject": "Oskar mends a fishing net on a harbour pier at golden hour, fishing boats moored behind him",
+      "rig": {
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady",
+        "movement": "push_in"
+      },
+      "audio": "water lapping against wood, gulls"
+    },
+    {
+      "kind": "direct",
+      "cast": "Tomas",
+      "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+      "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals",
+        "speed": "steady"
+      },
+      "name": "r11-bt5-samurai-a",
+      "seed": 1160
+    },
+    {
+      "kind": "direct",
+      "cast": "Tomas",
+      "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+      "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals",
+        "speed": "steady"
+      },
+      "name": "r11-bt5-samurai-b",
+      "seed": 1162
+    },
+    {
+      "name": "r11-tr2-whip",
+      "kind": "transition",
+      "first": "r11-mv-truck-left",
+      "second": "r11-mv-fpv-drone",
+      "style": "whip",
+      "seconds": 2,
+      "seed": 1631
+    },
+    {
+      "name": "r11-tr2-match",
+      "kind": "transition",
+      "first": "r11-mv-tilt-up",
+      "second": "r11-mv-reveal",
+      "style": "match",
+      "seconds": 3,
+      "seed": 1632,
+      "idea": "Noor's face, held in the same place in the frame, becomes Ines's face"
+    },
+    {
+      "name": "r11-tr2-morph",
+      "kind": "transition",
+      "first": "r11-mv-optical-zoom-out",
+      "second": "r11-mv-helicopter",
+      "style": "morph",
+      "seconds": 3,
+      "seed": 1633,
+      "idea": "the dune rises into the cliff and the standing astronaut becomes the white lighthouse"
+    },
+    {
+      "name": "r11-mv3-pedestal-down",
+      "kind": "direct",
+      "cast": "Oskar",
+      "seed": 650,
+      "subject": "Oskar stands at the rail of a harbour pier at golden hour, fishing boats moored behind him",
+      "rig": {
+        "movement": "pedestal_down",
+        "sensor": "35mm_film",
+        "lens": "halation_vintage",
+        "aperture": "f4",
+        "lighting": "contre_jour",
+        "speed": "steady"
+      },
+      "audio": "water lapping against wood, gulls"
+    },
+    {
+      "name": "r11-bt6-boxer",
+      "kind": "direct",
+      "seed": 1170,
+      "subject": "A boxer in a dim gym, his right fist thrown mid-punch, sweat drops frozen in the air around his face, a hanging heavy bag and ring ropes behind him",
+      "rig": {
+        "movement": "bullet_time",
+        "sensor": "modern_digital",
+        "lens": "clean_sharp",
+        "aperture": "f4",
+        "lighting": "practicals",
+        "speed": "steady"
+      },
+      "audio": "a deep slowed-down whoosh, then the hush of a frozen gym"
+    }
+  ]
+}

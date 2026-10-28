@@ -1,0 +1,72 @@
+{
+  "id": "tk_20261023_092136_f977",
+  "kind": "direct",
+  "label": "loop: Storm waves crash against black volcanic rocks u",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:21:36Z",
+  "updated_at": "2026-10-23T09:24:56Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Storm waves crash against black volcanic rocks under a heavy grey sky",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "loop",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "crashing surf, wind",
+    "seed": 600,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "87efaa4b91c5963b1cfb53793854e624a16900464f6ec7b20ee6bdc6a90846aa",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v3-loop-storm-waves",
+  "showcase_sha": "29a46eae011d7bb7"
+}

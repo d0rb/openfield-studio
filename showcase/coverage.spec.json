@@ -1,0 +1,50 @@
+{
+  "_comment": "Round 6 coverage gate: the same performance re-shot from three camera angles, each from a reference still of Oskar re-angled with the rig's own angle directive (stills_probe.py angles on assets/ref-oskar.png, copied to assets/cov-oskar-*.png before the run). Judged by eye: does Wan Animate 2 keep the new viewpoint?",
+  "casts": [
+    {
+      "name": "Oskar",
+      "description": "an elderly man with a white beard, weathered skin and a navy knit cap",
+      "count": 3,
+      "pick": 1,
+      "seed": 202
+    }
+  ],
+  "takes": [
+    {
+      "name": "cov-oskar-left",
+      "kind": "reshoot",
+      "source": "assets/source.mp4",
+      "cast": "Oskar",
+      "prompt": "an elderly man with a white beard, weathered skin and a navy knit cap",
+      "background": "a harbour pier at golden hour",
+      "seed": 71,
+      "reference": "assets/cov-oskar-left.png",
+      "note": "Coverage gate: the showcase's own dance source, the person swapped for Oskar as seen from this angle.",
+      "set": "One performance, three angles."
+    },
+    {
+      "name": "cov-oskar-back",
+      "kind": "reshoot",
+      "source": "assets/source.mp4",
+      "cast": "Oskar",
+      "prompt": "an elderly man with a white beard, weathered skin and a navy knit cap",
+      "background": "a harbour pier at golden hour",
+      "seed": 71,
+      "reference": "assets/cov-oskar-back.png",
+      "note": "Coverage gate: the showcase's own dance source, the person swapped for Oskar as seen from this angle.",
+      "set": "One performance, three angles."
+    },
+    {
+      "name": "cov-oskar-front-right",
+      "kind": "reshoot",
+      "source": "assets/source.mp4",
+      "cast": "Oskar",
+      "prompt": "an elderly man with a white beard, weathered skin and a navy knit cap",
+      "background": "a harbour pier at golden hour",
+      "seed": 71,
+      "reference": "assets/cov-oskar-front-right.png",
+      "note": "Coverage gate: the showcase's own dance source, the person swapped for Oskar as seen from this angle.",
+      "set": "One performance, three angles."
+    }
+  ]
+}

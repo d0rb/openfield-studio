@@ -1,0 +1,72 @@
+{
+  "id": "tk_20261020_152658_3bf0",
+  "kind": "direct",
+  "label": "dolly out: Fishing boats moored in a small harbour at first",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-20T15:26:58Z",
+  "updated_at": "2026-10-20T15:29:14Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Fishing boats moored in a small harbour at first light, mist over the water",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 24,
+      "aperture": "f11",
+      "lighting": "soft_cross",
+      "movement": "dolly_out",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "gulls, water against hulls, rope creaking",
+    "seed": 52,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "e0d610f7dff316478dfb6d6058628728f3f356d85613d8ac532c3f845426a3f1",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "harbour-dolly-out",
+  "showcase_sha": "003e8a2d8310fe9e"
+}

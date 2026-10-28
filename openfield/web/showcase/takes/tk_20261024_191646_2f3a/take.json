@@ -1,0 +1,61 @@
+{
+  "id": "tk_20261024_191646_2f3a",
+  "kind": "transition",
+  "label": "push through: Noor, a woman astronaut in a to Noor, a woman astronaut in a",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-24T19:16:46Z",
+  "updated_at": "2026-10-24T19:18:47Z",
+  "recipe": {
+    "kind": "transition",
+    "first": "tk_20261024_185040_7c6b",
+    "second": "tk_20261024_190006_298d",
+    "style": "push",
+    "seconds": 3,
+    "seed": 1396836514,
+    "idea": "The camera pushes into the glowing doorway on the red dunes, its white-blue light fills the frame, and the light opens onto the rain-soaked neon Tokyo street where Noor stands before the door"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "The bridge is one LTX 2.5 render from the first take's last frame to the second take's first frame; the take plays the first take, the bridge and the second take, joined."
+  ],
+  "replay": false,
+  "recipe_hash": "fd452f3fcefa373e47f5a42378681c8f83cf27039edaa058ddf5aeb1b1979966",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 12.89,
+  "size": [
+    1280,
+    704
+  ]
+}

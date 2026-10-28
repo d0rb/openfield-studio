@@ -1,0 +1,117 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_235509_1c3d",
+    "kind": "edit",
+    "created_at": "2026-10-22T23:55:32Z",
+    "label": "remove something: A colossal dragon glides between glass s"
+  },
+  "inputs": {
+    "preset": "remove",
+    "detail": "the dragon",
+    "final_prompt": "Remove the dragon from the picture and fill the space naturally with what would be behind it. Change nothing else.",
+    "seed": 532,
+    "before": "inputs/source.png",
+    "after": "runs/01_edit/image.png",
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "identity_reference": "picture",
+    "recipe_hash": "16012fda04ffc26d2030037a039318f2fd5fcbdbde387f34f2cf86d49fd2894f"
+  },
+  "workflow": {
+    "template": "qwen21_edit",
+    "sha256": "909b8c2c934a72e0f7801ad4746a838bab51831e8606ed2a2c68aa8d6019e29c",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "edit",
+        "template": "qwen21_edit",
+        "workflow_sha256": "f570a277cef3b725ca28d192628a541a6317aa69b9e5af2ef4b2fcde5dd82b06",
+        "job_id": "2b3f7a2e-9eba-4d6e-9fe5-027a770dc221"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "edit": {
+        "status": "n/a",
+        "score": null,
+        "threshold": 0.363,
+        "best_ref": null,
+        "per_ref": [
+          null
+        ],
+        "faces_in_candidate": 0,
+        "candidate_box": null,
+        "refs_used": 0,
+        "reason": "no face detected in the candidate",
+        "face_px": null,
+        "enlarged": null
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "2b3f7a2e-9eba-4d6e-9fe5-027a770dc221",
+    "timings": {
+      "total_s": 23.4
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "506371e9ad3a29564f5fc756a3a626c1dec571ddd704152747e9602e34110a5c",
+      "seconds": 2.4
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "4cba6874ac8757f4761c0b650341485c528619b9132dd4cb35935998e6c065db"
+  }
+}

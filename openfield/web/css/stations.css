@@ -1,54 +1,67 @@
-/* The four stations: prompt bar, monitor, filmstrip, move pad, details, cast and takes. */
+/* The four stations: shot card, the wall (monitor), filmstrip, stage plan (move pad), details, cast and takes. */
 
 .stack {
   display: grid;
   gap: var(--s3);
 }
 
-/* -- prompt bar ----------------------------------------------------------------------------- */
+/* -- shot card (the prompt bar) ---------------------------------------------------------------- */
+/* one row on a hairline, never a box: the subject field grows, the primary sits at its right */
 .prompt {
-  display: grid;
-  gap: var(--s2);
-  padding: var(--s3) var(--s3) var(--s3) var(--s4);
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s2) 0; /* the field starts on the column edge like everything under it */
   flex: none;
-  background: var(--raised);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-m);
+  border-bottom: 1px solid var(--line);
   transition: border-color var(--t-fast) var(--ease);
 }
 .prompt:hover {
-  border-color: var(--control-line);
+  border-bottom-color: var(--line-strong);
 }
 .prompt:focus-within {
-  border-color: var(--accent);
-  outline: 1px solid var(--accent);
+  border-bottom-color: var(--accent);
 }
 .textarea.prompt-text {
-  min-height: 28px;
-  height: 28px;
+  min-height: 34px;
+  height: 34px;
   overflow-y: auto;
-  padding: 0;
+  padding: 0 0 6px;
   border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
   background: transparent;
   font-size: var(--fs-lg);
   line-height: 1.5;
   resize: none;
   outline: none;
+  transition: border-color var(--t-fast) var(--ease);
 }
-.prompt-foot {
-  display: flex;
-  align-items: center;
-  gap: var(--s3);
+.textarea.prompt-text:hover {
+  border-bottom-color: var(--control-line);
 }
+.textarea.prompt-text:focus-visible {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+.prompt .textarea.prompt-text {
+  flex: 1;
+  min-width: 0;
+}
+/* the plan line is a readout: one mono, tracked capitals */
 .plan {
   flex: 1;
   min-width: 0;
   color: var(--text-2);
-  font-size: var(--fs-sm);
-  line-height: 1.4;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
 }
 .plan b {
-  font-weight: 600;
+  font-weight: var(--w-strong);
   color: var(--text);
 }
 .plan .sep {
@@ -67,14 +80,9 @@
 .plan-note.quiet {
   color: var(--text-3);
 }
-.btn.primary .kbd {
-  border-color: rgb(255 255 255 / 0.3);
-  background: rgb(0 0 0 / 0.18);
-  color: var(--on-fill);
-  opacity: 0.9;
-}
 
-/* -- monitor -------------------------------------------------------------------------------- */
+
+/* -- the wall (monitor) ---------------------------------------------------------------------- */
 .monitor {
   display: flex;
   flex-direction: column;
@@ -85,6 +93,7 @@
 }
 .monitor-head {
   display: flex;
+  flex-wrap: nowrap; /* one line: the plan gives way (ellipsis), the chips and actions keep their size */
   align-items: center;
   gap: var(--s3);
   min-height: 28px;
@@ -95,8 +104,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: var(--fs-xl);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: var(--w-strong);
+  line-height: var(--lh-tight);
 }
 .pills {
   display: flex;
@@ -122,8 +131,8 @@
   width: 100cqw;
   height: 100cqh;
   background: var(--screen);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-m);
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
   overflow: hidden;
   isolation: isolate;
 }
@@ -143,28 +152,179 @@
   overflow: auto;
 }
 
+/* the wall's on-screen display: frame guides, timecode burn-in, tally. Never catches the pointer. */
+.osd {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  color: var(--on-media);
+}
+.osd-guides {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.osd-guides .g-safe,
+.osd-guides .g-cross {
+  fill: none;
+  stroke: var(--on-media);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.45; /* the LED wall's frame guides read at rest; they step back while the take plays */
+  transition: opacity var(--t-base) var(--ease);
+}
+.screen.is-playing .osd-guides .g-safe,
+.screen.is-playing .osd-guides .g-cross {
+  opacity: 0.25;
+}
+.osd-guides .g-vert {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1px;
+  stroke-dasharray: 4 3;
+  vector-effect: non-scaling-stroke;
+}
+.osd-tc,
+.osd-tally {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 2px;
+  background: var(--scrim);
+  font: var(--w-medium) var(--fs-xs) / 1 var(--mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+.osd-tc {
+  left: var(--s3);
+  top: var(--s3);
+}
+.osd-tally {
+  right: var(--s3);
+  top: var(--s3);
+  text-transform: uppercase;
+}
+.osd-tally::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-3);
+}
+.osd-tally[data-state="running"]::before {
+  background: var(--accent);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.osd-tally[data-state="running"] {
+  color: var(--accent-text);
+}
+.osd-tally[data-state="ready"]::before {
+  background: var(--green);
+}
+.osd-tally[data-state="replay"]::before {
+  background: var(--amber);
+}
+
+.screen[data-mode="running"] .osd-guides,
+.screen.is-compare .osd-guides {
+  opacity: 0;
+}
+.osd-guides {
+  transition: opacity var(--t-base) var(--ease);
+}
+
+/* the chosen move's path, drawn over the wall while a shot is being set up */
+.screen-path {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity var(--t-base) var(--ease);
+}
+.screen.is-playing .screen-path {
+  opacity: 0.55;
+}
+/* over a finished take the stage is an inset at the wall's lower left: the picture stays clean, the camera moves with it */
+.screen-path.stage-inset {
+  inset: auto auto var(--s3) var(--s3);
+  z-index: 4; /* above the frame guides, which would otherwise cross it */
+  width: clamp(140px, 24%, 220px);
+  height: auto;
+  padding: 6px;
+  background: var(--screen); /* opaque: nothing of the frame or its guides shows through the inset */
+  border: 1px solid var(--on-media-line);
+  border-radius: 2px;
+  opacity: 1;
+}
+.screen.is-playing .screen-path.stage-inset {
+  opacity: 1;
+}
+.stage-inset .sv-grid {
+  stroke: var(--on-media-line);
+  opacity: 0.55;
+}
+.stage-inset .sv-foot,
+.stage-inset .sv-path,
+.stage-inset .sv-drop {
+  stroke: var(--on-media-line);
+}
+.stage-inset .sv-path {
+  stroke-width: 0.8px;
+}
+.stage-inset .sv-lit {
+  stroke-width: 1.1px;
+}
+.stage-inset .sv-drop {
+  stroke-width: 0.5px;
+}
+.stage-inset .sv-post {
+  stroke: var(--on-media);
+}
+.stage-inset .sv-head,
+.stage-inset .sv-dot {
+  fill: var(--on-media);
+}
+.stage-inset .sv-mark circle {
+  fill: var(--screen);
+}
+@media (max-width: 719px) {
+  .screen-path.stage-inset,
+  .keys-btn {
+    display: none; /* the inset is too small to read on a phone (the dock carries the stage); a phone has no keyboard */
+  }
+}
+
 .player {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: #000;
+  background: var(--screen);
   cursor: pointer;
 }
 .big-play {
   position: absolute;
   left: 50%;
   top: 50%;
+  z-index: 4;
   translate: -50% -50%;
   display: grid;
   place-items: center;
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgb(8 9 11 / 0.72);
-  border: 1px solid rgb(255 255 255 / 0.25);
-  color: var(--on-fill);
+  background: var(--scrim);
+  border: 1px solid var(--on-media-line);
+  color: var(--on-media);
   transition: opacity var(--t-base) var(--ease), background-color var(--t-fast) var(--ease);
 }
 .big-play .icon {
@@ -174,7 +334,7 @@
   margin-left: 3px;
 }
 .big-play:hover {
-  background: rgb(8 9 11 / 0.9);
+  background: var(--scrim-strong);
 }
 .screen.is-playing .big-play,
 .screen.is-compare .big-play {
@@ -188,17 +348,50 @@
   gap: var(--s2);
   height: 36px;
 }
+/* the timecode readout is the wall's own clock: bright, tabular, never jittering */
 .tc {
-  min-width: 84px;
-  font: 500 var(--fs-xs) / 1 var(--mono);
-  color: var(--text-2);
+  min-width: 92px;
+  font: var(--w-strong) var(--fs-sm) / 1 var(--mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+/* Overpass Mono sits high in its line: the transport's readouts (the clocks, 9:16) drop onto the icons' middle */
+.transport .num {
+  translate: 0 2px;
 }
 .tc.dim {
+  font-weight: var(--w-regular);
   color: var(--text-3);
   text-align: right;
 }
-.scrub {
+.scrub-wrap {
+  position: relative;
+  display: flex;
   flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+.scrub-wrap .scrub {
+  flex: 1;
+  width: 100%;
+}
+/* the approved stills' places on the timeline, lit once the shot has reached them */
+.scrub-ticks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.scrub-ticks i {
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  height: 7px;
+  margin: -3.5px 0 0 -0.5px;
+  background: var(--text-3);
+}
+.scrub-ticks i.lit {
+  background: var(--accent);
 }
 
 /* before / after comparator */
@@ -206,11 +399,15 @@
   pointer-events: none;
   clip-path: inset(0 calc(100% - var(--split)) 0 0);
 }
+.screen.is-compare .player {
+  object-fit: cover; /* both halves fill the frame: no letterbox step at the wipe */
+}
 .split-handle {
   position: absolute;
   top: 0;
   bottom: 0;
   left: var(--split);
+  z-index: 4;
   width: 40px;
   translate: -50% 0;
   display: grid;
@@ -230,7 +427,7 @@
   left: 50%;
   width: 2px;
   translate: -50% 0;
-  background: rgb(255 255 255 / 0.85);
+  background: var(--on-media);
 }
 .split-handle .icon {
   position: relative;
@@ -246,7 +443,7 @@
   width: 40px;
   height: 28px;
   translate: -50% -50%;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
   background: var(--raised);
   border: 1px solid var(--control-line);
 }
@@ -257,17 +454,61 @@
   position: absolute;
   left: var(--s3);
   right: var(--s3);
-  top: var(--s3);
+  top: calc(var(--s3) + 28px); /* under the timecode and tally chips, not on them */
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
 }
 .split-tags span {
-  padding: 3px 8px;
-  border-radius: var(--radius-pill);
-  background: rgb(8 9 11 / 0.78);
-  font-size: var(--fs-xs);
-  font-weight: 500;
+  padding: 4px 7px;
+  border-radius: 2px;
+  background: var(--scrim);
+  font: var(--w-medium) var(--fs-xs) / 1 var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--on-media);
+}
+/* side by side: each player owns half the wall, with a 1px --line seam between them */
+.screen.is-side {
+  background: var(--line);
+}
+.screen.is-side .player {
+  width: calc(50% - 0.5px);
+  object-fit: contain;
+}
+.screen.is-side .player.before {
+  right: auto;
+}
+.screen.is-side .player:not(.before) {
+  left: auto;
+  right: 0;
+}
+.screen.is-side .split-tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  justify-items: center;
+}
+.screen.is-side .split-handle,
+.screen.is-flip .split-handle,
+.split-handle[hidden] {
+  display: none;
+}
+/* flip: only the player for the current side is on the wall */
+.screen.is-flip .player[hidden] {
+  display: none;
+}
+.screen.is-flip .split-tags {
+  justify-content: center;
+}
+/* the compare mode rocker, sized like the other transport controls */
+.compare-modes {
+  flex: 0 0 auto;
+  height: var(--control-h);
+}
+.compare-modes[hidden] {
+  display: none;
 }
 
 /* a render in progress */
@@ -277,24 +518,30 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.45;
+  opacity: 0.55; /* a sampling preview, soft by nature mid-render: present, but plainly work in progress */
 }
 .screen[data-mode="running"] {
   display: grid;
   place-items: center;
 }
+/* the render's status reads from a block at the wall's lower left, above the step ribbon, so the frame stays in view */
 .run-core {
-  position: relative;
+  position: absolute;
+  left: var(--s4);
+  bottom: calc(var(--s4) + 60px);
   z-index: 1;
   display: grid;
   gap: var(--s2);
-  width: min(440px, calc(100% - 2 * var(--s5)));
-  text-align: center;
+  width: min(440px, calc(100% - 2 * var(--s4)));
+  padding: var(--s3) var(--s4);
+  background: var(--scrim-strong);
+  border-radius: var(--radius-s);
+  text-align: left;
 }
 .run-name {
-  font-size: var(--fs-2xl);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: var(--fs-xl);
+  font-weight: var(--w-strong);
+  line-height: var(--lh-tight);
 }
 .run-detail {
   color: var(--text-2);
@@ -306,33 +553,34 @@
   justify-content: space-between;
   gap: var(--s3);
   color: var(--text-3);
-  font-size: var(--fs-sm);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .run-note {
   color: var(--amber);
   font-size: var(--fs-sm);
 }
+/* progress is a row of marquee bulbs: dim ones are the way to go, lit ones the way come (clipped, never stretched) */
 .bar {
   position: relative;
-  height: 4px;
+  height: 8px;
   margin: var(--s2) 0;
-  border-radius: var(--radius-pill);
-  background: var(--line-strong);
+  background: radial-gradient(circle at 4px 4px, var(--line-strong) 2.4px, #0000 2.9px) 0 0 / 11px 8px repeat-x;
   overflow: hidden;
 }
 .bar > span {
   display: block;
   height: 100%;
   width: 100%;
-  border-radius: inherit;
-  background: var(--accent);
-  transform-origin: left center;
-  transform: scaleX(var(--p, 0));
-  transition: transform 400ms var(--ease);
+  background: radial-gradient(circle at 4px 4px, var(--accent) 2.4px, #0000 2.9px) 0 0 / 11px 8px repeat-x;
+  clip-path: inset(0 calc((1 - var(--p, 0)) * 100%) 0 0);
+  transition: clip-path 400ms var(--ease);
 }
 .bar.indeterminate > span {
   width: 36%;
-  transform: none;
+  clip-path: none;
   transition: none;
   animation: slide 1.5s var(--ease) infinite;
 }
@@ -355,7 +603,7 @@
   width: 96px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 2px;
   border: 1px solid var(--line-strong);
 }
 .steps {
@@ -367,7 +615,7 @@
   display: flex;
   gap: 6px;
   padding: var(--s3);
-  background: rgb(8 9 11 / 0.82);
+  background: var(--scrim);
   border: 1px solid var(--line);
   border-radius: var(--radius-s);
 }
@@ -377,13 +625,15 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 6px;
+  font-family: var(--mono);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--w-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text-3);
 }
 .steps .mark {
   height: 3px;
-  border-radius: 2px;
   background: var(--line-strong);
 }
 .steps .step-name {
@@ -401,7 +651,7 @@
   color: var(--text);
 }
 .steps li[data-state="active"] .mark {
-  background: var(--accent-text);
+  background: var(--accent);
   animation: pulse 1.6s ease-in-out infinite;
 }
 .steps li[data-state="failed"] {
@@ -419,7 +669,7 @@
   }
 }
 
-/* stills waiting for approval */
+/* stills waiting for approval: registered at one scale on one baseline */
 .screen[data-mode="approval"] {
   display: grid;
   align-content: center;
@@ -439,8 +689,8 @@
 }
 .approve-copy h3 {
   font-size: var(--fs-xl);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: var(--w-strong);
+  line-height: var(--lh-tight);
   text-wrap: balance;
 }
 .approve-copy p {
@@ -459,6 +709,8 @@
   gap: var(--s2);
   min-width: 0;
   width: min(calc(var(--still-h) * 16 / 9), calc((100% - (var(--n, 1) - 1) * var(--s3)) / var(--n, 1)));
+  animation: shot-in var(--t-fast) var(--ease) both; /* one after another: --i is the place in the row */
+  animation-delay: calc(var(--i, 0) * 40ms);
 }
 .approve-row[data-orientation="portrait"] .still {
   width: min(calc(var(--still-h) * 9 / 16), calc((100% - (var(--n, 1) - 1) * var(--s3)) / var(--n, 1)));
@@ -469,7 +721,7 @@
   object-fit: cover;
   background: var(--ground);
   border: 1px solid var(--line-strong);
-  border-radius: var(--radius-s);
+  border-radius: 2px;
 }
 .approve-row[data-orientation="portrait"] .still img {
   aspect-ratio: 9 / 16;
@@ -479,15 +731,21 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--s2);
-  font-size: var(--fs-sm);
-  font-weight: 500;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--w-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .reroll {
   display: flex;
   align-items: center;
   gap: var(--s2);
   color: var(--text-2);
+  font-family: var(--font);
   font-size: var(--fs-sm);
+  letter-spacing: 0;
+  text-transform: none;
   cursor: pointer;
 }
 .approve-actions {
@@ -519,7 +777,10 @@
 }
 .staging figcaption {
   padding: 6px var(--s3);
+  font-family: var(--mono);
   font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text-2);
 }
 
@@ -529,15 +790,22 @@
   gap: var(--s2);
   flex: none;
   min-width: 0;
+  padding-top: var(--s2);
+  border-top: 1px solid var(--line);
 }
 .filmstrip-head {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: var(--s2);
 }
 .filmstrip-head h3 {
-  font-size: var(--fs-md);
-  font-weight: 600;
+  font-size: var(--fs-sm);
+  font-weight: var(--w-medium);
+  color: var(--text-3);
+}
+.filmstrip-head .hint {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
 }
 .filmstrip-head .grow {
   flex: 1;
@@ -546,14 +814,16 @@
   display: flex;
   gap: var(--s3);
   overflow-x: auto;
+  margin-inline: -2px; /* the 2 px keep a focus ring whole; the frames still start on the column edge */
   padding: 2px 2px var(--s1);
+  scroll-padding-inline: 2px;
   scroll-snap-type: x proximity;
 }
 .tile {
   flex: none;
   display: grid;
   gap: 4px;
-  width: 132px;
+  width: 104px;
   text-align: left;
   scroll-snap-align: start;
   border-radius: var(--radius-s);
@@ -565,7 +835,14 @@
   overflow: hidden;
   background: var(--screen);
   border: 1px solid var(--line);
-  border-radius: var(--radius-s);
+  border-radius: 2px;
+}
+.tile-frame .preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .tile.dead {
   opacity: 0.6;
@@ -593,11 +870,13 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 1px 6px;
-  border-radius: 4px;
-  background: rgb(8 9 11 / 0.82);
+  padding: 2px 5px;
+  border-radius: 2px;
+  background: var(--scrim);
+  font-family: var(--mono);
   font-size: var(--fs-xs);
   font-variant-numeric: tabular-nums;
+  color: var(--on-media);
 }
 .tile-badge:empty {
   display: none;
@@ -619,21 +898,20 @@
   background: var(--accent);
 }
 .tile-name {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: var(--fs-xs);
-  font-weight: 500;
+  display: none; /* the take's name is the tile's tooltip and its accessible name */
 }
 .tile-flag {
   position: absolute;
   left: 6px;
   top: 6px;
-  padding: 1px 6px;
-  border-radius: 4px;
-  background: rgb(8 9 11 / 0.82);
+  padding: 2px 5px;
+  border-radius: 2px;
+  background: var(--scrim);
+  font-family: var(--mono);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--w-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text-2);
 }
 .tile-flag:empty {
@@ -653,21 +931,12 @@
 }
 
 @media (max-height: 760px) and (min-width: 720px) {
-  svg.path-plan {
-    aspect-ratio: 100 / 66;
-  }
-  .move-info p.hint:not(.tested) {
-    display: none;
-  }
   .filmstrip-head {
     display: none;
   }
-  .tile {
-    width: 104px;
-  }
 }
 
-/* -- move pad ------------------------------------------------------------------------------- */
+/* -- stage plan (the move pad) ------------------------------------------------------------- */
 .movepad {
   display: grid;
   gap: var(--s3);
@@ -677,32 +946,58 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 6px;
 }
+/* each tile is a small stage floor with the camera's track on it */
 .move-tile {
+  position: relative;
   display: grid;
+  grid-template-rows: 44px auto; /* every glyph gets the plan's 44 px slot, so the labels share a line */
   justify-items: center;
+  align-items: center;
   align-content: start;
   gap: 4px;
-  min-height: 64px;
+  min-height: 76px;
   padding: 6px 0 5px;
   white-space: nowrap;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   border-radius: var(--radius-s);
-  background: var(--raised);
+  background: var(--ground);
   color: var(--text-2);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--w-medium);
   line-height: 1.2;
   text-align: center;
+  overflow: hidden;
   transition: background-color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
 }
 .move-tile:hover {
   background: var(--hover);
+  border-color: var(--control-line);
   color: var(--text);
 }
 .move-tile[aria-checked="true"] {
   border-color: var(--accent);
   background: var(--accent-soft);
   color: var(--text);
+}
+.move-tile .preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+.move-tile .preview ~ .glyph {
+  visibility: hidden;
+}
+.move-tile .preview ~ span {
+  position: relative;
+  z-index: 1;
+  margin-block: -1px;
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: var(--scrim);
+  color: var(--on-media);
 }
 .glyph {
   width: 36px;
@@ -728,15 +1023,16 @@
 }
 .move-tile[aria-checked="true"] .g-path,
 .move-tile[aria-checked="true"] .g-frame:not(.faint) {
-  stroke: var(--accent-text);
+  stroke: var(--accent);
 }
 .move-tile[aria-checked="true"] .g-start,
 .move-tile[aria-checked="true"] .g-head {
-  fill: var(--accent-text);
+  fill: var(--accent);
 }
 .move-preview {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  align-items: end;
   gap: var(--s2);
 }
 .move-preview figure {
@@ -747,55 +1043,141 @@
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-s);
 }
-svg.path-plan {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 100 / 84;
-}
-.p-axis {
-  stroke: var(--line-strong);
-  stroke-width: 1px;
-  stroke-dasharray: 2 3;
-}
-.p-path {
-  fill: none;
-  stroke: var(--accent-text);
-  stroke-width: 1.5px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 1;
-  animation: draw 180ms var(--ease) both;
-}
-@keyframes draw {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-svg.path-plan .g-subject {
-  fill: var(--text-2);
-  stroke: var(--ground);
-  stroke-width: 1.5px;
-}
-.p-cam {
-  fill: var(--text-2);
-}
-.p-anchor {
-  fill: var(--accent-fill);
-  stroke: var(--ground);
-  stroke-width: 1.5px;
-}
-.p-num {
-  fill: var(--on-fill);
-  font: 600 8.8px var(--font); /* in viewBox units: about 12.5px where the preview is narrowest (the 360px dock) */
-}
 .move-preview figcaption {
+  font-family: var(--mono);
   font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--text-3);
   text-align: center;
 }
+
+/* -- the previs stage: the set from above and to one side, the camera travelling its path with the take ------------- */
+svg.stage-view {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 100 / 62;
+  overflow: hidden; /* the floor runs on past the frame */
+}
+.stage-view .sv-grid,
+.stage-view .sv-foot {
+  fill: none;
+  stroke: var(--grid-line);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+.stage-view .sv-foot {
+  stroke: var(--line-strong);
+}
+.stage-view .sv-post {
+  stroke: var(--text-2);
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.stage-view .sv-head {
+  fill: var(--text-2);
+}
+.stage-view .sv-path,
+.stage-view .sv-lit {
+  fill: none;
+  stroke: var(--text-3);
+  stroke-width: 0.5px; /* plan units: about 1.5px across the dock */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.stage-view .sv-lit {
+  stroke: var(--accent);
+  stroke-width: 0.75px;
+  stroke-dasharray: 1; /* with pathLength 1, the dash offset is the share of the move already travelled */
+}
+.stage-view .sv-drop {
+  stroke: var(--text-3);
+  stroke-width: 0.3px;
+  stroke-dasharray: 1 0.8;
+}
+.stage-view .sv-dot {
+  fill: var(--text-3);
+}
+.stage-view .sv-mark circle {
+  fill: var(--ground);
+  stroke: var(--accent);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+.stage-view .sv-mark text {
+  fill: var(--accent-text);
+  font-family: var(--mono);
+  font-weight: var(--w-strong);
+}
+.stage-view .sv-mark.lit circle {
+  fill: var(--accent-fill);
+  stroke: var(--ground);
+}
+.stage-view .sv-mark.lit text {
+  fill: var(--on-accent);
+}
+.stage-view .sv-rays,
+.stage-view .sv-frame,
+.stage-view .sv-cam {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.stage-view .sv-rays {
+  opacity: 0.5;
+}
+.stage-view .sv-frame {
+  fill: var(--accent-soft);
+}
+.stage-view .sv-cam {
+  fill: var(--accent-fill);
+  stroke: var(--ground);
+}
+/* planned, not pinned: a prompt-only or quick shot has no approved stills along the way */
+.stage-view.hollow .sv-cam {
+  fill: var(--ground);
+  stroke: var(--accent);
+}
+.stage-view.hollow .sv-frame {
+  fill: none;
+  stroke-width: 0.3px;
+  stroke-dasharray: 1.2 0.8;
+  vector-effect: none;
+}
+/* where the camera starts: three camera-report fields after the chosen move, and the stage itself drags
+   (sideways: around; up or down: height; on a touch screen a finger scrolls the sheet and height stays on its dial) */
+.move-preview {
+  touch-action: none;
+  cursor: grab;
+}
+.move-preview.dragging {
+  cursor: grabbing;
+}
+@media (pointer: coarse) {
+  .move-preview {
+    touch-action: pan-y;
+  }
+}
+.angle-dials .seg [role="radio"] {
+  min-width: 24px;
+  padding-inline: 6px;
+}
+.angle-line {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 24px;
+}
+.angle-readout {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
 .move-info {
   display: grid;
   gap: var(--s1);
@@ -807,19 +1189,43 @@ svg.path-plan .g-subject {
 }
 .move-name strong {
   font-size: var(--fs-md);
-  font-weight: 600;
+  font-weight: var(--w-strong);
+}
+.move-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 6px;
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+}
+.move-meta .sep {
+  color: var(--text-3);
+  opacity: 0.6;
 }
 .hint .icon {
   display: inline-block;
-  vertical-align: -2px;
+  vertical-align: -3px;
   margin-right: 4px;
 }
 .more-toggle {
   justify-self: start;
+  margin-left: calc(-1 * var(--s2)); /* its chevron on the column edge */
+}
+/* a borderless button at either end of a row hangs into the gutter by its padding, so its icon or word sits on the
+   column edge the boxed things around it keep */
+.transport > .btn.ghost.icon-only:first-child {
+  margin-left: -8px;
+}
+.transport > .btn.ghost.sm:last-child,
+.monitor-head > .btn.ghost.sm:last-child,
+.filmstrip-head > .btn.ghost.sm:last-child {
+  margin-right: calc(-1 * var(--s2));
 }
 .move-more {
   display: grid;
   gap: var(--s3);
+  margin-inline: calc(-1 * var(--s2)); /* the rows' padding hangs into the gutter: their words sit on the column */
 }
 .more-group {
   display: grid;
@@ -828,7 +1234,9 @@ svg.path-plan .g-subject {
 .more-title {
   padding: 0 var(--s2);
   font-size: var(--fs-xs);
-  font-weight: 600;
+  font-weight: var(--w-strong);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
   color: var(--text-3);
 }
 .more-row {
@@ -865,7 +1273,8 @@ svg.path-plan .g-subject {
   -webkit-line-clamp: 3;
   overflow: hidden;
   font-size: var(--fs-lg);
-  font-weight: 600;
+  font-weight: var(--w-strong);
+  line-height: var(--lh-tight);
   text-wrap: balance;
 }
 .identity {
@@ -876,46 +1285,6 @@ svg.path-plan .g-subject {
   display: flex;
   align-items: center;
   gap: var(--s3);
-}
-.ring {
-  width: 64px;
-  height: 64px;
-  flex: none;
-}
-.ring-track {
-  fill: none;
-  stroke: var(--line-strong);
-  stroke-width: 5px;
-}
-.ring-arc {
-  fill: none;
-  stroke-width: 5px;
-}
-.ring-pass .ring-arc {
-  stroke: var(--green);
-}
-.ring-drift .ring-arc {
-  stroke: var(--amber);
-}
-.ring-tick {
-  stroke: var(--text);
-  stroke-width: 2px;
-  stroke-linecap: round;
-}
-.ring-num {
-  fill: var(--text);
-  font: 600 13px var(--font);
-  font-variant-numeric: tabular-nums;
-}
-.ring-na .ring-track,
-.ring-unavailable .ring-track,
-.ring-none .ring-track {
-  stroke-dasharray: 3 4;
-}
-.ring-na .ring-num,
-.ring-unavailable .ring-num,
-.ring-none .ring-num {
-  fill: var(--text-3);
 }
 .stages li {
   display: grid;
@@ -945,6 +1314,7 @@ svg.path-plan .g-subject {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-family: var(--mono);
   font-size: var(--fs-xs);
 }
 .models .hint {
@@ -966,8 +1336,14 @@ svg.path-plan .g-subject {
   display: grid;
   gap: var(--s2);
 }
+.section-body.dock-actions {
+  padding-top: var(--s4); /* no heading above it: the same room above as below */
+}
 .dock-actions .btn {
   justify-content: flex-start;
+}
+.dock-actions > .field {
+  gap: var(--s2); /* the stack's own rhythm */
 }
 
 /* -- reshoot: drop zones and chosen files ------------------------------------------------------ */
@@ -997,7 +1373,7 @@ svg.path-plan .g-subject {
 }
 .drop-text b {
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: var(--w-medium);
   color: var(--text);
 }
 .file {
@@ -1016,7 +1392,7 @@ svg.path-plan .g-subject {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background: var(--screen);
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .file-text {
   display: grid;
@@ -1027,7 +1403,7 @@ svg.path-plan .g-subject {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: var(--w-medium);
 }
 .ref-thumb {
   width: 96px;
@@ -1064,22 +1440,25 @@ svg.path-plan .g-subject {
 }
 .cast-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: var(--s4);
+  max-width: 1000px;
 }
 .cast-card {
   display: grid;
   align-content: start;
   overflow: hidden;
-  background: var(--raised);
+  background: var(--panel);
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-m);
+  transition: border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
 .cast-photo {
   position: relative;
   display: grid;
   place-items: center;
   aspect-ratio: 3 / 4;
+  overflow: hidden;
   background: var(--screen);
   color: var(--text-3);
 }
@@ -1093,26 +1472,18 @@ svg.path-plan .g-subject {
   flex-wrap: wrap;
   align-items: center;
   gap: var(--s2);
-  padding: var(--s3) var(--s3) 0;
+  padding: var(--s3);
 }
 .cast-card > .hint {
   padding: var(--s1) var(--s3) 0;
 }
-.cast-actions {
-  display: flex;
-  gap: var(--s2);
-  padding: var(--s3);
-}
-.cast-actions .btn:first-child {
-  flex: 1;
-}
+
 .candidate-set {
   display: grid;
   gap: var(--s3);
-  padding: var(--s4);
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-m);
+  padding: var(--s3) 0 var(--s4);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .candidate-head {
   display: flex;
@@ -1125,7 +1496,7 @@ svg.path-plan .g-subject {
 }
 .candidate-head h2 {
   font-size: var(--fs-md);
-  font-weight: 600;
+  font-weight: var(--w-strong);
 }
 .candidate-row {
   display: grid;
@@ -1180,18 +1551,32 @@ svg.path-plan .g-subject {
   gap: var(--s2);
   padding: var(--s3) var(--s4) 0;
 }
+.lock-note > .icon {
+  margin-top: 3px; /* level with the first line */
+}
 
-/* -- takes ---------------------------------------------------------------------------------- */
+/* -- takes: the board ----------------------------------------------------------------------- */
 .takes-tools .seg {
-  width: min(360px, 100%);
+  width: fit-content; /* every filter's word whole; a phone wraps it to a second row */
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.takes-tools .seg > button {
+  flex: 1 0 auto;
+}
+@media (max-width: 719px) {
+  .takes-tools .seg {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* four and three, not six and an orphan */
+    width: 100%;
+  }
 }
 .take-list {
   container-type: inline-size;
   display: grid;
   overflow: hidden;
-  background: var(--panel);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-m);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .take-row {
   display: grid;
@@ -1204,7 +1589,7 @@ svg.path-plan .g-subject {
 }
 .take-row[data-depth="1"] {
   padding-left: var(--s6);
-  background: rgb(255 255 255 / 0.015);
+  background: var(--surface-tint);
 }
 .take-check {
   display: grid;
@@ -1218,7 +1603,7 @@ svg.path-plan .g-subject {
   align-items: center;
   gap: var(--s3);
   width: 100%;
-  padding: var(--s2) var(--s3) var(--s2) 0;
+  padding: 10px var(--s3) 10px 0;
   text-align: left;
   transition: background-color var(--t-fast) var(--ease);
 }
@@ -1234,7 +1619,7 @@ svg.path-plan .g-subject {
   overflow: hidden;
   background: var(--screen);
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: 2px;
 }
 .take-thumb img {
   width: 100%;
@@ -1252,7 +1637,18 @@ svg.path-plan .g-subject {
   white-space: nowrap;
 }
 .take-title {
-  font-weight: 500;
+  font-weight: var(--w-medium);
+}
+.take-sub {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+.take-len,
+.take-when {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-2);
 }
 .take-len {
   min-width: 48px;
@@ -1355,10 +1751,6 @@ svg.path-plan .g-subject {
   .prompt-foot .btn.lg {
     flex: 1;
   }
-  .textarea.prompt-text {
-    min-height: 52px;
-    height: 52px;
-  }
   .monitor {
     min-height: 220px;
   }
@@ -1372,12 +1764,15 @@ svg.path-plan .g-subject {
   .monitor-head .pills {
     flex-wrap: wrap;
   }
+  /* three buttons (Re-shoot's Recreate showing) do not fit beside the chips: the chips take their own row */
+  .monitor-head:has(> .btn:not([hidden]):nth-last-child(3)) .pills {
+    flex: 1 1 100%;
+  }
   .monitor-head .btn {
     width: 26px;
     padding: 0;
   }
-  .monitor-head .btn-label,
-  .btn.primary .kbd {
+  .monitor-head .btn-label {
     display: none;
   }
   .screen[data-mode="approval"] {
@@ -1392,10 +1787,2181 @@ svg.path-plan .g-subject {
   .step-name {
     display: none;
   }
-  .tile {
-    width: 124px;
+  .osd-tc,
+  .osd-tag {
+    display: none;
   }
-  .take-list {
-    border-radius: var(--radius-s);
+}
+
+/* -- the on-screen display in the other modes ------------------------------------------------------ */
+.screen[data-mode="running"] .run-stills {
+  top: calc(var(--s4) + 28px);
+}
+.osd-tally[data-state="failed"]::before {
+  background: var(--red);
+}
+/* over the empty wall the stage is the standby picture: the move being set up, centred, nothing travelling yet */
+.screen-path.stage-standby {
+  inset: 50% auto auto 50%;
+  translate: -50% -50%;
+  width: min(64%, 520px);
+  height: auto;
+}
+
+/* over the wall the plan's strokes stay one width on screen, and its axes read against footage */
+
+/* a note inside the plan line is a sentence, not a readout */
+.plan .plan-note,
+.plan .plan-note b {
+  font-family: var(--font);
+  font-size: var(--fs-sm);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.screen-path .g-subject {
+  display: none; /* on the wall the subject is the footage itself */
+}
+
+/* -- the moves sheet: one shot under every promoted move ------------------------------------------ */
+.moves-sheet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: var(--s4);
+}
+.move-card {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 0 0 var(--s2);
+  text-align: left;
+  background: var(--raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  color: var(--text);
+  transition: border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.move-card:hover:not(:disabled) {
+  border-color: var(--control-line);
+  transform: translateY(-1px);
+}
+.move-card:disabled {
+  cursor: default;
+  color: var(--text-3);
+}
+.move-card-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background: var(--ground);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.move-card-frame img,
+.move-card-frame .preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.move-card-frame .preview {
+  z-index: 1; /* above the poster it replaces while the pointer is on the card */
+}
+.move-card-frame .glyph {
+  width: 48px;
+  height: 48px;
+}
+/* over a poster the move's own plan becomes a small chip, so twelve similar posters still read as twelve moves */
+.move-card-frame:has(img) .glyph,
+.move-card-frame:has(img) .glyph.tile-plan {
+  position: absolute;
+  right: var(--s2);
+  bottom: var(--s2);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+  background: var(--scrim-strong);
+  border-radius: 2px;
+}
+.move-card-frame:has(img) .glyph .g-path,
+.move-card-frame:has(img) .glyph .g-frame,
+.move-card-frame:has(img) .glyph .g-post {
+  stroke: var(--on-media);
+}
+.move-card-frame:has(img) .glyph .g-path {
+  stroke-width: 2.5px;
+}
+.move-card-frame:has(img) .glyph .g-start,
+.move-card-frame:has(img) .glyph .g-head,
+.move-card-frame:has(img) .glyph .g-subject {
+  fill: var(--on-media);
+}
+/* -- hover to play (ui/hoverplay.js): the take plays over its tile's still, which stays underneath until the first frame */
+.hover-clip {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+  pointer-events: none;
+}
+.hover-clip.playing {
+  opacity: 1;
+}
+.move-tile .hover-clip {
+  opacity: 0; /* over .move-tile .preview's 0.85 until its first frame is up */
+}
+.move-tile .hover-clip.playing {
+  opacity: 0.85;
+}
+.take-thumb,
+.cast-take {
+  position: relative;
+}
+/* what a tile prints over its picture stays above the clip */
+.tile-frame > :is(.tile-flag, .tile-badge, .tile-bar),
+:is(.shots-has, .transition-has) {
+  z-index: 2;
+}
+/* a still that cannot play (a Shots setup, a cast portrait) leans in a little under the hand instead; the stage cards and
+   the programme cards keep still, their frames would clip the lean */
+:is(.shots-tile, .cast-photo) img {
+  transition: transform 600ms var(--ease);
+}
+:is(button.shots-tile:is(:hover, :focus-visible), .cast-card:is(:hover, :has(:focus-visible)) .cast-photo) img {
+  transform: scale(1.015);
+}
+:root.hold-still :is(.shots-tile, .cast-photo) img {
+  transform: none;
+}
+
+/* -- the camera's path over a frame (ui/pathchip.js): the move's glyph as a chip, its track lit as far as the footage
+   has run; svg.glyph so it outranks .glyph.tile-plan's size and the glyph's own strokes wherever it lands */
+svg.glyph.path-chip {
+  position: absolute;
+  right: 8px;
+  bottom: 10px;
+  z-index: 3;
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  background: var(--scrim-strong);
+  border-radius: 2px;
+  pointer-events: none;
+  transition: opacity var(--t-fast) var(--ease);
+}
+@starting-style {
+  svg.glyph.path-chip {
+    opacity: 0;
   }
+}
+svg.path-chip :is(.g-path, .g-frame, .g-post) {
+  stroke: var(--on-media);
+}
+svg.path-chip .g-path {
+  stroke-width: 1.5px;
+}
+svg.path-chip .g-frame.faint {
+  stroke: var(--on-media-line);
+}
+svg.path-chip :is(.g-start, .g-head, .g-subject) {
+  fill: var(--on-media);
+}
+svg.path-chip .g-lit {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+}
+.wall-tile svg.glyph.path-chip {
+  bottom: 40px; /* above the foot's title and timecode */
+}
+.tile-frame svg.glyph.path-chip {
+  top: 4px;
+  right: 4px;
+  bottom: auto;
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+}
+.tile-frame svg.path-chip .g-path {
+  stroke-width: 1px;
+}
+.tile-frame svg.path-chip .g-lit {
+  stroke-width: 9;
+}
+@media (hover: none) {
+  svg.glyph.path-chip {
+    display: none;
+  }
+}
+
+.move-card-name {
+  padding: var(--s1) var(--s3) 0;
+  font-weight: var(--w-medium);
+}
+.move-card-sub {
+  padding: 0 var(--s3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.compare-modes {
+  min-width: 176px; /* three short words, never truncated */
+}
+
+/* -- plan tiles -------------------------------------------------------------------------------------------------- */
+.glyph.tile-plan {
+  width: 44px;
+  height: 44px;
+}
+.tile-plan .g-path {
+  stroke: var(--text);
+  stroke-width: 2px;
+}
+.tile-plan .g-post {
+  stroke: var(--text-3);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+}
+.tile-plan .g-subject {
+  fill: var(--text-3); /* the subject is one dim figure; the track is the bright thing */
+}
+.move-card-frame .glyph.tile-plan {
+  width: 64px;
+  height: 64px;
+}
+
+/* -- the guide toggle reads as a control ------------------------------------------------------------------------- */
+.guide-btn {
+  gap: 4px;
+  padding: 0 var(--s2);
+  border: 1px solid transparent;
+}
+.guide-btn[aria-pressed="true"],
+.play-all[aria-pressed="true"] {
+  background: var(--pressed);
+  border-color: var(--control-line);
+  color: var(--text);
+  box-shadow: none;
+}
+
+/* -- the plan line reads out in the monitor head, over the wall ------------------------------------------------------ */
+.monitor-head .plan {
+  flex: 1 1 auto;
+  min-width: 0;
+  line-height: 1.4;
+}
+.monitor-head .plan > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Overpass Mono sits high beside Barlow: the readout drops 2 px onto the chips' and buttons' baseline */
+.monitor-head .plan > span:not(.plan-note) {
+  translate: 0 2px;
+}
+/* the note's icon stays on its sentence's line (a block line, so the sentence can still end in an ellipsis) */
+.monitor-head .plan > .plan-note > .icon {
+  display: inline-block;
+  margin: 0 var(--s2) 0 0;
+  vertical-align: -3px;
+}
+/* a sheet's switch wraps on a phone rather than cut its words */
+@media (max-width: 719px) {
+  .sheet .seg {
+    flex-wrap: wrap;
+  }
+  .sheet .seg > button {
+    flex: 1 0 auto;
+  }
+  .sheet .seg:has(> :nth-child(4)) {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* four choices or more: two even columns, never a zig-zag */
+  }
+}
+/* Re-shoot: the button's foot stands on the field's rule */
+@media (min-width: 720px) {
+  .station[data-station="reshoot"] .prompt {
+    align-items: flex-end;
+  }
+  .station[data-station="reshoot"] .prompt .textarea.prompt-text {
+    transform: none;
+  }
+  /* and the button sits flush right under its note, where Direct's Shoot sits */
+  .station[data-station="reshoot"] .prompt-foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--s1);
+  }
+  .station[data-station="reshoot"] .prompt-foot > .plan {
+    flex: none;
+    max-width: 100%;
+  }
+}
+/* the rooms that scroll grow with their content (never shrink below it), so the stage's foot padding follows the last row */
+.station:is([data-station="shots"], [data-station="takes"], [data-station="cast"]) {
+  flex: 1 0 auto;
+}
+.monitor-head .pills {
+  flex: none;
+  flex-wrap: nowrap;
+}
+
+/* -- a move tile shows the move: its track at rest; the footage of its newest take on hover and once chosen ------- */
+.move-tile .poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.move-tile:is(:hover, :focus-visible) .poster {
+  opacity: 0.75;
+}
+.move-tile[aria-checked="true"] .poster {
+  opacity: 0.85;
+}
+.move-tile .preview {
+  z-index: 1;
+}
+.move-tile .poster ~ .glyph,
+.move-tile .poster ~ span {
+  position: relative;
+  z-index: 2;
+}
+.move-tile:is(:hover, :focus-visible, [aria-checked="true"]) .poster ~ span {
+  margin-block: -1px; /* the chip's padding must not nudge the word */
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: var(--scrim);
+  color: var(--on-media);
+}
+.move-tile:is(:hover, :focus-visible, [aria-checked="true"]) .poster ~ .glyph {
+  filter: drop-shadow(0 0 1px rgb(5 5 4 / 1)) drop-shadow(0 1px 2px rgb(5 5 4 / 0.9)); /* a dark halo under the track, so it reads on bright footage */
+}
+.move-tile:is(:hover, :focus-visible, [aria-checked="true"]) .poster ~ .tile-plan .g-path,
+.move-tile:is(:hover, :focus-visible, [aria-checked="true"]) .poster ~ .tile-plan .g-post {
+  stroke: var(--on-media);
+}
+.move-tile:is(:hover, :focus-visible, [aria-checked="true"]) .poster ~ .tile-plan .g-start,
+.move-tile:is(:hover, :focus-visible, [aria-checked="true"]) .poster ~ .tile-plan .g-head,
+.move-tile:is(:hover, :focus-visible, [aria-checked="true"]) .poster ~ .tile-plan .g-subject {
+  fill: var(--on-media);
+}
+
+.move-tile[aria-checked="true"] .poster ~ .tile-plan .g-path {
+  stroke: var(--accent);
+}
+.move-tile[aria-checked="true"] .poster ~ .tile-plan .g-start,
+.move-tile[aria-checked="true"] .poster ~ .tile-plan .g-head {
+  fill: var(--accent);
+}
+
+
+/* -- the Take tab reads as a receipt: the verdict, the stills, then what you can do -------------------------------- */
+.verdict {
+  display: grid;
+  border-bottom: 1px solid var(--line);
+}
+.verdict-row {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  padding: var(--s3) var(--s4);
+  border-top: 1px solid var(--line);
+}
+.verdict-row:first-child {
+  border-top: 0;
+}
+.verdict-row.identity-top {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+.verdict-row .hint {
+  flex: 1;
+  min-width: 0;
+}
+.verdict-row .pill {
+  flex: none;
+}
+.verdict-row.identity-top strong {
+  display: block;
+}
+.stages-strip {
+  display: grid;
+  gap: var(--s2);
+  padding: var(--s3) var(--s4);
+  border-bottom: 1px solid var(--line);
+}
+.strip-label {
+  font-size: var(--fs-xs);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.stages-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: var(--s2);
+}
+.stage-card {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.stage-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--screen);
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+}
+.stage-card figcaption {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+.stage-card .stage-name {
+  flex: 1;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stage-card .stage-name .icon {
+  flex: none;
+  translate: 0 -2px; /* centred on the capitals, not on the line box */
+  color: var(--green);
+}
+.stage-card .num[data-tone="green"] {
+  color: var(--green);
+}
+.stage-card .num[data-tone="amber"] {
+  color: var(--amber);
+}
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s2);
+}
+.action-row .btn {
+  justify-content: flex-start;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* -- the code sheet: the snippet behind a take, read without leaving the app ------------------------------------- */
+.sheet-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-menu);
+  display: grid;
+  place-items: center;
+  padding: var(--s5);
+  background: var(--scrim);
+}
+.sheet {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr); /* content never widens the sheet past its box */
+  width: min(760px, 100%);
+  max-height: min(84vh, 720px);
+  overflow: hidden;
+  background: var(--raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-float);
+}
+.sheet-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2) var(--s4); /* the body's column; only the close button reaches toward the corner */
+  border-bottom: 1px solid var(--line);
+}
+.sheet-head > .btn.icon-only:last-child {
+  margin-right: calc(-1 * var(--s2));
+}
+/* a report section inside a sheet takes the sheet's column, not a second inset */
+.sheet .section-head,
+.sheet .section-body {
+  padding-inline: 0;
+}
+.sheet-head h3 {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--fs-md);
+  font-weight: var(--w-strong);
+}
+@media (max-width: 719px) {
+  .sheet-head {
+    flex-wrap: wrap; /* a phone: the action drops under the title, full width, so a long label never scrolls the sheet sideways */
+  }
+  .sheet-head > .btn:not(.icon-only) {
+    order: 1;
+    flex: 1 0 100%;
+  }
+}
+.sheet-code pre.code {
+  margin: 0;
+  padding: var(--s4);
+  overflow: auto;
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  tab-size: 4;
+  color: var(--text);
+}
+
+/* -- Takes: the tools row, Play all ------------------------------------------------------------------------------- */
+.takes-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+/* the ledger line: beside the count on a wide screen, a line of its own on a phone, held from the first paint so nothing moves when the status comes */
+.takes-ledger {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+@media (min-width: 720px) {
+  .takes-ledger:not(:empty)::before {
+    content: "·" / "";
+    margin-inline: calc(var(--s2) - var(--s3)) var(--s2); /* the flex gap and this make 8 px each side of the dot */
+  }
+}
+@media (max-width: 719px) {
+  .takes-ledger {
+    flex: 0 0 100%;
+    min-height: 1lh;
+  }
+}
+
+
+/* -- motion with a purpose: a station fades in, the wall fades in on a cut, objects lift under the pointer ---------- */
+.station {
+  transition: opacity var(--t-base) var(--ease);
+}
+.screen > .player,
+.screen > .osd {
+  transition: opacity var(--t-fast) var(--ease);
+}
+@starting-style {
+  .station:not([hidden]) {
+    opacity: 0;
+  }
+  .screen > .player,
+  .screen > .screen-path,
+  .screen > .osd {
+    opacity: 0;
+  }
+}
+/* the previous take's last frame stays over the cut while the next one loads, then lets go */
+.screen > .player-out {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--screen);
+  pointer-events: none;
+  transition: opacity var(--t-base) var(--ease);
+}
+.screen > .player-out.leaving {
+  opacity: 0;
+}
+:root.hold-still .screen > :is(.player, .osd) {
+  transition: none; /* held still, a cut is a cut: the new take is whole when the old frame goes */
+}
+/* things that float come in: menus and sheets settle into place, notices slide down. Menus and sheets leave the way they
+   came, over 120 ms (leave() in ui/dom.js adds .leaving and takes the element out when its own transition ends); notices
+   leave at once */
+.menu,
+.notice,
+.sheet-scrim,
+.sheet {
+  transition: opacity var(--t-fast) var(--ease), translate var(--t-base) var(--ease);
+}
+@starting-style {
+  .menu:not([hidden]) {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+  .notice {
+    opacity: 0;
+    translate: 0 -8px;
+  }
+  .sheet-scrim {
+    opacity: 0;
+  }
+  .sheet {
+    translate: 0 8px;
+  }
+  /* a carried page does not rise: a view transition flies its frame in from the card instead (movesheet.js) */
+  .sheet-scrim.carried .sheet {
+    translate: none;
+  }
+}
+.menu.leaving {
+  opacity: 0;
+  translate: 0 -4px;
+  pointer-events: none;
+  transition-duration: var(--t-fast); /* both properties end together, so the first transitionend is the last */
+}
+.sheet-scrim.leaving {
+  opacity: 0;
+  pointer-events: none; /* it is inert too: a click during the fade reaches the room behind, which is live again */
+}
+.sheet-scrim.leaving .sheet {
+  opacity: 0;
+  translate: 0 8px;
+  transition-duration: var(--t-fast);
+}
+.tile-frame {
+  transition: border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.tile:hover .tile-frame {
+  transform: translateY(-1px);
+}
+
+.cast-card:hover {
+  border-color: var(--control-line);
+  transform: translateY(-1px);
+}
+
+/* -- a tighter shot card and filmstrip: the wall gets the height ------------------------------------------------ */
+.prompt {
+  padding-top: var(--s2);
+  padding-bottom: var(--s2);
+}
+
+/* -- Cast as portraits: the name on the photo, one line of chips, the note once ----------------------------------- */
+.cast-name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--s2) var(--s3);
+  background: var(--scrim);
+  color: var(--on-media);
+  font-size: var(--fs-lg);
+  font-weight: var(--w-strong);
+  line-height: var(--lh-tight);
+}
+.cast-photo .tile-badge {
+  top: 6px;
+  bottom: auto;
+}
+/* the takes a character is in, under the card: the same face across shots, one click from each */
+.cast-appears {
+  display: grid;
+  gap: 6px;
+  padding: 0 var(--s3) var(--s3);
+}
+.cast-appears-label {
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+}
+.cast-appears-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+.cast-take {
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  overflow: hidden;
+  background: var(--screen);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.cast-take:hover {
+  border-color: var(--control-line);
+  transform: translateY(-1px);
+}
+.cast-take img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cast-meta .grow {
+  flex: 1;
+}
+.cast-note {
+  max-width: 64ch;
+}
+
+/* -- spacious and darker: the wall is the only light, the filmstrip is a row of frames, the lists breathe --------- */
+
+.takes-station .station-head,
+.cast-station .station-head,
+.shots-station .station-head {
+  padding-top: var(--s1);
+}
+.section-head .meta {
+  color: var(--text-3);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* -- phones: the shot card stacks, the button full width under the field ------------------------------------------ */
+@media (max-width: 719px) {
+  .prompt {
+    flex-wrap: wrap;
+  }
+  .prompt .textarea.prompt-text {
+    flex: 1 1 100%;
+    max-height: 72px;
+  }
+  .prompt .btn.primary {
+    width: 100%;
+  }
+}
+
+/* -- the identity reading: a figure over a hairline scale with the pass line as a tick ------------------------------ */
+.id-reading {
+  display: grid;
+  gap: 5px;
+  width: 96px;
+  flex: none;
+}
+.id-score {
+  font-family: var(--mono);
+  font-size: var(--fs-xl);
+  font-weight: var(--w-strong);
+  line-height: 1;
+  color: var(--green);
+}
+.id-reading[data-status="drift"] .id-score {
+  color: var(--amber);
+}
+.id-reading[data-status="na"] .id-score,
+.id-reading[data-status="unavailable"] .id-score,
+.id-reading[data-status="none"] .id-score {
+  color: var(--text-3);
+}
+.id-scale {
+  position: relative;
+  display: block;
+  height: 3px;
+  background: var(--line-strong);
+}
+.id-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: currentColor;
+  color: var(--green);
+}
+.id-reading[data-status="drift"] .id-fill {
+  color: var(--amber);
+}
+.id-tick {
+  position: absolute;
+  top: -3px;
+  width: 1px;
+  height: 9px;
+  background: var(--text);
+}
+/* the hash and the file link share a baseline; the chip beside them centres */
+.seal-ref {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s3);
+  min-width: 0;
+}
+.seal-line {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+.seal-hash {
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+/* -- phones: the scrubber on its own row, the shot field tall enough, touch targets on the monitor head ------------ */
+@media (max-width: 719px) {
+  .transport {
+    flex-wrap: wrap;
+    height: auto;
+    row-gap: var(--s1);
+  }
+  .transport .scrub-wrap {
+    flex: 1 1 100%;
+    order: -1;
+  }
+  .textarea.prompt-text,
+  .prompt .textarea.prompt-text {
+    height: auto;
+    min-height: 72px;
+    max-height: 120px;
+  }
+  .monitor-head .btn.sm {
+    height: 36px;
+    min-width: 36px;
+  }
+}
+
+/* -- the keyboard sheet: each key, what it does -------------------------------------------------------------------- */
+.sheet-keys {
+  width: min(520px, 100%);
+}
+.sheet-keys:focus {
+  outline: none; /* the dialog takes focus so nothing inside it lights up on open */
+}
+.keys-body {
+  padding: var(--s3) var(--s4) var(--s4);
+}
+.keys-list {
+  grid-template-columns: 112px 1fr;
+  row-gap: var(--s2);
+  align-items: baseline;
+}
+.keys-list dt {
+  display: flex;
+  gap: 4px;
+}
+.keys-list dd {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+.keys-btn .kbd {
+  min-width: 18px;
+  justify-content: center;
+}
+
+/* -- the Connect sheet: a target, a test that tells the truth, a readiness table --------------------------------- */
+.sheet-connect .connect-body {
+  padding: var(--s4);
+  overflow: auto;
+}
+.connect-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-wrap: wrap;
+}
+.connect-actions .switch-row {
+  padding: 0;
+  border: 0;
+}
+.connect-result {
+  display: grid;
+  gap: var(--s2);
+  padding: var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+}
+.connect-line {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-wrap: wrap;
+}
+.connect-warn {
+  display: flex;
+  gap: var(--s2);
+  color: var(--amber);
+}
+.ready-table {
+  display: grid;
+  gap: 2px;
+}
+.ready-row {
+  display: grid;
+  grid-template-columns: 8px minmax(140px, 0.6fr) 1fr;
+  align-items: start;
+  gap: var(--s2);
+  padding: 4px 0;
+  font-size: var(--fs-sm);
+}
+.ready-row .status-dot {
+  margin-top: 5px;
+}
+.ready-row .ready-state {
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+.ready-row[data-state="missing"] .ready-state,
+.ready-row[data-state="unknown_nodes"] .ready-state {
+  color: var(--text);
+}
+.connect-foot {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-wrap: wrap;
+  min-height: 28px;
+}
+.guide-step b {
+  display: block;
+  font-size: var(--fs-sm);
+}
+.guide-code {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.guide-code code,
+.connect-result code {
+  flex: 1;
+  min-width: 0;
+  padding: 6px var(--s2);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  overflow-wrap: anywhere;
+}
+
+/* -- the plan line's measured time: a figure from this install's own renders, quieter than the plan -------------- */
+.plan .measured {
+  color: var(--text-3);
+  font-family: var(--mono);
+  text-transform: none;
+}
+
+/* -- round 7: moving pictures ------------------------------------------------------------------------------------ */
+/* a recorded loop behind a tile: the footage plays while the tile is on screen (wall.js), the poster otherwise */
+.live-clip {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.live-clip.blank {
+  background: var(--screen); /* no picture recorded: the dark screen, nothing painted on it */
+}
+
+/* the wall: every finished take playing, a bank of monitors on the set */
+.wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  grid-auto-flow: dense;
+  gap: 6px;
+}
+.wall-tile {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-s);
+  background: var(--ground);
+  color: var(--on-media);
+  text-align: left;
+  transition: border-color var(--t-fast) var(--ease);
+}
+@media (min-width: 900px) {
+  .wall-tile:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto; /* fills its two rows, gap included, so its foot meets the tiles beside it */
+    min-height: 267px;
+  }
+}
+/* under the mouse a tile scrubs its take: a line along the foot shows how far through it the hand has run */
+.wall-tile::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 3px;
+  width: calc(var(--scrub, 0) * 100%);
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+  pointer-events: none;
+}
+.wall-tile.scrubbing {
+  cursor: ew-resize;
+}
+.wall-tile.scrubbing::before {
+  opacity: 1;
+}
+.wall-tile:is(:hover, :focus-visible) {
+  border-color: var(--accent);
+}
+.wall-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, rgb(5 5 4 / 0.8), transparent 40%, transparent 72%, rgb(5 5 4 / 0.5));
+}
+.wall-bezel,
+.wall-foot {
+  position: absolute;
+  inset-inline: 0;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+  padding: 6px 8px;
+}
+.wall-bezel {
+  top: 0;
+  align-items: center; /* the chip is a box: the label centres on it, at the same height with or without one */
+}
+.wall-foot {
+  bottom: 0;
+}
+/* a line, not a flex box, so a long move name ends in an ellipsis and the tally keeps its size */
+.wall-kind {
+  display: block;
+  line-height: 20px; /* the chip's height, so a tile with no chip keeps the label where the others have it */
+  translate: 0 2px; /* Overpass Mono sits high: its capitals onto the chip's */
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+.tally {
+  display: inline-block;
+  vertical-align: 1px; /* on the capitals' middle */
+  margin-right: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 1.5px rgb(5 4 3 / 0.7); /* a dark rim so the tally reads on bright footage; no glow */
+}
+.wall-title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--fs-sm);
+  font-weight: var(--w-medium);
+}
+.wall-tc {
+  flex: none;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  opacity: 0.85;
+}
+
+/* a move checked by eye plays its loop under its track; an untested one keeps the drawing alone */
+.move-tile .live-clip {
+  opacity: 0.5;
+  transition: opacity var(--t-base) var(--ease);
+}
+.move-tile:is(:hover, :focus-visible, [aria-checked="true"]) .live-clip {
+  opacity: 0.92;
+}
+.move-tile.live .poster {
+  display: none;
+}
+.move-tile.live > :is(.tile-plan, .glyph, span) {
+  position: relative;
+  z-index: 2;
+}
+.move-tile.live > span {
+  margin-block: -1px; /* the chip's padding must not nudge the word */
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: var(--scrim);
+  color: var(--on-media);
+}
+.move-tile.live > :is(.tile-plan, .glyph) {
+  filter: drop-shadow(0 0 1px rgb(5 5 4 / 1)) drop-shadow(0 1px 2px rgb(5 5 4 / 0.9));
+}
+.move-tile.live :is(.g-path, .g-post) {
+  stroke: var(--on-media);
+}
+.move-tile.live :is(.g-start, .g-head, .g-subject) {
+  fill: var(--on-media);
+}
+
+/* Shots: one still, nine setups */
+.station > .shots-station {
+  flex: 1;
+}
+.shots-station {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  min-width: 0;
+}
+.shots-pick {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-width: 0;
+}
+/* the label and the button sit level with the thumbnails (54 px in 2 px of padding), whatever the scrollbar takes */
+@media (min-width: 721px) {
+  .shots-pick {
+    align-items: flex-start;
+  }
+  .shots-pick > .label {
+    line-height: 58px;
+  }
+  .shots-pick > .btn {
+    margin-top: 16px;
+  }
+}
+.shots-sources {
+  display: flex;
+  flex: 1;
+  gap: 6px;
+  min-width: 0;
+  padding: 2px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.shots-source,
+.transition-option,
+.compare-option {
+  position: relative;
+  flex: none;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--ground);
+}
+.shots-source {
+  width: 96px;
+}
+.shots-source img,
+.transition-option img,
+.compare-option img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+:is(.shots-source, .transition-option, .compare-option)[aria-checked="true"],
+.shots-tile[aria-pressed="true"] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.shots-has,
+.transition-has {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  display: grid;
+  place-items: center;
+  padding: 2px;
+  border-radius: 2px;
+  background: var(--scrim);
+  color: var(--on-media);
+}
+.shots-go,
+.shots-after,
+.transition-note {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+.shots-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  max-width: 1100px;
+}
+.shots-tile {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-s);
+  background: var(--ground);
+  color: var(--on-media);
+  text-align: left;
+  transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+button.shots-tile:hover {
+  transform: translateY(-1px); /* the edge and a 1 px lift, as the filmstrip's frames and the Cast cards */
+}
+button.shots-tile:hover:not([aria-pressed="true"]) {
+  border-color: var(--control-line);
+}
+.shots-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: shot-in var(--t-base) var(--ease) both;
+}
+.shots-label {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  z-index: 1;
+  padding: 1px 6px;
+  border-radius: 2px;
+  background: var(--scrim);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+.shots-tile > .pill {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 1;
+}
+.shots-tile.pending {
+  color: var(--text-3);
+  background: linear-gradient(100deg, var(--ground) 30%, var(--hover) 50%, var(--ground) 70%) 0 0 / 220% 100%;
+}
+.shots-tile.pending .shots-label {
+  background: none;
+}
+.shots-board[data-state="running"] .shots-tile.pending {
+  animation: shimmer 1.6s linear infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: -220% 0;
+  }
+}
+@keyframes shot-in {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+}
+:root.hold-still :is(.still, .shots-tile img) {
+  animation: none;
+}
+@media (max-width: 720px) {
+  .shots-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .shots-pick {
+    flex-wrap: wrap;
+  }
+}
+
+/* the Transition sheet */
+.transition-body {
+  display: grid;
+  gap: var(--s4);
+}
+.transition-from {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-width: 0;
+}
+.transition-from img {
+  width: 120px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+}
+.transition-from > span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.transition-from b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.transition-pick {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  grid-auto-rows: min-content; /* tiles keep 16:9 and the list scrolls; auto rows let the cap flatten them */
+  gap: 6px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+/* round 7 fix pass: chips over footage get a solid backing; the board previews its plan; the sheet has room */
+:is(.wall-bezel, .shots-tile) > .pill {
+  background: var(--scrim-strong);
+}
+.shots-ghost {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+  filter: grayscale(0.6);
+}
+.shots-tile.pending .shots-label {
+  color: var(--text-2);
+}
+.transition-body {
+  padding: var(--s4) var(--s4) var(--s5);
+}
+.wall-kind {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* round 7b: the Edit and Dub sheets are built from the Transition sheet's parts; a long row of presets wraps, and a
+   tall sheet scrolls inside its frame */
+.transition-body {
+  overflow-y: auto;
+}
+.sheet-edit .seg {
+  flex-wrap: wrap;
+}
+.sheet-edit .seg > button {
+  flex: 1 0 auto;
+}
+/* round 7d: What happens sits under the subject (only the video plays it; the stills show the scene), its label beside
+   it; the Shoot button stays level with the subject; the Extend and Upscale sheets ask one thing, so they are narrow */
+.prompt-fields {
+  flex: 1 1 0;
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+.prompt-fields + .btn {
+  align-self: flex-start;
+}
+.prompt-action {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: var(--s3);
+  row-gap: 2px;
+}
+.prompt-action > .hint,
+.prompt-action > .field-error {
+  grid-column: 1 / -1;
+}
+.prompt-action .textarea.prompt-text {
+  min-height: 28px;
+  height: 28px;
+  font-size: var(--fs-md);
+}
+.monitor-head .plan > .plan-note.quiet {
+  white-space: normal; /* a sentence under the readout: it wraps rather than lose its end */
+}
+.sheet-extend,
+.sheet-upscale {
+  width: min(520px, 100%);
+}
+
+/* -- the Chat room: a conversation with your own agent, the composer at the foot ------------------------------------ */
+.station > .chat-station {
+  flex: 1;
+  min-height: 0;
+}
+.chat-station {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  gap: var(--s3);
+  width: min(100%, 880px);
+  margin-inline: auto;
+}
+.chat-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  min-height: 26px;
+}
+/* the agent and its model: two quiet selects beside the lane line */
+.chat-pickers {
+  display: flex;
+  gap: var(--s2);
+  margin-left: auto;
+}
+.chat-pickers .select select {
+  min-height: 30px;
+  font-size: var(--fs-sm);
+}
+.chat-lane {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+  translate: 0 2px; /* Overpass Mono sits high: level with the button's words */
+}
+.chat-scroll,
+.chat-off {
+  grid-row: 3;
+  min-height: 0;
+}
+.chat-scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+/* before anyone has spoken the room has one thing to show, so it is placed, not stacked at the top rule. `safe`
+   matters: on a phone the sheet and its take are taller than the scroller, and plain centring pushes the head of
+   the sheet and the take's caption past both edges where they cannot be scrolled back. */
+.chat-scroll.at-rest {
+  display: grid;
+  align-content: safe center;
+}
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding-bottom: var(--s4);
+}
+/* -- the room before anyone has spoken ----------------------------------------------------------------------------
+   The Chat room opens on a call sheet and the take this room made: card stock for what can be asked, emulsion for
+   what was shot, lacquer behind both. It is the one room that had no material of its own, and the void it used to
+   open on was the largest unanswered surface in the studio. */
+.chat-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: var(--s4);
+  padding-bottom: var(--s4);
+}
+@media (min-width: 900px) {
+  /* the sheet leads and the footage sits beside it -- but only when there is footage: an export without that take's
+     preview on file shows the sheet alone, at full width, rather than against an empty column */
+  .chat-intro:has(.chat-made-fig) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+  }
+}
+.callsheet {
+  padding: var(--s4) var(--s4) calc(var(--perf-r) + var(--s4));
+}
+.callsheet-head {
+  margin: 0 0 var(--s3);
+  padding-bottom: var(--s2);
+  border-bottom: 1.5px solid var(--line-strong);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.callsheet-lede {
+  margin: 0 0 var(--s3);
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+/* the asks, ruled and numbered the way a call sheet rules its scenes: the whole line is the target, not a chip */
+.callsheet-lines {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ask;
+}
+.callsheet-lines > li {
+  counter-increment: ask;
+  border-top: 1px solid var(--line);
+}
+.callsheet-line {
+  display: block;
+  width: 100%;
+  padding: var(--s2) 0;
+  text-align: left;
+  line-height: 1.35;
+  text-decoration: none;
+}
+.callsheet-line::before {
+  content: counter(ask, decimal-leading-zero) "  ";
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+.callsheet-line:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* the footage beside the sheet: one real take on a loop, its serial printed up the frame's edge. Capped, because
+   stacked under the sheet a 16:9 frame at full column width is taller than the room and pushes the sheet out of
+   sight: the sheet leads at every width, and the take sits beside or below it without taking the room over. */
+.chat-made-fig {
+  margin: 0;
+  display: grid;
+  gap: var(--s2);
+  max-width: 460px;
+}
+.chat-made-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-m);
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+.chat-made-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.chat-made-fig figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s2);
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+.chat-msg,
+.chat-tool {
+  max-width: min(76ch, 92%);
+}
+.chat-msg {
+  font-size: var(--fs-md);
+  line-height: 1.55;
+}
+.chat-msg.user {
+  align-self: flex-end;
+  padding: var(--s2) var(--s3);
+  background: var(--raised);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-m) var(--radius-m) 2px var(--radius-m);
+}
+.chat-msg.agent {
+  align-self: flex-start;
+}
+
+/* while the agent is still writing (.live, set by ui/chat.js while its words arrive and cleared when the turn ends, however it
+   ends), a 6px accent dot breathes at the end of its last line: the running tool's pulse, the same keyframes */
+.chat-msg.agent.live .chat-text > p:last-child::after,
+.chat-msg.agent.live .chat-text > :is(ul, ol):last-child > li:last-child::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: 0.08em;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.chat-text {
+  display: grid;
+  gap: var(--s2);
+}
+.chat-text :is(p, ul, ol) {
+  margin: 0;
+}
+.chat-text :is(ul, ol) {
+  display: grid;
+  gap: 2px;
+  padding-left: 1.3em;
+}
+
+/* the global reset takes the bullets and numbers off every list; the agent's ordered plans keep theirs */
+.chat-text ul {
+  list-style: disc;
+}
+.chat-text ol {
+  list-style: decimal;
+}
+.chat-text code {
+  padding: 1px 4px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--ground);
+  font-family: var(--mono);
+  font-size: 0.86em;
+}
+.take-link {
+  color: var(--accent-text);
+  font-size: 0.9em;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+/* a studio tool the agent used: what it did, what it was asked, the takes it named, the pictures it looked at */
+.chat-tool {
+  align-self: flex-start;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  background: var(--ground);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  font-size: var(--fs-sm);
+}
+/* the icon says the state (running pulses in orange, done is green, an error red); the card's edge stays even */
+.chat-tool > .icon {
+  margin-top: 2px;
+  color: var(--text-3);
+}
+.chat-tool[data-state="running"] > .icon {
+  color: var(--accent);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+.chat-tool[data-state="done"] > .icon {
+  color: var(--green);
+}
+.chat-tool[data-state="error"] > .icon {
+  color: var(--red);
+}
+.chat-tool-body {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.chat-tool-body > b {
+  font-weight: var(--w-medium);
+}
+.chat-tool-detail {
+  color: var(--text-2);
+  overflow-wrap: anywhere;
+}
+.chat-tool-takes,
+.chat-tool-pictures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+.chat-tool-takes .take-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px; /* a link on its own is a target: big enough to hit */
+}
+.chat-tool-pictures img {
+  height: 88px;
+  width: auto;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--screen);
+}
+.chat-tool-said summary {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  cursor: pointer;
+}
+.chat-tool-said pre {
+  max-height: 240px;
+  margin: 6px 0 0;
+  overflow: auto;
+  color: var(--text-2);
+  font: var(--fs-xs) / 1.5 var(--mono);
+  white-space: pre-wrap;
+}
+.chat-notice {
+  align-self: center;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+.chat-notice[data-tone="error"] {
+  color: var(--red);
+}
+.chat-compose {
+  grid-row: 4;
+  display: grid;
+  gap: var(--s2);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
+}
+.chat-input {
+  min-height: 64px;
+  max-height: 200px;
+  resize: vertical;
+}
+.chat-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+.chat-status {
+  flex: 1;
+  min-width: 0;
+}
+.chat-off .icon {
+  color: var(--text-3);
+}
+
+/* the hosted room's card holds the take an open-weights agent made here: the case sits a little below the heading with its
+   caption close beneath it (one line at the case's width, balanced when it wraps), and the sentence keeps its distance from
+   the button; a card taller than the room starts at its top and scrolls with the stage (plain center would cut off its top) */
+.chat-off {
+  align-content: safe center;
+}
+.chat-off > .empty-art {
+  margin: var(--s2) 0 0;
+}
+.chat-off > .empty-art + p {
+  max-width: min(100%, 480px);
+  text-wrap: balance;
+}
+.chat-off > .btn {
+  margin-bottom: var(--s2);
+}
+.chat-install {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere; /* the clone address may break anywhere; the steps after it stay whole */
+  color: var(--text-2);
+  font: var(--fs-xs) / 1.6 var(--mono);
+}
+.chat-install-step {
+  white-space: nowrap;
+}
+
+/* data saver holds the room's two pulses still, as :root.hold-still holds the Lobby's loops; reduced motion already does through
+   the rule in tokens.css */
+:root.hold-still .chat-msg.agent.live .chat-text > p:last-child::after,
+:root.hold-still .chat-msg.agent.live .chat-text > :is(ul, ol):last-child > li:last-child::after,
+:root.hold-still .chat-tool[data-state="running"] > .icon {
+  animation: none;
+}
+/* a room with no rendered prop yet: its icon stands in the prop's place, lit the same way */
+.rail-sign {
+  display: grid;
+  place-items: center;
+  color: var(--text-3);
+  mix-blend-mode: normal;
+  -webkit-mask: none;
+  mask: none;
+}
+.rail-sign .icon {
+  width: 24px;
+  height: 24px;
+}
+.rail-item:is(:hover, :focus-visible, [aria-current="page"]) .rail-sign {
+  color: var(--accent);
+}
+
+/* -- the share sheet: the caption, the places to send it, the video ---------------------------------------- */
+.share-body {
+  display: grid;
+  gap: var(--s3);
+  padding: var(--s4);
+  overflow: auto;
+}
+.share-body pre.code {
+  margin: 0;
+  padding: var(--s3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--panel);
+  font-family: var(--mono);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.share-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+.share-links a {
+  min-height: 24px; /* a tap target a thumb can hit */
+}
+
+
+/* -- quiz -- */
+.quiz {
+  display: grid;
+  align-content: start;
+  gap: var(--s4);
+  padding: var(--s4) var(--s4) var(--s5);
+  overflow-y: auto;
+}
+.quiz-count {
+  color: var(--text-3);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+.quiz-tally {
+  white-space: nowrap; /* a narrow column breaks the line before the tally, never inside it */
+}
+.quiz-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--screen);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-m);
+}
+.quiz-stage :is(img, video) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.quiz-play {
+  position: absolute;
+  box-shadow: var(--shadow-float);
+}
+.quiz-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s2);
+}
+.quiz-choice {
+  height: auto;
+  min-height: 44px;
+  padding-block: var(--s2);
+  justify-content: flex-start;
+  text-align: left;
+  white-space: normal;
+}
+.quiz-choice[data-state="right"] {
+  color: var(--green);
+  background: var(--green-soft);
+  border-color: var(--green);
+}
+.quiz-choice[data-state="wrong"] {
+  color: var(--red);
+  background: var(--red-soft);
+  border-color: var(--red);
+}
+.quiz-mark {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+.quiz-reveal {
+  display: grid;
+  gap: var(--s2);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
+}
+
+/* a painted round settles in: the stage, the side column and the reveal rise 4px over 180 ms */
+.quiz-stage,
+.quiz-side,
+.quiz-reveal {
+  transition: opacity var(--t-base) var(--ease), translate var(--t-base) var(--ease);
+}
+@starting-style {
+  .quiz-stage,
+  .quiz-side,
+  .quiz-reveal:not([hidden]) {
+    opacity: 0;
+    translate: 0 4px;
+  }
+}
+.quiz-label {
+  font: var(--w-strong) var(--fs-xl) / var(--lh-tight) var(--display);
+}
+.quiz-group {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+.quiz-phrase,
+.quiz-verdict {
+  color: var(--text-2);
+}
+.quiz-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  padding-top: var(--s2);
+}
+.quiz-end {
+  display: grid;
+  justify-items: center;
+  gap: var(--s3);
+  padding: var(--s5) 0;
+  text-align: center;
+}
+.quiz-end .quiz-actions {
+  justify-content: center; /* wrapped onto two rows on a phone, the buttons stay under the score, not against the left edge */
+}
+.quiz-score {
+  font: var(--w-strong) var(--fs-3xl) / 1 var(--mono); /* a figure: Overpass Mono, like every other number */
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: var(--text);
+}
+
+/* the score and its squares hang in like the marquee's letters; --i is set by ui/quiz.js, one aria-hidden span per character */
+.quiz-ch {
+  display: inline-block;
+  animation: marquee-hang 520ms var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 26ms);
+}
+/* shown once, then left: a room shown again restarts animations and first-paint transitions, so what the quiz had already
+   shown (ui/quiz.js marks it on leaving) stands as it was left; a new round or score still hangs and settles */
+.quiz .seen,
+.quiz .seen .quiz-ch {
+  animation: none;
+  transition: none;
+}
+/* today's five: the date over the score, the squares beside it, the streak under it */
+.quiz-day {
+  margin: 0;
+  color: var(--accent-text);
+  font: var(--w-strong) var(--fs-sm) / 1.2 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.quiz-squares {
+  margin-left: 0.3em;
+  color: var(--accent);
+  font-size: 0.5em;
+  letter-spacing: 0.12em;
+  vertical-align: middle;
+}
+.quiz-streak {
+  margin: 0;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+@media (max-width: 560px) {
+  .quiz-choices {
+    grid-template-columns: 1fr;
+  }
+}
+/* -- end quiz -- */
+
+/* -- the Make-your-own sheet: three ways in, each with the commands to run --------------------------------------- */
+.sheet-make .make-body {
+  padding: var(--s4);
+  overflow: auto;
+}
+.make-step {
+  display: grid;
+  gap: var(--s2);
+}
+.make-body .guide-code pre.code {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 6px var(--s2);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* -- Compare two takes: both play in step over what their receipts say differently -------------------------------- */
+.sheet.sheet-compare {
+  width: min(1100px, 100%);
+  max-height: min(92vh, 980px);
+}
+.sheet-compare:focus-visible {
+  outline: none; /* the sheet holds focus for Escape; its controls carry the ring */
+}
+.compare-sheet {
+  display: grid;
+  align-content: start;
+  gap: var(--s4);
+  padding: var(--s4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.compare-screens {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s3);
+}
+.compare-screen {
+  display: grid;
+  gap: var(--s2);
+  min-width: 0;
+  margin: 0;
+}
+.compare-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: var(--screen);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-s);
+}
+.compare-screen figcaption {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+}
+.compare-chip {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding-top: 2px; /* Overpass Mono sits high */
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  color: var(--text-2);
+  font: var(--w-strong) var(--fs-xs) / 1 var(--mono);
+}
+.compare-name {
+  min-width: 0;
+  overflow: hidden;
+  line-height: 24px; /* a 24px target */
+  color: var(--text);
+  font-size: var(--fs-sm);
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.compare-name:hover {
+  color: var(--accent-text);
+  text-decoration: underline;
+}
+.compare-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s3);
+}
+.compare-summary {
+  flex: 1;
+  margin: 0;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+.compare-table {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--s3);
+  padding: var(--s2) 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-sm);
+}
+.compare-label {
+  padding-left: var(--s2);
+  border-left: 2px solid transparent;
+  color: var(--text-3);
+}
+.compare-row[data-same="false"] .compare-label {
+  border-left-color: var(--accent);
+  color: var(--text);
+}
+.compare-cell {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.compare-cell mark {
+  padding: 0 2px;
+  border-radius: 2px;
+  color: inherit;
+}
+.compare-cell .compare-new {
+  background: var(--accent-soft);
+  box-shadow: inset 0 -1px var(--accent);
+}
+.compare-cell .compare-gone {
+  background: none;
+  color: var(--text-3);
+  text-decoration: line-through;
+}
+.compare-cell code {
+  display: block;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+}
+.compare-also {
+  display: block;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+.compare-with h4 {
+  margin: 0 0 var(--s2);
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+.compare-pick {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 6px;
+}
+@media (max-width: 599px) {
+  .compare-summary {
+    flex-basis: 100%;
+    order: -1; /* a phone: the count on its own line, the two buttons under it */
+  }
+  .compare-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .compare-label {
+    grid-column: 1 / -1;
+  }
+}
+
+/* -- Save with the camera's path: the label counts the recording; in the move page's row the button keeps its width
+   (in the Share sheet's grid it already fills its column) -------------------------------------------------------------- */
+.btn.save-path {
+  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+.move-actions .btn.save-path {
+  min-width: 17em;
+}
+.sheet-share .action-row :is(.save-path, .save-sheet) {
+  grid-column: 1 / -1; /* their long labels take the whole row */
+}
+
+/* the meter: the only figure in the studio that moves on its own. A render is money leaving the card, so it counts up
+   in the accent beside the clock while the take renders, and stops at the figure the receipt will keep. */
+.run-spend {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--accent-text);
+}
+.run-spend::before {
+  content: "spent ";
+  color: var(--text-3);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
 }

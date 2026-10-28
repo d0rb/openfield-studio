@@ -66,6 +66,8 @@ export function createController({ api, store, setInterval: every = globalThis.s
         guard(() => api.recorded()),
       ]);
       store.set({ status, moves, takes: takes ?? [], cast: cast ?? [], recorded: recorded ?? [], loaded: true });
+      // the moving tiles: never in the way of the first paint; false (not null) once the answer is "none", so nothing waits on
+      api.previews?.().then((previews) => store.set({ previews: previews || false })).catch(() => store.set({ previews: false }));
       for (const take of takes ?? []) if (!TERMINAL.has(take.status)) track(take);
       statusTimer ??= every(() => { this.refreshStatus(); this.refreshTakes(); }, STATUS_POLL_MS);
     },
@@ -89,8 +91,34 @@ export function createController({ api, store, setInterval: every = globalThis.s
       return status;
     },
 
+    /** Probe a target without switching; the result card is the caller's to draw. */
+    async testBackend(body) {
+      return guard(() => api.testBackend(body));
+    },
+
+    async connectBackend(body) {
+      const status = await guard(() => api.connectBackend(body));
+      if (status) store.set({ status });
+      return status;
+    },
+
+    async forgetBackend() {
+      const status = await guard(() => api.forgetBackend());
+      if (status) store.set({ status });
+      return status;
+    },
+
     async startDirect(body) {
       const take = await guard(() => api.startDirect(body));
+      if (take) {
+        track(take);
+        store.set({ selected: take.id });
+      }
+      return take;
+    },
+
+    async startDirectFromImage(form) {
+      const take = await guard(() => api.startDirectFromImage(form));
       if (take) {
         track(take);
         store.set({ selected: take.id });
@@ -105,6 +133,38 @@ export function createController({ api, store, setInterval: every = globalThis.s
         track(take);
         store.set({ selected: take.id });
       }
+      return take;
+    },
+
+    async startShots(form) {
+      const take = await guard(() => api.startShots(form));
+      if (take) track(take);
+      return take;
+    },
+
+    async startTransition(body) {
+      const take = await guard(() => api.startTransition(body));
+      if (take) track(take);
+      return take;
+    },
+
+    /** Continue a finished take from its last frame; the sheet opens the new take. */
+    async startExtend(takeId, seconds) {
+      const take = await guard(() => api.startExtend({ take: takeId, seconds }));
+      if (take) track(take);
+      return take;
+    },
+
+    /** Enlarge a finished take to 2K or 4K; the sheet opens the new take. */
+    async startUpscale(takeId, target) {
+      const take = await guard(() => api.startUpscale({ take: takeId, target }));
+      if (take) track(take);
+      return take;
+    },
+
+    async startEdit(form) {
+      const take = await guard(() => api.startEdit(form));
+      if (take) track(take);
       return take;
     },
 
@@ -199,8 +259,9 @@ export const initialState = () => ({
   takes: [],
   cast: [],
   recorded: [],
+  previews: null,
   selected: null,
   live: {},
   notices: [],
-  route: "direct",
+  route: "lobby",
 });

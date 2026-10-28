@@ -1,0 +1,229 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261026_202643_8fbb",
+    "kind": "direct",
+    "created_at": "2026-10-26T20:29:17Z",
+    "label": "dolly in: Tomas in black samurai armour stands in the pour"
+  },
+  "inputs": {
+    "subject": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "practicals",
+      "movement": "dolly_in",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "dolly_in",
+    "mode": "prompt_only",
+    "final_prompt": "Tomas in black samurai armour stands in the pouring rain on a neon-lit Tokyo street at night, the katana sheathed in a black scabbard at his left hip, his right hand resting on its hilt, steam rising from the drains. Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then raises it straight up above his head in both hands, the long blade pointing at the night sky, high above his face, and holds still as rain beads on the steel. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving slowly. The camera travels forward on its track and arrives at a close view of the subject, the lens height unchanged. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; practical lights in the scene making warm pools of light. We hear heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard.",
+    "seed": 624,
+    "orientation": "landscape",
+    "audio": "heavy rain, the long slow scrape of steel as the blade slides out, a low taiko drum hit as he settles into his guard",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "action": "Slowly, over about three seconds, he draws the katana from the scabbard at his left hip, the blade sliding out inch by inch, then raises it straight up above his head in both hands, the long blade pointing at the night sky, high above his face, and holds still as rain beads on the steel.",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Tomas",
+      "refs": [
+        "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+      ]
+    },
+    "recipe_hash": "1311de210d5c3b34bf1d3387a57936243e1bfcd3f336f8e7e86386146f594893"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "56f4eb86e2fd8d4514a4582266100cd4eb66699325ee316b958b7f9857e7efbb",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "34cebae9134ade12388c874e445347b01b33745603bd96845c3be26e1de9153a",
+        "job_id": "79cba923-ed07-4e59-ab32-3bbb78d0b729"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "3d4f8766e3fb4b3a20dc09296aa506568db384bd9a5fce53666948efa669d65c",
+        "job_id": "1beafce5-3f41-4563-8a79-d6d6bd843eb5"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8113770364487837,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8113770364487837,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8113770364487837
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          626,
+          73,
+          121,
+          163
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.811 >= threshold 0.363 (best reference 0)",
+        "face_px": 121,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.7643074884402032,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7643074884402032
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          598,
+          56,
+          114,
+          153
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.764 >= threshold 0.363 (best reference 0)",
+        "face_px": 114,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "79cba923-ed07-4e59-ab32-3bbb78d0b729,1beafce5-3f41-4563-8a79-d6d6bd843eb5",
+    "timings": {
+      "total_s": 154.0
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "8c894496ebe2d530ecb63ecec7f4fd1217fcd5f06dd9256d2902319e6f0b115f",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "76f4e8962fe0311619a75ec829f4b81d392c5d2162598f0afbcbd87927fb98b0"
+  }
+}

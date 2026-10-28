@@ -1,0 +1,1805 @@
+/* The Lobby, the first room: the screen playing the trailer, the marquee, the wall of apps as one-sheets, the galleries
+   of camera moves and effects, the quiz, the programme and the latest takes as lobby cards. Every picture is a render
+   from our own GPU (art/manifest.json); every moving frame is a recorded take. */
+
+/* -- the room ------------------------------------------------------------------------------------------- */
+/* the Lobby gives the dock's column back to the room (only where the dock has a column: narrower, it floats) */
+@media (min-width: 1180px) {
+  .app:is([data-room="lobby"], [data-room="chat"]) {
+    grid-template-columns: var(--rail-w) minmax(0, 1fr) 0;
+  }
+}
+.app:is([data-room="lobby"], [data-room="chat"]) .dock {
+  visibility: hidden;
+  overflow: hidden;
+  border: 0;
+}
+.app[data-room="lobby"] .stage {
+  padding: 0;
+}
+.station[data-station="lobby"] {
+  gap: 0;
+}
+.lobby {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4vw, 52px);
+  padding-bottom: var(--s7);
+  isolation: isolate;
+}
+
+/* -- the front: the trailer across the room, the pitch and the marquee on the floor under it ------------------------ */
+/* a breakout grid: the screen spans the gutters and the pitch sits inside them, two columns from 900px with the marquee
+   on the right spanning the pitch's rows. The screen is as wide as the room, or as wide as the room's height allows at
+   the takes' own 1280:704 and centred (a short, wide window shows dark lobby either side of it) */
+.lobby-front {
+  /* The screen is a screen in a room, not a picture pressed against the window's edges. It is held off the rail, the
+     slate bar and the room's sides so the lacquer floor, the beam and the dust read around it, and its height is capped
+     so the marquee and the counts stand in the same first viewport as the trailer: the room is the design, and a
+     visitor should see the room before they see a video. Below 1100px the screen takes the room's full width again,
+     where there is no floor to spare. */
+  --hero-inset: clamp(12px, calc((100vw - 760px) * 0.08), var(--lobby-gutter));
+  --hero-w: min(calc(100% - var(--hero-inset) * 2), calc((100svh - var(--topbar-h)) * 0.55 * 1280 / 704));
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--lobby-gutter) minmax(0, 1.3fr) clamp(32px, 4vw, 72px) minmax(320px, 560px) var(--lobby-gutter);
+  grid-template-areas:
+    "screen screen screen screen screen"
+    ". reel reel reel ."
+    ". credit credit credit ."
+    ". head . marquee ."
+    ". lede . marquee ."
+    ". links . marquee ."
+    ". proof . marquee .";
+  row-gap: var(--s4);
+  align-items: start;
+  overflow-x: clip; /* the drifting dust is scaled: it must never widen the room */
+}
+.lobby-headline {
+  grid-area: head;
+  margin-top: clamp(14px, 1.8vw, 26px);
+}
+.lobby-lede {
+  grid-area: lede;
+}
+.lobby-links {
+  grid-area: links;
+}
+.lobby-proof {
+  grid-area: proof;
+}
+.marquee {
+  grid-area: marquee;
+  align-self: center;
+  margin-top: clamp(14px, 1.8vw, 26px);
+}
+/* the actions stand on the screen, at its foot on the right, clear of the trailer's own titles on the left; the right
+   margin follows the screen's edge when the screen is narrower than the room */
+.lobby-actions {
+  grid-area: screen;
+  align-self: end;
+  justify-self: end;
+  z-index: 3;
+  margin: 0 calc((100% - var(--hero-w)) / 2 + clamp(16px, 2vw, 32px)) clamp(18px, 2.4vw, 36px) 0;
+}
+@media (min-width: 900px) {
+  .lobby-actions .btn.secondary {
+    background: var(--scrim-strong); /* printed on footage: the scrim, like every chip on the picture */
+  }
+  .lobby-actions .btn.secondary:hover:not(:disabled) {
+    background: var(--pressed);
+  }
+}
+/* the projector's beam and the dust in it, on the floor under the screen: rendered light over the dark lobby, under the
+   words and never over the picture (the layer lies in the pitch's rows and fades out downward) */
+.front-light {
+  grid-area: 2 / 1 / -1 / -1;
+  position: relative;
+  z-index: -1;
+  align-self: stretch;
+  pointer-events: none;
+}
+.front-light::before,
+.front-light::after {
+  content: "";
+  position: absolute;
+  inset: -64px 0 -120px;
+  background: url("../art/ov-beams.webp") left top / cover no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.42;
+  -webkit-mask: linear-gradient(to bottom, #000 50%, #0000 100%);
+  mask: linear-gradient(to bottom, #000 50%, #0000 100%);
+}
+.front-light::after {
+  background-image: url("../art/ov-dust.webp");
+  background-position: 30% 20%;
+  opacity: 0.5;
+  animation: lobby-dust 38s linear infinite alternate;
+}
+@keyframes lobby-dust {
+  from { transform: translate3d(0, 0, 0) scale(1.04); }
+  to { transform: translate3d(-2.5%, 1.5%, 0) scale(1.1); }
+}
+/* a projector's lamp is never quite steady: the beam breathes round its 0.42 at uneven times, too little to point at */
+.front-light::before {
+  animation: lobby-flicker 7.3s linear infinite;
+}
+@keyframes lobby-flicker {
+  0%, 100% { opacity: 0.42; }
+  9% { opacity: 0.44; }
+  11% { opacity: 0.39; }
+  14% { opacity: 0.43; }
+  32% { opacity: 0.41; }
+  44% { opacity: 0.46; }
+  47% { opacity: 0.4; }
+  63% { opacity: 0.43; }
+  71% { opacity: 0.37; }
+  73% { opacity: 0.44; }
+  88% { opacity: 0.41; }
+}
+/* nearer dust (lobby.js adds the element): the same render flipped and drawn larger, drifting the other way and slower,
+   so the air in the beam has depth. It paints between the beam and the far dust, under the words like them */
+.lobby-dust {
+  position: absolute;
+  inset: -64px 0 -120px;
+  background: url("../art/ov-dust.webp") 70% 60% / 170% auto no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.3;
+  transform: translate3d(0, 0, 0) scale(-1.06, 1.06);
+  -webkit-mask: linear-gradient(to bottom, #000 50%, #0000 100%);
+  mask: linear-gradient(to bottom, #000 50%, #0000 100%);
+  animation: lobby-dust-near 53s linear infinite alternate;
+}
+@keyframes lobby-dust-near {
+  to { transform: translate3d(2.8%, -1.8%, 0) scale(-1.1, 1.1); }
+}
+/* the grain now falls on the whole app, not only this room: see the stock layer in layout.css */
+
+/* -- a one-sheet in its case: the key art, the type in the lower third ------------------------------------------ */
+.one-sheet {
+  position: relative;
+  display: block;
+  aspect-ratio: 27 / 40;
+  color: var(--on-media);
+  text-decoration: none;
+  background: var(--mat);
+  box-shadow: 0 0 0 6px var(--mat), 0 0 0 7px var(--brass), var(--case-shadow);
+  transition: box-shadow var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+.sheet-art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--screen);
+}
+.sheet-art :is(img, video) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sheet-key {
+  filter: brightness(0.92) saturate(0.95);
+  transition: filter var(--t-base) var(--ease), opacity 420ms var(--ease), transform 600ms var(--ease);
+}
+/* an app's key art is square: it hangs at the top of the sheet and falls away into the dark where the title sits */
+.one-sheet:not(.feature) .sheet-art .sheet-key {
+  inset: 0 0 auto;
+  height: auto;
+  aspect-ratio: 1;
+  -webkit-mask: linear-gradient(to bottom, #000 62%, #0000 99%);
+  mask: linear-gradient(to bottom, #000 62%, #0000 99%);
+}
+/* the poster's own printed shadow at the foot, so the type reads on any key art */
+.sheet-art::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(to bottom, rgb(5 4 3 / 0), rgb(5 4 3 / 0.62) 45%, rgb(5 4 3 / 0.9));
+  pointer-events: none;
+}
+.sheet-type {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: grid;
+  gap: 5px;
+  padding: 0 12px 12px;
+  text-align: center;
+  text-shadow: 0 1px 2px rgb(5 4 3 / 0.9);
+}
+.sheet-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 1.7vw, 1.6rem);
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sheet-tagline {
+  font-size: var(--fs-xs);
+  line-height: 1.3;
+  color: rgb(244 241 236 / 0.86);
+  text-wrap: balance;
+}
+/* every poster keeps the same lines for its type, so the titles in a row share a line: two for the title (its words on
+   the lower), two for the tagline (from the top), two for the billing (on the foot) */
+.one-sheet:not(.feature) .sheet-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 2lh;
+}
+.one-sheet:not(.feature) .sheet-tagline {
+  min-height: 2lh;
+}
+.one-sheet:not(.feature) .billing {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 2lh;
+}
+@media (max-width: 479px) {
+  .one-sheet:not(.feature) .sheet-tagline {
+    min-height: 3lh;
+  }
+}
+.billing {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 0.625rem;
+  line-height: 1.2;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgb(244 241 236 / 0.74);
+}
+.billing-name,
+.billing-run {
+  white-space: nowrap; /* "Qwen-Image 2.1" and "showing since 22 Oct" each move down as one piece */
+}
+.billing small {
+  font-size: 0.78em;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+/* the poster comes alive: the case light rises, a rendered light leak passes once, the recorded take plays */
+.one-sheet:not(.feature):hover,
+.one-sheet:not(.feature):focus-visible,
+.one-sheet.live {
+  box-shadow: 0 0 0 6px var(--mat), 0 0 0 7px var(--brass-hi), 0 28px 46px -14px rgb(0 0 0 / 0.85), 0 8px 16px -6px rgb(0 0 0 / 0.65);
+}
+/* under the hand the case lifts, as every hung thing does; while it is live the art inside pushes in 1.5%, a slow move */
+.one-sheet:not(.feature):is(:hover, :focus-visible) {
+  transform: translateY(-3px);
+}
+.one-sheet.live .sheet-key {
+  filter: brightness(1.06) saturate(1.05);
+  transform: scale(1.015);
+}
+.one-sheet .sheet-art::before {
+  content: "";
+  position: absolute;
+  inset: 0 -60%;
+  z-index: 1;
+  background: url("../art/ov-leak.webp") left center / cover no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+}
+.one-sheet.live .sheet-art::before {
+  animation: lobby-leak 900ms var(--ease) 1;
+}
+@keyframes lobby-leak {
+  0% { opacity: 0; transform: translateX(-38%); }
+  35% { opacity: 0.85; }
+  100% { opacity: 0; transform: translateX(26%); }
+}
+/* the take fades in over 420 ms and pushes in with the key art it replaces, over the same 600 ms */
+.sheet-take {
+  animation: lobby-take-in 600ms var(--ease) both;
+}
+@keyframes lobby-take-in {
+  from { opacity: 0; transform: none; }
+  70% { opacity: 1; }
+  to { opacity: 1; transform: scale(1.015); }
+}
+.one-sheet.live.playing .sheet-key {
+  opacity: 0.001;
+  transition-delay: 160ms;
+}
+/* the ticket stub: the take that proves the poster, risen over the billing */
+.ticket {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas: "admit id" "grid grid";
+  column-gap: 8px;
+  row-gap: 3px;
+  padding: 7px 9px 7px 14px;
+  background: var(--accent-fill);
+  color: var(--on-accent);
+  transform: translateY(calc(100% + 12px));
+  transition: transform 260ms var(--ease) 120ms;
+  /* the roll ticket's notches, cut from both ends */
+  -webkit-mask: radial-gradient(circle 5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+  mask: radial-gradient(circle 5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+}
+.one-sheet.live .ticket {
+  transform: translateY(0);
+}
+.real-stamp {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 3px 6px 2px;
+  border: 1.5px solid var(--brass-hi);
+  color: var(--brass-hi);
+  background: rgb(5 4 3 / 0.72);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  line-height: 1.1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: rotate(-4deg);
+  opacity: 0;
+  transition: opacity 200ms var(--ease) 160ms;
+}
+.one-sheet.live .real-stamp {
+  opacity: 1;
+}
+.one-sheet.live .sheet-type {
+  opacity: 0;
+  transition: opacity 160ms var(--ease);
+}
+.ticket-admit {
+  grid-area: admit;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 0.8125rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ticket-id {
+  grid-area: id;
+  align-self: center;
+  font-size: 0.625rem;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ticket-grid {
+  grid-area: grid;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  padding-top: 4px;
+  border-top: 1px dashed rgb(20 19 17 / 0.4);
+}
+.ticket-grid > span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 0.6875rem;
+  line-height: 1.2;
+}
+.ticket-grid i {
+  font-style: normal;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+.ticket-grid b {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-weight: var(--w-strong);
+}
+.ticket-grid .icon {
+  width: 11px;
+  height: 11px;
+}
+
+/* -- the screen: the trailer across the room in the takes' own frame, a brass line at its foot, its reel beneath ----- */
+/* the figure's parts are the front's own grid items (display: contents), so the actions can stand on the frame alone
+   and the reel and the credit keep the pitch's column */
+.lobby-screen {
+  display: contents;
+}
+.screen-frame {
+  grid-area: screen;
+  position: relative;
+  width: var(--hero-w);
+  justify-self: center;
+  margin-top: clamp(0px, calc((100svh - 620px) * 0.04), 16px); /* the room's head, above the masking */
+  aspect-ratio: 1280 / 704;
+  overflow: hidden;
+  background: var(--screen);
+  /* the masking the screen is set in: the mat is darker than the floor, and the brass foot is the only bright edge */
+  box-shadow: 0 0 0 clamp(6px, 0.7vw, 12px) var(--mat), var(--case-shadow);
+}
+/* the brass at the screen's foot is brass, not a line the colour of brass: the rendered strip (art/mat-brass.webp,
+   lit from the left with its own patina and falloff) runs the width of the screen, so the one bright edge in the room
+   is a material. It is the lowest thing in the frame and takes no pointer */
+.screen-frame::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 2px; /* the brief's "brass line at its foot": a material strip, not an accent tab */
+  pointer-events: none;
+  background: url("../art/mat-brass.webp") 50% 40% / 100% 1200% no-repeat;
+}
+.lobby-screen > .screen-reel { /* the figure's own children (display: contents): the front's grid places them */
+  grid-area: reel;
+  justify-self: stretch; /* the whole column, also where the stacked front centres its items: a cut is its share of it */
+  margin: -8px 0 0; /* 8px under the frame, not the grid's 16 */
+}
+.lobby-screen > .screen-billing {
+  grid-area: credit;
+  margin-top: -8px;
+}
+/* the screen sinks as the lobby scrolls up over it: its picture moves at about four fifths of the page's pace and dims,
+   by a scroll-driven animation where the browser has one; elsewhere, and held still, the screen simply scrolls */
+.app[data-room="lobby"] .stage {
+  scroll-timeline: --lobby-scroll block;
+}
+@supports (animation-timeline: scroll()) {
+  .screen-frame .trailer {
+    animation: screen-sink linear both;
+    animation-timeline: --lobby-scroll;
+    animation-range: 0 60vh;
+  }
+}
+@keyframes screen-sink {
+  to { transform: translateY(22%); opacity: 0.55; }
+}
+.screen-frame .trailer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+/* the first visit of a session: the black masking parts from the middle, the way a screen is set for a picture */
+.screen-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+.screen-mask::before,
+.screen-mask::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.5%;
+  background: var(--mat);
+  animation: screen-open 900ms var(--ease) 280ms both;
+}
+.screen-mask::before {
+  top: 0;
+  --to: -101%;
+}
+.screen-mask::after {
+  bottom: 0;
+  --to: 101%;
+}
+@keyframes screen-open {
+  to { transform: translateY(var(--to)); }
+}
+/* the reel: one cut per segment, as wide as its share of the trailer; the ones played are lit, the one playing fills */
+.screen-reel {
+  display: flex;
+  gap: 3px;
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.screen-reel > li {
+  flex: var(--share, 1) 1 0;
+  min-width: 8px;
+}
+.reel-cut {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 24px; /* a target you can hit; the line is 4 px of it */
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.reel-cut::before,
+.reel-fill {
+  position: absolute;
+  top: 9px;
+  bottom: 9px;
+  left: 0;
+  /* the bulbs: 2.4 px dots at an 11 px pitch, the same row a render's progress lights */
+  -webkit-mask: radial-gradient(circle 2.4px at 5.5px 50%, #000 96%, #0000) 0 0 / 11px 100% repeat-x;
+  mask: radial-gradient(circle 2.4px at 5.5px 50%, #000 96%, #0000) 0 0 / 11px 100% repeat-x;
+  transition: background-color var(--t-fast) var(--ease);
+}
+.reel-cut::before {
+  content: "";
+  right: 0;
+  background: var(--line-strong);
+}
+.reel-fill {
+  width: calc(var(--through, 0) * 100%);
+  background: var(--accent);
+}
+.reel-cut:is(:hover, :focus-visible)::before {
+  background: var(--control-line);
+}
+.screen-billing {
+  justify-self: center;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgb(244 241 236 / 0.86); /* the hero's credits read larger and brighter than a poster's billing: they sit on the first screen */
+}
+
+/* -- the marquee: letters hung on the rendered board ----------------------------------------------------------- */
+.marquee {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 7 / 2;
+  container-type: inline-size; /* the letters are sized by the board, whatever column it hangs in */
+}
+.marquee-board {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: lighten; /* the render's black surround becomes the lobby's own warm ground */
+}
+.marquee-rows {
+  position: absolute;
+  inset: 27% 7%; /* the lit board inside the bulbs, measured on art/marquee.webp */
+  display: grid;
+  align-content: space-evenly;
+}
+.marquee-row {
+  margin: 0;
+  text-align: center;
+  line-height: 1;
+}
+.marquee-row .letters {
+  display: inline-flex;
+  justify-content: center;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 4.1cqw; /* a row of the lit board is about 4.4% of its width tall */
+  letter-spacing: 0.05em;
+  color: var(--marquee-ink);
+}
+.marquee-row .letter {
+  display: inline-block;
+}
+/* the board hangs once a visit (lobby.js sets .entered when its last letter lands); after that only a row whose count
+   changes hangs again (.hanging), so a return to the room finds the board as it was left */
+:where(.lobby:not(.entered)) .marquee-row .letter,
+.marquee-row.hanging .letter {
+  animation: marquee-hang 520ms var(--ease) both;
+  animation-delay: calc(var(--i) * 26ms + 150ms);
+}
+.marquee-row .gap {
+  display: inline-block;
+  width: 0.42em;
+}
+@keyframes marquee-hang {
+  from { opacity: 0; transform: translateY(-55%) rotate(-4deg); }
+  60% { opacity: 1; transform: translateY(6%) rotate(1deg); }
+  to { opacity: 1; transform: none; }
+}
+/* a count is changed the way a marquee is: its letters come down, the new ones go up */
+.marquee-row.dropping .letter {
+  animation: marquee-drop 420ms var(--ease) both;
+  animation-delay: calc(var(--i) * 14ms);
+}
+@keyframes marquee-drop {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(70%) rotate(6deg); }
+}
+/* the bulbs chase (lobby.js adds the element): two soft lights run round the board half a lap apart, 7 s a lap at one
+   pace. They show only through the bulbs, a dot on each of the 44 measured on art/marquee.webp, so a bulb flares as a
+   light passes and the dark frame between bulbs stays dark. A browser without unprefixed masks would show the lights
+   bare, so it gets none */
+.marquee-chase {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 457'%3E%3Cfilter id='b'%3E%3CfeGaussianBlur stdDeviation='5'/%3E%3C/filter%3E%3Cpath filter='url(%23b)' stroke='%23000' stroke-width='46' stroke-linecap='round' d='M27 44h0M107 41h0M184 42h0M264 42h0M354 41h0M437 41h0M525 41h0M610 41h0M699 41h0M783 41h0M868 40h0M956 41h0M1047 41h0M1136 41h0M1223 42h0M1312 41h0M1401 41h0M1486 41h0M1569 43h0M1576 170h0M1577 243h0M1576 321h0M1576 404h0M1506 405h0M1419 408h0M1331 406h0M1244 406h0M1156 407h0M1063 405h0M975 407h0M884 406h0M793 406h0M705 406h0M614 407h0M522 405h0M436 406h0M350 407h0M267 405h0M180 406h0M98 406h0M25 402h0M22 320h0M22 238h0M22 162h0'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+}
+@supports not (mask-image: none) {
+  .marquee-chase {
+    display: none;
+  }
+}
+.marquee-chase::before,
+.marquee-chase::after {
+  content: "";
+  position: absolute;
+  left: -6%; /* centred on the top-left bulb: the row of bulbs runs 1.5% in from the sides and 9.1% from the top */
+  top: -17.2%;
+  width: 15%;
+  aspect-ratio: 1;
+  background: radial-gradient(closest-side, rgb(255 241 214 / 0.95), rgb(255 190 110 / 0.45) 55%, #0000);
+  animation: marquee-chase 7s linear infinite;
+}
+.marquee-chase::after {
+  animation-delay: -3.5s;
+}
+/* corner to corner at an even speed: each long row takes 40.5% of the lap, each short side 9.5% */
+@keyframes marquee-chase {
+  40.5% { transform: translate(646%, 0); }
+  50% { transform: translate(646%, 152%); }
+  90.5% { transform: translate(0, 152%); }
+}
+
+/* -- the pitch ------------------------------------------------------------------------------------------------ */
+.lobby-headline {
+  max-width: 14ch;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 4.6vw, 4.5rem);
+  line-height: 0.92;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.lobby-lede {
+  max-width: 54ch;
+  color: var(--text-2);
+  font-size: var(--fs-xl);
+  line-height: 1.5;
+  text-wrap: pretty; /* no one-word last line on a phone */
+}
+.lobby-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+.lobby-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  margin-inline-start: calc(-1 * var(--s4)); /* the ghost buttons' own padding, so their icons sit on the column's edge */
+}
+.lobby-proof {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+}
+/* the pitch's entrance, once a visit: the headline, the lede, the actions and the proof line rise 60 ms apart */
+:where(.lobby:not(.entered)) :is(.lobby-headline, .lobby-lede, .lobby-actions, .lobby-proof) {
+  animation: lobby-lift 360ms var(--ease) both;
+}
+:where(.lobby:not(.entered)) .lobby-lede {
+  animation-delay: 60ms;
+}
+:where(.lobby:not(.entered)) .lobby-actions {
+  animation-delay: 120ms;
+}
+:where(.lobby:not(.entered)) .lobby-proof {
+  animation-delay: 180ms;
+}
+
+/* -- section heads: a sign over the wall, never a label over a heading ------------------------------------------ */
+.lobby-h2 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-bottom: clamp(14px, 1.6vw, 20px);
+}
+.showing,
+.programme,
+.latest,
+.moves-show,
+.effects-show,
+.quiz-show {
+  padding: 0 var(--lobby-gutter);
+}
+
+/* -- the wall of one-sheets ---------------------------------------------------------------------------------- */
+.poster-wall {
+  --per-row: 5;
+  --col-gap: clamp(22px, 2.4vw, 32px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* a short last row hangs in the middle of the wall */
+  gap: clamp(32px, 3.2vw, 44px) var(--col-gap);
+  list-style: none;
+  margin: 0;
+  padding: 7px;
+}
+.poster-wall > li {
+  flex: 0 0 calc((100% - (var(--per-row) - 1) * var(--col-gap)) / var(--per-row));
+  min-width: 0;
+}
+@media (max-width: 1179px) {
+  .poster-wall {
+    --per-row: 4;
+  }
+}
+@media (max-width: 899px) {
+  .poster-wall {
+    --per-row: 3;
+  }
+}
+
+/* -- the galleries: camera moves and effects, every frame a recorded take playing -------------------------------- */
+.show-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px var(--s5);
+  margin-bottom: clamp(14px, 1.6vw, 20px);
+}
+.show-head .lobby-h2 {
+  margin-bottom: 0;
+}
+.show-lede {
+  flex: 1 1 36ch;
+  max-width: 62ch;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  text-wrap: pretty; /* no one-word last line */
+}
+.show-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: clamp(16px, 1.8vw, 24px);
+}
+/* a pointer that can hover is told it can scrub; a finger is told what a tap does */
+.for-touch {
+  display: none;
+}
+@media (hover: none) {
+  .for-mouse {
+    display: none;
+  }
+  .for-touch {
+    display: inline;
+  }
+}
+.show-filter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  min-height: 32px;
+  padding: 7px 12px 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-s);
+  background: transparent;
+  color: var(--text-2);
+  font: var(--w-strong) 0.8125rem / 1.1 var(--font);
+  cursor: pointer;
+  transition: background-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.show-filter .num {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+.show-filter:hover {
+  background: var(--hover);
+  border-color: var(--control-line);
+  color: var(--text);
+}
+/* the chosen filter reads like a chosen tab: pressed in, with the orange line under it */
+.show-filter[aria-pressed="true"] {
+  background: var(--pressed);
+  border-color: var(--control-line);
+  color: var(--text);
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+/* under .lobby: the Move Pad in Direct has a .move-grid of its own (stations.css), and this sheet loads after it */
+.lobby .move-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(20px, 2.2vw, 30px) clamp(14px, 1.6vw, 22px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.lobby .move-grid > li[hidden] {
+  display: none;
+}
+.show-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 5px;
+  min-width: 0;
+  padding: 6px; /* room for the case around the picture, so it is never clipped */
+  color: var(--text);
+  text-decoration: none;
+}
+.show-frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 9px;
+  overflow: hidden;
+  background: var(--screen);
+  box-shadow: 0 0 0 5px var(--mat), 0 0 0 6px var(--brass), var(--case-shadow);
+  transition: box-shadow var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+}
+.show-frame .live-clip {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.show-frame.scrubbing {
+  cursor: ew-resize;
+}
+/* under the mouse, how far through the take the hand has driven the camera */
+.scrub-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: calc(var(--scrub, 0) * 100%);
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease);
+  pointer-events: none;
+}
+.show-frame.scrubbing .scrub-line {
+  opacity: 1;
+}
+.show-card:is(:hover, :focus-visible) .show-frame {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 5px var(--mat), 0 0 0 6px var(--brass-hi), 0 28px 46px -14px rgb(0 0 0 / 0.85), 0 8px 16px -6px rgb(0 0 0 / 0.65);
+}
+.show-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.125rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.show-meta {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+/* the effects run on a rail from edge to edge */
+.rail-arrows {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.effect-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(232px, 24vw, 340px);
+  gap: clamp(14px, 1.6vw, 22px);
+  overflow-x: auto;
+  list-style: none;
+  margin: 0 calc(-1 * var(--lobby-gutter));
+  padding: 4px var(--lobby-gutter) 22px;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--lobby-gutter);
+  scrollbar-width: none; /* the arrows above it, a swipe or a trackpad move it */
+}
+.effect-rail::-webkit-scrollbar {
+  display: none;
+}
+.effect-rail > li {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+/* the rail fades out over the gutter on each side that has more cards (shows.js sets .at-start and .at-end) */
+.effect-rail.at-start {
+  -webkit-mask: linear-gradient(to right, #0000, #000 var(--lobby-gutter));
+  mask: linear-gradient(to right, #0000, #000 var(--lobby-gutter));
+}
+.effect-rail.at-end {
+  -webkit-mask: linear-gradient(to left, #0000, #000 var(--lobby-gutter));
+  mask: linear-gradient(to left, #0000, #000 var(--lobby-gutter));
+}
+.effect-rail.at-start.at-end {
+  -webkit-mask: linear-gradient(to right, #0000, #000 var(--lobby-gutter), #000 calc(100% - var(--lobby-gutter)), #0000);
+  mask: linear-gradient(to right, #0000, #000 var(--lobby-gutter), #000 calc(100% - var(--lobby-gutter)), #0000);
+}
+
+/* -- the quiz, in the room: the loop on a small screen, the four names beside it -------------------------------- */
+.quiz-show .quiz {
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 1fr);
+  align-items: center;
+  gap: clamp(20px, 2.6vw, 40px);
+  padding: 0;
+  overflow: visible;
+}
+.quiz-show .quiz-stage {
+  margin: 9px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 0 0 8px var(--mat), 0 0 0 9px var(--brass), var(--case-shadow);
+}
+.quiz-side {
+  display: grid;
+  align-content: start;
+  gap: var(--s4);
+  min-width: 0;
+}
+.quiz-show .quiz-choice {
+  min-height: 52px;
+  font-size: 0.9375rem;
+}
+.quiz-tally {
+  color: var(--text-3);
+}
+.quiz-show .quiz-end {
+  grid-column: 1 / -1;
+}
+.quiz-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 18px;
+  max-width: 72ch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-sm);
+}
+.quiz-results li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text);
+}
+.quiz-results li[data-state="right"] .icon {
+  color: var(--brass-hi);
+}
+.quiz-results li[data-state="wrong"] {
+  color: var(--text-3);
+}
+.quiz-results li[data-state="wrong"] .icon {
+  color: var(--red);
+}
+
+/* -- a move's own page: the take beside the set seen from above, the words the model reads, a way to direct it ------ */
+.sheet.sheet-move {
+  width: min(1200px, 100%);
+  max-height: min(92vh, 980px);
+}
+.sheet-move:focus-visible {
+  outline: none; /* the sheet holds focus to hear the arrow keys; its controls carry the ring */
+}
+.move-sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(240px, 1fr);
+  align-content: start;
+  align-items: start;
+  gap: var(--s4);
+  padding: var(--s4);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.move-main,
+.move-side {
+  display: grid;
+  align-content: start;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+/* a walked-to move comes in from 12px on its side (movesheet.js sets body[data-dir] before it paints) */
+.move-main,
+.move-side {
+  transition: opacity var(--t-base) var(--ease), translate var(--t-base) var(--ease);
+}
+@starting-style {
+  body[data-dir="next"] :is(.move-main, .move-side) {
+    opacity: 0;
+    translate: 12px 0;
+  }
+  body[data-dir="prev"] :is(.move-main, .move-side) {
+    opacity: 0;
+    translate: -12px 0;
+  }
+}
+.move-title-group {
+  color: var(--text-3);
+  font-weight: var(--w-regular);
+}
+.move-footage {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1280 / 704;
+  overflow: hidden;
+  background: var(--screen);
+  border-radius: 2px;
+}
+.move-footage .move-take {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* the frame flown in from its show card (movesheet.js names both frames move-frame for the flight): the browser grows one
+   into the other, and a cover fit crops the picture on the way instead of stretching it */
+::view-transition-group(move-frame) {
+  animation-duration: var(--t-base);
+  animation-timing-function: var(--ease);
+}
+::view-transition-old(move-frame),
+::view-transition-new(move-frame) {
+  height: 100%;
+  object-fit: cover;
+}
+.move-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--shadow-float);
+}
+.move-plan {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.move-plan .stage-view {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 100 / 62;
+  background: var(--screen);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-s);
+}
+.move-plan figcaption {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+}
+.move-words h4 {
+  margin: var(--s4) 0 6px;
+  color: var(--text-3);
+  font: var(--w-medium) 0.75rem / 1.2 var(--font);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.move-words p {
+  max-width: 72ch;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+.move-words .move-phrase {
+  color: var(--text);
+  font-size: var(--fs-md);
+}
+.move-billing {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.move-billing > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.move-billing dt {
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.move-billing dd {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--fs-sm);
+}
+.move-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 899px) {
+  .move-sheet {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* -- the programme: lobby cards on card stock ----------------------------------------------------------------- */
+.programme-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.programme-card,
+.lobby-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* the column is the card's width, never its longest title's */
+  align-content: start; /* a card stretched to its row keeps its rows at the top: the titles share a line */
+  gap: 8px;
+  height: 100%;
+  padding: 10px 10px 14px;
+  background: var(--card-stock);
+  color: var(--card-ink);
+  text-decoration: none;
+  box-shadow: var(--case-shadow);
+  transition: transform var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
+}
+.programme-card:hover,
+.programme-card:focus-visible,
+.lobby-card:hover,
+.lobby-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 30px 44px -16px rgb(0 0 0 / 0.85), 0 8px 14px -6px rgb(0 0 0 / 0.6);
+}
+.programme-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--screen);
+}
+.programme-band {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+  padding-top: 2px;
+  border-top: 2px solid var(--card-ink);
+}
+.programme-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.375rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.card-no {
+  order: 2;
+  flex: none;
+  white-space: nowrap;
+  font-size: var(--fs-xs);
+  color: var(--card-ink-2);
+}
+.programme-text {
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+  color: var(--card-ink-2);
+}
+
+/* -- the latest takes: lobby cards, each playing while it is on screen; they drift past unless motion is reduced ------ */
+.card-gate {
+  margin: 0 calc(-1 * var(--lobby-gutter));
+  padding: 0 var(--lobby-gutter);
+  overflow: hidden;
+}
+.card-gate:has(.drifting) {
+  padding: 0;
+  -webkit-mask: linear-gradient(to right, #0000, #000 var(--lobby-gutter), #000 calc(100% - var(--lobby-gutter)), #0000);
+  mask: linear-gradient(to right, #0000, #000 var(--lobby-gutter), #000 calc(100% - var(--lobby-gutter)), #0000);
+}
+.card-row.drifting {
+  width: max-content;
+  grid-auto-columns: clamp(250px, 22vw, 320px);
+  overflow: visible;
+  scroll-snap-type: none;
+  padding-inline: var(--lobby-gutter);
+  animation: card-drift var(--drift, 60s) linear infinite;
+}
+.card-gate:is(:hover, :focus-within) .card-row.drifting {
+  animation-play-state: paused;
+}
+@keyframes card-drift {
+  to { transform: translateX(calc(-1 * var(--loop, 50%))); }
+}
+.card-row {
+  display: grid;
+  margin-inline: -4px; /* the 4 px keep a focus ring and the case whole; the cards sit on the column */
+  grid-auto-flow: column;
+  grid-auto-columns: max(250px, calc((100% - 3 * 20px) / 4)); /* four to a view, never narrower than 250px */
+  gap: 20px;
+  overflow-x: auto;
+  list-style: none;
+  margin: 0;
+  padding: 4px 4px 24px;
+  scroll-snap-type: x mandatory;
+}
+.card-row {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brass) transparent;
+}
+.card-row > li {
+  min-width: 0; /* a long take title ellipsises; it never widens its card */
+  scroll-snap-align: start;
+}
+.lobby-card {
+  min-width: 0;
+}
+.card-picture {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--screen);
+}
+.card-picture .live-clip {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-band {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+  border-top: 2px solid var(--card-ink);
+  padding-top: 4px;
+}
+.card-title {
+  min-width: 0;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* -- the credits ------------------------------------------------------------------------------------------- */
+.lobby-credits {
+  display: grid;
+  gap: var(--s2);
+  justify-items: center;
+  padding: var(--s6) var(--lobby-gutter) 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+}
+.lobby-credits p {
+  max-width: 88ch;
+}
+.lobby-credits a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px; /* a target you can hit, even inside a sentence */
+  color: var(--accent-text);
+}
+
+/* -- smaller windows ------------------------------------------------------------------------------------------ */
+@media (max-width: 1179px) {
+  .programme-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 899px) {
+  /* one column: the screen, then the pitch and its actions, the marquee under them */
+  .lobby-front {
+    grid-template-columns: var(--lobby-gutter) minmax(0, 1fr) var(--lobby-gutter);
+    grid-template-areas:
+      "screen screen screen"
+      ". reel ."
+      ". credit ."
+      ". head ."
+      ". lede ."
+      ". actions ."
+      ". links ."
+      ". marquee ."
+      ". proof .";
+    justify-items: center;
+    text-align: center;
+  }
+  .lobby-headline {
+    margin-top: clamp(20px, 3vw, 32px);
+  }
+  .lobby-actions {
+    grid-area: actions;
+    justify-self: center;
+    justify-content: center;
+    margin: 0;
+  }
+  .lobby-links {
+    justify-content: center;
+    margin-inline-start: 0;
+  }
+  .marquee {
+    width: min(100%, 720px);
+    align-self: start;
+    margin: var(--s2) 0 0;
+  }
+  .lobby .move-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1179px) and (min-width: 900px) {
+  .lobby-front {
+    grid-template-columns: var(--lobby-gutter) minmax(0, 1fr) clamp(32px, 4vw, 72px) minmax(300px, 44%) var(--lobby-gutter);
+  }
+}
+@media (max-width: 719px) {
+  .poster-wall {
+    --per-row: 2;
+    --col-gap: 30px; /* the frames overhang their boxes by 7px a side: 30px leaves 16px between them, as between the rows */
+    gap: 30px 30px;
+  }
+  .programme-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .card-row {
+    grid-auto-columns: 78%;
+  }
+  .lobby .move-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+  .show-name {
+    font-size: 1rem;
+  }
+  .quiz-show .quiz {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rail-arrows {
+    display: none; /* a phone swipes the rail */
+  }
+  .show-filters {
+    flex-wrap: nowrap; /* one row of filters that swipes, so the frames start on the first screen of the section */
+    overflow-x: auto;
+    margin-inline: calc(-1 * var(--lobby-gutter));
+    padding: 2px var(--lobby-gutter) 4px;
+    scrollbar-width: none;
+  }
+  .show-filters::-webkit-scrollbar {
+    display: none;
+  }
+  .show-filter {
+    flex: none;
+  }
+  .screen-reel {
+    display: none; /* its cuts would be too thin to tap; the chip on the screen still names the take */
+  }
+  .sheet-title {
+    font-size: 1.125rem;
+  }
+  :root {
+    --lobby-gutter: var(--s3); /* the rooms' phone gutter: the content edge holds when you change rooms */
+  }
+  .lobby::after {
+    inset: var(--topbar-h) 0 56px; /* the grain stops at the rail, a bar along the foot on a phone */
+  }
+}
+
+/* the trailer's chip names the take on screen and opens it; the switch beside it turns the takes' own sound on */
+.trailer-chip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: calc(100% - 150px); /* room for the Sound pill across from it */
+  min-height: 26px;
+  padding: 3px 6px 3px 9px;
+  border: 1px solid var(--control-line);
+  border-radius: var(--radius-s);
+  background: var(--scrim-strong);
+  color: var(--text);
+  font: 600 0.6875rem / 1.2 var(--mono);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.trailer-chip > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* a pill with its word at the screen's top right, across from the chip (the actions stand at the foot): an icon alone
+   was missed */
+.trailer-sound {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 0 11px 0 9px;
+  border: 1px solid var(--control-line);
+  border-radius: 999px;
+  background: var(--scrim-strong);
+  color: var(--text);
+  font: 600 var(--fs-xs) / 1 var(--font);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: border-color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+}
+.trailer-sound:hover {
+  border-color: var(--control-line-hover);
+}
+/* sound on reads as pressed in, like every toggle that is on; the icon itself says the sound is on */
+.trailer-sound[aria-pressed="true"] {
+  border-color: var(--control-line-hover);
+  background: var(--pressed);
+}
+/* -- the reveal (reveal.js): what comes into view rises, once. A list rises item by item in the order its items came into
+   view (--i), a section head on its own; an item done rising stays still, so a room shown again never replays it -------- */
+.armed > :not(.in),
+.armed-self:not(.in) {
+  opacity: 0;
+}
+.armed > .in:not(.done) {
+  animation: lobby-rise 560ms var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+.armed-self.in:not(.done) {
+  animation: lobby-lift 360ms var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+@keyframes lobby-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes lobby-lift {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* -- the receipt in the Take panel: a ticket stub on card stock, its three verdicts printed on it --------------- */
+.verdict {
+  --notch: 7px;
+  position: relative;
+  margin: var(--s3) var(--s4) var(--s2); /* on the dock's column, like the rest of the take */
+  padding: 2px 4px 6px 16px;
+  background: var(--card-stock);
+  color: var(--card-ink);
+  border-bottom: 0;
+  -webkit-mask: radial-gradient(circle var(--notch) at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+  mask: radial-gradient(circle var(--notch) at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle var(--notch) at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+}
+/* the tear line down the stub's left edge */
+.verdict::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  bottom: 12px;
+  border-left: 1.5px dashed rgb(34 28 22 / 0.35);
+}
+.verdict-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s2);
+  padding: 10px 10px 6px 12px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.verdict-head .num {
+  font-family: var(--mono);
+  font-weight: var(--w-medium);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--card-ink-2);
+}
+.verdict .verdict-row {
+  padding: 10px 10px 10px 12px;
+  border-top: 1px dashed rgb(34 28 22 / 0.28);
+}
+.verdict-billing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 18px;
+  margin: 0;
+  padding: 0 10px 8px 12px;
+  font-size: var(--fs-xs);
+}
+.verdict-billing dt {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--card-ink-2);
+}
+/* a label and its value wrap as one */
+.verdict-billing > div {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.verdict-billing dd {
+  margin: 0;
+  font-weight: var(--w-strong);
+}
+.verdict .hint {
+  color: var(--card-ink-2);
+}
+.verdict strong {
+  color: var(--card-ink);
+}
+.verdict .pill {
+  background: transparent;
+  border-color: rgb(34 28 22 / 0.3);
+  color: var(--card-ink);
+}
+.verdict .pill[data-tone="green"] {
+  background: transparent;
+  border-color: var(--brass);
+  color: var(--card-ink);
+}
+.verdict .pill[data-tone="amber"] {
+  background: rgb(122 86 0 / 0.14);
+  border-color: transparent;
+  color: #7a5600;
+}
+.verdict .pill[data-tone="red"] {
+  background: rgb(154 38 36 / 0.12);
+  border-color: transparent;
+  color: #9a2624;
+}
+
+/* the in-browser seal check's three answers, set by ui/details.js as data-result on `.seal-hint`. The hint sits on the stub's card stock (`.verdict` in
+   lobby.css), where --brass-hi, --red and --text-2 as text colours read at 1.5 to 2.5:1; so brass and red are fills
+   behind the marks, and the words take the card's own inks. A pass: ink, its check on a brass disc (5.1:1). A fail: the
+   stub's deep red, the one its red pill uses (6.2:1), with a cross. An answer that could not be had: quiet ink (6.2:1).
+   Each answer also says so in words. */
+.verdict .seal-hint[data-result] {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.verdict .seal-hint[data-result] .icon {
+  box-sizing: content-box;
+  padding: 2px;
+  border-radius: 50%;
+}
+.verdict .seal-hint[data-result="pass"] {
+  color: var(--card-ink);
+}
+.verdict .seal-hint[data-result="pass"] .icon {
+  background: var(--brass);
+  color: var(--card-ink);
+}
+.verdict .seal-hint[data-result="fail"] {
+  color: #9a2624;
+}
+.verdict .seal-hint[data-result="fail"] .icon {
+  background: #9a2624;
+  color: var(--card-stock);
+}
+.verdict .seal-hint[data-result="error"] {
+  color: var(--card-ink-2);
+}
+.verdict .id-score,
+.verdict .id-fill {
+  color: var(--card-ink);
+}
+.verdict .id-reading[data-status="drift"] :is(.id-score, .id-fill) {
+  color: #7a5600;
+}
+.verdict .id-reading:is([data-status="na"], [data-status="unavailable"], [data-status="none"]) .id-score {
+  color: var(--card-ink-2);
+}
+.verdict .id-scale {
+  background: rgb(34 28 22 / 0.18);
+}
+.verdict .id-tick {
+  background: var(--card-ink);
+}
+.verdict .seal-hash {
+  color: var(--card-ink-2);
+}
+.verdict .link-btn {
+  color: var(--card-ink);
+  text-decoration-color: rgb(34 28 22 / 0.45);
+}
+.verdict :focus-visible {
+  outline-color: #a8480a; /* the ticket orange, darkened to read on card stock */
+}
+
+/* -- motion held, reduced motion or data saver (main.js sets :root.hold-still for both): every state still, no sweep, no
+   hanging letters, no entrance or rise, no drifting dust or cards, no flicker, no grain changing, no bulbs chasing.
+   tokens.css collapses every duration; these stop outright, even mid-session when the preference changes. Kept last: it
+   ties with the rules it stops and wins by order */
+:root.hold-still .front-light::before,
+:root.hold-still .front-light::after,
+:root.hold-still .lobby-dust,
+:root.hold-still .screen-frame .trailer,
+:root.hold-still .lobby::after,
+:root.hold-still .marquee-row .letter,
+:root.hold-still :is(.lobby-headline, .lobby-lede, .lobby-actions, .lobby-proof),
+:root.hold-still .one-sheet.live .sheet-art::before,
+:root.hold-still .sheet-take,
+:root.hold-still .screen-mask::before,
+:root.hold-still .screen-mask::after,
+:root.hold-still .card-row.drifting {
+  animation: none;
+}
+:root.hold-still .armed > *,
+:root.hold-still .armed-self {
+  opacity: 1;
+  animation: none;
+}
+/* a light standing still on two bulbs would only look like two brighter bulbs; the art of a live poster stays put */
+:root.hold-still .marquee-chase {
+  display: none;
+}
+:root.hold-still .one-sheet.live .sheet-key {
+  transform: none;
+}
+
+:root.hold-still .quiz-ch {
+  animation: none;
+}
+:root.hold-still :is(.quiz-stage, .quiz-side, .quiz-reveal, .move-main, .move-side) {
+  transition: none;
+}
+
+/* -- the printed material: card stock ---------------------------------------------------------------------------
+   Three materials, kept apart: lacquer is the furniture, emulsion is the footage, and card stock is the one light
+   surface in the studio. Anything that asserts a fact is printed on it. So the receipt stops being a card inside a
+   dark dock and becomes the dock's own material: the whole Take pane is one printed camera report in dark ink, torn
+   off at the foot, with the accent kept for the one live figure. It is the opposite material to the room it hangs
+   in, which is the studio's loudest statement and the one thing a glossier product cannot answer with more gloss.
+   The class is the material, not one pane: the Take pane is printed on it, and so is the Chat room's call sheet. */
+.on-stock {
+  position: relative;
+  background: var(--card-stock);
+  color: var(--card-ink);
+  --text: var(--card-ink);
+  --text-2: var(--card-ink-2);
+  --text-3: #5f564a; /* 4.6:1 on the stock; the 0.78 alpha measured 3.5 once the room grain is over it */
+  --line: rgb(34 28 22 / 0.18);
+  --line-strong: rgb(34 28 22 / 0.3);
+  --control-line: rgb(34 28 22 / 0.54); /* 3.2:1 on the stock: the rule in tokens.css holds on paper too */
+  --control-line-hover: rgb(34 28 22 / 0.68);
+  --raised: rgb(34 28 22 / 0.06);
+  --hover: rgb(34 28 22 / 0.1);
+  --pressed: rgb(34 28 22 / 0.16);
+  --ground: rgb(34 28 22 / 0.05);
+  --surface-tint: rgb(34 28 22 / 0.05);
+  /* the accent darkened until it carries on paper: #a34806 is 4.5:1 on the stock, where #b5500a measured 4.0.
+     --accent moves with it, so the focus ring, the selection and every accent edge in the pane are legible too;
+     the orange fill of a primary button keeps its own colour, with dark marks on it. */
+  --accent: #a34806;
+  --accent-text: #a34806;
+  --accent-soft: rgb(163 72 6 / 0.2);
+  --green: #7a5c22;
+  --on-media-line: rgb(34 28 22 / 0.3);
+  /* torn off at the foot: the pane's own die-cut edge, punched through to the lacquer behind it. The holes and the
+     sheet above them are two mask layers, each given its own position and size in the shorthand -- a layer may carry
+     only one position, so folding `0 0 / size repeat-x` into the custom property and then adding `bottom` made the
+     whole declaration invalid and the foot came out straight. */
+  --perf-dots: radial-gradient(circle var(--perf-r) at center, #0000 98%, #000);
+  -webkit-mask:
+    var(--perf-dots) bottom left / var(--perf-pitch) calc(var(--perf-r) * 2) repeat-x,
+    linear-gradient(#000 0 0) top left / 100% calc(100% - var(--perf-r)) no-repeat;
+  mask:
+    var(--perf-dots) bottom left / var(--perf-pitch) calc(var(--perf-r) * 2) repeat-x,
+    linear-gradient(#000 0 0) top left / 100% calc(100% - var(--perf-r)) no-repeat;
+  padding-bottom: calc(var(--perf-r) + var(--s4));
+}
+/* the stock's own tooth, rendered on our GPU (art/mat-stock.webp): multiplied into the cream so the paper has fibre
+   under the ink. It lies under everything in the pane and takes no pointer */
+.on-stock::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("../art/mat-stock.webp") 0 0 / 420px auto repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.42;
+}
+.on-stock > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* on the sheet the receipt is no longer a stub laid on a surface: it is ruled type printed on the surface itself */
+.on-stock .verdict {
+  margin-inline: 0;
+  padding-left: var(--s4);
+  background: none;
+  color: inherit;
+  -webkit-mask: none;
+  mask: none;
+  border-top: 1.5px solid rgb(34 28 22 / 0.3);
+  border-bottom: 1.5px solid rgb(34 28 22 / 0.3);
+}
+.on-stock .verdict::before {
+  display: none; /* the tear line belonged to a stub; the sheet has its own torn foot */
+}
+/* a picture on paper is a contact print: it keeps a hard ink edge, never a lacquer one */
+.on-stock :is(.stage-card img, .cast-take, .live-clip) {
+  border-color: rgb(34 28 22 / 0.42);
+}
+/* the one figure that is alive on the page keeps the accent; every other number is ink (ui/monitor.js writes the
+   reading as .id-reading with the figure in .id-score) */
+.on-stock .verdict .id-score {
+  color: var(--accent-text);
+}
+.on-stock .bar {
+  background: rgb(34 28 22 / 0.22);
+}
+.on-stock .pill:not([data-tone]) {
+  background: rgb(34 28 22 / 0.07);
+  color: var(--card-ink-2);
+}
+.on-stock .btn.secondary {
+  background: rgb(34 28 22 / 0.07);
+  color: var(--card-ink);
+}
+.on-stock .btn.secondary:hover:not(:disabled) {
+  background: rgb(34 28 22 / 0.13);
+}
+.on-stock .link-btn {
+  color: var(--card-ink);
+  text-decoration-color: rgb(34 28 22 / 0.4);
+}
+.on-stock :is(input, textarea, select) {
+  background: rgb(255 255 255 / 0.5);
+  color: var(--card-ink);
+  border-color: rgb(34 28 22 / 0.35);
+}
+.on-stock ::selection {
+  background: rgb(181 80 10 / 0.26);
+  color: var(--card-ink);
+}

@@ -1,239 +1,141 @@
 # OpenField Studio
 
-**Cast a character. Direct the shot. Re-shoot a clip. Every take comes with a receipt.**
+A film studio that runs on open-weights models, with LTX 2.5 for video and sound. Every take keeps a receipt of how it was made.
 
-An open-weights film studio built on the [Comfy Developer Platform](https://comfy.org/open-source-higgsfield).
-LTX 2.5, Qwen-Image 2.1 and Wan Animate 2 run on Comfy Cloud or on a GPU you rent, driven through the
-official `comfy-sdk`. A virtual camera rig turns "slow dolly in" into shots you can approve before the
-expensive video render, and each finished take carries a sealed receipt (prompts, seeds, workflow, exact
-model files and licences) that you can drop back in to remix it.
+**[Try it in your browser](<try-it link>)** · **[Watch the two-minute demo](<video link>)**
 
-<!-- TODO(hero): the Re-shoot before/after clip, then the 9:16 export (docs/media/hero.mp4 and a poster) -->
-<!-- TODO(try-it-link): the hosted Replay URL, once published -->
+Entered in Comfy's Open Source Higgsfield contest, in Open Weights Only, with the LTX VFX bonus.
 
-Made for the Comfy "Open Source Higgsfield" challenge. Inspired by Higgsfield's product ideas; original code,
-copy and design, not affiliated with Higgsfield.
+![The Lobby, the app's first screen: the trailer playing across the room with the Start directing ticket on it, then the headline and the marquee with the counts under it](docs/media/lobby.png)
 
-## Quick start
+## What you can make
 
-Python 3.10 or newer.
+- **Direct.** Describe a shot and pick one of 49 camera moves (44 of 49 hold on a real render): dolly, crane, orbit, crash zoom, bullet time and more. Preview the planned camera before anything renders, and save any take with that camera drawn in a corner, or as a one-page shot sheet.
+- **Cast.** Make up a character once, or add photos of someone who agreed, and keep the same face in every shot.
+- **Shots.** One still, re-shot as nine camera setups.
+- **Re-shoot.** Your dance, a new dancer. Wan Animate 2 keeps the motion and changes the character, or only the face.
+- **Edit with words.** Swap the face or the person, change the outfit, relight, remove something, or say the change yourself.
+- **Effects.** Rain, lightning and fog, and changes on camera: a person catching fire, turning to gold, a hall falling to ruin.
+- **Spoken lines and dubs.** A character says a line in any language. LTX 2.5 writes the voice and the lips together.
+- **Transitions, Extend, Loop, Upscale.** Bridge one take into the next (push through is the one style that holds), extend a take, make a loop, or upscale to 2K or 4K.
+- **Chat.** Ask an agent to make the film. It uses the studio's own tools and asks before it approves a still.
+
+![Twelve camera moves, each one a recorded take from this repo](docs/media/contact-sheet-12-moves.png)
+
+## How it works
+
+1. You describe the shot and pick a move.
+2. Qwen-Image 2.1 renders the still, or the few stills the move needs. They take seconds. You approve them or redo one.
+3. LTX 2.5 renders the video from them, with sound.
+4. The take is saved with its receipt: the prompts, the seed, the exact workflows with their hash, every model file with its licence and source, the hash of every output file, and the open-weights check that ran before the render.
+
+Renders go through the Comfy Developer Platform (`comfy-sdk`) on the official Comfy templates, with no custom nodes. Before anything is submitted, the studio checks every node and model file against its open-weights list, and it refuses partner nodes and paid APIs.
+
+## Run it
 
 ```bash
+git clone <repo link> && cd openfield-studio
 pip install -e .
-openfield doctor     # checks Python, ffmpeg, the Comfy SDK, your render target, workflows and recorded takes
-openfield demo       # opens the app on recorded takes: no key, no GPU
+openfield demo
 ```
 
-`demo` is **Replay**: it plays real takes that were rendered earlier, with their events, receipts and
-identity scores. It never renders and never fakes a result. Change the recipe and it tells you so, because
-nothing was rendered for it. To render your own takes, connect a backend (next section).
+`demo` opens the app on the 137 recorded takes that ship with the repo, every receipt verified. It needs no GPU and no key.
 
-## Render for real
+To render new takes, connect a backend from the app's header. That can be a GPU box you rent (one script sets up an RTX 5090, see [docs/CONNECT.md](docs/CONNECT.md)) or Comfy Cloud with an API key. Every take here was made on rented RTX 5090s. Comfy Cloud uses the same call; a key passed the connection check on October 22, and no take has been rendered there yet.
 
-The same app runs against three targets; the only switch is two environment variables
-(copy `.env.example` to `.env`).
+A 5-second shot costs 2 to 3 cents of GPU time, and a take renders in about two minutes. Each take's receipt records its own GPU time, except the MCP film (tk_20261024_192756_a60e), whose receipt has none. The app shows what a take cost. The 136 takes whose receipts record GPU time took 5.6 GPU hours between them, about $3.97. Failed tries and idle time are not in that figure; one take rendered on October 26 on a box shared with other work, and its receipt counts all 770 seconds of its three runs, including the time the first one spent in the queue.
 
-| Target | `COMFY_BASE_URL` | `COMFY_API_KEY` |
+## Make your own
+
+### Add a camera move
+
+- Add an entry to `_MOVES` in `openfield/engine/rig.py`: `_m(mid, label, group, mode, anchors, phrase, hold, keys)`. The group comes from `GROUPS`; the phrase is the sentence the model reads and `hold` what must stay fixed; the keys are the camera's path as `Pose`s. A `prompt_only` move uses one still (`anchors` is 1), and a `keyframed` move also needs an edit prompt for each still after the first.
+- The table checks its own size (`len(MOVES) == 49`) and so do the tests. Raise the number, then run `pytest tests/test_rig.py`.
+- The app plays no loop for the move, and `openfield verify` does not count it as tested, until its id is in `VALIDATED`. Add it by hand after a take of the move was checked by eye.
+
+### Add a model
+
+- List the weight file under `models` in `openfield/engine/manifest.json`: its `name`, ComfyUI `directory`, Hugging Face `repo`, `revision`, `path` and `url`, and the `templates` that load it. `scripts/gen_manifest.py` writes that file from the official templates, so an entry made by hand is lost if you run it again.
+- Give its repo a licence row. `REPO_LICENSE` in `openfield/engine/models.py` points the repo at a licence in `LICENSES` (add the licence if it is new), and the app cannot build its model list without the row. Then run `python scripts/gen_third_party.py` to rewrite [THIRD_PARTY_MODELS.md](THIRD_PARTY_MODELS.md).
+- `openfield verify` counts the file under Models and audits every workflow against the list. A workflow that loads a file that is not in it fails there, and the app refuses to render it.
+
+### Connect a backend
+
+- Press the backend button in the app's header (*Connect a backend…*), choose *GPU box* or *Comfy Cloud*, press *Test*, then *Use this backend*.
+- A GPU box needs the address of its comfy-api-proxy, usually `http://127.0.0.1:9189` through an SSH tunnel. Add ComfyUI's own address (`http://127.0.0.1:9188`) and *Test* also checks every model file and node. [docs/CONNECT.md](docs/CONNECT.md) has the setup script, the tunnel, and the command that puts the proxy in front of a ComfyUI you already run.
+- Comfy Cloud takes an API key and uses the same call; no take has been rendered there yet.
+
+## If a take fails
+
+The app says why a take stopped. These are six of its messages, as the code prints them.
+
+| What you see | Why | What to do |
 |---|---|---|
-| Comfy Cloud | unset | your Comfy API key |
-| A GPU box running ComfyUI and `comfy-api-proxy` | `http://127.0.0.1:9189` (SSH tunnel) | none on loopback |
-| A Comfy API deployment | the deployment URL | your key |
+| **This take did not finish**: `This workflow is not open-weights-only: …` | The graph has a node outside the allowlist taken from the official templates, or a model file the manifest does not list. The message names it: `…: looks like a partner/API node`, `…: not in the allowlist` or `…: not a known open-weights file`. | Use the studio's own workflows. For a model you added, give it a manifest entry and a licence row (see [Make your own](#make-your-own)). |
+| In the Connect sheet: `Missing: <file> (models/<directory>, from <repo>)` and `<n> of 6 workflows ready; <m> model file(s) missing` | The box's ComfyUI does not have that file. *Test* checks this when it is given ComfyUI's address. | Run the line printed after *On the box:* (`FETCH_ONLY=<group> bash /workspace/pod_setup.sh fetch`, with `HF_TOKEN` set for gated files), then press *Test* again. |
+| `Not connected: GPU box at <host>`, or on a take `Could not reach the server. Is the tunnel up?` | The app could not open a connection to the proxy address. | Start the SSH tunnel again, then press *Test*. |
+| **Not in this recording**: `This exact recipe was not rendered, and Replay never fakes a result. …` On the hosted copy a notice says `This hosted copy replays recorded takes. Install OpenField and connect Comfy Cloud or a GPU box to render new ones.` | The backend is Replay. It plays recorded takes and nothing else, and nobody rendered this recipe. | Press *Go to a recording*, or connect a backend and render it. On the hosted copy, install OpenField first. |
+| **This take did not finish** with `The job failed…` or `The render took longer than …s and was cancelled.`, or **Canceled**: `You canceled this take before it finished.` | The box reported an error, the render ran past its time limit, or you canceled it. | Press *Edit and try again* to load the take's settings back into the form, or *Remove* to clear it. |
+| `Checksum does not match` on a take's receipt, or `Checked in this browser just now: receipt.json does not match its seal.` | The receipt was edited after it was written, or OpenField did not make it. | Run `openfield verify`: it names the first take that fails (`first failure: <take id>`). Restore that take from the repo, or treat it as edited. |
 
-Setting up a rented GPU is one script, and the model download is large: see [docs/POD.md](docs/POD.md). Then:
+## Talk to it
 
-```bash
-openfield doctor     # confirms the target answers
-openfield serve --open
+The Chat room puts an agent in charge of the studio. By default that is OpenCode with an open-weights model. Claude Code and Codex work too. The agent gets the studio's tools and nothing else, each chat has a render cap, and it asks before it approves stills.
+
+`openfield mcp` gives the same 24 tools to any MCP client, and `skills/openfield-director/SKILL.md` teaches a coding agent how to use them well. On October 24 a Claude Code session made a three-shot film through it. On October 25 OpenCode with DeepSeek made a take through the Chat room on a rented GPU. More in [docs/MCP.md](docs/MCP.md).
+
+Rendering never calls a closed API. The agent is optional: by default the Chat room talks to OpenCode with an open-weights model, and whichever agent asks, the open-weights check runs before every render.
+
+## Check it
+
+- **In the app.** Open a take and press *Check it in this browser*. Your browser hashes the receipt again and compares it with its seal.
+- **Side by side.** *Compare…* plays a take next to another one and lists what their receipts say differently, down to the words that changed.
+- **On the command line.** `openfield verify` checks the workflows, every receipt, the model files and the counts:
+
+```text
+[ ok ] Workflows: 6/6 templates pass
+[ ok ] Receipts: 137 take(s), 137 seal(s) verified
+[ ok ] Models: 17 model file(s), all open-weights
+[ ok ] Proof counts: moves 44/49, angles 65/96, effects 21/21, quality 3/3, from-image yes, single-pass on
+[ ok ] Replay: refused an unrecorded recipe
+
+VERIFIED: 5 ok, 0 failed
 ```
 
-## Commands
+- **By hand.** Each take folder holds the workflows it ran, as JSON you can load in ComfyUI.
 
-| Command | What it does |
-|---|---|
-| `openfield demo` | The app on recorded takes (Replay). No key, no GPU. |
-| `openfield serve` | The app on your configured Comfy target. |
-| `openfield doctor [--fetch-models]` | Checks the machine and the target; downloads the 38 MB face-check models. |
-| `openfield audit FILE` | The open-weights audit of any API-format workflow. |
-| `openfield showcase` | Renders the showcase spec on a real backend (`--dry-run` to see the plan). |
-| `openfield export-static` | Builds the hosted Replay as plain files. |
+A receipt is a checksum, so it shows edits. It does not prove who made the file. [docs/EVIDENCE.md](docs/EVIDENCE.md) lists what was rendered, what held, what did not, and how each one was judged.
 
-## What you can do
+The hosted copy plays recorded takes only. Change a recipe there and it says it cannot render it, instead of inventing a take.
 
-| Station | What it does | Model |
+![Compare: the samurai's dolly in beside his bullet time, with what their receipts say differently](docs/media/compare.jpg)
+
+## What does not work yet
+
+- 5 of the 49 moves did not hold on a real render: arc left, arc right, orbit 360, rack focus and pedestal down. The app plays no loop for them. On October 26 two more held for the first time: through object, made as its reverse (a dolly out from just inside the door, played backwards), and the dolly zoom, made as a dolly out with a window that follows the face and keeps it at its size. Pedestal down made as its reverse still pulled back, and the keyframed arcs still turned the subject, so those stay off until a render holds.
+- 65 of the 96 camera positions hold on a still. A shot that starts from a re-angled still drifts away from the angle.
+- Of the four transition styles, only the push holds.
+- Comfy Cloud: a key passed the connection check on October 22 (authenticated, ready); no take has been rendered there yet.
+
+## Models
+
+| Model | Used for | Licence |
 |---|---|---|
-| **Cast** | Keep reference images for a character or product, or generate an invented character from a description and keep the candidate you like. A local face check shows what the identity check can use. Consent is required before a cast is saved. | Qwen-Image 2.1; face check: YuNet + SFace (local) |
-| **Direct** | Describe a subject, set a camera rig, pick a move. Approve cheap stills, then render the shot with synced sound. | Qwen-Image 2.1, LTX 2.5 |
-| **Re-shoot** | Take a clip you filmed and one reference image. Get the same motion with a new character. Before/after comparator, one-click 9:16. | Wan Animate 2 |
-| **Takes** | Every render is a folder: video, stills, events, workflows, receipt. Export 16:9, 9:16 or a reel of several takes. Open any take's exact graph in ComfyUI. | ffmpeg |
-
-### The camera rig
-
-35 moves in 7 groups (lock and aim, dolly and push, zoom and focus, orbit and arc, track and truck, crane
-and altitude, handheld and story). A move is either **keyframed** (the rig plans one to five still frames
-along the path, you approve them, and LTX 2.5 renders between them) or **prompt-only** (one approved still
-and a precise camera instruction). Quick mode renders any keyframed move the second way: cheaper, with no
-anchor stills to approve. Twelve moves are promoted in the interface. A move is marked validated only after a
-real render exists for it; the showcase shows which.
-
-### Using the interface
-
-The layout is the familiar one for this kind of tool: stations on the left, a prompt bar over a large Monitor, a
-strip of recent takes, and a settings panel on the right. Press Shoot and the Monitor shows the render step by step;
-the stills stop for your approval before any video is rendered. Pick a take and its **Take** tab shows the identity
-result, the open-weights audit, the receipt, and the actions: use its settings again, copy a remix link, open its
-graphs in ComfyUI, export 9:16.
-
-| Key | Does |
-|---|---|
-| Ctrl or Cmd + Enter | Shoot from the prompt (Recreate, in Replay) |
-| Arrow keys | On the Move Pad: the next move. On the Monitor: one frame back or forward when paused, one second when playing |
-| Space | Play or pause the Monitor |
-| `[` | Hide or show the settings panel |
-
-It works with the keyboard alone, keeps AA contrast, respects `prefers-reduced-motion`, and folds down to a phone
-layout. In Replay, anything you change that was not recorded turns Shoot into "Needs a backend" instead of faking a render.
-
-## How it uses the Comfy Developer Platform
-
-OpenField never talks to ComfyUI directly. The whole render path is `comfy-sdk`:
-
-```python
-from comfy_sdk import AsyncComfy
-
-async with AsyncComfy() as client:                       # target chosen by COMFY_BASE_URL / COMFY_API_KEY
-    wf = client.workflows.from_json(graph)               # an API-format graph, patched from an official template
-    frame = client.assets.from_file("first_frame.png")
-    wf.set_input(slots["first_frame"]["node"], "image", frame)   # node ids come from the template's slot map
-    job = await client.submit(wf)                        # inputs are uploaded here
-    async for event in job.events():                     # progress, previews, queue position
-        ...
-    await job.wait()
-    output = job.get_outputs(slots["output"]["node"])[0]
-    await output.to_file("take.mp4")
-```
-
-(The real code is [openfield/backends/sdk.py](openfield/backends/sdk.py); it adds timeouts, cancellation,
-error mapping and event recording.)
-
-```mermaid
-flowchart LR
-  UI[Browser UI] -- HTTP + SSE --> API[FastAPI app]
-  API --> P[Pipeline: Direct, Re-shoot, Export]
-  P --> A[Open-weights audit]
-  P --> B{Backend}
-  B -- comfy-sdk --> C[Comfy Cloud]
-  B -- comfy-sdk --> G[GPU box + comfy-api-proxy]
-  B -- recorded events --> R[Replay]
-  P --> L[(Ledger: one folder per take)]
-  L --> RC[receipt.json]
-```
-
-Workflows are the **official ComfyUI templates**, exported in API format and patched in place: the patcher
-checks every node, input and slot before it touches the graph, snaps sizes to what each model accepts (and
-records the snapped value), removes the templates' prompt enhancers so the exact prompt sent is the one recorded, and
-refuses anything unexpected. No custom nodes. The graphs for each render step are saved with the take, so
-"Open in ComfyUI" opens exactly what ran. Details and checks: [openfield/workflows/README.md](openfield/workflows/README.md).
-
-## Open weights, enforced
-
-Before any workflow is submitted, the audit checks every node class against an allowlist taken from the
-official templates and every model file against the registry in
-[THIRD_PARTY_MODELS.md](THIRD_PARTY_MODELS.md). Partner nodes and paid APIs are not in the allowlist, so
-they cannot run. The result is stored in each take's receipt.
-
-```bash
-openfield audit path/to/workflow.api.json
-```
-
-| Model | Used for | Licence (check the model card) |
-|---|---|---|
-| LTX 2.5 (Lightricks), with its Gemma 4 text encoder | video with synced audio | LTX-2.x Community License: free under $10M annual revenue; gated download |
-| Qwen-Image 2.1 | stills | Qwen Research License: non-commercial, "Built with Qwen" |
+| LTX 2.5 (Lightricks) | video with sound | LTX-2.x Community License (free under $10M annual revenue) |
+| Qwen-Image 2.1 | stills and edits | Qwen Research License (non-commercial, "Built with Qwen") |
 | Wan Animate 2 | motion transfer | Apache-2.0 |
-| Gemma 4 e2b (Comfy-Org repack) | not used: the LTX templates list it for a prompt-enhancer that OpenField removes | Apache-2.0 |
-| YuNet, SFace | local face check | MIT, Apache-2.0 |
+| Real-ESRGAN x4plus | upscale | BSD-3-Clause |
+| YuNet, SFace | the local face check | MIT, Apache-2.0 |
 
-"Open weights" is not "open source": each model keeps its own licence. The still-image step is a swappable
-slot so a different licence is one template away.
+Each model keeps its own licence. The details are in [THIRD_PARTY_MODELS.md](THIRD_PARTY_MODELS.md).
 
-## Receipts and Remix
+## More
 
-Each take stores `receipt.json` next to the video: the recipe (subject, rig, move, seeds), the final prompts,
-the workflow hashes and SDK job ids, the exact model files with licences, the audit result, identity scores
-and an AI-generated disclosure. A SHA-256 over the canonical JSON makes edits detectable (it is a checksum,
-not a signature). The receipt is also embedded in the video, its poster image and generated-character stills, so
-**Remix** accepts those files themselves; social sites strip metadata, so the sidecar and the recipe link are the
-reliable path.
+- [Using the app](docs/USING.md)
+- [What was tested, and how](docs/EVIDENCE.md)
+- [Connect a GPU](docs/CONNECT.md) and [the GPU box in detail](docs/POD.md)
+- [Agents and MCP](docs/MCP.md)
+- [How it is built](docs/HOW_IT_IS_BUILT.md), [the SDK path](docs/SDK.md) and [render times](docs/benchmarks.md)
+- [Safety and consent](docs/SAFETY.md) and [working on the code](docs/DEVELOP.md)
 
-## Identity check
-
-Cast references are compared with every generated still, every rendered shot (its middle frame) and the Re-shoot result
-using YuNet detection and SFace embeddings
-(cosine similarity, threshold 0.363, the same-identity boundary from the SFace model card). It reports a
-score, re-rolls a drifting still once (a rendered shot is reported, never re-rendered), and says **n/a** when there is
-no real face (stylised, product or faceless shots). It is a consistency aid, not proof of identity, and it never reads a missing model as a match.
-
-## Hosted Replay
-
-`openfield export-static --out site` writes the app and its recorded takes as plain files, with no server and
-no key, that any static host can serve. The browser plays each take's recorded events back; every edit is
-refused with an explanation, exactly as local Replay does.
-
-<!-- TODO(benchmarks): render times per step on a rented GPU and on Comfy Cloud, from docs/benchmarks.md -->
-
-## Reproduce the showcase
-
-The recorded takes were rendered from [showcase/spec.json](showcase/spec.json) with one command against a real backend:
-
-```bash
-openfield showcase --dry-run     # validate the spec and list every render
-openfield showcase               # render it (COMFY_BASE_URL or COMFY_API_KEY must be set)
-```
-
-Characters are generated from text, so they are invented and reproducible; the re-shoots use a short clip filmed for
-this project. See [showcase/README.md](showcase/README.md), including the keyframing experiment that decides which camera
-moves are marked validated.
-
-## Develop
-
-```bash
-pip install -e ".[dev]"
-ruff check .
-pytest                                  # a faithful fake of the Comfy API stands in for the GPU; also drives the
-                                        # real interface in Chrome or Edge (skipped when Node or a browser is missing)
-node --test "tests/js/*.test.mjs"       # front-end logic
-python scripts/dev_fake_stack.py        # the app on that fake, for UI work (its output is labelled FAKE, never a render)
-python scripts/record_demo.py --url URL # the demo video, scripted; see docs/DEMO.md
-python scripts/release_check.py         # the pre-publish gate
-```
-
-```
-openfield/engine/     rig, workflow patcher, audit, receipts, identity, video
-openfield/backends/   comfy-sdk backend, replay backend
-openfield/            pipeline, ledger, cast, exports, showcase, app (FastAPI), cli
-openfield/workflows/  the five exported ComfyUI graphs and their slot maps
-openfield/web/        the interface: static ES modules and plain CSS, self-hosted Inter and Lucide icons, no build step (about 66 KB of script over the wire)
-scripts/              GPU box setup, template export and validation, release gate
-showcase/             the specs the recorded takes were rendered from
-tests/                Python tests, JS tests, a faithful fake of the Comfy API
-```
-
-## Safety and provenance
-
-- Reference images need a consent choice (my own, with consent, or fictional). Do not upload people who have not
-  agreed, and do not use the studio for deception: receipts mark every output as AI-generated.
-- Output is for lawful, safe-for-work use. A plain content guard refuses prompts that ask for explicit sexual
-  content, graphic gore or self-harm before anything reaches a model. It is a good-faith filter, not moderation:
-  it cannot recognise a real person's name, so characters must be invented or consented to.
-- The bundled showcase uses fictional characters and original footage.
-- The interface ships Inter (SIL Open Font License 1.1) and a selection of Lucide icons (ISC); their licences sit
-  next to them in `openfield/web/fonts/` and `openfield/web/icons/`. The workflows are the official ComfyUI
-  templates (MIT); see `openfield/workflows/LICENSE.workflow_templates`.
-- This project was built with an AI coding assistant (Claude Code) under human direction, including
-  independent review passes of the plan and the code.
-
-## Licence
-
-Code: [MIT](LICENSE). Model weights are not included and keep their own licences
-([THIRD_PARTY_MODELS.md](THIRD_PARTY_MODELS.md)). Images produced with Qwen-Image 2.1 must show "Built with Qwen"
-where its licence requires it.
+The code is under the [MIT licence](LICENSE). Model weights are not included. Built with Qwen.

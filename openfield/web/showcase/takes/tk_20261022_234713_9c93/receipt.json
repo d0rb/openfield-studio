@@ -1,0 +1,407 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_234713_9c93",
+    "kind": "shots",
+    "created_at": "2026-10-22T23:50:38Z",
+    "label": "shots: Tomas in black samurai armour stands in the pour"
+  },
+  "inputs": {
+    "seed": 511,
+    "quality": "standard",
+    "orientation": "landscape",
+    "source": {
+      "sha256": "1417bf8f8a70747f44795d706fcef8ab6d33bb1f32cece47411e37ffbf868973",
+      "original_size": [
+        1344,
+        768
+      ],
+      "crop": [
+        0,
+        0,
+        1344,
+        768
+      ],
+      "size": [
+        1344,
+        768
+      ]
+    },
+    "cast": {
+      "name": "Tomas",
+      "refs": [
+        "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+      ]
+    },
+    "identity_reference": "cast",
+    "shots": [
+      {
+        "index": 1,
+        "angle": "front/eye/wide",
+        "label": "Wide",
+        "file": "runs/01_shot_1/image.png",
+        "directive": "Re-shoot the same scene from the front view, an eye-level shot, as a wide shot from farther away, more of the setting in frame. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 远景。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      },
+      {
+        "index": 2,
+        "angle": "front_left/eye/medium",
+        "label": "Three-quarter left",
+        "file": "runs/02_shot_2/image.png",
+        "directive": "Re-shoot the same scene from the front-left quarter view, the camera rotated 45 degrees to the left, an eye-level shot, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 将镜头向左旋转45度。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      },
+      {
+        "index": 3,
+        "angle": "front_right/eye/medium",
+        "label": "Three-quarter right",
+        "file": "runs/03_shot_3/image.png",
+        "directive": "Re-shoot the same scene from the front-right quarter view, the camera rotated 45 degrees to the right, an eye-level shot, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 将镜头向右旋转45度。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      },
+      {
+        "index": 4,
+        "angle": "front/eye/close",
+        "label": "Close-up",
+        "file": "runs/04_shot_4/image.png",
+        "directive": "Re-shoot the same scene from the front view, an eye-level shot, as a close-up, nearer than before. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 特写。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      },
+      {
+        "index": 5,
+        "angle": "left/eye/medium",
+        "label": "Profile left",
+        "file": "runs/05_shot_5/image.png",
+        "directive": "Re-shoot the same scene from the left side view, the camera rotated 90 degrees to the left, the subject in profile, an eye-level shot, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 将镜头向左旋转90度。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      },
+      {
+        "index": 6,
+        "angle": "right/eye/medium",
+        "label": "Profile right",
+        "file": "runs/06_shot_6/image.png",
+        "directive": "Re-shoot the same scene from the right side view, the camera rotated 90 degrees to the right, the subject in profile, an eye-level shot, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 将镜头向右旋转90度。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      },
+      {
+        "index": 7,
+        "angle": "front/low/medium",
+        "label": "Low angle",
+        "file": "runs/07_shot_7/image.png",
+        "directive": "Re-shoot the same scene from the front view, a low-angle shot with the camera below eye level looking up, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 切换到低角度。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      },
+      {
+        "index": 8,
+        "angle": "front/high/medium",
+        "label": "High angle",
+        "file": "runs/08_shot_8/image.png",
+        "directive": "Re-shoot the same scene from the front view, a high-angle shot with the camera well above the subject looking steeply down, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 切换到俯视视角。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      },
+      {
+        "index": 9,
+        "angle": "back/eye/medium",
+        "label": "From behind",
+        "file": "runs/09_shot_9/image.png",
+        "directive": "Re-shoot the same scene from the back view, the camera rotated 180 degrees to see the subject from behind, an eye-level shot, as a medium shot at the same distance. Move only the camera around the subject: the subject keeps the same pose and facing direction, the same clothes, light and setting, and nothing new appears. 将镜头旋转180度到背面。只移动镜头，主体保持原来的姿势和朝向不变，不新增物体。"
+      }
+    ],
+    "board": "board.jpg",
+    "recipe_hash": "049bba9012840129c56188368327b133cb3200bb2d44077bbc02310169ff03d2"
+  },
+  "workflow": {
+    "template": "qwen21_edit",
+    "sha256": "49f878ce467638e1f57542b02caf8cdfd585dc2ecc251971accd3be882e1fcb2",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "shot_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "e5dd413708b157e26c90cd3a1f194eab0ccc42468023f74da054f9a36570107d",
+        "job_id": "f41b51b4-122a-4fe5-baff-bd92ebc8122d"
+      },
+      {
+        "stage": "shot_2",
+        "template": "qwen21_edit",
+        "workflow_sha256": "a58d04dda990647011a15a9ad767645a579df6ad7aaf361054982a40a4531f51",
+        "job_id": "a3b28376-9af1-4c44-8e4b-a109a606f79f"
+      },
+      {
+        "stage": "shot_3",
+        "template": "qwen21_edit",
+        "workflow_sha256": "0fc53b649a428b590c0265966739e94c90035d5253ddcdb617b17dc63d2a4088",
+        "job_id": "3a4c0d33-f968-4e2a-90e0-ebf540a0d322"
+      },
+      {
+        "stage": "shot_4",
+        "template": "qwen21_edit",
+        "workflow_sha256": "9f90634f3cce88cc015d9af7b72da60c71edc85825c1cfffbdbad000941ba963",
+        "job_id": "87942ac4-f492-4ea3-9d65-decbbd90b269"
+      },
+      {
+        "stage": "shot_5",
+        "template": "qwen21_edit",
+        "workflow_sha256": "bb30a6f52a75bc7c43c9fbd25e29b1fd5f3fc2ae67813d8df93bfe5716599a79",
+        "job_id": "75c5e520-88eb-4dac-94b4-504c6c8834d0"
+      },
+      {
+        "stage": "shot_6",
+        "template": "qwen21_edit",
+        "workflow_sha256": "c5df6f8ec8085b87790f7e1abc63477d7c8ee31ee0c6db6c7ae61efa1afad275",
+        "job_id": "efc15c57-52fa-4d6f-a087-732684c709d6"
+      },
+      {
+        "stage": "shot_7",
+        "template": "qwen21_edit",
+        "workflow_sha256": "e4249c9d72638300e829fbe2c41706be4cdabbfa308494474df705a8b5a9fa17",
+        "job_id": "7cf1ed4d-c77d-4f5f-b195-d81570e571ea"
+      },
+      {
+        "stage": "shot_8",
+        "template": "qwen21_edit",
+        "workflow_sha256": "71a1c0509554bae9307acfe5ddb42f35cb606bf91563b17ad13c8aa58deb0cc0",
+        "job_id": "cb278fd9-9bda-426b-9183-ae42170b9970"
+      },
+      {
+        "stage": "shot_9",
+        "template": "qwen21_edit",
+        "workflow_sha256": "9fd3e13bf9d5536e30293a28044a539ea2c5018699e83f68bbf72d6ceadd09ed",
+        "job_id": "51f986f7-ed56-4e75-9bb1-d1f34b10c808"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8290699617666776,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "shot_1": {
+        "status": "pass",
+        "score": 0.5132046621472681,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.5132046621472681
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          652,
+          229,
+          45,
+          59
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.513 >= threshold 0.363 (best reference 0)",
+        "face_px": 45,
+        "enlarged": 3.56
+      },
+      "shot_2": {
+        "status": "pass",
+        "score": 0.8045228265403154,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8045228265403154
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          588,
+          100,
+          146,
+          198
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.805 >= threshold 0.363 (best reference 0)",
+        "face_px": 146,
+        "enlarged": null
+      },
+      "shot_3": {
+        "status": "pass",
+        "score": 0.8290699617666776,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8290699617666776
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          580,
+          101,
+          147,
+          198
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.829 >= threshold 0.363 (best reference 0)",
+        "face_px": 147,
+        "enlarged": null
+      },
+      "shot_4": {
+        "status": "pass",
+        "score": 0.8170516599216153,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8170516599216153
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          577,
+          102,
+          170,
+          242
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.817 >= threshold 0.363 (best reference 0)",
+        "face_px": 170,
+        "enlarged": null
+      },
+      "shot_5": {
+        "status": "pass",
+        "score": 0.5245928610777962,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.5245928610777962
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          689,
+          105,
+          120,
+          185
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.525 >= threshold 0.363 (best reference 0)",
+        "face_px": 120,
+        "enlarged": null
+      },
+      "shot_6": {
+        "status": "pass",
+        "score": 0.48057947051423844,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.48057947051423844
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          583,
+          93,
+          123,
+          179
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.481 >= threshold 0.363 (best reference 0)",
+        "face_px": 123,
+        "enlarged": null
+      },
+      "shot_7": {
+        "status": "pass",
+        "score": 0.7556493245962805,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7556493245962805
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          602,
+          96,
+          134,
+          177
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.756 >= threshold 0.363 (best reference 0)",
+        "face_px": 134,
+        "enlarged": null
+      },
+      "shot_8": {
+        "status": "pass",
+        "score": 0.7614742804805651,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7614742804805651
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          619,
+          156,
+          114,
+          157
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.761 >= threshold 0.363 (best reference 0)",
+        "face_px": 114,
+        "enlarged": null
+      },
+      "shot_9": {
+        "status": "n/a",
+        "score": null,
+        "threshold": 0.363,
+        "best_ref": null,
+        "per_ref": [
+          null
+        ],
+        "faces_in_candidate": 0,
+        "candidate_box": null,
+        "refs_used": 0,
+        "reason": "no face detected in the candidate",
+        "face_px": null,
+        "enlarged": null
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "f41b51b4-122a-4fe5-baff-bd92ebc8122d,a3b28376-9af1-4c44-8e4b-a109a606f79f,3a4c0d33-f968-4e2a-90e0-ebf540a0d322,87942ac4-f492-4ea3-9d65-decbbd90b269,75c5e520-88eb-4dac-94b4-504c6c8834d0,efc15c57-52fa-4d6f-a087-732684c709d6,7cf1ed4d-c77d-4f5f-b195-d81570e571ea,cb278fd9-9bda-426b-9183-ae42170b9970,51f986f7-ed56-4e75-9bb1-d1f34b10c808",
+    "timings": {
+      "total_s": 205.6
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "2fde96177861900e3977c8cbf2d4388b12955876139f051b9fd76ac5308b3365",
+      "seconds": 5.4
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "92ba30b3e50fc6307db1000901f1cc0bdc88515db0a3d0daf25e7e06b804066a"
+  }
+}

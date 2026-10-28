@@ -1,0 +1,98 @@
+{
+  "id": "tk_20261023_084307_e363",
+  "kind": "direct",
+  "label": "static: Ines dances alone in an empty, brightly lit subw",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:43:07Z",
+  "updated_at": "2026-10-23T08:46:43Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines dances alone in an empty, brightly lit subway station at night",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "clones"
+    },
+    "audio": null,
+    "seed": 572,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "transformation (clones): the last still is edited into the end state and LTX renders the change"
+  ],
+  "replay": false,
+  "recipe_hash": "98469c332518604cf27fbd77787887bd3e580a1a89b2e927401443933a8a480b",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8992253529744109,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8992253529744109
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        586,
+        102,
+        128,
+        168
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.899 >= threshold 0.363 (best reference 0)",
+      "face_px": 128,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fx-clones",
+  "showcase_sha": "f2d3824484d00d2e"
+}

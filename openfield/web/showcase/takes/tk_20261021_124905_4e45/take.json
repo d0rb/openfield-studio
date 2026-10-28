@@ -1,0 +1,114 @@
+{
+  "id": "tk_20261021_124905_4e45",
+  "kind": "direct",
+  "label": "static: Oskar stands facing the camera on an empty rooft",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-21T12:49:05Z",
+  "updated_at": "2026-10-21T12:52:04Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Oskar stands facing the camera on an empty rooftop at dusk, full body in frame from head to shoes, arms relaxed at his sides, the city skyline behind him",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "city air, a light wind",
+    "seed": 92,
+    "orientation": "landscape",
+    "cast_refs": [
+      "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+    ],
+    "prompt_only": true,
+    "cast_name": "Oskar",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "825cb4d6c9761d1bc419ef314a017b9e5989cea383fa3f6bca43c0a745ff5aec",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7893638040692188,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7893638040692188
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        635,
+        74,
+        72,
+        88
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.789 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.6670185292511971,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6670185292511971
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        606,
+        57,
+        67,
+        84
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.667 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "ref-oskar",
+  "showcase_sha": "7ca888ed4528178e"
+}

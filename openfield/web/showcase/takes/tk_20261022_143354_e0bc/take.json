@@ -1,0 +1,73 @@
+{
+  "id": "tk_20261022_143354_e0bc",
+  "kind": "direct",
+  "label": "lazy susan: A dented steel thermos on a wooden table, steam ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T14:33:54Z",
+  "updated_at": "2026-10-22T14:35:29Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A dented steel thermos on a wooden table, steam curling from its open cup, morning light",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 50,
+      "aperture": "f4",
+      "lighting": "window",
+      "movement": "lazy_susan",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "a kettle ticking as it cools, a wooden chair creaking",
+    "seed": 156,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "prompt_only": true,
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "c3c7be050f67fdd46d76e210a67afa3937bf9f1e2b44b925c4c0cde3da6ce8e2",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "sig-lazy-susan",
+  "showcase_sha": "2984508f07f33bf3"
+}

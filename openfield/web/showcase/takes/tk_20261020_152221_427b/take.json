@@ -1,0 +1,72 @@
+{
+  "id": "tk_20261020_152221_427b",
+  "kind": "direct",
+  "label": "dolly out: The same matte black ceramic thermos with a copp",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-20T15:22:21Z",
+  "updated_at": "2026-10-20T15:24:38Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "The same matte black ceramic thermos with a copper lid on a wet slate surface, steam rising, a pine forest in soft focus behind",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "anamorphic",
+      "focal_length_mm": 50,
+      "aperture": "f1.4",
+      "lighting": "contre_jour",
+      "movement": "dolly_out",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "quiet forest air, a faint steam hiss",
+    "seed": 42,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "2cf3cad3a4b6b5c3341796eef713571e82b3aa2f4468169cde77679e0df8f07f",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "thermos-dolly-out",
+  "showcase_sha": "fa77498c865f4ae1"
+}

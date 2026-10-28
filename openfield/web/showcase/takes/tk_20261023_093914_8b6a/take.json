@@ -1,0 +1,60 @@
+{
+  "id": "tk_20261023_093914_8b6a",
+  "kind": "extend",
+  "label": "extend: Ines walks along a canal bridge playing a small ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:39:14Z",
+  "updated_at": "2026-10-23T09:40:02Z",
+  "recipe": {
+    "kind": "extend",
+    "take": "tk_20261020_160123_6d4f",
+    "seconds": 3,
+    "seed": 651
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "The extension is one LTX 2.5 image-to-video render from the take's last frame, adding 3 seconds; the take plays the original take then the extension, joined."
+  ],
+  "replay": false,
+  "recipe_hash": "0720ab53e2a5493eea73f2670643e5922b12c502bc81f05d67f557e444bb0c6c",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 8.0,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v5-extend-ines-canal",
+  "showcase_sha": "701180d78b68d221"
+}

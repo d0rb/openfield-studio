@@ -1,0 +1,118 @@
+{
+  "id": "tk_20261025_140031_a803",
+  "kind": "direct",
+  "label": "top down: Oskar lies on his back in a meadow of wildflower",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-25T14:00:31Z",
+  "updated_at": "2026-10-25T14:03:19Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Oskar lies on his back in a meadow of wildflowers, arms spread wide",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "top_down",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "bees, wind in the grass",
+    "seed": 1612,
+    "orientation": "landscape",
+    "cast_refs": [
+      "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+    ],
+    "quality": "draft",
+    "cast_name": "Oskar",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "f8ccffec9aced0ac534484256b322524ea1b1014bdb079e32df9f870ae8918c1",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7175177822308033,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7175177822308033
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        399,
+        143,
+        107,
+        147
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.718 >= threshold 0.363 (best reference 0)",
+      "face_px": 107,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.6682559699078089,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6682559699078089
+      ],
+      "faces_in_candidate": 2,
+      "candidate_box": [
+        397,
+        145,
+        111,
+        141
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.668 >= threshold 0.363 (best reference 0)",
+      "face_px": 111,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    896,
+    512
+  ],
+  "showcase_name": "r11-mv-top-down",
+  "showcase_sha": "c07a8b37e50fa319"
+}

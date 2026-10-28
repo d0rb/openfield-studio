@@ -20,7 +20,7 @@ WORKFLOW_DIR = Path(__file__).resolve().parents[1] / "workflows"
 OUTPUT_CLASSES = frozenset({"SaveVideo", "SaveImage", "SaveImageAdvanced", "SaveAudio"})
 IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp")
 VIDEO_SUFFIXES = (".mp4", ".mov", ".webm", ".mkv")
-KINDS = {"text", "int", "seed", "float", "bool", "choice", "image", "video", "image_list"}
+KINDS = {"text", "int", "seed", "float", "bool", "choice", "image", "video", "image_list", "guide_list"}
 
 
 class WorkflowError(ValueError):
@@ -42,7 +42,9 @@ class Slot:
     pattern: str | None = None  # image_list: consumer input name, e.g. "image_{i}"
     start: int = 1
     limit: int = 0
-    loader: str | None = None  # image_list: id of a LoadImage node to clone per reference
+    loader: str | None = None  # image_list/guide_list: id of a LoadImage node to clone per reference
+    chain: tuple[str, ...] = ()  # guide_list: preprocessor/resize nodes between the loader and the guide
+    guide: str | None = None  # guide_list: id of the LTXVAddGuide node to clone per still
     unlink: bool = False  # the input is wired to a helper node in the template; replace the wiring
 
     @classmethod
@@ -50,12 +52,14 @@ class Slot:
         if data.get("kind") not in KINDS:
             raise WorkflowError(f"slot {name!r}: kind must be one of {sorted(KINDS)}")
         choices = tuple(data["choices"]) if data.get("choices") else None
+        chain = tuple(data["chain"]) if data.get("chain") else ()
         return cls(
             name=name, node=str(data["node"]), input=data.get("input", ""), kind=data["kind"],
             required=data.get("required", True), default=data.get("default"),
             min=data.get("min"), max=data.get("max"), multiple_of=data.get("multiple_of"),
             choices=choices, pattern=data.get("pattern"), start=data.get("start", 1),
-            limit=data.get("limit", 0), loader=data.get("loader"), unlink=bool(data.get("unlink", False)),
+            limit=data.get("limit", 0), loader=data.get("loader"), chain=chain,
+            guide=data.get("guide"), unlink=bool(data.get("unlink", False)),
         )
 
 
@@ -140,11 +144,13 @@ class Template:
             node = self.graph.get(slot.node)
             if node is None:
                 issues.append(f"slot {slot.name!r}: node {slot.node!r} is not in the graph")
-            elif slot.kind != "image_list" and slot.input not in (node.get("inputs") or {}):
+            elif slot.kind not in {"image_list", "guide_list"} and slot.input not in (node.get("inputs") or {}):
                 issues.append(f"slot {slot.name!r}: node {slot.node} has no input {slot.input!r}")
             elif slot.kind == "image_list" and (slot.loader not in self.graph or not slot.pattern):
                 issues.append(f"slot {slot.name!r}: loader {slot.loader!r} missing or no pattern")
-            elif slot.kind not in {"image", "video", "image_list"}:
+            elif slot.kind == "guide_list":
+                issues += _guide_list_problems(slot, self.graph)
+            elif slot.kind not in {"image", "video", "image_list", "guide_list"}:
                 issues += _wiring_issue(f"slot {slot.name!r}", self.graph, slot.node, slot.input, slot.unlink)
         for node_id, name, _, unlink in self.fixed:
             if name not in (self.graph.get(node_id, {}).get("inputs") or {}):
@@ -174,7 +180,7 @@ class Template:
                 raw = values[slot.name]
             elif slot.default is not None:
                 raw = slot.default
-            elif slot.kind == "image_list" and not slot.required:
+            elif slot.kind in {"image_list", "guide_list"} and not slot.required:
                 raw = []  # still strips the template's pre-wired placeholder inputs
             elif slot.required:
                 raise WorkflowError(f"missing required slot {slot.name!r}")
@@ -182,6 +188,8 @@ class Template:
                 continue
             if slot.kind == "image_list":
                 assets.extend(_wire_image_list(graph, slot, raw))
+            elif slot.kind == "guide_list":
+                assets.extend(_wire_guide_list(graph, slot, raw))
             elif slot.kind in {"image", "video"}:
                 path = _check_file(slot.name, slot.kind, raw)
                 _require_input(graph, slot.node, slot.input)
@@ -293,6 +301,138 @@ def _wire_image_list(graph: dict[str, Any], slot: Slot, raw: Any) -> list[AssetB
         consumer[slot.pattern.format(i=slot.start + i)] = [loader_id, 0]
     for i in range(len(paths), slot.limit):
         consumer.pop(slot.pattern.format(i=slot.start + i), None)
+    return bindings
+
+
+def _guide_list_problems(slot: Slot, graph: dict[str, Any]) -> list[str]:
+    issues: list[str] = []
+    if not slot.chain:
+        issues.append(f"slot {slot.name!r}: chain is empty")
+    if slot.loader not in graph:
+        issues.append(f"slot {slot.name!r}: loader {slot.loader!r} is not in the graph")
+    missing_chain = [c for c in slot.chain if c not in graph]
+    if missing_chain:
+        issues.append(f"slot {slot.name!r}: chain nodes {missing_chain} are not in the graph")
+    guide = graph.get(slot.guide or "")
+    if guide is None:
+        issues.append(f"slot {slot.name!r}: guide node {slot.guide!r} is not in the graph")
+    elif guide.get("class_type") != "LTXVAddGuide":
+        issues.append(
+            f"slot {slot.name!r}: guide node {slot.guide} is {guide.get('class_type')!r}, not LTXVAddGuide"
+        )
+    if slot.limit < 1:
+        issues.append(f"slot {slot.name!r}: limit must be at least 1")
+    if issues:
+        return issues
+    prev = slot.loader
+    for _k, chain_id in enumerate(slot.chain):
+        chain_node = graph[chain_id]
+        if not any(_is_link(v) and v[0] == prev for v in (chain_node.get("inputs") or {}).values()):
+            issues.append(f"slot {slot.name!r}: chain node {chain_id} has no input linked to {prev!r}")
+        prev = chain_id
+    guide_inputs = guide["inputs"]
+    image_link = guide_inputs.get("image")
+    if not _is_link(image_link) or image_link[0] != slot.chain[-1]:
+        issues.append(
+            f"slot {slot.name!r}: guide node {slot.guide} image input is not linked to chain tail {slot.chain[-1]!r}"
+        )
+    prev_node: str | None = None
+    for name in ("positive", "negative", "latent"):
+        link = guide_inputs.get(name)
+        if not _is_link(link):
+            issues.append(f"slot {slot.name!r}: guide node {slot.guide} input {name!r} is not a link")
+            continue
+        node = graph.get(link[0])
+        if node is None or node.get("class_type") != "LTXVAddGuide":
+            issues.append(
+                f"slot {slot.name!r}: guide node {slot.guide} input {name!r} links to non-LTXVAddGuide {link[0]!r}"
+            )
+        if prev_node is None:
+            prev_node = link[0]
+        elif link[0] != prev_node:
+            issues.append(
+                f"slot {slot.name!r}: guide node {slot.guide} inputs positive/negative/latent link to different nodes"
+            )
+    return issues
+
+
+def _wire_guide_list(graph: dict[str, Any], slot: Slot, raw: Any) -> list[AssetBinding]:
+    if not isinstance(raw, list):
+        raise WorkflowError(f"slot {slot.name!r} needs a list")
+    if len(raw) > slot.limit:
+        raise WorkflowError(f"slot {slot.name!r} takes at most {slot.limit} stills, got {len(raw)}")
+    bindings: list[AssetBinding] = []
+    last_guide_id: str | None = None
+    for i, item in enumerate(raw):
+        if not isinstance(item, dict):
+            raise WorkflowError(f"slot {slot.name!r}: item {i} is not an object")
+        path = _check_file(slot.name, "image", item.get("image"))
+        frame_idx = item.get("frame_idx")
+        if not isinstance(frame_idx, int) or frame_idx < 1:
+            raise WorkflowError(f"slot {slot.name!r}: frame_idx must be an integer >= 1")
+        if i > 0 and frame_idx <= raw[i - 1]["frame_idx"]:
+            raise WorkflowError(f"slot {slot.name!r}: frame_idx must be strictly increasing")
+        strength = item.get("strength")
+        if strength is not None and (
+            isinstance(strength, bool)
+            or not isinstance(strength, (int, float))
+            or not (0 < float(strength) <= 1)
+        ):
+            raise WorkflowError(f"slot {slot.name!r}: strength must be a number in (0, 1]")
+
+        loader_id = f"{slot.loader}_{slot.name}_{i}"
+        graph[loader_id] = copy.deepcopy(graph[slot.loader])
+        graph[loader_id].setdefault("_meta", {})["title"] = f"Mid still {i + 1}"
+        bindings.append(AssetBinding(loader_id, "image", path, slot.name))
+
+        prev_id = loader_id
+        for k, chain_id in enumerate(slot.chain):
+            expected_source = slot.loader if k == 0 else slot.chain[k - 1]
+            clone_id = f"{chain_id}_{slot.name}_{i}"
+            graph[clone_id] = copy.deepcopy(graph[chain_id])
+            graph[clone_id].setdefault("_meta", {})["title"] = f"Mid still {i + 1}"
+            found = False
+            for input_name, value in graph[clone_id].get("inputs", {}).items():
+                if _is_link(value) and value[0] == expected_source:
+                    graph[clone_id]["inputs"][input_name] = [prev_id, value[1]]
+                    found = True
+                    break
+            if not found:
+                raise WorkflowError(
+                    f"slot {slot.name!r}: clone of {chain_id} has no input linked to {expected_source!r}"
+                )
+            prev_id = clone_id
+
+        guide_id = f"{slot.guide}_{slot.name}_{i}"
+        graph[guide_id] = copy.deepcopy(graph[slot.guide])
+        graph[guide_id].setdefault("_meta", {})["title"] = f"Mid still {i + 1}"
+        found = False
+        for input_name, value in graph[guide_id].get("inputs", {}).items():
+            if _is_link(value) and value[0] == slot.chain[-1]:
+                graph[guide_id]["inputs"][input_name] = [prev_id, value[1]]
+                found = True
+                break
+        if not found:
+            raise WorkflowError(
+                f"slot {slot.name!r}: clone of guide {slot.guide} has no input linked to {slot.chain[-1]!r}"
+            )
+
+        if i == 0:
+            prev_guide = graph[slot.guide]["inputs"]["positive"][0]
+        else:
+            prev_guide = last_guide_id
+        graph[guide_id]["inputs"]["positive"] = [prev_guide, 0]
+        graph[guide_id]["inputs"]["negative"] = [prev_guide, 1]
+        graph[guide_id]["inputs"]["latent"] = [prev_guide, 2]
+        graph[guide_id]["inputs"]["frame_idx"] = frame_idx
+        if strength is not None:
+            graph[guide_id]["inputs"]["strength"] = float(strength)
+        last_guide_id = guide_id
+
+    if raw:
+        graph[slot.guide]["inputs"]["positive"] = [last_guide_id, 0]
+        graph[slot.guide]["inputs"]["negative"] = [last_guide_id, 1]
+        graph[slot.guide]["inputs"]["latent"] = [last_guide_id, 2]
     return bindings
 
 

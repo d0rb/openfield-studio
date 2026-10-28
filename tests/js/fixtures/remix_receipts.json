@@ -1,0 +1,910 @@
+[
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": "Oskar",
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves.",
+     "mode": "prompt_only",
+     "move": "static",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "3b5b0b962caf859faecd8d142c1a84b3db816f8af2750b8be556873c545b6287",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "static",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": "Oskar",
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "static",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "3b5b0b962caf859faecd8d142c1a84b3db816f8af2750b8be556873c545b6287"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": "a drum loop",
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves. We hear a drum loop.",
+     "mode": "prompt_only",
+     "move": "static",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "d1d688e6509b2b6268978d18e962847eb6841e5be6e06e70168f20e46b62e6ae",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "static_quick",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": "a drum loop",
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "prompt_only": true,
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "static",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "d1d688e6509b2b6268978d18e962847eb6841e5be6e06e70168f20e46b62e6ae"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": "waves",
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera orbits 90 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles a quarter turn at the same distance and height and ends with the subject seen from the side, still centred. Shot on a clean modern digital cinema camera with an anamorphic lens with oval bokeh and horizontal flares, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. We hear waves.",
+     "mode": "prompt_only",
+     "move": "orbit_90",
+     "orientation": "portrait",
+     "quality": "standard",
+     "recipe_hash": "0290ed4cbecacc02cf46c7d526dfe738cf94ef009193c35d544993e72aba518d",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "anamorphic",
+      "lighting": "soft_cross",
+      "movement": "orbit_90",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "orbit_90",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": "waves",
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "portrait",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "anamorphic",
+     "lighting": "soft_cross",
+     "movement": "orbit_90",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "0290ed4cbecacc02cf46c7d526dfe738cf94ef009193c35d544993e72aba518d"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. The camera travels forward on its track and arrives at a close view of the subject, the lens height unchanged.",
+     "mode": "keyframed",
+     "move": "dolly_in",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "4e205e83bdd90e15b0280f21aebf12d4054fb87e70cee1fdcb7ff4dfc4d908be",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "dolly_in",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "dolly_in",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "dolly_in",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "4e205e83bdd90e15b0280f21aebf12d4054fb87e70cee1fdcb7ff4dfc4d908be"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. The camera travels forward on its track and arrives at a close view of the subject, the lens height unchanged.",
+     "mode": "prompt_only",
+     "move": "dolly_in",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "9f9c8f738a7bebc3d1c896c77df425863a8a9df38fe0f3ae4113c97735b65179",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "dolly_in",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "dolly_in_quick",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "prompt_only": true,
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "dolly_in",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "9f9c8f738a7bebc3d1c896c77df425863a8a9df38fe0f3ae4113c97735b65179"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera orbits 180 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles halfway round at the same distance and height and ends behind the subject, who stays centred and facing the same way.",
+     "mode": "prompt_only",
+     "move": "orbit_180",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "d29752a6c6856d8f440f7ff97a80a89814a168a565f7757cc793b7cb3bea25cb",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "orbit_180",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "orbit_180_one_pass",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "orbit_180",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "d29752a6c6856d8f440f7ff97a80a89814a168a565f7757cc793b7cb3bea25cb"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "dialogue": {
+      "delivery": "whisper",
+      "language": "English",
+      "line": "We leave at first light.",
+      "tested": true
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves. The person in the shot speaks in English, in a whisper, lips moving with the words: \"We leave at first light.\"",
+     "mode": "prompt_only",
+     "move": "static",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "17a90faefbe154a19ae33c0148cee81e5377c3674c8424e649db5318d2f13feb",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "spoken_line",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "delivery": "whisper",
+    "kind": "direct",
+    "language": "English",
+    "line": "We leave at first light.",
+    "orientation": "landscape",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "static",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "17a90faefbe154a19ae33c0148cee81e5377c3674c8424e649db5318d2f13feb"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": "Mara",
+      "refs": []
+     },
+     "dialogue": {
+      "delivery": "calm",
+      "line": "Come home.",
+      "tested": true
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves. The person in the shot speaks in a calm, low voice, unhurried, lips moving with the words: \"Come home.\"",
+     "mode": "prompt_only",
+     "move": "static",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "ac37eeee4ad5591b0a63a84dcc1ef20b3bfaa3ad3b3387c4f42bcf9504e01a8e",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "spoken_line_no_language",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": "Mara",
+    "cast_refs": [],
+    "delivery": "calm",
+    "kind": "direct",
+    "line": "Come home.",
+    "orientation": "landscape",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "static",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "ac37eeee4ad5591b0a63a84dcc1ef20b3bfaa3ad3b3387c4f42bcf9504e01a8e"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "action": "He draws the katana and raises the blade",
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. He draws the katana and raises the blade. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. The camera travels forward on its track and arrives at a close view of the subject, the lens height unchanged.",
+     "mode": "keyframed",
+     "move": "dolly_in",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "7cb94de6e63841bf41ade8d1c4e97398dd982bccdb9cec33b31f966c48a47c48",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "dolly_in",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "action",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "action": "He draws the katana and raises the blade",
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "dolly_in",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "7cb94de6e63841bf41ade8d1c4e97398dd982bccdb9cec33b31f966c48a47c48"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "action": "She lifts the lantern",
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "dialogue": {
+      "delivery": "natural",
+      "line": "Ready?",
+      "tested": true
+     },
+     "final_prompt": "Oskar at the net, a close-up. She lifts the lantern. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves. Heavy rain falls across the whole frame, drops streaking through the lamplight and beading on hair and cloth, wet ground catching the reflections. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject, graded teal and orange, cool shadows against warm skin and highlights. The person in the shot speaks in a natural speaking voice, lips moving with the words: \"Ready?\" The music is a slow string swell, continuing across the whole shot.",
+     "mode": "prompt_only",
+     "move": "static",
+     "orientation": "landscape",
+     "quality": "draft",
+     "recipe_hash": "662b8128ac8aea79bd5178032d73f6f017938815effa00d7870fc7015e1debad",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "rain",
+      "focal_length_mm": 35,
+      "grade": "teal_orange",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "score": "strings",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "talking_acted_draft",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "action": "She lifts the lantern",
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "delivery": "natural",
+    "kind": "direct",
+    "line": "Ready?",
+    "orientation": "landscape",
+    "quality": "draft",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "effect": "rain",
+     "focal_length_mm": 35,
+     "grade": "teal_orange",
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "static",
+     "score": "strings",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "662b8128ac8aea79bd5178032d73f6f017938815effa00d7870fc7015e1debad"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera is locked off on a tripod; only the subject moves. The frame stays perfectly still from the first moment to the last; only the subject moves. Flames catch at the edges of the frame and spread across the scene, embers drifting upward and the light turning orange, until fire fills the shot, the crackle of the fire rising.",
+     "mode": "prompt_only",
+     "move": "static",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "541e7ed70566dfee4e354e582d16f8bd2239727d5306051854e4ce1de31b2a0a",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "ignite",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up",
+     "transformation": "ignite"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "transformation",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "effect": "ignite",
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "static",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "541e7ed70566dfee4e354e582d16f8bd2239727d5306051854e4ce1de31b2a0a"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. A fast whip pan: the camera swings sideways, motion blur streaks across the frame, then settles. After one fast swing the frame comes to rest on a new, steady view.",
+     "mode": "prompt_only",
+     "move": "whip_pan",
+     "orientation": "landscape",
+     "quality": "standard",
+     "recipe_hash": "9d5d004ee8db2d81dc62d86d19998c498b11d8e9d3a2243c5e1c08c933b81b60",
+     "rig": {
+      "angle": "front/eye/medium",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "whip_pan",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "experimental",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "rig": {
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "whip_pan",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "9d5d004ee8db2d81dc62d86d19998c498b11d8e9d3a2243c5e1c08c933b81b60"
+  }
+ },
+ {
+  "imported": {
+   "recipe": {
+    "inputs": {
+     "audio": null,
+     "cast": {
+      "name": null,
+      "refs": []
+     },
+     "final_prompt": "Oskar at the net, a close-up. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving at a steady pace. The camera travels forward on its track and arrives at a close view of the subject, the lens height unchanged.",
+     "mode": "keyframed",
+     "move": "dolly_in",
+     "orientation": "landscape",
+     "quality": "fine",
+     "recipe_hash": "4be17d96ae0db795110e24d4d590435d5980c8094a44bd972a9aa2d2a9407708",
+     "rig": {
+      "angle": "back_left/low/wide",
+      "aperture": "f4",
+      "duration_seconds": 5,
+      "effect": "none",
+      "focal_length_mm": 35,
+      "grade": "none",
+      "lens": "clean_sharp",
+      "lighting": "soft_cross",
+      "movement": "dolly_in",
+      "score": "none",
+      "sensor": "modern_digital",
+      "soundscape": "none",
+      "speed": "steady"
+     },
+     "seed": 11,
+     "subject": "Oskar at the net, a close-up"
+    },
+    "kind": "direct",
+    "models": [],
+    "schema": "openfield.recipe/1",
+    "seed": 11,
+    "template": ""
+   },
+   "verified": true
+  },
+  "name": "angle_fine",
+  "recorded": {
+   "kind": "direct",
+   "recipe": {
+    "audio": null,
+    "auto_approve": true,
+    "cast_name": null,
+    "cast_refs": [],
+    "kind": "direct",
+    "orientation": "landscape",
+    "quality": "fine",
+    "rig": {
+     "angle": "back_left/low/wide",
+     "aperture": "f4",
+     "duration_seconds": 5,
+     "focal_length_mm": 35,
+     "lens": "clean_sharp",
+     "lighting": "soft_cross",
+     "movement": "dolly_in",
+     "sensor": "modern_digital",
+     "speed": "steady"
+    },
+    "seed": 11,
+    "subject": "Oskar at the net, a close-up"
+   },
+   "recipe_hash": "4be17d96ae0db795110e24d4d590435d5980c8094a44bd972a9aa2d2a9407708"
+  }
+ }
+]

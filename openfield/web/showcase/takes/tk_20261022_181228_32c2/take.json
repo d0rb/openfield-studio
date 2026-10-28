@@ -1,0 +1,142 @@
+{
+  "id": "tk_20261022_181228_32c2",
+  "kind": "direct",
+  "label": "static: Ines writes in a notebook at a cafe window while",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T18:12:28Z",
+  "updated_at": "2026-10-22T18:14:25Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines writes in a notebook at a cafe window while rain runs down the glass, then looks up",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 50,
+      "aperture": "f1.4",
+      "lighting": "window",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "slow"
+    },
+    "audio": "rain on the window, a spoon on a saucer",
+    "seed": 162,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "line": "Don't look now.",
+    "delivery": "whisper",
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "dialogue: LTX 2.5 speaks the line with the picture (not yet tested with a real render)"
+  ],
+  "replay": false,
+  "recipe_hash": "ffc9b9c547cf9c1c3e83c86d52316507abe11bd05feea0a18f14f7b012968d5b",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7780885956133712,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7780885956133712
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        448,
+        66,
+        199,
+        245
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.778 >= threshold 0.363 (best reference 0)",
+      "face_px": 199,
+      "enlarged": null,
+      "retried": true
+    },
+    "hero_retry": {
+      "status": "pass",
+      "score": 0.7780885956133712,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7780885956133712
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        448,
+        66,
+        199,
+        245
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.778 >= threshold 0.363 (best reference 0)",
+      "face_px": 199,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.7764488072493596,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7764488072493596
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        429,
+        45,
+        186,
+        232
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.776 >= threshold 0.363 (best reference 0)",
+      "face_px": 186,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "dlg-ines-whisper",
+  "showcase_sha": "60300d64744a3ab6"
+}

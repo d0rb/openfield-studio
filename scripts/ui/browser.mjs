@@ -51,7 +51,9 @@ export async function launch({ port, width = 1440, height = 900, mobile = false,
       else process.kill(-proc.pid, "SIGKILL");
     } catch { /* already gone */ }
   };
-  process.on("exit", stop);
+  // a run that ends without close() (a throw, a time limit) still kills the browser and tries to take its profile along;
+  // each profile is tens of MB, and on a nearly full disk they add up
+  process.on("exit", () => { stop(); try { rmSync(profile, { recursive: true, force: true }); } catch { /* still locked */ } });
 
   let info = null;
   for (let i = 0; i < 80 && !info; i += 1) {
@@ -151,10 +153,11 @@ export async function launch({ port, width = 1440, height = 900, mobile = false,
       await send("Emulation.setEmulatedMedia", { features });
     },
     async close() {
-      try { await send("Browser.close"); } catch { /* closing */ }
+      // a wedged browser never answers Browser.close; the process is killed below either way, so bound the wait
+      try { await Promise.race([send("Browser.close"), sleep(3000)]); } catch { /* closing */ }
       try { ws.close(); } catch { /* closed */ }
       stop();
-      for (let i = 0; i < 10; i += 1) {
+      for (let i = 0; i < 20; i += 1) { // Windows can hold the profile's files for a few seconds after the kill
         await sleep(300);
         try { rmSync(profile, { recursive: true, force: true }); if (!existsSync(profile)) break; } catch { /* still locked */ }
       }

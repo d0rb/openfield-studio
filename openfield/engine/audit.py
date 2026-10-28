@@ -17,7 +17,7 @@ POLICY = "open-weights-only"
 MODEL_SUFFIXES = (".safetensors", ".ckpt", ".pt", ".pth", ".gguf", ".bin", ".onnx")
 _PARTNER_HINT = re.compile(
     r"(?i)(kling|veo|runway|luma|pika|openai|gpt|gemini|ideogram|recraft|stability|moonvalley|"
-    r"seedance|seedream|bytedance|higgsfield|hailuo|minimaxapi|bfl|api)"
+    r"seedance|seedream|bytedance|hailuo|minimaxapi|bfl|api)"
 )
 
 

@@ -1,0 +1,245 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_135050_ef5a",
+    "kind": "direct",
+    "created_at": "2026-10-22T13:53:10Z",
+    "label": "static: Ines writes in a notebook at a cafe window while"
+  },
+  "inputs": {
+    "subject": "Ines writes in a notebook at a cafe window while rain runs down the glass",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "vintage_anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "window",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "bloom",
+      "grade": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Ines writes in a notebook at a cafe window while rain runs down the glass. Shot on a clean modern digital cinema camera with a vintage anamorphic lens with soft edges, flares and gentle falloff, 35mm (natural), at f/4 with moderate depth of field; soft window light from one side. The camera is locked off on a tripod; only the subject moves. Vines and blossoms sprout and climb across the scene in fast motion, moss spreading and flowers opening until greenery frames everything, with the rustle of leaves. Constraint: no camera movement, no zoom, no drift. Sound: cafe chatter, rain on glass, a spoon against a cup.",
+    "seed": 134,
+    "orientation": "landscape",
+    "audio": "cafe chatter, rain on glass, a spoon against a cup",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "transformation": "bloom",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_transform_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Ines",
+      "refs": [
+        "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+      ]
+    },
+    "recipe_hash": "96e66a18db22bcb94022bcf7494a50821663aa9e75889b423803f0dc52f61f96"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "1fde091e3b6061a3440bcca2fed9f3448b6990262c42911164b5cbaa5f3fff09",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "805acb829bc8491da0c72d770abd348c73a11c62a015e7bdb109c1a598dd5e71",
+        "job_id": "898e0be4-db7a-4a3d-ba2c-f13c7eead3a0"
+      },
+      {
+        "stage": "transform_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "d1e31cae1224816791e57155d482e42898b5cb6947bf2a6648183e22db7ca6bd",
+        "job_id": "11e820ae-0c32-49ae-ae0d-4d61b8ea0ced"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "5a5e4ba5ff1ec5648688cc1197f21fbbe736d0a4021401ce1748c75e247b1ba9",
+        "job_id": "30137e14-6f97-47d9-a808-b04d8a78a32b"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8987245654087402,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8987245654087402,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8987245654087402
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          619,
+          83,
+          225,
+          277
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.899 >= threshold 0.363 (best reference 0)",
+        "face_px": 225,
+        "enlarged": null
+      },
+      "transform_1": {
+        "status": "pass",
+        "score": 0.8651091935603265,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8651091935603265
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          615,
+          91,
+          210,
+          269
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.865 >= threshold 0.363 (best reference 0)",
+        "face_px": 210,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.8104855090256239,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8104855090256239
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          587,
+          71,
+          202,
+          261
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.810 >= threshold 0.363 (best reference 0)",
+        "face_px": 202,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "898e0be4-db7a-4a3d-ba2c-f13c7eead3a0,11e820ae-0c32-49ae-ae0d-4d61b8ea0ced,30137e14-6f97-47d9-a808-b04d8a78a32b",
+    "timings": {
+      "total_s": 140.6
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "c8811803e760d6606717e16dd4949b8d22de68e5fdc435c6aaa2bcd9b8edd08d",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "98c36c6ee2fb26961eedf5c76cc199d5a517003c1725d588c0003443bc6414ed"
+  }
+}

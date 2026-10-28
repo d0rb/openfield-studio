@@ -70,8 +70,13 @@ class Ledger:
         return path
 
     def media_path(self, take_id: str, relative: str) -> Path:
-        """A file inside a take folder, at most two levels deep, never outside it."""
-        base = self.take_dir(take_id).resolve()
+        """A file inside one of this ledger's take folders, never outside it."""
+        return self.file_in(self.take_dir(take_id), relative)
+
+    @staticmethod
+    def file_in(folder: Path, relative: str) -> Path:
+        """A file inside a take folder (the ledger's or a recorded one), at most three parts deep, never outside it."""
+        base = Path(folder).resolve()
         parts = [p for p in relative.replace("\\", "/").split("/") if p]
         if not parts or len(parts) > 3 or not all(SAFE_PART.match(p) for p in parts):
             raise LedgerError("bad media path")

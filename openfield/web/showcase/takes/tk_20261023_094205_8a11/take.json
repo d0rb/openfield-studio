@@ -1,0 +1,121 @@
+{
+  "id": "tk_20261023_094205_8a11",
+  "kind": "direct",
+  "label": "dolly out: Oskar, a seventy-year-old fisherman with a white",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:42:05Z",
+  "updated_at": "2026-10-23T09:45:22Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Oskar, a seventy-year-old fisherman with a white beard and a navy knit cap, stands on a skateboard at the start of the harbour pier at golden hour, gulls on the railings",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "warm_vintage",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "dolly_out",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "skateboard wheels rumbling on old wood, gulls crying, a cheer from the boats",
+    "seed": 617,
+    "orientation": "landscape",
+    "cast_refs": [
+      "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+    ],
+    "prompt_only": true,
+    "action": "He pushes off and rolls fast down the pier toward the camera on the skateboard, arms out for balance, grinning, as the gulls lift off the railings.",
+    "cast_name": "Oskar",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "quick mode: one still and a camera instruction, no anchor stills"
+  ],
+  "replay": false,
+  "recipe_hash": "a908747d96925dc8ff3ce9a83e284701da2dc5bc3896e87dd06a8bfb331b63bb",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7674326563607368,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7674326563607368
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        559,
+        78,
+        135,
+        177
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.767 >= threshold 0.363 (best reference 0)",
+      "face_px": 135,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.6877080266248019,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6877080266248019
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        534,
+        55,
+        130,
+        178
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.688 >= threshold 0.363 (best reference 0)",
+      "face_px": 130,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v1c-oskar-skate-dolly",
+  "showcase_sha": "824448b1d5b85e67"
+}

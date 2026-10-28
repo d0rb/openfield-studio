@@ -1,0 +1,121 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_093914_8b6a",
+    "kind": "extend",
+    "created_at": "2026-10-23T09:40:02Z",
+    "label": "extend: Ines walks along a canal bridge playing a small "
+  },
+  "inputs": {
+    "take": {
+      "id": "tk_20261020_160123_6d4f",
+      "sha256": "daaddcaacae79f11910453736f9914cd5b75f10adfdd8bbd861984e1120daaba",
+      "frame": "inputs/last_frame.png"
+    },
+    "seconds": 3,
+    "seed": 651,
+    "final_prompt": "The same shot continues without a cut from where it ended: Ines walks along a canal bridge playing a small accordion, autumn leaves on the stones. Shot on a clean modern digital cinema camera with a vintage anamorphic lens with soft edges, flares and gentle falloff, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera tracks sideways to the right, parallel to the subject at constant distance, the background sliding behind it, moving at a steady pace. Constraint: lateral travel only, constant distance, fixed focal length, no zoom. Sound: a gentle accordion melody, footsteps on stone.",
+    "frame": [
+      1280,
+      704
+    ],
+    "recipe_hash": "0720ab53e2a5493eea73f2670643e5922b12c502bc81f05d67f557e444bb0c6c"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "726813a28a910cf06ee586ad38b08312aafd225de1a59d54104ac676931d26bc",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "extend",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "7a00278ef0f41ccd7e96e2bfb04149e10922de32e8cd06f4166c7e85d699e824",
+        "job_id": "df16ef54-1ea2-4dcc-94a4-a20bb141961b"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {},
+    "skipped": {
+      "extend": "an extension continues a finished take; that take keeps its own identity result"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "df16ef54-1ea2-4dcc-94a4-a20bb141961b",
+    "timings": {
+      "total_s": 47.7
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "983b419aa2317258130abb83a833bae964d44fdadb2036e1af9a6604f2992643",
+      "seconds": 8.0
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "9a4568ac978140bfdb544451b8ea3ea2c058c51ba2755d4c0d09d90b1a9e8f15"
+  }
+}

@@ -113,6 +113,12 @@ def test_unfinished_markers_fail_only_in_the_public_documents(rc, tmp_path):
     assert result.state == "FAIL" and len(result.items) == 2
     assert result.items[0].startswith("README.md:3") and any("docs/POD.md:1" in i for i in result.items)
 
+    readme.write_text("# OpenField\n\n**Try it** (<try-it link>) and watch (<video link>); a real <a href> is fine.\n")
+    notes.write_text("Steps.\n")
+    placeholders = rc.check_unfinished(tmp_path, files)
+    assert placeholders.state == "FAIL" and len(placeholders.items) == 1, "a link left to fill in can never ship"
+    assert placeholders.items[0].startswith("README.md:3")
+
 
 def test_binary_files_are_not_text_scanned(rc, tmp_path):
     (tmp_path / "clip.mp4").write_bytes(b"hf_" + b"a" * 40)
@@ -154,6 +160,19 @@ def test_paths_inside_json_are_caught_in_their_escaped_form(rc):
     assert not scan(rc, json.dumps({"source": "C:" + "\\Users\\Alex\\clip.mp4"}))["personal"]
 
 
+def test_the_static_export_reports_its_size_and_fails_over_the_limit(rc, tmp_path, monkeypatch):
+    site = tmp_path / "site"
+    site.mkdir()
+    (site / "fits.bin").write_bytes(b"x" * 2000)
+    monkeypatch.setattr(rc, "MAX_EXPORT_BYTES", 1000)
+    result = rc.check_export_size(site)
+    assert result.state == "FAIL" and "MB" in result.detail and "over the" in result.detail
+
+    monkeypatch.setattr(rc, "MAX_EXPORT_BYTES", 10_000)
+    result = rc.check_export_size(site)
+    assert result.state == "ok" and "MB" in result.detail
+
+
 def test_takes_made_on_the_fake_dev_stack_are_recognised(rc, tmp_path):
     import json
 
@@ -175,7 +194,23 @@ def test_takes_made_on_the_fake_dev_stack_are_recognised(rc, tmp_path):
 def test_the_repository_itself_has_no_personal_data_or_secrets(rc):
     """The same scan the gate runs, over what git would add right now."""
     root = Path(__file__).resolve().parents[1]
+    if not (root / ".git").exists():  # a ZIP download: nothing to add, and the app's own git-ignored log is on disk
+        pytest.skip("not a git checkout: the scan covers what git would add")
     files = rc.addable_files(root)
     results = rc.check_content(root, files)
     bad = [r for r in results if r.state == "FAIL"]
     assert not bad, [(r.name, r.items[:5]) for r in bad]
+
+
+def test_draft_placeholders_fail_the_gate_in_every_public_document(rc, tmp_path):
+    (tmp_path / "showcase").mkdir()
+    product = tmp_path / "PRODUCT.md"
+    shelf = tmp_path / "showcase" / "README.md"
+    product.write_text("Moves tested: 21 of 49.\n")
+    shelf.write_text("Session 5 ran on an RTX 5090.\n")
+    assert rc.check_unfinished(tmp_path, [product, shelf]).state == "ok"
+    product.write_text("Moves tested: [N] of 49, effects [N effects].\n")
+    shelf.write_text("Shots board: [TESTED?] on [GPU] for [COST].\n")
+    result = rc.check_unfinished(tmp_path, [product, shelf])
+    assert result.state == "FAIL" and len(result.items) == 2
+

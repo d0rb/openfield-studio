@@ -1,0 +1,111 @@
+{
+  "id": "tk_20261022_235620_5e31",
+  "kind": "edit",
+  "label": "your words: A ginger cat in tiny headphones DJs on a",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T23:56:20Z",
+  "updated_at": "2026-10-22T23:57:03Z",
+  "recipe": {
+    "kind": "edit",
+    "preset": "custom",
+    "detail": "Turn the cat into a tiger cub wearing the same headphones",
+    "source_sha256": "ae44b9136b06e0c3337c00f563f63ef098fad5dfbd4865eb8c991e83b204727a",
+    "seed": 535,
+    "cast_refs": [],
+    "take": "tk_20261022_234146_ec1f",
+    "cast_name": null
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "One Qwen-Image 2.1 edit of one still. The take plays the still before and after, 1.2 s each: no video model ran."
+  ],
+  "replay": false,
+  "recipe_hash": "d049c2155cbca92716525a91504bd1df4665ce8ad6e98276b69b0605e38ab7f5",
+  "edit": {
+    "preset": "custom",
+    "before": "inputs/source.png",
+    "after": "runs/02_edit_retry/image.png"
+  },
+  "identity": {
+    "edit": {
+      "status": "pass",
+      "score": 0.9075718099807321,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.9075718099807321
+      ],
+      "faces_in_candidate": 5,
+      "candidate_box": [
+        54,
+        427,
+        38,
+        47
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.908 >= threshold 0.363 (best reference 0)",
+      "face_px": 38,
+      "enlarged": null,
+      "retried": true
+    },
+    "edit_retry": {
+      "status": "pass",
+      "score": 0.9075718099807321,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.9075718099807321
+      ],
+      "faces_in_candidate": 5,
+      "candidate_box": [
+        54,
+        427,
+        38,
+        47
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.908 >= threshold 0.363 (best reference 0)",
+      "face_px": 38,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 2.4,
+  "size": [
+    1344,
+    768
+  ],
+  "showcase_name": "v1-edit-custom",
+  "showcase_sha": "fcb2712e56c2395e"
+}

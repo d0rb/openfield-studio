@@ -1,0 +1,92 @@
+{
+  "id": "tk_20261022_235440_2af2",
+  "kind": "edit",
+  "label": "swap the person: Oskar, a seventy-year-old fisherman with",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T23:54:40Z",
+  "updated_at": "2026-10-22T23:55:09Z",
+  "recipe": {
+    "kind": "edit",
+    "preset": "character_swap",
+    "detail": "",
+    "source_sha256": "7cd36a8c7a4578f82d0f35f273963a49a7c37fdb62667662e363a3de74eae840",
+    "seed": 531,
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "take": "tk_20261022_225813_c120",
+    "cast_name": "Ines"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "One Qwen-Image 2.1 edit of one still. The take plays the still before and after, 1.2 s each: no video model ran."
+  ],
+  "replay": false,
+  "recipe_hash": "fc3f2f74650a6cac17b7db60ce11aef9b8ba13f3d6ac804397ee9995af73c608",
+  "edit": {
+    "preset": "character_swap",
+    "before": "inputs/source.png",
+    "after": "runs/01_edit/image.png"
+  },
+  "identity": {
+    "edit": {
+      "status": "pass",
+      "score": 0.7944749991282789,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7944749991282789
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        674,
+        62,
+        96,
+        117
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.794 >= threshold 0.363 (best reference 0)",
+      "face_px": 96,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 2.4,
+  "size": [
+    1344,
+    768
+  ],
+  "showcase_name": "v1-edit-person-swap",
+  "showcase_sha": "b5c289f8d173748a"
+}

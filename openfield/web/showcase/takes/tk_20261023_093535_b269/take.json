@@ -1,0 +1,72 @@
+{
+  "id": "tk_20261023_093535_b269",
+  "kind": "direct",
+  "label": "lazy susan: A glossy chrome sneaker with bright orange laces",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:35:35Z",
+  "updated_at": "2026-10-23T09:38:26Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A glossy chrome sneaker with bright orange laces on a seamless white studio sweep, soft even light",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "lazy_susan",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": null,
+    "seed": 604,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "094d6ae1a0badff57ec0713b11e40fea1c4f7b713bbd57199485989142b5744c",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v3-spin-sneaker",
+  "showcase_sha": "b1682ff76310a6f9"
+}

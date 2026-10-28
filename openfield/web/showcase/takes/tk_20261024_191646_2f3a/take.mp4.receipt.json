@@ -1,0 +1,128 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261024_191646_2f3a",
+    "kind": "transition",
+    "created_at": "2026-10-24T19:18:46Z",
+    "label": "push through: Noor, a woman astronaut in a to Noor, a woman astronaut in a"
+  },
+  "inputs": {
+    "style": "push",
+    "seconds": 3,
+    "seed": 1396836514,
+    "final_prompt": "The camera pushes forward through the first scene and comes out into the second, one continuous forward move with no cut. How it gets there: The camera pushes into the glowing doorway on the red dunes, its white-blue light fills the frame, and the light opens onto the rain-soaked neon Tokyo street where Noor stands before the door. It starts on the last moment of the first shot: Noor, a woman astronaut in a worn white spacesuit with a clear open-faced helmet, her face clearly visible, stands medium-wide on rippled red Martian dunes under a dusty butterscotch sky at late afternoon. Beside her a tall rectangular door. It lands on the opening of the second shot: Noor, a woman astronaut in a worn white spacesuit with a clear open-faced helmet, her face clearly visible, stands medium-wide in front of a glowing white-blue doorway on a rain-soaked Tokyo street at night, pink and cyan neon signs reflect. The sound carries through the transition without a break.",
+    "frame": [
+      1280,
+      704
+    ],
+    "idea": "The camera pushes into the glowing doorway on the red dunes, its white-blue light fills the frame, and the light opens onto the rain-soaked neon Tokyo street where Noor stands before the door",
+    "first": {
+      "take": "tk_20261024_185040_7c6b",
+      "sha256": "14b2b03968f08f0ed3644978ac80127654076b83c47256cfc85ae31761fe9b6b",
+      "frame": "inputs/first_last_frame.png"
+    },
+    "second": {
+      "take": "tk_20261024_190006_298d",
+      "sha256": "fd1860dbcbec20197a4d2258261f207d806d0c09145bd14b3231225cf8892f23",
+      "frame": "inputs/second_first_frame.png"
+    },
+    "join": {
+      "order": [
+        "first",
+        "bridge",
+        "second"
+      ],
+      "crossfade_s": 0.12
+    },
+    "recipe_hash": "fd452f3fcefa373e47f5a42378681c8f83cf27039edaa058ddf5aeb1b1979966"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "59708e4b226a65fcdbeaf8aef546e261dfab7cf0e86c1db5470e30f4fa33d358",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "bridge",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "69cc82e69be19c491d1c2425db137d2782ea92026c31c3606ff4a991dfe15253",
+        "job_id": "a856acb6-582c-42d3-b912-816425fc362f"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {},
+    "skipped": {
+      "bridge": "a transition joins two finished takes; each keeps its own identity result"
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "a856acb6-582c-42d3-b912-816425fc362f",
+    "timings": {
+      "total_s": 120.0
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "7bdb977b03c700fe9ada69e68a9256da255707b059bc0e78fb565548b0cba749",
+      "seconds": 12.89
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "34c8fe45b7f4fd34f74f20b6692fb9161d4a79bf7386daf94cd1e491bbf2188d"
+  }
+}

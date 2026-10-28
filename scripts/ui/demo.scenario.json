@@ -1,40 +1,799 @@
 {
-  "title": "OpenField Studio: a two-minute walk",
-  "_comment": "An example scenario for the hosted Replay (recorded takes, no backend). Re-take it with: python scripts/record_demo.py --url <the Replay site> --scenario scripts/ui/demo.scenario.json. When real renders exist, adjust the take names and the waits to match them. Narration cues (say) are timed in the finished video and written to cues.txt.",
+  "title": "OpenField Studio, demo cut 12f",
+  "_comment": "Demo cut 12d: it opens on the take an agent shot in the Chat room, then the hook; six narration lines (say), everything else in tagged captions, about 1:58 on the round-14 interface (its holds were trimmed 5.5 s on Oct 27 after a first take ran 2:04). Record on the Replay app: OPENFIELD_FRAME_CAP=30 python scripts/record_demo.py --url http://127.0.0.1:8080/ --scenario scripts/ui/demo.scenario.json --out data-dev/demo --try-url <site url> --repo-url <repo url> (the films in scripts/ui/clips play from there by default: the bullet-time take saved with its camera path, a live render sped up eight times, a card with the verify result). Lay the voice and the takes' own sound afterwards from timeline.json, as docs/DEMO.md says. Cut 12f (Oct 27 night): eleven holds, rings and clip lengths trimmed 5.2 s more after cut 12e, recorded on the round-15 front (the trailer across the Lobby), ran 119.3 s.",
   "steps": [
-    { "do": "goto", "route": "reshoot" },
-    { "do": "say", "text": "Same motion, a new character. This is a re-shoot: the clip's movement, a different person." },
-    { "do": "hold", "ms": 1800 },
-    { "do": "drag", "selector": "[data-station=reshoot] .split-handle", "by": [240, 0] },
-    { "do": "hold", "ms": 700 },
-    { "do": "drag", "selector": "[data-station=reshoot] .split-handle", "by": [-420, 0] },
-    { "do": "click", "selector": "[data-station=reshoot] .big-play" },
-    { "do": "hold", "ms": 3000 },
-
-    { "do": "goto", "route": "cast" },
-    { "do": "say", "text": "Characters are invented or consented: consent comes first, and a face check runs on your own computer." },
-    { "do": "hold", "ms": 2200 },
-
-    { "do": "goto", "route": "direct" },
-    { "do": "say", "text": "Direct a shot. The Move Pad draws the camera path, and the plan counts every render before anything is spent." },
-    { "do": "click", "selector": ".move-tile", "text": "Orbit 180" },
-    { "do": "ring", "selector": "[data-station=direct] .plan", "ms": 1800 },
-    { "do": "click", "selector": ".move-tile", "text": "Dolly in" },
-    { "do": "hold", "ms": 1200 },
-
-    { "do": "say", "text": "In Replay, Recreate plays back a recorded run, step by step. Nothing renders here." },
-    { "do": "click", "selector": "[data-station=direct] .prompt .btn.primary" },
-    { "do": "until", "expr": "document.querySelector('[data-station=direct] .screen[data-mode=ready] video.player')", "timeout": 60000, "speed": 1, "label": "the recorded run" },
-    { "do": "hold", "ms": 1500 },
-
-    { "do": "say", "text": "Every take carries a receipt: identity result, open-weights audit, models and licences, and the exact workflow." },
-    { "do": "click", "selector": "[data-station=direct] .monitor-head .btn:last-child" },
-    { "do": "ring", "selector": ".audit-head", "ms": 2200 },
-    { "do": "scroll", "selector": ".dock-body", "to": 400 },
-    { "do": "hold", "ms": 1500 },
-
-    { "do": "goto", "route": "takes" },
-    { "do": "say", "text": "Takes keeps everything, with exports under the take they came from." },
-    { "do": "hold", "ms": 2200 }
+    {
+      "beat": "B00 agent",
+      "do": "film",
+      "take": "tk_20261025_135037_c07b",
+      "from": 0.3,
+      "ms": 3300,
+      "caption": "Shot by an / open-weights agent.",
+      "captionAt": 500,
+      "captionTag": "LTX 2.5",
+      "chip": true,
+      "chipAt": 1200,
+      "sound": true,
+      "hold": true
+    },
+    {
+      "beat": "B00 agent",
+      "do": "caption",
+      "text": null,
+      "note": "the agent's line leaves at the cut; the hook's own line comes a second in"
+    },
+    {
+      "beat": "B01 hook",
+      "do": "film",
+      "take": "tk_20261022_181228_32c2",
+      "from": 0.5,
+      "ms": 4000,
+      "caption": "She was never / filmed.",
+      "captionAt": 1000,
+      "chip": true,
+      "chipAt": 2000,
+      "sound": true,
+      "hold": true
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "goto",
+      "route": "lobby"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "until",
+      "expr": "document.querySelectorAll('.poster-wall .one-sheet').length >= 18 && document.querySelector('.marquee-board').complete && (() => { const v = document.querySelector('.lobby-screen video.trailer'); return v && !v.paused && v.currentTime > 0.2; })()",
+      "timeout": 15000,
+      "label": "the Lobby, its trailer playing"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "say",
+      "text": "A film studio on open-weights models.",
+      "caption": "OpenField Studio",
+      "tag": "COMFYUI · OPEN WEIGHTS ONLY"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "film",
+      "clear": true,
+      "into": ".lobby-screen .screen-frame"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "hold",
+      "ms": 1800
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "eval",
+      "expr": "document.querySelector('.moves-show').scrollIntoView({ block: 'start', behavior: 'smooth' })"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "hold",
+      "ms": 700
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "caption",
+      "text": "Run the mouse. / Drive the camera.",
+      "tag": "LTX 2.5"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "sweep",
+      "selector": ".show-card[data-move=dolly_in] .show-frame",
+      "from": 0.06,
+      "to": 0.94,
+      "ms": 1300,
+      "back": false
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "hold",
+      "ms": 300
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "eval",
+      "expr": "document.querySelector('.show-card[data-move=bullet_time]').scrollIntoView({ block: 'center', behavior: 'smooth' })"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "hold",
+      "ms": 300
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "click",
+      "selector": ".show-card[data-move=bullet_time]"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "until",
+      "expr": "(() => { const v = document.querySelector('.sheet-move video.move-take'); return v && !v.paused && v.currentTime > 0.2; })()",
+      "timeout": 10000,
+      "label": "the move's own page"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "caption",
+      "text": "Every move / has its page."
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "hold",
+      "ms": 1300
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "hold",
+      "ms": 850,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "caption",
+      "text": "One click. / Ready to post."
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "ring",
+      "selector": ".sheet-move .save-path",
+      "ms": 900
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "hold",
+      "ms": 1100,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "film",
+      "src": "bullet-time-camera-path.mp4",
+      "from": 0.8,
+      "ms": 3000,
+      "sound": true,
+      "caption": null
+    },
+    {
+      "beat": "B02 lobby",
+      "do": "key",
+      "key": "Escape"
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "click",
+      "selector": ".rail-item[data-route=direct]"
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "until",
+      "expr": "window.openfield.store.get().route === 'direct'",
+      "timeout": 8000,
+      "label": "Direct"
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "eval",
+      "expr": "window.openfield.ui.selectTake('tk_20261020_153056_2c1e')"
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "click",
+      "selector": "#tab-take"
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261020_153056_2c1e' && document.querySelectorAll('.dock-pane[data-pane=take] .stages-strip .stage-card').length >= 3",
+      "timeout": 10000,
+      "label": "the stills strip: hero 0.81, anchor 0.77, shot 0.70"
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "say",
+      "text": "Stills first. Then LTX 2.5 shoots it.",
+      "caption": "Stills first. / You approve them.",
+      "tag": "QWEN-IMAGE 2.1"
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "ring",
+      "selector": ".dock-pane[data-pane=take] .stages-strip",
+      "ms": 800
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "hover",
+      "selector": ".dock-pane[data-pane=take] .stages-strip .stage-card",
+      "ms": 900
+    },
+    {
+      "beat": "B04 stills first",
+      "do": "hold",
+      "ms": 300
+    },
+    {
+      "beat": "B05 angles",
+      "do": "eval",
+      "expr": "window.openfield.ui.selectTake('tk_20261022_135538_a84e')"
+    },
+    {
+      "beat": "B05 angles",
+      "do": "click",
+      "selector": "#tab-settings"
+    },
+    {
+      "beat": "B05 angles",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261022_135538_a84e' && window.openfield.forms.get().direct?.rig?.angle === 'front_right/eye/medium' && document.querySelector('.dock-pane[data-pane=settings]:not([hidden]) .move-preview')",
+      "timeout": 10000,
+      "label": "Oskar from the front right, the stage pivoted there"
+    },
+    {
+      "beat": "B05 angles",
+      "do": "caption",
+      "text": "Drag the camera. / The still is re-shot.",
+      "tag": "QWEN-IMAGE 2.1"
+    },
+    {
+      "beat": "B05 angles",
+      "do": "drag",
+      "selector": ".move-preview",
+      "by": [
+        108,
+        0
+      ]
+    },
+    {
+      "beat": "B05 angles",
+      "do": "hold",
+      "ms": 300
+    },
+    {
+      "beat": "B05 angles",
+      "do": "eval",
+      "expr": "(() => { const s = window.openfield.store.get(); if (s.selected !== 'tk_20261022_140201_aa06') window.openfield.ui.selectTake('tk_20261022_140201_aa06'); })()"
+    },
+    {
+      "beat": "B05 angles",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261022_140201_aa06' && document.querySelector('[data-station=direct] .screen[data-mode=ready] video.player')",
+      "timeout": 10000,
+      "label": "Oskar from behind"
+    },
+    {
+      "beat": "B05 angles",
+      "do": "hold",
+      "ms": 300
+    },
+    {
+      "beat": "B06 shots",
+      "do": "click",
+      "selector": ".rail-item[data-route=shots]"
+    },
+    {
+      "beat": "B06 shots",
+      "do": "eval",
+      "expr": "window.openfield.ui.openTake('tk_20261022_234340_e66f')"
+    },
+    {
+      "beat": "B06 shots",
+      "do": "until",
+      "expr": "window.openfield.store.get().route === 'shots' && document.querySelectorAll('.shots-board[data-state=done] .shots-tile img').length === 9",
+      "timeout": 10000,
+      "label": "Noor's board, nine setups"
+    },
+    {
+      "beat": "B06 shots",
+      "do": "caption",
+      "text": "One still. / Nine setups.",
+      "tag": "QWEN-IMAGE 2.1"
+    },
+    {
+      "beat": "B06 shots",
+      "do": "ring",
+      "selector": ".shots-board",
+      "ms": 800
+    },
+    {
+      "beat": "B06 shots",
+      "do": "click",
+      "selector": ".shots-tile",
+      "text": "Low angle"
+    },
+    {
+      "beat": "B06 shots",
+      "do": "hold",
+      "ms": 500
+    },
+    {
+      "beat": "B07 transitions",
+      "do": "eval",
+      "expr": "window.openfield.ui.openTake('tk_20261023_095051_b57e')"
+    },
+    {
+      "beat": "B07 transitions",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261023_095051_b57e' && document.querySelector('[data-station=direct] .screen[data-mode=ready] video.player')",
+      "timeout": 10000,
+      "label": "the bridge"
+    },
+    {
+      "beat": "B07 transitions",
+      "do": "eval",
+      "expr": "(() => { const s = window.openfield.store.get(); const t = s.recorded.find((r) => r.id === s.selected); const first = s.recorded.find((r) => r.id === t?.recipe?.first); const v = document.querySelector('[data-station=direct] video.player'); if (v) { v.currentTime = Math.max(0, (first?.seconds ?? 5) - 1.4); v.play().catch(() => {}); } })()"
+    },
+    {
+      "beat": "B07 transitions",
+      "do": "caption",
+      "text": "One take flies / into the next.",
+      "tag": "LTX 2.5"
+    },
+    {
+      "beat": "B07 transitions",
+      "do": "hold",
+      "ms": 2600
+    },
+    {
+      "beat": "B09 edits",
+      "do": "say",
+      "text": "Change what's in the shot."
+    },
+    {
+      "beat": "B09 edits",
+      "do": "film",
+      "take": "tk_20261022_235404_635b",
+      "from": 0.9,
+      "ms": 2500,
+      "caption": "Face swap. / Only a Cast member who agreed.",
+      "hold": true,
+      "captionTag": "QWEN-IMAGE 2.1"
+    },
+    {
+      "beat": "B09 edits",
+      "do": "hold",
+      "ms": 700,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B09 edits",
+      "do": "film",
+      "take": "tk_20261022_235440_2af2",
+      "from": 0.9,
+      "ms": 1600,
+      "caption": "Person swap.",
+      "hold": true,
+      "captionTag": "QWEN-IMAGE 2.1"
+    },
+    {
+      "beat": "B09 edits",
+      "do": "film",
+      "take": "tk_20261022_235556_e38d",
+      "from": 0.9,
+      "ms": 1600,
+      "caption": "Relight. / Golden light.",
+      "hold": true,
+      "captionTag": "QWEN-IMAGE 2.1"
+    },
+    {
+      "beat": "B09 edits",
+      "do": "hold",
+      "ms": 50,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B09 edits",
+      "do": "film",
+      "take": "tk_20261022_235532_eafb",
+      "from": 0.9,
+      "ms": 1600,
+      "caption": "Outfit. / A red gown.",
+      "hold": true,
+      "captionTag": "QWEN-IMAGE 2.1"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "goto",
+      "route": "reshoot"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "eval",
+      "expr": "window.openfield.ui.openTake('tk_20261021_125937_6921')"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261021_125937_6921' && document.querySelector('[data-station=reshoot] .screen[data-mode=ready] video.player') && document.querySelector('[data-station=reshoot] .split-handle')",
+      "timeout": 10000,
+      "label": "the dance, recast as Oskar"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "eval",
+      "expr": "(() => { const v = document.querySelector('[data-station=reshoot] video.player'); if (v) { v.currentTime = 0; v.play().catch(() => {}); } })()"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "film",
+      "clear": true
+    },
+    {
+      "beat": "B10 recast",
+      "do": "caption",
+      "text": "Same dance. / New dancer.",
+      "tag": "WAN ANIMATE 2"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "drag",
+      "selector": "[data-station=reshoot] .split-handle",
+      "by": [
+        240,
+        0
+      ]
+    },
+    {
+      "beat": "B10 recast",
+      "do": "hold",
+      "ms": 300
+    },
+    {
+      "beat": "B10 recast",
+      "do": "eval",
+      "expr": "window.openfield.ui.openTake('tk_20261023_081807_a4e2')"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261023_081807_a4e2' && document.querySelector('[data-station=reshoot] .screen[data-mode=ready] video.player')",
+      "timeout": 10000,
+      "label": "Noor's face on the pier take"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "caption",
+      "text": "Or just / the face.",
+      "tag": "WAN ANIMATE 2"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "click",
+      "selector": "[data-station=reshoot] .compare-modes button",
+      "text": "Side"
+    },
+    {
+      "beat": "B10 recast",
+      "do": "hold",
+      "ms": 700
+    },
+    {
+      "beat": "B10 recast",
+      "do": "hold",
+      "ms": 400,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B11 voice",
+      "do": "film",
+      "take": "tk_20261022_180938_a0b7",
+      "from": 0,
+      "ms": 4700,
+      "caption": "His voice and lips. / One pass.",
+      "sound": true,
+      "captionTag": "LTX 2.5"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "caption",
+      "text": "Effects. / Approve the end state first.",
+      "tag": "QWEN-IMAGE 2.1 + LTX 2.5"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "eval",
+      "expr": "window.openfield.ui.openTake('tk_20261022_134358_a709')"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261022_134358_a709' && document.querySelector('[data-station=direct] .screen[data-mode=ready] video.player') && document.querySelectorAll('.dock-pane[data-pane=take] .stages-strip .stage-card').length >= 2",
+      "timeout": 10000,
+      "label": "Ignite, its end state in the strip"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "eval",
+      "expr": "(() => { const v = document.querySelector('[data-station=direct] video.player'); if (v) { v.currentTime = 0.3; v.play().catch(() => {}); } })()"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "ring",
+      "selector": ".dock-pane[data-pane=take] .stages-strip",
+      "ms": 1200
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "hold",
+      "ms": 800
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "eval",
+      "expr": "window.openfield.ui.openTake('tk_20261023_083424_1e48')"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261023_083424_1e48' && document.querySelector('[data-station=direct] .screen[data-mode=ready] video.player')",
+      "timeout": 10000,
+      "label": "Behind the scenes"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "eval",
+      "expr": "(() => { const v = document.querySelector('[data-station=direct] video.player'); if (v) { v.currentTime = 1.0; v.play().catch(() => {}); } })()"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "caption",
+      "text": "Behind the scenes. / In one take.",
+      "tag": "LTX 2.5"
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "hold",
+      "ms": 2600
+    },
+    {
+      "beat": "B12 ltx vfx",
+      "do": "hold",
+      "ms": 100,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B13 receipt",
+      "do": "say",
+      "text": "Every take keeps a receipt.",
+      "caption": "Seed, workflows, / models and GPU cost."
+    },
+    {
+      "beat": "B13 receipt",
+      "do": "ring",
+      "selector": ".dock-pane[data-pane=take] .verdict-billing",
+      "ms": 1200
+    },
+    {
+      "beat": "B13 receipt",
+      "do": "click",
+      "selector": ".dock-pane[data-pane=take] .verdict .seal-check"
+    },
+    {
+      "beat": "B13 receipt",
+      "do": "until",
+      "expr": "document.querySelector('.dock-pane[data-pane=take] .verdict [data-result=pass]')",
+      "timeout": 8000,
+      "label": "the seal checks out in the browser"
+    },
+    {
+      "beat": "B13 receipt",
+      "do": "hold",
+      "ms": 200,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B13 receipt",
+      "do": "caption",
+      "text": "Checked / in this browser."
+    },
+    {
+      "beat": "B13 receipt",
+      "do": "ring",
+      "selector": ".dock-pane[data-pane=take] .verdict [data-result=pass]",
+      "ms": 700
+    },
+    {
+      "beat": "B13 receipt",
+      "do": "hold",
+      "ms": 100
+    },
+    {
+      "beat": "B13b compare",
+      "do": "click",
+      "selector": ".dock-pane[data-pane=take] .dock-actions .btn",
+      "text": "Compare"
+    },
+    {
+      "beat": "B13b compare",
+      "do": "until",
+      "expr": "document.querySelector('.compare-row') !== null",
+      "timeout": 10000,
+      "label": "the Compare sheet"
+    },
+    {
+      "beat": "B13b compare",
+      "do": "caption",
+      "text": "Two takes. / What changed."
+    },
+    {
+      "beat": "B13b compare",
+      "do": "hold",
+      "ms": 2300
+    },
+    {
+      "beat": "B13b compare",
+      "do": "key",
+      "key": "Escape"
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "caption",
+      "text": "Comfy's own templates. / No custom nodes.",
+      "tag": "COMFY-SDK"
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "click",
+      "selector": ".dock-pane[data-pane=take] .dock-actions a",
+      "text": "SDK snippet"
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "until",
+      "expr": "document.querySelector('.sheet-code pre')?.textContent.includes('client.run')",
+      "timeout": 10000,
+      "label": "the snippet with comfy-sdk's run call"
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "hold",
+      "ms": 2100
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "key",
+      "key": "Escape"
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "caption",
+      "text": "Open weights checked / before every render.",
+      "tag": "COMFY-SDK"
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "ring",
+      "selector": ".dock-pane[data-pane=take] .audit-head .pill",
+      "ms": 1100
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "hold",
+      "ms": 300
+    },
+    {
+      "beat": "B15 comfy-sdk",
+      "do": "hold",
+      "ms": 800,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B16 live",
+      "do": "say",
+      "text": "Rendered live, sped up eight times."
+    },
+    {
+      "beat": "B16 live",
+      "do": "film",
+      "src": "live4-12s-from5.4.mp4",
+      "from": 0,
+      "ms": 4600,
+      "caption": null
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "eval",
+      "expr": "window.openfield.ui.selectTake('tk_20261020_153056_2c1e')"
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "until",
+      "expr": "window.openfield.store.get().selected === 'tk_20261020_153056_2c1e' && /Recreate/i.test(document.querySelector('[data-station=direct] .prompt .btn.primary')?.innerText ?? '')",
+      "timeout": 10000,
+      "label": "Recreate (replay) on a recorded take"
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "caption",
+      "text": "Change the recipe. / It refuses."
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "ring",
+      "selector": "[data-station=direct] .prompt .btn.primary",
+      "ms": 500
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "type",
+      "selector": "#action",
+      "text": "She turns to the window.",
+      "cps": 24
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "until",
+      "expr": "/Needs a backend/i.test(document.querySelector('[data-station=direct] .prompt .btn.primary').innerText)",
+      "timeout": 5000,
+      "label": "the refusal"
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "caption",
+      "text": "It never / invents a take."
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "ring",
+      "selector": "[data-station=direct] .plan",
+      "ms": 1000
+    },
+    {
+      "beat": "B17 replay refuses",
+      "do": "hold",
+      "ms": 400
+    },
+    {
+      "beat": "B19 end card",
+      "do": "film",
+      "take": "tk_20261022_181228_32c2",
+      "from": 0,
+      "ms": 200,
+      "loop": true,
+      "hold": true
+    },
+    {
+      "beat": "B19 end card",
+      "do": "hold",
+      "ms": 150,
+      "note": "caption minimum"
+    },
+    {
+      "beat": "B19 end card",
+      "do": "caption",
+      "text": null
+    },
+    {
+      "beat": "B19 end card",
+      "do": "say",
+      "text": "MIT licensed. Try it in your browser."
+    },
+    {
+      "beat": "B19 end card",
+      "do": "eval",
+      "expr": "window.__demo.move(-200, -200)"
+    },
+    {
+      "beat": "B19 end card",
+      "do": "card",
+      "title": "OpenField Studio",
+      "lines": [
+        "A film studio on open-weights models"
+      ],
+      "mono": "LTX 2.5 · Qwen-Image 2.1 · Wan Animate 2 · Built with Qwen · MIT licence · voice: Kokoro-82M\nTry it in your browser: {try_url}\n{repo_url}\n#OpenSourceHiggsfield",
+      "dim": 0.62,
+      "hold": true,
+      "statement": "Open weights only. / Every take keeps its receipt."
+    },
+    {
+      "beat": "B19 end card",
+      "do": "hold",
+      "ms": 3400
+    }
   ]
 }

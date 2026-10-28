@@ -1,0 +1,76 @@
+{
+  "id": "tk_20261023_094522_51f5",
+  "kind": "direct",
+  "label": "crane up: Seen from street level far below: a colossal dra",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:45:22Z",
+  "updated_at": "2026-10-23T09:49:44Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Seen from street level far below: a colossal dragon high in the sky between glass skyscrapers at sunset, small against the towers, crowds filling the avenue",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "crane_up",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "the deep whoosh of huge wings, a city murmur, distant screams",
+    "seed": 618,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "prompt_only": true,
+    "action": "The dragon glides between the towers with slow, heavy beats of its huge wings, its shadow sweeping across the crowded street below as the camera rises.",
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "quick mode: one still and a camera instruction, no anchor stills"
+  ],
+  "replay": false,
+  "recipe_hash": "b8a40ef41d07eb40724835a6f0fc75388f3e09c66cca75216715f3fff606237c",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v1c-dragon-glide-wide",
+  "showcase_sha": "31c2823c048c5661"
+}

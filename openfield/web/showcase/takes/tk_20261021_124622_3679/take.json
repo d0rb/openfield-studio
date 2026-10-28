@@ -1,0 +1,114 @@
+{
+  "id": "tk_20261021_124622_3679",
+  "kind": "direct",
+  "label": "static: Mara stands facing the camera on an empty roofto",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-21T12:46:22Z",
+  "updated_at": "2026-10-21T12:49:05Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Mara stands facing the camera on an empty rooftop at dusk, full body in frame from head to shoes, arms relaxed at her sides, the city skyline behind her",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "city air, a light wind",
+    "seed": 91,
+    "orientation": "landscape",
+    "cast_refs": [
+      "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+    ],
+    "prompt_only": true,
+    "cast_name": "Mara",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "a93c3fae6365008f3e9a35218023c29dcfa19e2caea602987723aadb9aaf0f51",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7102319247689165,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7102319247689165
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        645,
+        73,
+        62,
+        78
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.710 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.5458118498275176,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.5458118498275176
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        616,
+        53,
+        57,
+        76
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.546 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "ref-mara",
+  "showcase_sha": "b4f5fda839f89a1e"
+}

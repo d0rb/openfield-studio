@@ -1,0 +1,59 @@
+{
+  "id": "tk_20261023_094002_a10c",
+  "kind": "upscale",
+  "label": "upscale 2K: Mara stands at the end of a harbour pier at ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:40:02Z",
+  "updated_at": "2026-10-23T09:42:03Z",
+  "recipe": {
+    "kind": "upscale",
+    "take": "tk_20261022_132535_ed1c",
+    "target": "2k"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "Upscaled with Real-ESRGAN x4plus (open weights), the model of ComfyUI's own Video Upscale graph, then resized to 2560x1462. Each frame is enlarged on its own: the model redraws fine detail from that frame's pixels as a GAN upscaler does, and nothing beyond that is invented. The motion and the sound are the take's own."
+  ],
+  "replay": false,
+  "recipe_hash": "14541c318c216f497b9e3162b2bda3c31f6fa72ef0a1d5c0f2d516bbbc7bf6ad",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    2560,
+    1462
+  ],
+  "showcase_name": "v6-upscale-draft-2k",
+  "showcase_sha": "14afceaccfb9fed5"
+}

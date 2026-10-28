@@ -2,7 +2,9 @@
 # OpenField Studio: bring up ComfyUI + comfy-api-proxy on a rented GPU box (Ubuntu, CUDA, SSH).
 #
 #   export HF_TOKEN=hf_xxx            # read-only token; LTX 2.5 must be unlocked on your account
-#   bash pod_setup.sh [up|down|status|logs]
+#   bash pod_setup.sh [up|fetch|down|status|logs]
+#   FETCH_ONLY=wan,qwen,esrgan bash pod_setup.sh up    # download the ungated models first; later: FETCH_ONLY=ltx bash pod_setup.sh fetch
+#   model groups: ltx (gated), qwen, wan, esrgan (the Real-ESRGAN upscaler, one 67 MB file); FETCH_ONLY unset = all four
 #
 # Copy this file, fetch_template_models.py and manifest.json to the box first (they live side by side).
 # Nothing is exposed publicly: ComfyUI (:8188) and the proxy (:8189) bind to 127.0.0.1 and you
@@ -96,8 +98,9 @@ fetch_models() {
   [ -f "$fetcher" ] || die "fetch_template_models.py must sit next to this script."
   [ -f "$SCRIPT_DIR/manifest.json" ] || say "note: manifest.json is not next to this script, so the file list is read from GitHub and guessed (copy openfield/engine/manifest.json here for the exact list)."
   [ -n "${HF_TOKEN:-}" ] || warn "HF_TOKEN is not set: the gated LTX 2.5 files will be refused."
-  say "downloading models (resumable; safe to re-run)"
-  python "$fetcher" --comfy-dir "$COMFY_DIR"
+  say "downloading models (resumable; safe to re-run)${FETCH_ONLY:+: only $FETCH_ONLY}"
+  # a gated file that is refused (no token yet) must not stop the services from starting: re-run the fetch later
+  python "$fetcher" --comfy-dir "$COMFY_DIR" ${FETCH_ONLY:+--only "$FETCH_ONLY"}     || warn "some model files are missing (see above); the services start anyway. Re-run with HF_TOKEN set: FETCH_ONLY=ltx bash $0 fetch"
 }
 
 start_services() {
@@ -109,8 +112,9 @@ start_services() {
     python "$COMFY_DIR/main.py" --listen 127.0.0.1 --port "$COMFY_PORT" --preview-method auto \
     >"$LOG_DIR/comfyui.log" 2>&1 &
   echo $! >"$WORKDIR/comfyui.pid"
-  wait_http "http://127.0.0.1:$COMFY_PORT/system_stats" 300 \
-    || die "ComfyUI did not come up; see $LOG_DIR/comfyui.log"
+  # the proxy starts either way: it needs ComfyUI only once a job arrives, and a slow first start must not leave the box without its API
+  wait_http "http://127.0.0.1:$COMFY_PORT/system_stats" "${COMFY_START_TIMEOUT:-1800}" \
+    || warn "ComfyUI has not answered within $(( ${COMFY_START_TIMEOUT:-1800} / 60 )) minutes; see $LOG_DIR/comfyui.log. Starting the proxy anyway: check http://127.0.0.1:$COMFY_PORT/system_stats before rendering"
   say "starting comfy-api-proxy on 127.0.0.1:$PROXY_PORT (uploads up to ${MAX_UPLOAD_MB} MB)"
   nohup env -u HF_TOKEN -u HUGGING_FACE_HUB_TOKEN \
     comfy-api-proxy run --comfyui "http://127.0.0.1:$COMFY_PORT" --host 127.0.0.1 --port "$PROXY_PORT" \
@@ -176,10 +180,11 @@ EOF
 if [ "${BASH_SOURCE[0]}" = "$0" ]; then
   case "${1:-up}" in
     up)     preflight; install_comfy; install_python_env; fetch_models; start_services; tunnel_help ;;
+    fetch)  . "$VENV_DIR/bin/activate"; fetch_models ;;
     down)   stop_services ;;
     status) status ;;
     tunnel) tunnel_help ;;
     logs)   tail -n 60 -f "$LOG_DIR/comfyui.log" "$LOG_DIR/proxy.log" ;;
-    *)      die "usage: $0 [up|down|status|tunnel|logs]" ;;
+    *)      die "usage: $0 [up|fetch|down|status|tunnel|logs]" ;;
   esac
 fi

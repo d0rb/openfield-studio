@@ -1,0 +1,117 @@
+{
+  "id": "tk_20261023_082530_d515",
+  "kind": "direct",
+  "label": "fisheye: Oskar skateboards straight at the lens through a",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:25:30Z",
+  "updated_at": "2026-10-23T08:28:26Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Oskar skateboards straight at the lens through a concrete bowl, grinning",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "fisheye",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "wheels roaring on concrete",
+    "seed": 563,
+    "orientation": "landscape",
+    "cast_refs": [
+      "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+    ],
+    "cast_name": "Oskar",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "8106df087cec5b4c6e49279cba1ec212707300bf43d8712d13b13e494984de48",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7160550021092584,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7160550021092584
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        607,
+        123,
+        97,
+        124
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.716 >= threshold 0.363 (best reference 0)",
+      "face_px": 97,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.6655373478102965,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6655373478102965
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        578,
+        101,
+        93,
+        122
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.666 >= threshold 0.363 (best reference 0)",
+      "face_px": 93,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-fisheye",
+  "showcase_sha": "d044fcb6124e36bc"
+}

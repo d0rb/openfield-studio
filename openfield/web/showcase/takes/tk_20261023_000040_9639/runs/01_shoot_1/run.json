@@ -1,0 +1,35 @@
+{
+  "stage": "shoot_1",
+  "template": "ltx25_i2v",
+  "workflow_sha256": "d37a43c6ae1348ebd8cf20e428a9af58166e22ea9b121b62f6f7a490b21330a9",
+  "snapped": {
+    "height": 704
+  },
+  "job_id": "de59f657-2307-448c-a8ef-cbdbd0ea5a1d",
+  "backend": "pod",
+  "timings": {
+    "submit_s": 1.06,
+    "total_s": 85.06
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "node_id": "75",
+      "name": "LTX-2.5_i2v_00014_.mp4",
+      "content_type": "video/mp4",
+      "kind": "video",
+      "file": "video.mp4",
+      "size_bytes": 1264174
+    }
+  ],
+  "assets": [
+    {
+      "node": "395",
+      "input": "image",
+      "slot": "first_frame",
+      "name": "first_frame.png",
+      "sha256": "c2f718e3a9a505b41742a6f7f2b4d9be8c7510dfced719b13e1f8f38345f1dcc",
+      "from": "inputs/hero.png"
+    }
+  ]
+}

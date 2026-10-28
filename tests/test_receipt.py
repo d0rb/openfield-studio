@@ -815,3 +815,15 @@ def test_a_take_travels_from_receipt_to_remix(clip, tmp_path):
     assert verified and found == sealed
     link = rc.recipe_link(rc.recipe_from_receipt(found))
     assert rc.parse_recipe_link(link)["seed"] == 1234
+
+
+def test_scrub_redacts_a_key_quoted_inside_free_text():
+    from openfield.engine.receipt import scrub
+
+    # the fake keys are assembled at run time, so the release gate's own secret scan never mistakes this file for a leak
+    key, token = "comfyui" + "-" + "ABCDEFGHIJKLMNOPQRST", "hf" + "_" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    noisy = {"error": {"message": f"401 from the proxy with Authorization: Bearer sk-abcDEF0123456789xyz and key {key}, token {token}"}}
+    clean = scrub(noisy)["error"]["message"]
+    assert "sk-abcDEF" not in clean and key not in clean and token[:13] not in clean
+    assert "Bearer [redacted]" in clean and clean.count("[redacted]") == 3
+    assert scrub({"note": "a bearer of good news"})["note"] == "a bearer of good news", "ordinary words are left alone"

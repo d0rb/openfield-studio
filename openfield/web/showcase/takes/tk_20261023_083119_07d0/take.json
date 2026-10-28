@@ -1,0 +1,72 @@
+{
+  "id": "tk_20261023_083119_07d0",
+  "kind": "direct",
+  "label": "yoyo zoom: A boxer in red gloves throws a punch toward the ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:31:19Z",
+  "updated_at": "2026-10-23T08:34:24Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A boxer in red gloves throws a punch toward the camera in a smoky ring under a single light",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "silhouette",
+      "movement": "yoyo_zoom",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "a heavy punch, a roaring crowd",
+    "seed": 565,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "6dc71d898431ad06ee83ff85883bce64015751df2001fc0b63d5e459daa81106",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v2-yoyo-zoom",
+  "showcase_sha": "60aecd1ca82fc6ff"
+}

@@ -6,7 +6,7 @@
                                                                                 # a CPU-only ComfyUI, no weights
 
 ComfyUI checks a prompt before it runs it: node classes, input types and ranges, links, required
-inputs and that every model file name exists. This runs exactly that for each of our five workflows,
+inputs and that every model file name exists. This runs exactly that for each of our six workflows,
 patched with sample values, so a template that has drifted, or a model file missing from the box, is
 found in seconds instead of at the end of a render.
 
@@ -34,7 +34,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from openfield.engine.workflows import WORKFLOW_DIR, load_template, sample_values  # noqa: E402
 
-TEMPLATES = ("qwen21_t2i", "qwen21_edit", "ltx25_i2v", "ltx25_flf2v", "wan_animate2")
+TEMPLATES = ("qwen21_t2i", "qwen21_edit", "ltx25_i2v", "ltx25_flf2v", "wan_animate2", "esrgan_upscale")
 MANIFEST = WORKFLOW_DIR.parent / "engine" / "manifest.json"
 
 
@@ -100,10 +100,12 @@ def make_samples(folder: Path) -> tuple[Path, Path]:
     return image, video
 
 
-def validate_one(base: str, name: str, image_name: str, video_name: str, local: tuple[Path, Path]) -> list[str]:
-    """Problems ComfyUI reports for one patched workflow (empty = accepted with no node errors)."""
+def validate_one(base: str, name: str, image_name: str, video_name: str, local: tuple[Path, Path],
+                 extra: dict | None = None) -> list[str]:
+    """Problems ComfyUI reports for one patched workflow (empty = accepted with no node errors). `extra` adds slot
+    values on top of the samples (the first-last-frame graph with two middle stills guided inside one pass)."""
     template = load_template(name, WORKFLOW_DIR)
-    patched = template.patch(sample_values(template, *local))
+    patched = template.patch(sample_values(template, *local) | (extra or {}))
     graph = json.loads(json.dumps(patched.graph))
     for binding in patched.assets:  # what comfy-api-proxy does after uploading an asset
         graph[binding.node]["inputs"][binding.input] = video_name if binding.input == "file" else image_name
@@ -155,16 +157,21 @@ def main(argv: list[str] | None = None) -> int:
         image_name = upload(args.comfy, local[0], "image/png")
         video_name = upload(args.comfy, local[1], "video/mp4")
         failures = 0
-        for name in names:
-            problems = validate_one(args.comfy, name, image_name, video_name, local)
+        # the first-last-frame graph is checked twice: as exported, and with two middle stills guided inside one pass
+        passes = [(name, None) for name in names]
+        if "ltx25_flf2v" in names:
+            passes.append(("ltx25_flf2v", {"mids": [{"image": local[0], "frame_idx": 32}, {"image": local[0], "frame_idx": 64}]}))
+        for name, extra in passes:
+            label = f"{name} (two middle stills)" if extra else name
+            problems = validate_one(args.comfy, name, image_name, video_name, local, extra)
             if problems:
                 failures += 1
-                print(f"[FAIL] {name}")
+                print(f"[FAIL] {label}")
                 for problem in problems:
                     print(f"         - {problem}")
             else:
-                print(f"[ ok ] {name}: accepted by ComfyUI with no node errors")
-    print(f"\n{len(names) - failures}/{len(names)} workflows valid on this ComfyUI")
+                print(f"[ ok ] {label}: accepted by ComfyUI with no node errors")
+    print(f"\n{len(passes) - failures}/{len(passes)} workflows valid on this ComfyUI")
     return 1 if failures else 0
 
 

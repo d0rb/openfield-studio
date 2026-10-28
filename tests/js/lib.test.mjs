@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import { createStore } from "../../openfield/web/js/lib/store.js";
-import { anchorsAlong, bounds, heading, sideView, topView } from "../../openfield/web/js/lib/pathview.js";
+import { anchorsAlong, bounds, frustum, heading, litCount, pointAt, poseAt, sideView, stagePoint, topView } from "../../openfield/web/js/lib/pathview.js";
 import { ago, diffParams, sameRecipe, shortId, timecode } from "../../openfield/web/js/lib/format.js";
 import { followTake } from "../../openfield/web/js/lib/sse.js";
 
@@ -48,6 +48,48 @@ test("anchors are spread evenly along a path", () => {
   assert.deepEqual(three, [view.points[0], view.points[4], view.points[8]]);
   assert.deepEqual(anchorsAlong(view, 1), [view.points[0]]);
   assert.deepEqual(anchorsAlong(view, 0), []);
+});
+
+test("the camera's pose and point a fraction of the way through follow the samples evenly", () => {
+  const poses = [0, 1, 2].map((x) => ({ x, y: 0, z: -1, yaw: 0, pitch: 0, fov: 40 - 10 * x }));
+  assert.deepEqual(poseAt(poses, 0), poses[0]);
+  assert.deepEqual(poseAt(poses, 1), poses[2]);
+  assert.equal(poseAt(poses, 0.25).x, 0.5);
+  assert.equal(poseAt(poses, 0.75).fov, 25);
+  assert.equal(poseAt(poses, 7).x, 2, "t is clamped");
+  assert.equal(poseAt(poses, Number.NaN).x, 0);
+  assert.deepEqual(poseAt([poses[1]], 0.5), poses[1]);
+  assert.equal(poseAt([], 0.5), null);
+  const view = topView(Array.from({ length: 9 }, (_, i) => ({ x: i, z: 0 })));
+  assert.deepEqual(pointAt(view, 0.5), { x: view.points[4].x, y: view.points[4].y });
+  const between = pointAt(view, 0.5 / 8);
+  assert.ok(Math.abs(between.x - (view.points[0].x + view.points[1].x) / 2) < 1e-9);
+});
+
+test("a still is lit once the shot reaches it, the first at once", () => {
+  assert.deepEqual([0, 0.49, 0.5, 0.99, 1].map((t) => litCount(3, t)), [1, 1, 2, 2, 3]);
+  assert.deepEqual([litCount(2, 0), litCount(2, 1), litCount(1, 0.5), litCount(0, 0.5)], [1, 2, 1, 0]);
+});
+
+test("the stage view looks from above and to one side", () => {
+  const origin = stagePoint({ x: 0, y: 0, z: 0 });
+  assert.ok(Math.abs(origin.x) < 1e-12 && Math.abs(origin.y) < 1e-12);
+  assert.ok(stagePoint({ x: 0, y: 1, z: 0 }).y < 0, "height goes up the screen");
+  assert.ok(stagePoint({ x: 0, y: 0, z: -1 }).y > 0, "the camera's start lands in front of the subject, lower down");
+  assert.ok(stagePoint({ x: 1, y: 0, z: 0 }).x > 0, "the camera's right is to the right");
+});
+
+test("the camera's frame points the way it looks and narrows when it zooms", () => {
+  const near = (a, b) => Math.abs(a - b) < 1e-9;
+  const side = frustum({ x: 1, y: 0, z: 0, yaw: -90, pitch: 0, fov: 40 }); // an orbit pose a quarter of the way round
+  assert.ok(near(side.forward.x, -1) && near(side.forward.y, 0) && near(side.forward.z, 0), "it looks at the subject");
+  const down = frustum({ x: 0, y: 1, z: 0, yaw: 0, pitch: -90, fov: 40 });
+  assert.ok(near(down.forward.y, -1), "pitch -90 looks at the floor");
+  const span = (a, b) => Math.hypot(a.x - b.x, a.y - b.y, a.z - b.z);
+  const wide = frustum({ x: 0, y: 0, z: -1, yaw: 0, pitch: 0, fov: 40 });
+  assert.ok(near(span(wide.corners[0], wide.corners[1]) / span(wide.corners[1], wide.corners[2]), 16 / 9), "the frame is 16:9");
+  const tight = frustum({ x: 0, y: 0, z: -1, yaw: 0, pitch: 0, fov: 20 });
+  assert.ok(span(tight.corners[0], tight.corners[1]) < span(wide.corners[0], wide.corners[1]) * 0.55, "zooming in narrows it");
 });
 
 test("heading follows yaw", () => {
@@ -118,4 +160,40 @@ test("followTake polls when EventSource is unavailable and stops at a terminal s
     followTake(api, "tk_2", { onEnd: (s) => { ends.push(s); resolve(); }, pollMs: 5, EventSourceImpl: null });
   });
   assert.deepEqual(ends, ["succeeded"]);
+});
+
+test("tape marks that land on one spot are fanned out so every number reads", async () => {
+  const { spreadStacked } = await import("../../openfield/web/js/lib/pathview.js");
+  const a = { x: 50, y: 50 }, b = { x: 50.2, y: 49.9 }, c = { x: 70, y: 50 };
+  const out = spreadStacked([a, b, c], 12);
+  assert.deepEqual(out.map((p) => Math.round(p.x)), [44, 56, 70], "two stacked marks sit 12 units apart, the lone one stays");
+  assert.deepEqual(out.map((p) => p.y), [50, 49.9, 50]);
+  assert.deepEqual(spreadStacked([c], 12), [c], "a single mark is untouched");
+  assert.deepEqual(spreadStacked([], 12), []);
+});
+
+test("the stage fit holds with no path at all", async () => {
+  const { stageFit } = await import("../../openfield/web/js/lib/pathview.js");
+  const fit = stageFit([]);
+  const p = fit.to({ x: 0, y: 0, z: 0 });
+  assert.ok(Number.isFinite(p.x) && Number.isFinite(p.y));
+});
+
+// -- an angle pivots the planned camera -------------------------------------------------------------------------------------
+
+import { withAngle } from "../../openfield/web/js/lib/pathview.js";
+
+test("an angle pivots the planned camera around the subject, lifts it and pushes it back", () => {
+  const poses = [{ x: 0, y: 0, z: -1, yaw: 0, pitch: 0, fov: 40 }, { x: 0, y: 0, z: -0.45, yaw: 0, pitch: 0, fov: 40 }];
+  const near = (a, b) => Math.abs(a - b) < 1e-9;
+  assert.deepEqual(withAngle(poses, { azimuth: 0, elevation: 0, distance: 1 }), poses, "the default is the identity");
+  const back = withAngle(poses, { azimuth: 180 })[0];
+  assert.ok(near(back.z, 1) && near(back.x, 0) && back.yaw === -180, "turned to the back, still looking at the subject");
+  const right = withAngle(poses, { azimuth: 90 })[0];
+  assert.ok(near(right.x, 1) && near(right.z, 0) && right.yaw === -90, "a quarter turn to the camera's right, as the rig's orbit turns");
+  const low = withAngle(poses, { elevation: -30 })[0];
+  assert.ok(low.y < 0 && low.pitch > 0 && near(Math.hypot(low.x, low.y, low.z), 1), "a low angle: below eye level, looking up, same distance");
+  const wide = withAngle(poses, { distance: 1.8 });
+  assert.ok(near(wide[0].z, -1.8) && near(wide[1].z, -0.81), "the whole path is pushed back with the start");
+  assert.deepEqual(withAngle([], { azimuth: 45 }), []);
 });

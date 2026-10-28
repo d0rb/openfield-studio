@@ -1,0 +1,55 @@
+[
+  {
+    "file": "ov-beams.webp",
+    "_why": "The projector's beam. It lit the Lobby alone until round 16; now it lights every room, drawn at full viewport, so the 1600px plate of round 9 is no longer enough. One light direction, hard-edged at the lamp and soft where it lands: the room reads as lit rather than filled.",
+    "prompt": "A single projector beam cutting down diagonally from the upper left through still, heavy air, the cone narrow and bright at its source and widening as it falls, its edges soft, faint striations in the haze. On a pure black background, no objects, no people, nothing else in the frame, photographic, soft and organic. No text, no letters, no logos, no watermark.",
+    "width": 2048,
+    "height": 1152,
+    "seed": 1612,
+    "steps": 30,
+    "crop_top": 180,
+    "quality": 82
+  },
+  {
+    "file": "ov-dust.webp",
+    "_why": "The dust in the beam, drawn twice at two scales and two drifts so the air has depth. Needs more particles and more variation in their size than the 1600px plate has, because it is now scaled up over a whole room.",
+    "prompt": "Fine dust motes and tiny specks suspended in still air, caught in a shaft of light, hundreds of them at many depths, some sharp and near, most small and soft and far. On a pure black background, no objects, no people, nothing else in the frame, photographic, soft and organic. No text, no letters, no logos, no watermark.",
+    "width": 2048,
+    "height": 1152,
+    "seed": 1622,
+    "steps": 30,
+    "quality": 82
+  },
+  {
+    "file": "ov-leak.webp",
+    "_why": "The house light that follows the hand through the rooms. Drawn at 1100px across under a round mask, so the 1280px plate is close to its limit.",
+    "prompt": "A warm orange and amber film light leak glowing in from the left edge, soft organic bloom falling away into darkness, faint banding in the glow. On a pure black background, no objects, no people, nothing else in the frame, photographic, soft and organic. No text, no letters, no logos, no watermark.",
+    "width": 2048,
+    "height": 1152,
+    "seed": 1603,
+    "steps": 30,
+    "quality": 82
+  },
+  {
+    "file": "mat-stock.webp",
+    "_why": "The tooth of the card stock the proof pane and the shot sheet are printed on, laid under the cream at a low opacity so the one light surface in the studio is paper and not a flat fill. Seed 1641 drew a sheet with its edges in frame and almost no tooth, which would tile as a grid of card borders; this asks for the fibre itself, at macro, with no sheet in the picture.",
+    "prompt": "Extreme macro photograph of warm cream cotton rag paper, its fibre, tooth and faint speckle filling the entire frame edge to edge, lit evenly and flatly, no sheet, no edges, no border, no corner, no shadow, no printing. Photographic, even exposure, sharp across the frame. No text, no letters, no logos, no watermark.",
+    "width": 2048,
+    "height": 1152,
+    "seed": 1643,
+    "steps": 30,
+    "max_width": 1024,
+    "quality": 72
+  },
+  {
+    "file": "mat-brass.webp",
+    "_why": "The brass the poster cases are trimmed with and a pass is stamped on. A 1px border is not brass; this gives the trim a real specular falloff.",
+    "prompt": "A flat strip of aged polished brass lit from the left, fine lengthwise brushing across the metal, a warm specular highlight falling away to deep shadow at the right, faint patina and fine scratches, filling the frame. Photographic, macro, shallow depth of field. No text, no letters, no logos, no watermark.",
+    "width": 2048,
+    "height": 1152,
+    "seed": 1651,
+    "steps": 30,
+    "max_width": 1024,
+    "quality": 72
+  }
+]

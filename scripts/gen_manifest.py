@@ -72,6 +72,10 @@ def main(argv: list[str] | None = None) -> int:
                 "node_types": types,
                 "models": [],
             }
+            added = ftm.ADDED_NODE_TYPES.get(name)
+            if added:  # our workflow adds core classes to this template: say so, and allow them
+                templates[name]["added_node_types"] = sorted(added)
+                allowed.update(added)
             for item in ftm.collect_models(data):
                 parts = ftm.hf_parts(item["url"])
                 if parts is None:
@@ -87,6 +91,7 @@ def main(argv: list[str] | None = None) -> int:
                         "revision": revision,
                         "path": path,
                         "url": item["url"],
+                        **ftm.KNOWN_FILES.get(item["name"], {}),  # size and sha256, where they were recorded
                         "optional": ftm.is_optional(item["name"]),
                         "templates": [],
                     },

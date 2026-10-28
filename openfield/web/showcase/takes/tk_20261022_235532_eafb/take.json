@@ -1,0 +1,90 @@
+{
+  "id": "tk_20261022_235532_eafb",
+  "kind": "edit",
+  "label": "change the outfit: Noor in a white spacesuit with the helme",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T23:55:32Z",
+  "updated_at": "2026-10-22T23:55:56Z",
+  "recipe": {
+    "kind": "edit",
+    "preset": "outfit",
+    "detail": "a flowing red evening gown",
+    "source_sha256": "e04d5a90a0976463e99ab09944636b8baf7db8dd7462615d6be6ca62b6a6561c",
+    "seed": 533,
+    "cast_refs": [],
+    "take": "tk_20261022_230114_75f2",
+    "cast_name": null
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "One Qwen-Image 2.1 edit of one still. The take plays the still before and after, 1.2 s each: no video model ran."
+  ],
+  "replay": false,
+  "recipe_hash": "12e8a05816dea8955592cbdbbe9e876e506dccc967096ab5d642a67b50a01b7f",
+  "edit": {
+    "preset": "outfit",
+    "before": "inputs/source.png",
+    "after": "runs/01_edit/image.png"
+  },
+  "identity": {
+    "edit": {
+      "status": "pass",
+      "score": 0.9143735679561639,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.9143735679561639
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        622,
+        159,
+        129,
+        167
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.914 >= threshold 0.363 (best reference 0)",
+      "face_px": 129,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 2.4,
+  "size": [
+    1344,
+    768
+  ],
+  "showcase_name": "v1-edit-outfit",
+  "showcase_sha": "1e5f435701f26157"
+}

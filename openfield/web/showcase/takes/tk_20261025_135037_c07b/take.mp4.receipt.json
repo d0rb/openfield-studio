@@ -1,0 +1,180 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261025_135037_c07b",
+    "kind": "direct",
+    "created_at": "2026-10-25T13:52:48Z",
+    "label": "push in: A sixty-year-old street-food cook with grey stub"
+  },
+  "inputs": {
+    "subject": "A sixty-year-old street-food cook with grey stubble and a sweat-darkened headband, in a stained apron with rolled sleeves, stands behind a smoking wok at her night-market stall, tongs raised, the striped awning and rain-soaked neon signs above and behind her. Steam and orange firelight colour her wet face.",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "anamorphic",
+      "focal_length_mm": 40,
+      "aperture": "f1.4",
+      "lighting": "practicals",
+      "movement": "push_in",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "rain",
+      "grade": "teal_orange",
+      "score": "no_music",
+      "soundscape": "city_night",
+      "angle": "front/eye/medium"
+    },
+    "move": "push_in",
+    "mode": "prompt_only",
+    "final_prompt": "A sixty-year-old street-food cook with grey stubble and a sweat-darkened headband, in a stained apron with rolled sleeves, stands behind a smoking wok at her night-market stall, tongs raised, the striped awning and rain-soaked neon signs above and behind her. Steam and orange firelight colour her wet face. She snaps the wok up and forward, tossing a ribbon of noodles into a flaming arc above the pan, then catches them back in the wok as the fire flares around the rim and she settles into the next toss. A slow, subtle push-in toward the point of interest, moving slowly. The camera eases a short way forward and ends a little closer on the subject. Heavy rain falls across the whole frame, drops streaking through the lamplight and beading on hair and cloth, wet ground catching the reflections. Shot on a clean modern digital cinema camera with an anamorphic lens with oval bokeh and horizontal flares, 40mm (natural), wide open at f/1.4 with very shallow depth of field; practical lights in the scene making warm pools of light, graded teal and orange, cool shadows against warm skin and highlights. We hear distant traffic, a passing tram, wet streets; rain drumming on tin awnings, wok roar and oil sizzle, a shouted order, distant market chatter. No music.",
+    "seed": 226847133,
+    "orientation": "landscape",
+    "audio": "rain drumming on tin awnings, wok roar and oil sizzle, a shouted order, distant market chatter",
+    "quality": "draft",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "action": "She snaps the wok up and forward, tossing a ribbon of noodles into a flaming arc above the pan, then catches them back in the wok as the fire flares around the rim and she settles into the next toss.",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      }
+    ],
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "recipe_hash": "f44cd761c2d10c50b363e83954730d5e6a86a6a70dcaa101d18f83d4a1c06d7b"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "a124edf8c2b8e518b5693023be0cf18bb31eaf5e870246a40b901b69424691e0",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_t2i",
+        "workflow_sha256": "a5d2175ed56b51eee5c185860dd8976c49c2c6ca6d4172c950bc50d3bbe44e0f",
+        "job_id": "953713dd-5ccf-412d-9b98-99511074ae55"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "1a6a1b2c9e03454d5f7ad663163018d7fcea07eb662f2ff01e68d3f1355efe92",
+        "job_id": "109e1a39-4cfe-4e63-b4a0-595009fd510c"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "n/a",
+    "score": null,
+    "threshold": 0.363,
+    "refs_used": 0,
+    "reports": {}
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "953713dd-5ccf-412d-9b98-99511074ae55,109e1a39-4cfe-4e63-b4a0-595009fd510c",
+    "timings": {
+      "total_s": 131.1
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "f374522fb79074a119e2526eb07dc8d76fb3013585127b0092e2618cfd28a81d",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "dec3abffffb90efa72cd4f9aa05cf9a719375e9e55b11dc206700fb69ccac054"
+  }
+}

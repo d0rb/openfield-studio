@@ -1,0 +1,73 @@
+{
+  "id": "tk_20261023_081319_fada",
+  "kind": "direct",
+  "label": "crash zoom in: A ginger cat in tiny headphones stands at plain,",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T08:13:19Z",
+  "updated_at": "2026-10-23T08:16:07Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "A ginger cat in tiny headphones stands at plain, unbranded DJ decks on a neon stage in a packed arena, paws on the turntables",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "crash_zoom_in",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "a pounding house beat, a record scratch, a roaring crowd",
+    "seed": 616,
+    "orientation": "landscape",
+    "cast_refs": [],
+    "action": "The cat bobs its head to the beat and scratches the record as the crowd's phone lights pulse.",
+    "cast_name": null,
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "5a47541beefc0e057682bc63d7e1d3e1c5d70d151e45d9d36307196f0a92170d",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v1b-cat-dj-zoom",
+  "showcase_sha": "2fae5c18b156508f"
+}

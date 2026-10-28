@@ -1,0 +1,3115 @@
+{
+  "version": 1,
+  "seconds": 2.5,
+  "widths": {
+    "hd": 1280,
+    "mid": 768,
+    "thumb": 768
+  },
+  "takes": {
+    "tk_20261026_213744_0fb9": {
+      "video": "showcase/previews/tk_20261026_213744_0fb9.mp4",
+      "poster": "showcase/previews/tk_20261026_213744_0fb9.jpg",
+      "source_sha256": "d1f0a67bf232c7af8f4efc47d851a20d47be3de9ef2d29d491c0872b6b55d485",
+      "hd": {
+        "video": "showcase/previews/tk_20261026_213744_0fb9-hd.mp4",
+        "poster": "showcase/previews/tk_20261026_213744_0fb9-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261026_213744_0fb9-mid.mp4",
+        "poster": "showcase/previews/tk_20261026_213744_0fb9-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261026_213744_0fb9-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261026_213744_0fb9-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "8bc25f77c500bc1e",
+        "runs/02_anchor_1/image.png": "8eb832db4758b514"
+      }
+    },
+    "tk_20261026_202937_c933": {
+      "video": "showcase/previews/tk_20261026_202937_c933.mp4",
+      "poster": "showcase/previews/tk_20261026_202937_c933.jpg",
+      "source_sha256": "90d031bc84bc05596d6cd99541ece856b05d5c511c60ce13ae3b8a49598985ef",
+      "hd": {
+        "video": "showcase/previews/tk_20261026_202937_c933-hd.mp4",
+        "poster": "showcase/previews/tk_20261026_202937_c933-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261026_202937_c933-mid.mp4",
+        "poster": "showcase/previews/tk_20261026_202937_c933-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261026_202937_c933-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "1ac98557e43501be"
+      }
+    },
+    "tk_20261026_202643_8fbb": {
+      "video": "showcase/previews/tk_20261026_202643_8fbb.mp4",
+      "poster": "showcase/previews/tk_20261026_202643_8fbb.jpg",
+      "source_sha256": "a50afcda3fc847433af505ca7ff85bbfe6353fdd5775a8add787db1bcc64770e",
+      "hd": {
+        "video": "showcase/previews/tk_20261026_202643_8fbb-hd.mp4",
+        "poster": "showcase/previews/tk_20261026_202643_8fbb-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261026_202643_8fbb-mid.mp4",
+        "poster": "showcase/previews/tk_20261026_202643_8fbb-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261026_202643_8fbb-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "2b98c281a0ff48dd"
+      }
+    },
+    "tk_20261026_201948_1d50": {
+      "video": "showcase/previews/tk_20261026_201948_1d50.mp4",
+      "poster": "showcase/previews/tk_20261026_201948_1d50.jpg",
+      "source_sha256": "c92b84e21c04e1382abfc4c56011ce2f81b75a68fa97caf5aa99949aaa1b1fdb",
+      "hd": {
+        "video": "showcase/previews/tk_20261026_201948_1d50-hd.mp4",
+        "poster": "showcase/previews/tk_20261026_201948_1d50-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261026_201948_1d50-mid.mp4",
+        "poster": "showcase/previews/tk_20261026_201948_1d50-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/hero.png": "showcase/previews/tk_20261026_201948_1d50-s1.jpg"
+      },
+      "stills_sha": {
+        "inputs/hero.png": "e50a9171ab84fed5"
+      }
+    },
+    "tk_20261025_155332_efdb": {
+      "video": "showcase/previews/tk_20261025_155332_efdb.mp4",
+      "poster": "showcase/previews/tk_20261025_155332_efdb.jpg",
+      "source_sha256": "e26e817e846449cae00bf2d9890401334abec30ce836abba1b0190ac0ba98a46",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_155332_efdb-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_155332_efdb-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_155332_efdb-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_155332_efdb-mid.jpg",
+        "width": 768
+      }
+    },
+    "tk_20261025_154212_0052": {
+      "video": "showcase/previews/tk_20261025_154212_0052.mp4",
+      "poster": "showcase/previews/tk_20261025_154212_0052.jpg",
+      "source_sha256": "ccdd5db1c539688058595a5dbdcf807325d9418a4bed17ff9b3d31953ffbd512",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_154212_0052-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_154212_0052-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_154212_0052-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_154212_0052-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_154212_0052-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ed873091608b3725"
+      }
+    },
+    "tk_20261025_153728_4fe8": {
+      "video": "showcase/previews/tk_20261025_153728_4fe8.mp4",
+      "poster": "showcase/previews/tk_20261025_153728_4fe8.jpg",
+      "source_sha256": "9f2a687b802007fddb18aec5fa14b5287c5d0bfd6c9a1dd22ac7d3aa5b6f15ae",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_153728_4fe8-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_153728_4fe8-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_153728_4fe8-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_153728_4fe8-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_153728_4fe8-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "4e14c98278458b84"
+      }
+    },
+    "tk_20261025_153550_7ada": {
+      "video": "showcase/previews/tk_20261025_153550_7ada.mp4",
+      "poster": "showcase/previews/tk_20261025_153550_7ada.jpg",
+      "source_sha256": "b84c8a8455a4aad4dc740798c8956cb731d6c538408e22621a3e0be17a74c4cc",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_153550_7ada-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_153550_7ada-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_153550_7ada-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_153550_7ada-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_153550_7ada-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "5e56ab6623207c92"
+      }
+    },
+    "tk_20261025_153413_3b9b": {
+      "video": "showcase/previews/tk_20261025_153413_3b9b.mp4",
+      "poster": "showcase/previews/tk_20261025_153413_3b9b.jpg",
+      "source_sha256": "aee164083c8337247634f6b1559db03991ba4a12f33ebd7cc4dc9bf88cdfb840",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_153413_3b9b-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_153413_3b9b-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_153413_3b9b-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_153413_3b9b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_153413_3b9b-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "4e14c98278458b84"
+      }
+    },
+    "tk_20261025_153235_23ab": {
+      "video": "showcase/previews/tk_20261025_153235_23ab.mp4",
+      "poster": "showcase/previews/tk_20261025_153235_23ab.jpg",
+      "source_sha256": "9184b3f3afb227b212cbfede0b17bf6fb1dd7c7611aae45603cb78e8dea52053",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_153235_23ab-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_153235_23ab-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_153235_23ab-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_153235_23ab-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_153235_23ab-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "5e56ab6623207c92"
+      }
+    },
+    "tk_20261025_142556_1936": {
+      "video": "showcase/previews/tk_20261025_142556_1936.mp4",
+      "poster": "showcase/previews/tk_20261025_142556_1936.jpg",
+      "source_sha256": "f958ddc05f5e7251f4348344f1947f9a722d470640240227a48702adafd3f1fd",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_142556_1936-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_142556_1936-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_142556_1936-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_142556_1936-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_142556_1936-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261025_142556_1936-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "a2a690c9e39a5046",
+        "runs/02_transform_1/image.png": "fc658e88c030625c"
+      }
+    },
+    "tk_20261025_141116_a5de": {
+      "video": "showcase/previews/tk_20261025_141116_a5de.mp4",
+      "poster": "showcase/previews/tk_20261025_141116_a5de.jpg",
+      "source_sha256": "df46ce91df076c77784ee1b14704665ef60001db0a0d8927301755a89a006360",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_141116_a5de-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_141116_a5de-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_141116_a5de-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_141116_a5de-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_141116_a5de-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "04c8e030843714e1"
+      }
+    },
+    "tk_20261025_140838_f57e": {
+      "video": "showcase/previews/tk_20261025_140838_f57e.mp4",
+      "poster": "showcase/previews/tk_20261025_140838_f57e.jpg",
+      "source_sha256": "b0766a118aa18e4fa9aa4bdd9c17a27da9130c0833c2852eace8afec60b28580",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_140838_f57e-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_140838_f57e-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_140838_f57e-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_140838_f57e-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_140838_f57e-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "4d6a6ab504b70e48"
+      }
+    },
+    "tk_20261025_140558_8a2f": {
+      "video": "showcase/previews/tk_20261025_140558_8a2f.mp4",
+      "poster": "showcase/previews/tk_20261025_140558_8a2f.jpg",
+      "source_sha256": "e184a194397baf95e2359363c4c9643b019f05191cbbef6dd8f2c2d759d67234",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_140558_8a2f-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_140558_8a2f-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_140558_8a2f-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_140558_8a2f-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_140558_8a2f-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "f6e22d33a6d77eff"
+      }
+    },
+    "tk_20261025_140319_a4ab": {
+      "video": "showcase/previews/tk_20261025_140319_a4ab.mp4",
+      "poster": "showcase/previews/tk_20261025_140319_a4ab.jpg",
+      "source_sha256": "2e271039e4aaa3286d0d5b0ee3875fe1f712e1b8fd7e93464a62b61a4b2531f7",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_140319_a4ab-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_140319_a4ab-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_140319_a4ab-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_140319_a4ab-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_140319_a4ab-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "8c2c32c963de4d25"
+      }
+    },
+    "tk_20261025_140031_a803": {
+      "video": "showcase/previews/tk_20261025_140031_a803.mp4",
+      "poster": "showcase/previews/tk_20261025_140031_a803.jpg",
+      "source_sha256": "3793278399efe04d7c2c92f9258d4e24a9e6c7d5b0f16cc3efd2594469724da2",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_140031_a803-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_140031_a803-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_140031_a803-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_140031_a803-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_140031_a803-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "8410c0aae1a0841b"
+      }
+    },
+    "tk_20261025_140001_1069": {
+      "video": "showcase/previews/tk_20261025_140001_1069.mp4",
+      "poster": "showcase/previews/tk_20261025_140001_1069.jpg",
+      "source_sha256": "1817f02fbf131bbb8d6f4045a7a003097309e0dbf591d2faf1b9c4a44a52c32c",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_140001_1069-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_140001_1069-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_140001_1069-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_140001_1069-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_140001_1069-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "21e8e87d7dc29d48"
+      }
+    },
+    "tk_20261025_135037_c07b": {
+      "video": "showcase/previews/tk_20261025_135037_c07b.mp4",
+      "poster": "showcase/previews/tk_20261025_135037_c07b.jpg",
+      "source_sha256": "ac1177cae4643598594c589e5d74813f4d4725b553db89607f2de25932c3f76f",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_135037_c07b-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_135037_c07b-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_135037_c07b-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_135037_c07b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_135037_c07b-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "e2d008c85a7a0124"
+      }
+    },
+    "tk_20261025_134738_e8d6": {
+      "video": "showcase/previews/tk_20261025_134738_e8d6.mp4",
+      "poster": "showcase/previews/tk_20261025_134738_e8d6.jpg",
+      "source_sha256": "ea9162848fb5b98e8ba5c261e771aff65596b5e73b7a5405d28ae5198f3b88f4",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_134738_e8d6-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_134738_e8d6-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_134738_e8d6-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_134738_e8d6-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_134738_e8d6-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261025_134738_e8d6-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "931d1ae0607b7db4",
+        "runs/02_anchor_1/image.png": "266164c1fc8de091"
+      }
+    },
+    "tk_20261025_134428_f764": {
+      "video": "showcase/previews/tk_20261025_134428_f764.mp4",
+      "poster": "showcase/previews/tk_20261025_134428_f764.jpg",
+      "source_sha256": "8b6b458fd2428fd77aefd83550f4b4cb94709e5331adba4c3b75ffada31c93b3",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_134428_f764-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_134428_f764-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_134428_f764-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_134428_f764-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_134428_f764-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "1493c0cbc395e7fb"
+      }
+    },
+    "tk_20261025_134120_7409": {
+      "video": "showcase/previews/tk_20261025_134120_7409.mp4",
+      "poster": "showcase/previews/tk_20261025_134120_7409.jpg",
+      "source_sha256": "4b87f7982ac1c7e10410f9d1b23d80a4cababadaa0b693b8bed69f7dc4a021b0",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_134120_7409-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_134120_7409-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_134120_7409-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_134120_7409-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_134120_7409-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "dfc162f5694c85d7"
+      }
+    },
+    "tk_20261025_133942_52d3": {
+      "video": "showcase/previews/tk_20261025_133942_52d3.mp4",
+      "poster": "showcase/previews/tk_20261025_133942_52d3.jpg",
+      "source_sha256": "5eca5a899dd70a65381278b363a790edb181469f65cf4278a2e0762d355c6d35",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_133942_52d3-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_133942_52d3-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_133942_52d3-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_133942_52d3-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_133942_52d3-s1.jpg",
+        "runs/01_hero/image_mirrored.png": "showcase/previews/tk_20261025_133942_52d3-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "1c3f4acadbed322d",
+        "runs/01_hero/image_mirrored.png": "e0858b8977a11692"
+      }
+    },
+    "tk_20261025_133804_ef0e": {
+      "video": "showcase/previews/tk_20261025_133804_ef0e.mp4",
+      "poster": "showcase/previews/tk_20261025_133804_ef0e.jpg",
+      "source_sha256": "c01b6f9953c67e366b07524db27f5b26ee7f5115319ff35aedcb18b68586815c",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_133804_ef0e-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_133804_ef0e-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_133804_ef0e-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_133804_ef0e-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_133804_ef0e-s1.jpg",
+        "runs/01_hero/image_mirrored.png": "showcase/previews/tk_20261025_133804_ef0e-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "1c3f4acadbed322d",
+        "runs/01_hero/image_mirrored.png": "e0858b8977a11692"
+      }
+    },
+    "tk_20261025_133624_8320": {
+      "video": "showcase/previews/tk_20261025_133624_8320.mp4",
+      "poster": "showcase/previews/tk_20261025_133624_8320.jpg",
+      "source_sha256": "e7d6e93d3c2e60c804c029905e4ab3a9237ddb1da0cb520d444f0c97027f6464",
+      "hd": {
+        "video": "showcase/previews/tk_20261025_133624_8320-hd.mp4",
+        "poster": "showcase/previews/tk_20261025_133624_8320-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261025_133624_8320-mid.mp4",
+        "poster": "showcase/previews/tk_20261025_133624_8320-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261025_133624_8320-s1.jpg",
+        "runs/01_hero/image_mirrored.png": "showcase/previews/tk_20261025_133624_8320-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "1c3f4acadbed322d",
+        "runs/01_hero/image_mirrored.png": "e0858b8977a11692"
+      }
+    },
+    "tk_20261024_232528_8944": {
+      "video": "showcase/previews/tk_20261024_232528_8944.mp4",
+      "poster": "showcase/previews/tk_20261024_232528_8944.jpg",
+      "source_sha256": "62894cb7ce20a4208772a02f750ff487cd498a0def74bcb4d18b62943f3f7200",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_232528_8944-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_232528_8944-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_232528_8944-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_232528_8944-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_232528_8944-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "a780db8d394053b6"
+      }
+    },
+    "tk_20261024_202615_91e8": {
+      "video": "showcase/previews/tk_20261024_202615_91e8.mp4",
+      "poster": "showcase/previews/tk_20261024_202615_91e8.jpg",
+      "source_sha256": "f000d2b0b6331852adbad27583774bb2a46b0284bca582d9023e1a37e015ed80",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_202615_91e8-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_202615_91e8-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_202615_91e8-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_202615_91e8-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_202615_91e8-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "b90ce7b067adc2e2"
+      }
+    },
+    "tk_20261024_193151_ba77": {
+      "video": "showcase/previews/tk_20261024_193151_ba77.mp4",
+      "poster": "showcase/previews/tk_20261024_193151_ba77.jpg",
+      "source_sha256": "3e6f506c6382cac754ee7f7bc0063e2fe7be0d863fb12baae682d3f177e04d10",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_193151_ba77-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_193151_ba77-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_193151_ba77-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_193151_ba77-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_193151_ba77-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "9a4fc988a06962d0"
+      }
+    },
+    "tk_20261024_192959_62ae": {
+      "video": "showcase/previews/tk_20261024_192959_62ae.mp4",
+      "poster": "showcase/previews/tk_20261024_192959_62ae.jpg",
+      "source_sha256": "172b02659497aa5e52cf5c6fdf965ad41e041d536e52c6f40b6d3541c7316a6a",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_192959_62ae-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_192959_62ae-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_192959_62ae-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_192959_62ae-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_192959_62ae-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "49931231d41dd1ee"
+      }
+    },
+    "tk_20261024_192903_df34": {
+      "video": "showcase/previews/tk_20261024_192903_df34.mp4",
+      "poster": "showcase/previews/tk_20261024_192903_df34.jpg",
+      "source_sha256": "37f8f0f7c83cafb3550ab33f4946b775de4333f4109122f2f28ce0400dc398a4",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_192903_df34-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_192903_df34-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_192903_df34-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_192903_df34-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_192903_df34-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "c7737d576e95517e"
+      }
+    },
+    "tk_20261024_192756_a60e": {
+      "video": "showcase/previews/tk_20261024_192756_a60e.mp4",
+      "poster": "showcase/previews/tk_20261024_192756_a60e.jpg",
+      "source_sha256": "f9365b57ad83395fec91519a7a83ca241d3f004326b478f2cc42c4f1b81f8884",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_192756_a60e-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_192756_a60e-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_192756_a60e-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_192756_a60e-mid.jpg",
+        "width": 768
+      }
+    },
+    "tk_20261024_191646_2f3a": {
+      "video": "showcase/previews/tk_20261024_191646_2f3a.mp4",
+      "poster": "showcase/previews/tk_20261024_191646_2f3a.jpg",
+      "source_sha256": "bea49146eb8d39b509b941dc23639be0fd01898acf5a911ff0f2b6cfe45a886c",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_191646_2f3a-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_191646_2f3a-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_191646_2f3a-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_191646_2f3a-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/first_last_frame.png": "showcase/previews/tk_20261024_191646_2f3a-s1.jpg",
+        "inputs/second_first_frame.png": "showcase/previews/tk_20261024_191646_2f3a-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/first_last_frame.png": "998cbb43367c7851",
+        "inputs/second_first_frame.png": "0e0b6ccc1c29ed4d"
+      }
+    },
+    "tk_20261024_190502_b09b": {
+      "video": "showcase/previews/tk_20261024_190502_b09b.mp4",
+      "poster": "showcase/previews/tk_20261024_190502_b09b.jpg",
+      "source_sha256": "4b30ed4b8daeaad7006cc6b4157a30ef68a7b296aff372be4833185267f5d5ee",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_190502_b09b-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_190502_b09b-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_190502_b09b-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_190502_b09b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_190502_b09b-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261024_190502_b09b-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "c36bc81ffc0e522e",
+        "runs/02_angle/image.png": "9b91b93909bcbf5f"
+      }
+    },
+    "tk_20261024_185026_3e9e": {
+      "video": "showcase/previews/tk_20261024_185026_3e9e.mp4",
+      "poster": "showcase/previews/tk_20261024_185026_3e9e.jpg",
+      "source_sha256": "21f8317a6ac93db9c1a616cc106b65d31858bc41287d8a8244d1dfcd7dabd435",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_185026_3e9e-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_185026_3e9e-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_185026_3e9e-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_185026_3e9e-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_185026_3e9e-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "c1bef9cf0bbe5583"
+      }
+    },
+    "tk_20261024_184823_d285": {
+      "video": "showcase/previews/tk_20261024_184823_d285.mp4",
+      "poster": "showcase/previews/tk_20261024_184823_d285.jpg",
+      "source_sha256": "3524c0627150bf5f80d6d8f18ccfdff40e7e677055d38b7a861fe67c2fbfcbf2",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_184823_d285-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_184823_d285-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_184823_d285-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_184823_d285-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_184823_d285-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "90a002ef597419bc"
+      }
+    },
+    "tk_20261024_184557_9643": {
+      "video": "showcase/previews/tk_20261024_184557_9643.mp4",
+      "poster": "showcase/previews/tk_20261024_184557_9643.jpg",
+      "source_sha256": "133d4762fafe8b86c144cd15d2bf301b6bc7874c3f399b5b198b93453b8d01f7",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_184557_9643-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_184557_9643-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_184557_9643-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_184557_9643-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_184557_9643-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "cdb37a532d2aa409"
+      }
+    },
+    "tk_20261024_184224_3820": {
+      "video": "showcase/previews/tk_20261024_184224_3820.mp4",
+      "poster": "showcase/previews/tk_20261024_184224_3820.jpg",
+      "source_sha256": "0107014c207f893c92f2609b94ae045fd2f557e41327ec2c163c6320b426d377",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_184224_3820-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_184224_3820-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_184224_3820-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_184224_3820-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_184224_3820-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ff57497a79009fa1"
+      }
+    },
+    "tk_20261024_183939_8600": {
+      "video": "showcase/previews/tk_20261024_183939_8600.mp4",
+      "poster": "showcase/previews/tk_20261024_183939_8600.jpg",
+      "source_sha256": "48796e2836b5526688b2897c07d64620d054d455c89e6fab6c9d23cf258728af",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_183939_8600-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_183939_8600-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_183939_8600-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_183939_8600-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_183939_8600-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ae5bb1f09ff6da0b"
+      }
+    },
+    "tk_20261024_183554_d4de": {
+      "video": "showcase/previews/tk_20261024_183554_d4de.mp4",
+      "poster": "showcase/previews/tk_20261024_183554_d4de.jpg",
+      "source_sha256": "cd6014c142077485a9f85c2df55704fa143bf0c7b5a4809f16f4cc159ca87b04",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_183554_d4de-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_183554_d4de-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_183554_d4de-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_183554_d4de-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_183554_d4de-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ff57497a79009fa1"
+      }
+    },
+    "tk_20261024_183237_020c": {
+      "video": "showcase/previews/tk_20261024_183237_020c.mp4",
+      "poster": "showcase/previews/tk_20261024_183237_020c.jpg",
+      "source_sha256": "843d6c06c7403c75cdabdd26305d49cb7aac581d0687d9c8758d80d0001c8bbe",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_183237_020c-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_183237_020c-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_183237_020c-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_183237_020c-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_183237_020c-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261024_183237_020c-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ff57497a79009fa1",
+        "runs/02_anchor_1/image.png": "502bdb291c0081ae"
+      }
+    },
+    "tk_20261024_183130_de1a": {
+      "video": "showcase/previews/tk_20261024_183130_de1a.mp4",
+      "poster": "showcase/previews/tk_20261024_183130_de1a.jpg",
+      "source_sha256": "61665bdb642fe160743a76de0d78fe0c7ebc418b1eb17ba1b47e50116072a3c9",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_183130_de1a-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_183130_de1a-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_183130_de1a-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_183130_de1a-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_183130_de1a-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261024_183130_de1a-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ff57497a79009fa1",
+        "runs/02_anchor_1/image.png": "bb682bd57cca34b4"
+      }
+    },
+    "tk_20261024_182749_b6a5": {
+      "video": "showcase/previews/tk_20261024_182749_b6a5.mp4",
+      "poster": "showcase/previews/tk_20261024_182749_b6a5.jpg",
+      "source_sha256": "59ba396e9ab93e70056631e546ad3fe544a5f1803386ae772cab3db9c17efe6d",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_182749_b6a5-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_182749_b6a5-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_182749_b6a5-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_182749_b6a5-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_182749_b6a5-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ff57497a79009fa1"
+      }
+    },
+    "tk_20261024_182654_5553": {
+      "video": "showcase/previews/tk_20261024_182654_5553.mp4",
+      "poster": "showcase/previews/tk_20261024_182654_5553.jpg",
+      "source_sha256": "bfe1dd8189f6c2557ed0fbe4df9f3e17c2e4698633a9d50f37fc7fd7e763d4ae",
+      "hd": {
+        "video": "showcase/previews/tk_20261024_182654_5553-hd.mp4",
+        "poster": "showcase/previews/tk_20261024_182654_5553-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261024_182654_5553-mid.mp4",
+        "poster": "showcase/previews/tk_20261024_182654_5553-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261024_182654_5553-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ff57497a79009fa1"
+      }
+    },
+    "tk_20261023_095051_b57e": {
+      "video": "showcase/previews/tk_20261023_095051_b57e.mp4",
+      "poster": "showcase/previews/tk_20261023_095051_b57e.jpg",
+      "source_sha256": "624dc1999ab1e2c6fcf53f22608b54079c803be61340db885ab83a20d116415f",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_095051_b57e-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_095051_b57e-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_095051_b57e-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_095051_b57e-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/first_last_frame.png": "showcase/previews/tk_20261023_095051_b57e-s1.jpg",
+        "inputs/second_first_frame.png": "showcase/previews/tk_20261023_095051_b57e-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/first_last_frame.png": "5c5e471ca6f326c8",
+        "inputs/second_first_frame.png": "80d20960c74e0824"
+      }
+    },
+    "tk_20261023_094522_51f5": {
+      "video": "showcase/previews/tk_20261023_094522_51f5.mp4",
+      "poster": "showcase/previews/tk_20261023_094522_51f5.jpg",
+      "source_sha256": "3d65376ad0e8e631b531322c05ffd32cbd973d8dbd7742c2ad8d27b570df4a49",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_094522_51f5-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_094522_51f5-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_094522_51f5-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_094522_51f5-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_094522_51f5-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "27e010b7339fc7d7"
+      }
+    },
+    "tk_20261023_094205_8a11": {
+      "video": "showcase/previews/tk_20261023_094205_8a11.mp4",
+      "poster": "showcase/previews/tk_20261023_094205_8a11.jpg",
+      "source_sha256": "e95f48fba43b345bf19a0dfc2731e0e826ed348d65cd54003d17d0e1f2b3f296",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_094205_8a11-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_094205_8a11-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_094205_8a11-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_094205_8a11-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_094205_8a11-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "bb5202e9fd3dd977"
+      }
+    },
+    "tk_20261023_094002_a10c": {
+      "video": "showcase/previews/tk_20261023_094002_a10c.mp4",
+      "poster": "showcase/previews/tk_20261023_094002_a10c.jpg",
+      "source_sha256": "9f142f73395a1ebd3847c3bbfbf700b76a2682003ff18122a2e12ecc3ebab09b",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_094002_a10c-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_094002_a10c-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_094002_a10c-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_094002_a10c-mid.jpg",
+        "width": 768
+      }
+    },
+    "tk_20261023_093914_8b6a": {
+      "video": "showcase/previews/tk_20261023_093914_8b6a.mp4",
+      "poster": "showcase/previews/tk_20261023_093914_8b6a.jpg",
+      "source_sha256": "b6190e72990e521f44a10eb16756d5267acd2f6fa5a483a145eb9c0e2a4a8505",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_093914_8b6a-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_093914_8b6a-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_093914_8b6a-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_093914_8b6a-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/last_frame.png": "showcase/previews/tk_20261023_093914_8b6a-s1.jpg"
+      },
+      "stills_sha": {
+        "inputs/last_frame.png": "f7ce969e5ad99ad5"
+      }
+    },
+    "tk_20261023_093828_fbda": {
+      "video": "showcase/previews/tk_20261023_093828_fbda.mp4",
+      "poster": "showcase/previews/tk_20261023_093828_fbda.jpg",
+      "source_sha256": "236c0a795504122465e993dc04ee5bbd6692554c9e2f99fa1eb0a40013e884f9",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_093828_fbda-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_093828_fbda-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_093828_fbda-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_093828_fbda-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/last_frame.png": "showcase/previews/tk_20261023_093828_fbda-s1.jpg"
+      },
+      "stills_sha": {
+        "inputs/last_frame.png": "c5a11f2a2e973671"
+      }
+    },
+    "tk_20261023_093535_b269": {
+      "video": "showcase/previews/tk_20261023_093535_b269.mp4",
+      "poster": "showcase/previews/tk_20261023_093535_b269.jpg",
+      "source_sha256": "d7e443f11b650060680cd16c75c47daa919fa14a97f02c4b99f7b522cb0a38b7",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_093535_b269-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_093535_b269-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_093535_b269-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_093535_b269-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_093535_b269-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "57feb9b09ae301d8"
+      }
+    },
+    "tk_20261023_092756_e251": {
+      "video": "showcase/previews/tk_20261023_092756_e251.mp4",
+      "poster": "showcase/previews/tk_20261023_092756_e251.jpg",
+      "source_sha256": "39f0489de43da248fa115e9731b6f2be5ae6e92fc13d2f10b23184aecb44e74f",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_092756_e251-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_092756_e251-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_092756_e251-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_092756_e251-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_092756_e251-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "e634949a6b8a4cdf"
+      }
+    },
+    "tk_20261023_092456_74bb": {
+      "video": "showcase/previews/tk_20261023_092456_74bb.mp4",
+      "poster": "showcase/previews/tk_20261023_092456_74bb.jpg",
+      "source_sha256": "efe898a5eedfc8d07d47ed77dd55b8991cb0121ed2f59a8bc94beed154c2aa0a",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_092456_74bb-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_092456_74bb-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_092456_74bb-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_092456_74bb-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_092456_74bb-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "bc52a3906a9604bd"
+      }
+    },
+    "tk_20261023_092136_f977": {
+      "video": "showcase/previews/tk_20261023_092136_f977.mp4",
+      "poster": "showcase/previews/tk_20261023_092136_f977.jpg",
+      "source_sha256": "66258b38520f21b2ebe95f4b495ebbc8b72a858789aa7b94faf223191185cd2d",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_092136_f977-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_092136_f977-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_092136_f977-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_092136_f977-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_092136_f977-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "193fe03ccf9c1321"
+      }
+    },
+    "tk_20261023_091828_20b9": {
+      "video": "showcase/previews/tk_20261023_091828_20b9.mp4",
+      "poster": "showcase/previews/tk_20261023_091828_20b9.jpg",
+      "source_sha256": "0efb8458980ee68b9c52fc91611371639d934494208bb5afb6dc2330e1e0ea14",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_091828_20b9-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_091828_20b9-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_091828_20b9-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_091828_20b9-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_091828_20b9-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "cfa5c2e17ae4ed31"
+      }
+    },
+    "tk_20261023_091155_5b5b": {
+      "video": "showcase/previews/tk_20261023_091155_5b5b.mp4",
+      "poster": "showcase/previews/tk_20261023_091155_5b5b.jpg",
+      "source_sha256": "fcba762f67357d3092a6745d836f7ec35d95f7628aaa512a7f15222b0f6b5297",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_091155_5b5b-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_091155_5b5b-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_091155_5b5b-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_091155_5b5b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_091155_5b5b-s1.jpg",
+        "runs/02_hero_retry/image.png": "showcase/previews/tk_20261023_091155_5b5b-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "fe1c76e78b557ab0",
+        "runs/02_hero_retry/image.png": "9265b9ff98d97dc7"
+      }
+    },
+    "tk_20261023_090428_796a": {
+      "video": "showcase/previews/tk_20261023_090428_796a.mp4",
+      "poster": "showcase/previews/tk_20261023_090428_796a.jpg",
+      "source_sha256": "1b55c112b4d3dbb2316f8b215e27d2d8c599f6443c982eadc63d45288b4bcde3",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_090428_796a-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_090428_796a-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_090428_796a-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_090428_796a-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_090428_796a-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_090428_796a-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "7c7558f219c1a792",
+        "runs/02_transform_1/image.png": "7bd45dc0ec6cf129"
+      }
+    },
+    "tk_20261023_090103_13a2": {
+      "video": "showcase/previews/tk_20261023_090103_13a2.mp4",
+      "poster": "showcase/previews/tk_20261023_090103_13a2.jpg",
+      "source_sha256": "3d9e7a06c3659604ac57c178c9e001e57fee722f466c7f80f56840ff9d7f767a",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_090103_13a2-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_090103_13a2-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_090103_13a2-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_090103_13a2-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_090103_13a2-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_090103_13a2-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "a0bcc2489d4821e2",
+        "runs/02_transform_1/image.png": "d04114caac68128e"
+      }
+    },
+    "tk_20261023_085732_f86b": {
+      "video": "showcase/previews/tk_20261023_085732_f86b.mp4",
+      "poster": "showcase/previews/tk_20261023_085732_f86b.jpg",
+      "source_sha256": "798f45c0c5d333775df35b6a3bebc708fa13d6b2447289a8665cd48c4aeb5226",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_085732_f86b-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_085732_f86b-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_085732_f86b-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_085732_f86b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_085732_f86b-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_085732_f86b-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "441c31230559ef2f",
+        "runs/02_transform_1/image.png": "743c1d992e66d184"
+      }
+    },
+    "tk_20261023_085408_dab1": {
+      "video": "showcase/previews/tk_20261023_085408_dab1.mp4",
+      "poster": "showcase/previews/tk_20261023_085408_dab1.jpg",
+      "source_sha256": "d1e31d51df5c3ada633cd5ba13c10a37f0456f5edaa61094820333d474bba768",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_085408_dab1-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_085408_dab1-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_085408_dab1-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_085408_dab1-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_085408_dab1-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_085408_dab1-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "e674bbcc6d10a811",
+        "runs/02_transform_1/image.png": "6ef4d30380d155b8"
+      }
+    },
+    "tk_20261023_085035_87d4": {
+      "video": "showcase/previews/tk_20261023_085035_87d4.mp4",
+      "poster": "showcase/previews/tk_20261023_085035_87d4.jpg",
+      "source_sha256": "f867bc87f77ed68c2e524887dbb2d774ee2bedd6a89c4585901737a887ae02c9",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_085035_87d4-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_085035_87d4-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_085035_87d4-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_085035_87d4-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_085035_87d4-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_085035_87d4-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "4cb53b9ad53aef11",
+        "runs/02_transform_1/image.png": "225d6b8e2a93d993"
+      }
+    },
+    "tk_20261023_084643_7561": {
+      "video": "showcase/previews/tk_20261023_084643_7561.mp4",
+      "poster": "showcase/previews/tk_20261023_084643_7561.jpg",
+      "source_sha256": "b86cce2ec9ea2768c6f35270458361d8cfa2989794ce58150ee45677e6b4358e",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_084643_7561-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_084643_7561-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_084643_7561-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_084643_7561-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_084643_7561-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_084643_7561-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "5ee31722c131c02a",
+        "runs/02_transform_1/image.png": "1cbe15a5ab3dc6d4"
+      }
+    },
+    "tk_20261023_084307_e363": {
+      "video": "showcase/previews/tk_20261023_084307_e363.mp4",
+      "poster": "showcase/previews/tk_20261023_084307_e363.jpg",
+      "source_sha256": "4363ece3cd1e2274a5bd7390d22d6f571838fd05f818eb72789584cd58a3f52a",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_084307_e363-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_084307_e363-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_084307_e363-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_084307_e363-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_084307_e363-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_084307_e363-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "9f4c851eed35485e",
+        "runs/02_transform_1/image.png": "ff936c97b93df131"
+      }
+    },
+    "tk_20261023_083923_fc2a": {
+      "video": "showcase/previews/tk_20261023_083923_fc2a.mp4",
+      "poster": "showcase/previews/tk_20261023_083923_fc2a.jpg",
+      "source_sha256": "b95fcf60913140d748f9d361d2b86454ebec9fe7755de3c6b5ba98fe1c466f71",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_083923_fc2a-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_083923_fc2a-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_083923_fc2a-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_083923_fc2a-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_083923_fc2a-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_083923_fc2a-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "1f9b36da28bcb326",
+        "runs/02_transform_1/image.png": "70ed83482281338a"
+      }
+    },
+    "tk_20261023_083424_1e48": {
+      "video": "showcase/previews/tk_20261023_083424_1e48.mp4",
+      "poster": "showcase/previews/tk_20261023_083424_1e48.jpg",
+      "source_sha256": "e5e5b413251382cbe171c3cdfb92a792b1621e1cfffffd7d1420dc7952408604",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_083424_1e48-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_083424_1e48-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_083424_1e48-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_083424_1e48-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_083424_1e48-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261023_083424_1e48-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "c5c3cf320bce1d74",
+        "runs/02_transform_1/image.png": "c5d1789000109e4e"
+      }
+    },
+    "tk_20261023_083119_07d0": {
+      "video": "showcase/previews/tk_20261023_083119_07d0.mp4",
+      "poster": "showcase/previews/tk_20261023_083119_07d0.jpg",
+      "source_sha256": "dd8a51574efdbaeba1074656714bcce3c85cd76b1ed70f978ea2ba8f2554512f",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_083119_07d0-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_083119_07d0-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_083119_07d0-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_083119_07d0-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_083119_07d0-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "40d5f13349806788"
+      }
+    },
+    "tk_20261023_082530_d515": {
+      "video": "showcase/previews/tk_20261023_082530_d515.mp4",
+      "poster": "showcase/previews/tk_20261023_082530_d515.jpg",
+      "source_sha256": "04b7c17a264ea69b116296f145c8ed0342d817bd69f3563419c530c8351f4125",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_082530_d515-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_082530_d515-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_082530_d515-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_082530_d515-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_082530_d515-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "730cb9fa753b0294"
+      }
+    },
+    "tk_20261023_081807_a4e2": {
+      "video": "showcase/previews/tk_20261023_081807_a4e2.mp4",
+      "poster": "showcase/previews/tk_20261023_081807_a4e2.jpg",
+      "source_sha256": "60c0d82aa6a05663f27096be767bcedb951713274c72a71740ab3a399b168fbf",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_081807_a4e2-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_081807_a4e2-hd.jpg",
+        "width": 848
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_081807_a4e2-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_081807_a4e2-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/reference.png": "showcase/previews/tk_20261023_081807_a4e2-s1.jpg",
+        "inputs/source_first.png": "showcase/previews/tk_20261023_081807_a4e2-s2.jpg",
+        "inputs/source_poster.png": "showcase/previews/tk_20261023_081807_a4e2-s3.jpg",
+        "runs/01_face/image.png": "showcase/previews/tk_20261023_081807_a4e2-s4.jpg"
+      },
+      "stills_sha": {
+        "inputs/reference.png": "4129b4f836874b59",
+        "inputs/source_first.png": "e66c50d7d859e14f",
+        "inputs/source_poster.png": "fef4b8c793c0375d",
+        "runs/01_face/image.png": "4d24dc2629a7c85f"
+      }
+    },
+    "tk_20261023_081319_fada": {
+      "video": "showcase/previews/tk_20261023_081319_fada.mp4",
+      "poster": "showcase/previews/tk_20261023_081319_fada.jpg",
+      "source_sha256": "2307502cbb2e7ffc6b0c0614a4bd9dec926f35a4dda6c163553f72f25fa1d80d",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_081319_fada-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_081319_fada-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_081319_fada-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_081319_fada-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_081319_fada-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "1a59df0d810fe21b"
+      }
+    },
+    "tk_20261023_000528_66a0": {
+      "video": "showcase/previews/tk_20261023_000528_66a0.mp4",
+      "poster": "showcase/previews/tk_20261023_000528_66a0.jpg",
+      "source_sha256": "cc4ba02e1e899a396039afb53b5d62dbe07672ab770d4fa94154d42330928c6f",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_000528_66a0-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_000528_66a0-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_000528_66a0-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_000528_66a0-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261023_000528_66a0-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "c2702f26c6217922"
+      }
+    },
+    "tk_20261023_000207_c125": {
+      "video": "showcase/previews/tk_20261023_000207_c125.mp4",
+      "poster": "showcase/previews/tk_20261023_000207_c125.jpg",
+      "source_sha256": "5326f2ff82ff008c1b1bd432070324340e9e71da245649d71f2d6005062463af",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_000207_c125-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_000207_c125-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_000207_c125-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_000207_c125-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/hero.png": "showcase/previews/tk_20261023_000207_c125-s1.jpg"
+      },
+      "stills_sha": {
+        "inputs/hero.png": "c2f718e3a9a505b4"
+      }
+    },
+    "tk_20261023_000040_9639": {
+      "video": "showcase/previews/tk_20261023_000040_9639.mp4",
+      "poster": "showcase/previews/tk_20261023_000040_9639.jpg",
+      "source_sha256": "ffbd245dde433bd2d9dd49e9e7b19c598d3c8a1bf90f4b31b6d73468bd7f59f1",
+      "hd": {
+        "video": "showcase/previews/tk_20261023_000040_9639-hd.mp4",
+        "poster": "showcase/previews/tk_20261023_000040_9639-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261023_000040_9639-mid.mp4",
+        "poster": "showcase/previews/tk_20261023_000040_9639-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/hero.png": "showcase/previews/tk_20261023_000040_9639-s1.jpg"
+      },
+      "stills_sha": {
+        "inputs/hero.png": "c2f718e3a9a505b4"
+      }
+    },
+    "tk_20261022_235620_5e31": {
+      "video": "showcase/previews/tk_20261022_235620_5e31.mp4",
+      "poster": "showcase/previews/tk_20261022_235620_5e31.jpg",
+      "source_sha256": "9f7ee358bc000833d30913707107084252e46ff83fd61d1dbbcad17f446cc81b",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_235620_5e31-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_235620_5e31-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_235620_5e31-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_235620_5e31-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/source.png": "showcase/previews/tk_20261022_235620_5e31-s1.jpg",
+        "runs/01_edit/image.png": "showcase/previews/tk_20261022_235620_5e31-s2.jpg",
+        "runs/02_edit_retry/image.png": "showcase/previews/tk_20261022_235620_5e31-s3.jpg"
+      },
+      "stills_sha": {
+        "inputs/source.png": "0486f582dfe94bf3",
+        "runs/01_edit/image.png": "992e183ed7cb9a72",
+        "runs/02_edit_retry/image.png": "d229bb6563cb171b"
+      }
+    },
+    "tk_20261022_235556_e38d": {
+      "video": "showcase/previews/tk_20261022_235556_e38d.mp4",
+      "poster": "showcase/previews/tk_20261022_235556_e38d.jpg",
+      "source_sha256": "cf369d647675fab9ca66b90cd248f9e632df7082c221f0791c83570340c375ea",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_235556_e38d-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_235556_e38d-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_235556_e38d-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_235556_e38d-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/source.png": "showcase/previews/tk_20261022_235556_e38d-s1.jpg",
+        "runs/01_edit/image.png": "showcase/previews/tk_20261022_235556_e38d-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/source.png": "e9fc5356f3139fe4",
+        "runs/01_edit/image.png": "1e041e902a65bb10"
+      }
+    },
+    "tk_20261022_235532_eafb": {
+      "video": "showcase/previews/tk_20261022_235532_eafb.mp4",
+      "poster": "showcase/previews/tk_20261022_235532_eafb.jpg",
+      "source_sha256": "488dcbe51fbb3fe7274bacc0fa2271b52b171115718f7b451ccf5a54c39bfef0",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_235532_eafb-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_235532_eafb-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_235532_eafb-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_235532_eafb-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/source.png": "showcase/previews/tk_20261022_235532_eafb-s1.jpg",
+        "runs/01_edit/image.png": "showcase/previews/tk_20261022_235532_eafb-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/source.png": "f79e5840187e8c71",
+        "runs/01_edit/image.png": "2fc2bec08f758164"
+      }
+    },
+    "tk_20261022_235509_1c3d": {
+      "video": "showcase/previews/tk_20261022_235509_1c3d.mp4",
+      "poster": "showcase/previews/tk_20261022_235509_1c3d.jpg",
+      "source_sha256": "0f0533145d24ad40b300a0bdf998763f57734f446f0b57d4309ae85d32593847",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_235509_1c3d-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_235509_1c3d-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_235509_1c3d-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_235509_1c3d-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/source.png": "showcase/previews/tk_20261022_235509_1c3d-s1.jpg",
+        "runs/01_edit/image.png": "showcase/previews/tk_20261022_235509_1c3d-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/source.png": "231b62f53ab6f046",
+        "runs/01_edit/image.png": "4ee8a45a2a6272f2"
+      }
+    },
+    "tk_20261022_235440_2af2": {
+      "video": "showcase/previews/tk_20261022_235440_2af2.mp4",
+      "poster": "showcase/previews/tk_20261022_235440_2af2.jpg",
+      "source_sha256": "73c63d5d9c27fdb69393fd6d6a083a8246b0c98501ecfe6626930791ac74f29a",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_235440_2af2-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_235440_2af2-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_235440_2af2-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_235440_2af2-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/source.png": "showcase/previews/tk_20261022_235440_2af2-s1.jpg",
+        "runs/01_edit/image.png": "showcase/previews/tk_20261022_235440_2af2-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/source.png": "bfc1226c4fbe15ed",
+        "runs/01_edit/image.png": "56841b18c7f780e5"
+      }
+    },
+    "tk_20261022_235404_635b": {
+      "video": "showcase/previews/tk_20261022_235404_635b.mp4",
+      "poster": "showcase/previews/tk_20261022_235404_635b.jpg",
+      "source_sha256": "a75c951972571ae619adca784321ca1d034776e1acc2d9e59b3afce2ef340514",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_235404_635b-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_235404_635b-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_235404_635b-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_235404_635b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/source.png": "showcase/previews/tk_20261022_235404_635b-s1.jpg",
+        "runs/01_edit/image.png": "showcase/previews/tk_20261022_235404_635b-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/source.png": "e9fc5356f3139fe4",
+        "runs/01_edit/image.png": "fbbd2daf8657cb10"
+      }
+    },
+    "tk_20261022_234713_9c93": {
+      "video": "showcase/previews/tk_20261022_234713_9c93.mp4",
+      "poster": "showcase/previews/tk_20261022_234713_9c93.jpg",
+      "source_sha256": "174562e7dabe8f35c70cd8bc31c94fabdf5a42029eaf819998a7770e22032591",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_234713_9c93-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_234713_9c93-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_234713_9c93-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_234713_9c93-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/source.png": "showcase/previews/tk_20261022_234713_9c93-s1.jpg",
+        "runs/01_shot_1/image.png": "showcase/previews/tk_20261022_234713_9c93-s2.jpg",
+        "runs/02_shot_2/image.png": "showcase/previews/tk_20261022_234713_9c93-s3.jpg",
+        "runs/03_shot_3/image.png": "showcase/previews/tk_20261022_234713_9c93-s4.jpg",
+        "runs/04_shot_4/image.png": "showcase/previews/tk_20261022_234713_9c93-s5.jpg",
+        "runs/05_shot_5/image.png": "showcase/previews/tk_20261022_234713_9c93-s6.jpg",
+        "runs/06_shot_6/image.png": "showcase/previews/tk_20261022_234713_9c93-s7.jpg",
+        "runs/07_shot_7/image.png": "showcase/previews/tk_20261022_234713_9c93-s8.jpg",
+        "runs/08_shot_8/image.png": "showcase/previews/tk_20261022_234713_9c93-s9.jpg",
+        "runs/09_shot_9/image.png": "showcase/previews/tk_20261022_234713_9c93-s10.jpg"
+      },
+      "stills_sha": {
+        "inputs/source.png": "e9fc5356f3139fe4",
+        "runs/01_shot_1/image.png": "cd36c22a85d5ecad",
+        "runs/02_shot_2/image.png": "962badd6657b531c",
+        "runs/03_shot_3/image.png": "96d87363c75193bf",
+        "runs/04_shot_4/image.png": "89e61e2f0f2f591b",
+        "runs/05_shot_5/image.png": "af1572da11b609ec",
+        "runs/06_shot_6/image.png": "8e76794c5f5e186e",
+        "runs/07_shot_7/image.png": "44cce642ac31feac",
+        "runs/08_shot_8/image.png": "eaa4eb4b033b262c",
+        "runs/09_shot_9/image.png": "5bf29ae4a3d89f96"
+      }
+    },
+    "tk_20261022_234340_e66f": {
+      "video": "showcase/previews/tk_20261022_234340_e66f.mp4",
+      "poster": "showcase/previews/tk_20261022_234340_e66f.jpg",
+      "source_sha256": "8e5e982e712cef61a426d28163418c63fb290633acd93ee15e62b6bac4210593",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_234340_e66f-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_234340_e66f-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_234340_e66f-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_234340_e66f-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/source.png": "showcase/previews/tk_20261022_234340_e66f-s1.jpg",
+        "runs/01_shot_1/image.png": "showcase/previews/tk_20261022_234340_e66f-s2.jpg",
+        "runs/02_shot_2/image.png": "showcase/previews/tk_20261022_234340_e66f-s3.jpg",
+        "runs/03_shot_3/image.png": "showcase/previews/tk_20261022_234340_e66f-s4.jpg",
+        "runs/04_shot_4/image.png": "showcase/previews/tk_20261022_234340_e66f-s5.jpg",
+        "runs/05_shot_5/image.png": "showcase/previews/tk_20261022_234340_e66f-s6.jpg",
+        "runs/06_shot_6/image.png": "showcase/previews/tk_20261022_234340_e66f-s7.jpg",
+        "runs/07_shot_7/image.png": "showcase/previews/tk_20261022_234340_e66f-s8.jpg",
+        "runs/08_shot_8/image.png": "showcase/previews/tk_20261022_234340_e66f-s9.jpg",
+        "runs/09_shot_9/image.png": "showcase/previews/tk_20261022_234340_e66f-s10.jpg"
+      },
+      "stills_sha": {
+        "inputs/source.png": "f79e5840187e8c71",
+        "runs/01_shot_1/image.png": "017b2b1aec59cc39",
+        "runs/02_shot_2/image.png": "48dbd9fb1f4636d6",
+        "runs/03_shot_3/image.png": "eee0de30d9c97d52",
+        "runs/04_shot_4/image.png": "db5ede510504d766",
+        "runs/05_shot_5/image.png": "8bb6316263c4591e",
+        "runs/06_shot_6/image.png": "8e08aab451168abf",
+        "runs/07_shot_7/image.png": "034a0ae3d012d4b3",
+        "runs/08_shot_8/image.png": "f686dcb877eee3ab",
+        "runs/09_shot_9/image.png": "53e7ed04afd67861"
+      }
+    },
+    "tk_20261022_231725_3dee": {
+      "video": "showcase/previews/tk_20261022_231725_3dee.mp4",
+      "poster": "showcase/previews/tk_20261022_231725_3dee.jpg",
+      "source_sha256": "875a37411865914ad509da754c295fc02b7fa627484aae255b2964741ba2922f",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_231725_3dee-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_231725_3dee-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_231725_3dee-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_231725_3dee-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_231725_3dee-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "0a1f64c9d3cd19f5"
+      }
+    },
+    "tk_20261022_193904_9fce": {
+      "video": "showcase/previews/tk_20261022_193904_9fce.mp4",
+      "poster": "showcase/previews/tk_20261022_193904_9fce.jpg",
+      "source_sha256": "61025b437877499980e5286c81843412905ec051cd73600b6004313076895fc7",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_193904_9fce-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_193904_9fce-hd.jpg",
+        "width": 848
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_193904_9fce-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_193904_9fce-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/reference.png": "showcase/previews/tk_20261022_193904_9fce-s1.jpg",
+        "inputs/source_poster.png": "showcase/previews/tk_20261022_193904_9fce-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/reference.png": "5cf591b542ead07d",
+        "inputs/source_poster.png": "0b038362eee1127e"
+      }
+    },
+    "tk_20261022_193602_227c": {
+      "video": "showcase/previews/tk_20261022_193602_227c.mp4",
+      "poster": "showcase/previews/tk_20261022_193602_227c.jpg",
+      "source_sha256": "c1e27f547061b576df30eb44889671fd4576f86049823e1d4269b37c4fe06261",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_193602_227c-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_193602_227c-hd.jpg",
+        "width": 848
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_193602_227c-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_193602_227c-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/reference.png": "showcase/previews/tk_20261022_193602_227c-s1.jpg",
+        "inputs/source_poster.png": "showcase/previews/tk_20261022_193602_227c-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/reference.png": "b8ae5d5e175c6f8d",
+        "inputs/source_poster.png": "0b038362eee1127e"
+      }
+    },
+    "tk_20261022_193105_34f3": {
+      "video": "showcase/previews/tk_20261022_193105_34f3.mp4",
+      "poster": "showcase/previews/tk_20261022_193105_34f3.jpg",
+      "source_sha256": "e7c45d8e9467267c4fffc0f1918d27f1c8c04bb089c2b7ab9e4cbdf3da922998",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_193105_34f3-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_193105_34f3-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_193105_34f3-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_193105_34f3-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_193105_34f3-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261022_193105_34f3-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "e6bf243a1b7762da",
+        "runs/02_anchor_1/image.png": "1f9a6a3aa5d9807a"
+      }
+    },
+    "tk_20261022_192808_a4c1": {
+      "video": "showcase/previews/tk_20261022_192808_a4c1.mp4",
+      "poster": "showcase/previews/tk_20261022_192808_a4c1.jpg",
+      "source_sha256": "dc69e9dff391064be20a66cc08ea186f82d841b111d5872ace229ada3a01d1fb",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_192808_a4c1-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_192808_a4c1-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_192808_a4c1-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_192808_a4c1-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_192808_a4c1-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "0b84df0d3969578c"
+      }
+    },
+    "tk_20261022_190448_a080": {
+      "video": "showcase/previews/tk_20261022_190448_a080.mp4",
+      "poster": "showcase/previews/tk_20261022_190448_a080.jpg",
+      "source_sha256": "f16e8a82d4888574b740ab5e51c2b1be26bad29dfb19b0418a18b336e36e6f7c",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_190448_a080-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_190448_a080-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_190448_a080-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_190448_a080-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_190448_a080-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261022_190448_a080-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "2c42e0fa6abc7de9",
+        "runs/02_transform_1/image.png": "d965b4d5163b4853"
+      }
+    },
+    "tk_20261022_185241_6aaa": {
+      "video": "showcase/previews/tk_20261022_185241_6aaa.mp4",
+      "poster": "showcase/previews/tk_20261022_185241_6aaa.jpg",
+      "source_sha256": "5418a1978ccee55c7a2b49696e82a81c997ea8ade108eb375d7bd619e8cab390",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_185241_6aaa-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_185241_6aaa-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_185241_6aaa-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_185241_6aaa-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_185241_6aaa-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261022_185241_6aaa-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "4ba712fdfa8464cd",
+        "runs/02_anchor_1/image.png": "e688dbb0f278634f"
+      }
+    },
+    "tk_20261022_183830_7c9d": {
+      "video": "showcase/previews/tk_20261022_183830_7c9d.mp4",
+      "poster": "showcase/previews/tk_20261022_183830_7c9d.jpg",
+      "source_sha256": "26da8708f05a5c5b7a504cf69fc62f96cf5c267273b7cdb920f4e449db6ac5d6",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_183830_7c9d-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_183830_7c9d-hd.jpg",
+        "width": 848
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_183830_7c9d-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_183830_7c9d-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/reference.png": "showcase/previews/tk_20261022_183830_7c9d-s1.jpg",
+        "inputs/source_poster.png": "showcase/previews/tk_20261022_183830_7c9d-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/reference.png": "b0b6714908b986da",
+        "inputs/source_poster.png": "0b038362eee1127e"
+      }
+    },
+    "tk_20261022_181228_32c2": {
+      "video": "showcase/previews/tk_20261022_181228_32c2.mp4",
+      "poster": "showcase/previews/tk_20261022_181228_32c2.jpg",
+      "source_sha256": "67638593cdac0bf94b5cb2288d552fe40bd856cb9a613a907a49621092f9e427",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_181228_32c2-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_181228_32c2-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_181228_32c2-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_181228_32c2-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_181228_32c2-s1.jpg",
+        "runs/02_hero_retry/image.png": "showcase/previews/tk_20261022_181228_32c2-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "7151c6edd37156b8",
+        "runs/02_hero_retry/image.png": "57e049c523ae3a67"
+      }
+    },
+    "tk_20261022_180938_a0b7": {
+      "video": "showcase/previews/tk_20261022_180938_a0b7.mp4",
+      "poster": "showcase/previews/tk_20261022_180938_a0b7.jpg",
+      "source_sha256": "6f154351f12cb58c3a11df26647d5aae5ccdc4676f2937a041b08d941c235cbb",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_180938_a0b7-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_180938_a0b7-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_180938_a0b7-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_180938_a0b7-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_180938_a0b7-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "e15f284f4222b5be"
+      }
+    },
+    "tk_20261022_180620_04a8": {
+      "video": "showcase/previews/tk_20261022_180620_04a8.mp4",
+      "poster": "showcase/previews/tk_20261022_180620_04a8.jpg",
+      "source_sha256": "158232ac6d5f0d97dd9e312b903f87ad57f3347a2c47ca7d66a7b1da68542862",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_180620_04a8-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_180620_04a8-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_180620_04a8-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_180620_04a8-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_180620_04a8-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "31b4c04d18d1f2ab"
+      }
+    },
+    "tk_20261022_143914_96ca": {
+      "video": "showcase/previews/tk_20261022_143914_96ca.mp4",
+      "poster": "showcase/previews/tk_20261022_143914_96ca.jpg",
+      "source_sha256": "4d98c31c6cfae97ad99630b991c00ad8afa39e8f4c5aec48a25e6f3f7381dfc3",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_143914_96ca-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_143914_96ca-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_143914_96ca-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_143914_96ca-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_143914_96ca-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261022_143914_96ca-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "1dd700673dfef9ea",
+        "runs/02_anchor_1/image.png": "df99aea72806c80b"
+      }
+    },
+    "tk_20261022_143709_e6b6": {
+      "video": "showcase/previews/tk_20261022_143709_e6b6.mp4",
+      "poster": "showcase/previews/tk_20261022_143709_e6b6.jpg",
+      "source_sha256": "fff242581dec89e799a7788fc0b5b65b7844faf14337efced6e838dbebba0bf4",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_143709_e6b6-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_143709_e6b6-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_143709_e6b6-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_143709_e6b6-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_143709_e6b6-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "3ec09777651d5e17"
+      }
+    },
+    "tk_20261022_143530_e1f3": {
+      "video": "showcase/previews/tk_20261022_143530_e1f3.mp4",
+      "poster": "showcase/previews/tk_20261022_143530_e1f3.jpg",
+      "source_sha256": "23399c8cac9d1cf997df124fb28ab40849293513c0025c2fd6591186992f1186",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_143530_e1f3-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_143530_e1f3-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_143530_e1f3-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_143530_e1f3-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_143530_e1f3-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "b6880f825cd3ed64"
+      }
+    },
+    "tk_20261022_143354_e0bc": {
+      "video": "showcase/previews/tk_20261022_143354_e0bc.mp4",
+      "poster": "showcase/previews/tk_20261022_143354_e0bc.jpg",
+      "source_sha256": "87ea8aedaf7730dae306f83c1f35d9af7e853d9335189e1d2a467e867a1ec2bf",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_143354_e0bc-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_143354_e0bc-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_143354_e0bc-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_143354_e0bc-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_143354_e0bc-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "b959dc32dc958dd3"
+      }
+    },
+    "tk_20261022_142854_6a5e": {
+      "video": "showcase/previews/tk_20261022_142854_6a5e.mp4",
+      "poster": "showcase/previews/tk_20261022_142854_6a5e.jpg",
+      "source_sha256": "f7cd89273e48d24ac819d4d506fcc9fd04e91eabea438614dd1dc9719b34f9ac",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_142854_6a5e-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_142854_6a5e-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_142854_6a5e-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_142854_6a5e-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_142854_6a5e-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "e400c796e31f889b"
+      }
+    },
+    "tk_20261022_142534_036c": {
+      "video": "showcase/previews/tk_20261022_142534_036c.mp4",
+      "poster": "showcase/previews/tk_20261022_142534_036c.jpg",
+      "source_sha256": "65550a4a12b2e38a34b757cba601d2f38ca3bcb6f884d341f7c59709e603c9d1",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_142534_036c-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_142534_036c-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_142534_036c-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_142534_036c-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_142534_036c-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "81554d25c72c88f9"
+      }
+    },
+    "tk_20261022_141631_4bb5": {
+      "video": "showcase/previews/tk_20261022_141631_4bb5.mp4",
+      "poster": "showcase/previews/tk_20261022_141631_4bb5.jpg",
+      "source_sha256": "a072effda7fd030e442a5e4c5ceb8ea533d3c5bc6e75cffead258823ec8e7c6a",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_141631_4bb5-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_141631_4bb5-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_141631_4bb5-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_141631_4bb5-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_141631_4bb5-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_141631_4bb5-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "f65a090211367b70"
+      }
+    },
+    "tk_20261022_141430_782c": {
+      "video": "showcase/previews/tk_20261022_141430_782c.mp4",
+      "poster": "showcase/previews/tk_20261022_141430_782c.jpg",
+      "source_sha256": "93ac620f36a40b23992a66624b6e380311d8b65462c84aae7bcf53d269a7fb5d",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_141430_782c-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_141430_782c-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_141430_782c-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_141430_782c-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_141430_782c-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_141430_782c-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "a092c852c7b7ede0"
+      }
+    },
+    "tk_20261022_141229_c9fc": {
+      "video": "showcase/previews/tk_20261022_141229_c9fc.mp4",
+      "poster": "showcase/previews/tk_20261022_141229_c9fc.jpg",
+      "source_sha256": "c10f67fb4d4ad3f7a7054d6e96a85169c65fab45a7977f98200da59b4f752dbc",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_141229_c9fc-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_141229_c9fc-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_141229_c9fc-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_141229_c9fc-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_141229_c9fc-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_141229_c9fc-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "f85e1b1ea40920ee"
+      }
+    },
+    "tk_20261022_141028_26f4": {
+      "video": "showcase/previews/tk_20261022_141028_26f4.mp4",
+      "poster": "showcase/previews/tk_20261022_141028_26f4.jpg",
+      "source_sha256": "e486cfd199c69f12709e2ab12ddae899137be396d1a070284181edffe986eb3f",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_141028_26f4-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_141028_26f4-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_141028_26f4-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_141028_26f4-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_141028_26f4-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_141028_26f4-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "2be4fce337567d81"
+      }
+    },
+    "tk_20261022_140827_f002": {
+      "video": "showcase/previews/tk_20261022_140827_f002.mp4",
+      "poster": "showcase/previews/tk_20261022_140827_f002.jpg",
+      "source_sha256": "f8c7d74a729276cd93e921631b7e19f43e25f8435718a3ffbe56475ffd962a0b",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_140827_f002-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_140827_f002-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_140827_f002-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_140827_f002-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_140827_f002-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_140827_f002-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "c60d11f5b213f767"
+      }
+    },
+    "tk_20261022_140623_43c6": {
+      "video": "showcase/previews/tk_20261022_140623_43c6.mp4",
+      "poster": "showcase/previews/tk_20261022_140623_43c6.jpg",
+      "source_sha256": "79f1ac784ec85272ca16053c5f27c17bf956626d807bd88105992295d9858ca7",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_140623_43c6-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_140623_43c6-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_140623_43c6-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_140623_43c6-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_140623_43c6-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_140623_43c6-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "b6bab04a1a6fa753"
+      }
+    },
+    "tk_20261022_140201_aa06": {
+      "video": "showcase/previews/tk_20261022_140201_aa06.mp4",
+      "poster": "showcase/previews/tk_20261022_140201_aa06.jpg",
+      "source_sha256": "6faaa1b328dad62946af5d5857e9ac263890e8143cb3587448a91a3cc7fff51d",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_140201_aa06-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_140201_aa06-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_140201_aa06-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_140201_aa06-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_140201_aa06-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_140201_aa06-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "dd8c1670c0e9bf20"
+      }
+    },
+    "tk_20261022_135940_2f2c": {
+      "video": "showcase/previews/tk_20261022_135940_2f2c.mp4",
+      "poster": "showcase/previews/tk_20261022_135940_2f2c.jpg",
+      "source_sha256": "935a9cb61987f9b423171e3bf67fcec583779580dc24c95a1eeb6db81c15fdbf",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_135940_2f2c-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_135940_2f2c-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_135940_2f2c-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_135940_2f2c-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_135940_2f2c-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_135940_2f2c-s2.jpg",
+        "runs/03_angle_retry/image.png": "showcase/previews/tk_20261022_135940_2f2c-s3.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "4efce625fafd661e",
+        "runs/03_angle_retry/image.png": "411c1147b954c076"
+      }
+    },
+    "tk_20261022_135739_4a3a": {
+      "video": "showcase/previews/tk_20261022_135739_4a3a.mp4",
+      "poster": "showcase/previews/tk_20261022_135739_4a3a.jpg",
+      "source_sha256": "b2d05ca8dc3598eb26e545c021059aa913bdfcea9c1cdbdfa0a7edc8e35abd44",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_135739_4a3a-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_135739_4a3a-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_135739_4a3a-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_135739_4a3a-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_135739_4a3a-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_135739_4a3a-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "2eb299f29893167f"
+      }
+    },
+    "tk_20261022_135538_a84e": {
+      "video": "showcase/previews/tk_20261022_135538_a84e.mp4",
+      "poster": "showcase/previews/tk_20261022_135538_a84e.jpg",
+      "source_sha256": "827113bfd8dd348fcf9e8f2393b94315609994d4001f9df06c4363d2d88c08e0",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_135538_a84e-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_135538_a84e-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_135538_a84e-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_135538_a84e-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_135538_a84e-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_135538_a84e-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "041be7f7796c06a3"
+      }
+    },
+    "tk_20261022_135311_3740": {
+      "video": "showcase/previews/tk_20261022_135311_3740.mp4",
+      "poster": "showcase/previews/tk_20261022_135311_3740.jpg",
+      "source_sha256": "7f730e473889936d8b7f5709643482dccc5d9f9d019a3794517677435c5c86e5",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_135311_3740-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_135311_3740-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_135311_3740-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_135311_3740-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_135311_3740-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261022_135311_3740-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "8b90709a8888fc51",
+        "runs/02_transform_1/image.png": "62f58c1e478fe548"
+      }
+    },
+    "tk_20261022_135050_ef5a": {
+      "video": "showcase/previews/tk_20261022_135050_ef5a.mp4",
+      "poster": "showcase/previews/tk_20261022_135050_ef5a.jpg",
+      "source_sha256": "cb06bd309ccf15db8551783a4528f407b7872503af4234ef838881176f259bf6",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_135050_ef5a-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_135050_ef5a-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_135050_ef5a-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_135050_ef5a-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_135050_ef5a-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261022_135050_ef5a-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "f05f7e5e1e233f0a",
+        "runs/02_transform_1/image.png": "3226011ab34891a0"
+      }
+    },
+    "tk_20261022_134831_3ffc": {
+      "video": "showcase/previews/tk_20261022_134831_3ffc.mp4",
+      "poster": "showcase/previews/tk_20261022_134831_3ffc.jpg",
+      "source_sha256": "f7fc465a4fe82d30a37188e7dbd63319ffbd94e12712727abe511d1cd5244baf",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_134831_3ffc-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_134831_3ffc-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_134831_3ffc-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_134831_3ffc-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_134831_3ffc-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261022_134831_3ffc-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "a929165b1e7b0c90",
+        "runs/02_transform_1/image.png": "9cf28b65c80c3fdf"
+      }
+    },
+    "tk_20261022_134613_ce4b": {
+      "video": "showcase/previews/tk_20261022_134613_ce4b.mp4",
+      "poster": "showcase/previews/tk_20261022_134613_ce4b.jpg",
+      "source_sha256": "0c83a6ae415f7b382bbc50a34efbd3bf3a1a7f58d97e7daad9c5900885d49892",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_134613_ce4b-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_134613_ce4b-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_134613_ce4b-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_134613_ce4b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_134613_ce4b-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261022_134613_ce4b-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "27dae40a9f350eb2",
+        "runs/02_transform_1/image.png": "ab5c299145b8c75f"
+      }
+    },
+    "tk_20261022_134358_a709": {
+      "video": "showcase/previews/tk_20261022_134358_a709.mp4",
+      "poster": "showcase/previews/tk_20261022_134358_a709.jpg",
+      "source_sha256": "12d2ac68734f705411d8a05ee19616e291558a323547b28565f6c9225b01f22c",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_134358_a709-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_134358_a709-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_134358_a709-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_134358_a709-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_134358_a709-s1.jpg",
+        "runs/02_transform_1/image.png": "showcase/previews/tk_20261022_134358_a709-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "9306815139f4a14a",
+        "runs/02_transform_1/image.png": "d9c352c2edc04911"
+      }
+    },
+    "tk_20261022_133608_508a": {
+      "video": "showcase/previews/tk_20261022_133608_508a.mp4",
+      "poster": "showcase/previews/tk_20261022_133608_508a.jpg",
+      "source_sha256": "39e128c3135f9ded035c1b4b2e9da8de9dc3054541af6e65eca76fe3020e8b8d",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_133608_508a-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_133608_508a-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_133608_508a-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_133608_508a-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_133608_508a-s1.jpg",
+        "runs/02_angle/image.png": "showcase/previews/tk_20261022_133608_508a-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "261a46585156ef35",
+        "runs/02_angle/image.png": "238b9065396bf0c8"
+      }
+    },
+    "tk_20261022_132914_b94b": {
+      "video": "showcase/previews/tk_20261022_132914_b94b.mp4",
+      "poster": "showcase/previews/tk_20261022_132914_b94b.jpg",
+      "source_sha256": "8d67bddfda08c37cb0e5e77e58b14fc0d2256283ed118d76f5d558bdb58aeb20",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_132914_b94b-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_132914_b94b-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_132914_b94b-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_132914_b94b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_132914_b94b-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261022_132914_b94b-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "a872ec01685bcca8",
+        "runs/02_anchor_1/image.png": "7a8c2c704639f27e"
+      }
+    },
+    "tk_20261022_132656_94dd": {
+      "video": "showcase/previews/tk_20261022_132656_94dd.mp4",
+      "poster": "showcase/previews/tk_20261022_132656_94dd.jpg",
+      "source_sha256": "bec6f8a983cc1f069b43ba236bb4a6a3c6bb17adcba25a1e2664ce99a1bd8d31",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_132656_94dd-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_132656_94dd-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_132656_94dd-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_132656_94dd-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_132656_94dd-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261022_132656_94dd-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "c5a6ac3997189e09",
+        "runs/02_anchor_1/image.png": "b7c1834d3cf2f43e"
+      }
+    },
+    "tk_20261022_132535_ed1c": {
+      "video": "showcase/previews/tk_20261022_132535_ed1c.mp4",
+      "poster": "showcase/previews/tk_20261022_132535_ed1c.jpg",
+      "source_sha256": "0e63519c3c48159c68530f20667a5d0ba8fa7e82201a5cb35de591b3b12a4723",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_132535_ed1c-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_132535_ed1c-hd.jpg",
+        "width": 896
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_132535_ed1c-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_132535_ed1c-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261022_132535_ed1c-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261022_132535_ed1c-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "66df72eed4ba5e1e",
+        "runs/02_anchor_1/image.png": "2c5c2b725307e49b"
+      }
+    },
+    "tk_20261022_132340_ab20": {
+      "video": "showcase/previews/tk_20261022_132340_ab20.mp4",
+      "poster": "showcase/previews/tk_20261022_132340_ab20.jpg",
+      "source_sha256": "271ccc08337860945bd8cecf2e1925197a46ea04b8d9e772677aad114848effe",
+      "hd": {
+        "video": "showcase/previews/tk_20261022_132340_ab20-hd.mp4",
+        "poster": "showcase/previews/tk_20261022_132340_ab20-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261022_132340_ab20-mid.mp4",
+        "poster": "showcase/previews/tk_20261022_132340_ab20-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/hero.png": "showcase/previews/tk_20261022_132340_ab20-s1.jpg",
+        "runs/01_anchor_1/image.png": "showcase/previews/tk_20261022_132340_ab20-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/hero.png": "e853a710752fc605",
+        "runs/01_anchor_1/image.png": "fb2dc64559123ab6"
+      }
+    },
+    "tk_20261021_130556_5b2d": {
+      "video": "showcase/previews/tk_20261021_130556_5b2d.mp4",
+      "poster": "showcase/previews/tk_20261021_130556_5b2d.jpg",
+      "source_sha256": "1159d3dd74c1ac24ffad2f607ab07f136411e7edc07b29c0273072e7c09c3221",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_130556_5b2d-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_130556_5b2d-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_130556_5b2d-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_130556_5b2d-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261021_130556_5b2d-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "381efb7312ccb806"
+      }
+    },
+    "tk_20261021_130246_8ac4": {
+      "video": "showcase/previews/tk_20261021_130246_8ac4.mp4",
+      "poster": "showcase/previews/tk_20261021_130246_8ac4.jpg",
+      "source_sha256": "11b3e024a676b0335feb29a66d801a5777fa2eb72bcba417ec6cf008f6b22a63",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_130246_8ac4-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_130246_8ac4-hd.jpg",
+        "width": 848
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_130246_8ac4-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_130246_8ac4-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/reference.png": "showcase/previews/tk_20261021_130246_8ac4-s1.jpg",
+        "inputs/source_poster.png": "showcase/previews/tk_20261021_130246_8ac4-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/reference.png": "36ff70eb52ec941b",
+        "inputs/source_poster.png": "0b038362eee1127e"
+      }
+    },
+    "tk_20261021_125937_6921": {
+      "video": "showcase/previews/tk_20261021_125937_6921.mp4",
+      "poster": "showcase/previews/tk_20261021_125937_6921.jpg",
+      "source_sha256": "ce0614168ff2aa7ef77795340f9265c04e42141f71f1bdbb9028c9bf4ded0ca9",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_125937_6921-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_125937_6921-hd.jpg",
+        "width": 848
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_125937_6921-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_125937_6921-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/reference.png": "showcase/previews/tk_20261021_125937_6921-s1.jpg",
+        "inputs/source_poster.png": "showcase/previews/tk_20261021_125937_6921-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/reference.png": "95104c1329ccfdb9",
+        "inputs/source_poster.png": "0b038362eee1127e"
+      }
+    },
+    "tk_20261021_125609_c6b8": {
+      "video": "showcase/previews/tk_20261021_125609_c6b8.mp4",
+      "poster": "showcase/previews/tk_20261021_125609_c6b8.jpg",
+      "source_sha256": "2f0e79d808887a4da0a7695682d92f41d986d48374bd11b98fb5d82074028a9d",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_125609_c6b8-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_125609_c6b8-hd.jpg",
+        "width": 848
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_125609_c6b8-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_125609_c6b8-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "inputs/reference.png": "showcase/previews/tk_20261021_125609_c6b8-s1.jpg",
+        "inputs/source_poster.png": "showcase/previews/tk_20261021_125609_c6b8-s2.jpg"
+      },
+      "stills_sha": {
+        "inputs/reference.png": "e853a710752fc605",
+        "inputs/source_poster.png": "0b038362eee1127e"
+      }
+    },
+    "tk_20261021_125204_316c": {
+      "video": "showcase/previews/tk_20261021_125204_316c.mp4",
+      "poster": "showcase/previews/tk_20261021_125204_316c.jpg",
+      "source_sha256": "28423b482f2d4d1ca29aa1423b9f47ae2a299470bea96e0e061f7516f9556ddb",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_125204_316c-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_125204_316c-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_125204_316c-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_125204_316c-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261021_125204_316c-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "e2c69301505f42b3"
+      }
+    },
+    "tk_20261021_124905_4e45": {
+      "video": "showcase/previews/tk_20261021_124905_4e45.mp4",
+      "poster": "showcase/previews/tk_20261021_124905_4e45.jpg",
+      "source_sha256": "8cff2b771b8848c94d80a9b96103460775c701afc784fae957f608573e18a627",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_124905_4e45-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_124905_4e45-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_124905_4e45-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_124905_4e45-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261021_124905_4e45-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "3283131d763d5aa4"
+      }
+    },
+    "tk_20261021_124622_3679": {
+      "video": "showcase/previews/tk_20261021_124622_3679.mp4",
+      "poster": "showcase/previews/tk_20261021_124622_3679.jpg",
+      "source_sha256": "f7d63245c9d4bb1b8fd75a3d80ca988865e92a3cd8a6f2b5be04c0aa5a3d377b",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_124622_3679-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_124622_3679-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_124622_3679-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_124622_3679-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261021_124622_3679-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "6a5229468efeb69b"
+      }
+    },
+    "tk_20261021_124324_66b6": {
+      "video": "showcase/previews/tk_20261021_124324_66b6.mp4",
+      "poster": "showcase/previews/tk_20261021_124324_66b6.jpg",
+      "source_sha256": "48deedf91ec42c29517fab2b4c188753f49e18aef92c10bc23339cb93b974dcf",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_124324_66b6-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_124324_66b6-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_124324_66b6-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_124324_66b6-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261021_124324_66b6-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "89d9a2bd3cda115d"
+      }
+    },
+    "tk_20261021_124024_e152": {
+      "video": "showcase/previews/tk_20261021_124024_e152.mp4",
+      "poster": "showcase/previews/tk_20261021_124024_e152.jpg",
+      "source_sha256": "0ccadfa52c30ca7f946d858314213370f350b5a2b6bab6dd4ebdb17984b49dc9",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_124024_e152-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_124024_e152-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_124024_e152-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_124024_e152-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261021_124024_e152-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ba973fb3fc3d7a81"
+      }
+    },
+    "tk_20261021_121841_ea93": {
+      "video": "showcase/previews/tk_20261021_121841_ea93.mp4",
+      "poster": "showcase/previews/tk_20261021_121841_ea93.jpg",
+      "source_sha256": "c1b9d2bef6370ac3238f4f2182d8f9b3137874cfe59b663525bb20165ae5d8f0",
+      "hd": {
+        "video": "showcase/previews/tk_20261021_121841_ea93-hd.mp4",
+        "poster": "showcase/previews/tk_20261021_121841_ea93-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261021_121841_ea93-mid.mp4",
+        "poster": "showcase/previews/tk_20261021_121841_ea93-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261021_121841_ea93-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "eed25aa7faf459ac"
+      }
+    },
+    "tk_20261020_160826_64a9": {
+      "video": "showcase/previews/tk_20261020_160826_64a9.mp4",
+      "poster": "showcase/previews/tk_20261020_160826_64a9.jpg",
+      "source_sha256": "543f94388d2bb58c4f42582c068f143f7b848a3a676dedb391d4bd3a04c7ebc9",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_160826_64a9-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_160826_64a9-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_160826_64a9-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_160826_64a9-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_160826_64a9-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "558bbd1eefde4858"
+      }
+    },
+    "tk_20261020_160123_6d4f": {
+      "video": "showcase/previews/tk_20261020_160123_6d4f.mp4",
+      "poster": "showcase/previews/tk_20261020_160123_6d4f.jpg",
+      "source_sha256": "daaddcaacae79f11910453736f9914cd5b75f10adfdd8bbd861984e1120daaba",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_160123_6d4f-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_160123_6d4f-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_160123_6d4f-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_160123_6d4f-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_160123_6d4f-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "4a4072c340a1bb5d"
+      }
+    },
+    "tk_20261020_155942_4978": {
+      "video": "showcase/previews/tk_20261020_155942_4978.mp4",
+      "poster": "showcase/previews/tk_20261020_155942_4978.jpg",
+      "source_sha256": "45892b7d777f48b4dc006a2785a4062758af35831c8e23c1bc1f939c2591fd8e",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_155942_4978-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_155942_4978-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_155942_4978-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_155942_4978-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_155942_4978-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "7e07095b8b3af603"
+      }
+    },
+    "tk_20261020_155211_cd12": {
+      "video": "showcase/previews/tk_20261020_155211_cd12.mp4",
+      "poster": "showcase/previews/tk_20261020_155211_cd12.jpg",
+      "source_sha256": "dcc47f20d0f98d008c4deab6825d5ee653e68d473cc90eb487ce22d940be78c7",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_155211_cd12-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_155211_cd12-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_155211_cd12-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_155211_cd12-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_155211_cd12-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261020_155211_cd12-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "558bbd1eefde4858",
+        "runs/02_anchor_1/image.png": "e241a52c75ddb7a5"
+      }
+    },
+    "tk_20261020_153534_544e": {
+      "video": "showcase/previews/tk_20261020_153534_544e.mp4",
+      "poster": "showcase/previews/tk_20261020_153534_544e.jpg",
+      "source_sha256": "0942c71933e53cabcfb0911baa905acd7eaec349c75f2d31ed0e84e9be3dca35",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_153534_544e-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_153534_544e-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_153534_544e-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_153534_544e-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_153534_544e-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261020_153534_544e-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "558bbd1eefde4858",
+        "runs/02_anchor_1/image.png": "72a410f2d745b2f7"
+      }
+    },
+    "tk_20261020_153314_4ad9": {
+      "video": "showcase/previews/tk_20261020_153314_4ad9.mp4",
+      "poster": "showcase/previews/tk_20261020_153314_4ad9.jpg",
+      "source_sha256": "b51b3437e830ff827b7482c4f7f17f805658986729eb6c43368da26654c5b3bb",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_153314_4ad9-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_153314_4ad9-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_153314_4ad9-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_153314_4ad9-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_153314_4ad9-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261020_153314_4ad9-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "558bbd1eefde4858",
+        "runs/02_anchor_1/image.png": "589e74b58fd7d13d"
+      }
+    },
+    "tk_20261020_153056_2c1e": {
+      "video": "showcase/previews/tk_20261020_153056_2c1e.mp4",
+      "poster": "showcase/previews/tk_20261020_153056_2c1e.jpg",
+      "source_sha256": "9773d8deaa2d97708fc7ae6ef5b1fa960d17a63ffc234e3c5a860e659a83299e",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_153056_2c1e-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_153056_2c1e-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_153056_2c1e-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_153056_2c1e-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_153056_2c1e-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261020_153056_2c1e-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "558bbd1eefde4858",
+        "runs/02_anchor_1/image.png": "47a646466bf9657f"
+      }
+    },
+    "tk_20261020_152914_6488": {
+      "video": "showcase/previews/tk_20261020_152914_6488.mp4",
+      "poster": "showcase/previews/tk_20261020_152914_6488.jpg",
+      "source_sha256": "0a5b456db8b12460cebad0bf8498fb82a867791dd8005e017fd02e1a17d24445",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_152914_6488-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_152914_6488-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_152914_6488-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_152914_6488-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_152914_6488-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "558bbd1eefde4858"
+      }
+    },
+    "tk_20261020_152658_3bf0": {
+      "video": "showcase/previews/tk_20261020_152658_3bf0.mp4",
+      "poster": "showcase/previews/tk_20261020_152658_3bf0.jpg",
+      "source_sha256": "3d6c648308b5fe00106f53e909537f8b7b5f111c2ced0f3a0da3759150d5258d",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_152658_3bf0-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_152658_3bf0-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_152658_3bf0-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_152658_3bf0-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_152658_3bf0-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261020_152658_3bf0-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "ce195b38c89386b7",
+        "runs/02_anchor_1/image.png": "008499f38e4391f5"
+      }
+    },
+    "tk_20261020_152221_427b": {
+      "video": "showcase/previews/tk_20261020_152221_427b.mp4",
+      "poster": "showcase/previews/tk_20261020_152221_427b.jpg",
+      "source_sha256": "8c6d9ac84ce9f028514f528657e61813cd864fcc6d31dfdd5bb437c4c6883fbe",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_152221_427b-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_152221_427b-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_152221_427b-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_152221_427b-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_152221_427b-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261020_152221_427b-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "685fb9977c2911d3",
+        "runs/02_anchor_1/image.png": "5b63ef3185449aba"
+      }
+    },
+    "tk_20261020_151150_f3ad": {
+      "video": "showcase/previews/tk_20261020_151150_f3ad.mp4",
+      "poster": "showcase/previews/tk_20261020_151150_f3ad.jpg",
+      "source_sha256": "588e87e2b4712c208f383bb9614c1983fba031226a6842b27eb5f8d7fb15dee3",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_151150_f3ad-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_151150_f3ad-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_151150_f3ad-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_151150_f3ad-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_151150_f3ad-s1.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "2371fee6bc92ea15"
+      }
+    },
+    "tk_20261020_150711_c874": {
+      "video": "showcase/previews/tk_20261020_150711_c874.mp4",
+      "poster": "showcase/previews/tk_20261020_150711_c874.jpg",
+      "source_sha256": "e8146db7477c54f33437872b3a418bf782c35188709d3d6e95b33a00d8f0b862",
+      "hd": {
+        "video": "showcase/previews/tk_20261020_150711_c874-hd.mp4",
+        "poster": "showcase/previews/tk_20261020_150711_c874-hd.jpg",
+        "width": 1280
+      },
+      "mid": {
+        "video": "showcase/previews/tk_20261020_150711_c874-mid.mp4",
+        "poster": "showcase/previews/tk_20261020_150711_c874-mid.jpg",
+        "width": 768
+      },
+      "stills": {
+        "runs/01_hero/image.png": "showcase/previews/tk_20261020_150711_c874-s1.jpg",
+        "runs/02_anchor_1/image.png": "showcase/previews/tk_20261020_150711_c874-s2.jpg"
+      },
+      "stills_sha": {
+        "runs/01_hero/image.png": "4071a30a58aaa40f",
+        "runs/02_anchor_1/image.png": "a5d1e8a3b3123d1e"
+      }
+    }
+  },
+  "moves": {
+    "vertigo": "tk_20261026_213744_0fb9",
+    "through_object": "tk_20261026_202937_c933",
+    "dolly_in": "tk_20261026_202643_8fbb",
+    "bullet_time": "tk_20261026_201948_1d50",
+    "optical_zoom_in": "tk_20261025_154212_0052",
+    "pull_out": "tk_20261025_153728_4fe8",
+    "push_in": "tk_20261025_153550_7ada",
+    "dolly_out": "tk_20261020_153314_4ad9",
+    "reveal": "tk_20261025_141116_a5de",
+    "robot_arm": "tk_20261025_140838_f57e",
+    "fpv_drone": "tk_20261025_140558_8a2f",
+    "helicopter": "tk_20261025_140319_a4ab",
+    "top_down": "tk_20261025_140031_a803",
+    "orbit_180": "tk_20261025_140001_1069",
+    "crane_down": "tk_20261025_134738_e8d6",
+    "optical_zoom_out": "tk_20261025_134428_f764",
+    "tilt_up": "tk_20261025_134120_7409",
+    "truck_left": "tk_20261025_133942_52d3",
+    "track_left": "tk_20261025_133804_ef0e",
+    "dutch_angle": "tk_20261024_232528_8944",
+    "tilt_down": "tk_20261024_193151_ba77",
+    "pan_right": "tk_20261024_192959_62ae",
+    "pan_left": "tk_20261024_192903_df34",
+    "super_dolly_in": "tk_20261024_185026_3e9e",
+    "crash_zoom_out": "tk_20261024_184823_d285",
+    "over_shoulder": "tk_20261024_184557_9643",
+    "handheld": "tk_20261024_184224_3820",
+    "low_angle": "tk_20261024_183939_8600",
+    "whip_pan": "tk_20261024_183554_d4de",
+    "pedestal_up": "tk_20261024_182749_b6a5",
+    "truck_right": "tk_20261024_182654_5553",
+    "crane_up": "tk_20261020_150711_c874",
+    "lazy_susan": "tk_20261023_093535_b269",
+    "loop": "tk_20261023_092756_e251",
+    "yoyo_zoom": "tk_20261023_083119_07d0",
+    "fisheye": "tk_20261023_082530_d515",
+    "crash_zoom_in": "tk_20261023_081319_fada",
+    "aerial_pullback": "tk_20261023_000528_66a0",
+    "hyperlapse": "tk_20261022_192808_a4c1",
+    "eyes_in": "tk_20261022_143709_e6b6",
+    "snorricam": "tk_20261022_142854_6a5e",
+    "static": "tk_20261020_152914_6488",
+    "track_right": "tk_20261020_160826_64a9",
+    "orbit_90": "tk_20261020_155942_4978"
+  },
+  "effects": {
+    "ruin": "tk_20261025_142556_1936",
+    "rain": "tk_20261025_135037_c07b",
+    "fog": "tk_20261024_202615_91e8",
+    "slow_motion": "tk_20261023_091828_20b9",
+    "time_freeze": "tk_20261023_091155_5b5b",
+    "snowfall": "tk_20261023_090428_796a",
+    "age": "tk_20261023_090103_13a2",
+    "flood": "tk_20261023_085732_f86b",
+    "melt": "tk_20261023_085408_dab1",
+    "painting": "tk_20261023_085035_87d4",
+    "comic": "tk_20261023_084643_7561",
+    "clones": "tk_20261023_084307_e363",
+    "vanish": "tk_20261023_083923_fc2a",
+    "bts": "tk_20261023_083424_1e48",
+    "ignite": "tk_20261022_190448_a080",
+    "night": "tk_20261022_135311_3740",
+    "bloom": "tk_20261022_135050_ef5a",
+    "gold": "tk_20261022_134831_3ffc",
+    "freeze": "tk_20261022_134613_ce4b",
+    "dust": "tk_20261021_124324_66b6",
+    "lightning": "tk_20261021_124024_e152"
+  }
+}

@@ -95,9 +95,12 @@ def take_snippet(take_dir: Path) -> str | None:
     return sdk_snippet(run_dir.name, assets, kept)
 
 
-def workflows_zip(take_dir: Path) -> bytes:
-    """Every step's graph, plus the input files that step used, ready to open in ComfyUI."""
-    take_dir = Path(take_dir)
+def workflows_zip(take_dir: Path, *, include_inputs: bool = True) -> bytes:
+    """Every step's graph, plus the input files that step used, ready to open in ComfyUI.
+
+    The hosted copy serves every input beside the take already, so it zips the graphs alone (`include_inputs=False`)
+    and the README says where each input sits: shipping the stills twice put the site past its size limit."""
+    take_dir = Path(take_dir).resolve()  # _kept_file answers with resolved paths: a relative --takes must match them
     notes: list[str] = []
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
@@ -106,7 +109,10 @@ def workflows_zip(take_dir: Path) -> bytes:
             archive.write(workflow, f"{run}.api.json")
             for asset in run_assets(workflow.parent):
                 source = _kept_file(take_dir, asset)
-                if source is not None:
+                if source is not None and not include_inputs:
+                    notes.append(f"{run}: {asset['name']} ({asset.get('slot', 'input')}) is served beside this zip at "
+                                 f"{source.relative_to(take_dir).as_posix()}; put it in inputs/{run}/ to run the graph")
+                elif source is not None:
                     archive.write(source, f"inputs/{run}/{asset['name']}")
                 else:
                     digest = str(asset.get("sha256", ""))[:12]

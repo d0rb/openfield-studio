@@ -22,11 +22,35 @@ export function loadTake(ctx, take) {
     state.autoApprove = Boolean(recipe.auto_approve);
     forms.set({ direct: state });
     if (recipe.cast_name && !state.castId) notify(ctx, `Settings loaded. The character "${recipe.cast_name}" is not in this Cast.`, "Add them in Cast, then pick them in Settings.");
+    if (recipe.source_sha256) notify(ctx, "Settings loaded. Add your image again in Character.");
     ui.go("direct");
   } else if (take.kind === "reshoot") {
-    forms.set((s) => ({ reshoot: { ...initialReshoot(), prompt: recipe.prompt ?? "", background: recipe.background ?? "", motion: recipe.motion ?? "", seed: recipe.seed ?? "", clip: s.reshoot.clip, referenceFile: s.reshoot.referenceFile } }));
-    notify(ctx, "Settings loaded. Add your source clip and a reference image again.", "Receipts keep hashes of your files, not the files.");
+    forms.set((s) => ({ reshoot: { ...initialReshoot(), prompt: recipe.prompt ?? "", background: recipe.background ?? "", motion: recipe.motion ?? "", seed: recipe.seed ?? "", faceOnly: Boolean(recipe.face_only), clip: s.reshoot.clip, referenceFile: s.reshoot.referenceFile } }));
+    notify(ctx, "Settings loaded. Add your source clip and a reference image again.");
     ui.go("reshoot");
+  }
+}
+
+/** A still from a take's folder as a File, to upload again. */
+export async function stillFile(api, take, path, name = path.split("/").pop()) {
+  const res = await fetch(api.media(take, path));
+  if (!res.ok) throw new Error(`could not load ${path}`);
+  const blob = await res.blob();
+  return new File([blob], name, { type: blob.type || "image/png" });
+}
+
+/** A still becomes the first frame of a new Direct shot (My image). */
+export async function animateStill(ctx, take, path, label, name) {
+  const { api, forms, ui } = ctx;
+  try {
+    const file = await stillFile(api, take, path, name);
+    const direct = forms.get().direct;
+    if (direct?.sourcePreview) URL.revokeObjectURL(direct.sourcePreview);
+    forms.set({ direct: { ...direct, heroMode: "image", sourceFile: file, sourcePreview: URL.createObjectURL(file) } });
+    ui.go("direct");
+    notify(ctx, `${label} is the first frame now.`, "Pick a move, then shoot.", "info");
+  } catch {
+    notify(ctx, "Could not load that still.", "Try again, or download it from the take's folder.", "error");
   }
 }
 
@@ -37,7 +61,7 @@ export async function remixFrom(ctx, source) {
     const imported = typeof source === "string"
       ? { verified: null, recipe: await decodeRecipeLink(source) }
       : await api.importReceipt(source);
-    const result = remix(imported, store.get().moves);
+    const result = remix(imported, store.get().moves, store.get().recorded);
     if (!result.form) return notify(ctx, result.notice, null, "error");
     if (result.form === "direct") forms.set({ direct: result.state });
     else if (result.form === "reshoot") forms.set((s) => ({ reshoot: { ...s.reshoot, ...result.state } }));

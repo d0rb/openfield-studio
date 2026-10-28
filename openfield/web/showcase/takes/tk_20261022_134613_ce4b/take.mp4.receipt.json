@@ -1,0 +1,245 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_134613_ce4b",
+    "kind": "direct",
+    "created_at": "2026-10-22T13:48:31Z",
+    "label": "static: Ines writes in a notebook at a cafe window while"
+  },
+  "inputs": {
+    "subject": "Ines writes in a notebook at a cafe window while rain runs down the glass",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "vintage_anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "window",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "freeze",
+      "grade": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "static",
+    "mode": "prompt_only",
+    "final_prompt": "Ines writes in a notebook at a cafe window while rain runs down the glass. Shot on a clean modern digital cinema camera with a vintage anamorphic lens with soft edges, flares and gentle falloff, 35mm (natural), at f/4 with moderate depth of field; soft window light from one side. The camera is locked off on a tripod; only the subject moves. Frost creeps across every surface, ice crystals spreading and thickening until the whole scene is rimed white and still, the air turning cold and blue, with the faint crackle of forming ice. Constraint: no camera movement, no zoom, no drift. Sound: cafe chatter, rain on glass, a spoon against a cup.",
+    "seed": 132,
+    "orientation": "landscape",
+    "audio": "cafe chatter, rain on glass, a spoon against a cup",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "transformation": "freeze",
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_transform_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Ines",
+      "refs": [
+        "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+      ]
+    },
+    "recipe_hash": "ddfca0e8df1aee03a701b18366183051df949d460277cef4c7dec31bd215592e"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "db27506c3ea9b019fb2ed0d5cfd135d759e076d6047cdeab5f1ed334ec861397",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "83d3459d9036ab10cf2ca7e5cbe01c72365fe5af21d3fe596989462ae85401b3",
+        "job_id": "c72adff8-ab77-41be-a4ed-a6583a41144e"
+      },
+      {
+        "stage": "transform_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "1bcf5018a1a20f4f4db7264d0c435f85e06db84399b85e61f63f78ed717c5c84",
+        "job_id": "76fd8ecc-47db-4c78-aaa7-b0cfe2281464"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "a72c3cc73d9a3ca8c2abbd78d0827842cbaccb50fc1cdd53cce4f09461db2a8b",
+        "job_id": "82ba5a4c-7ed8-4812-85ef-6734a9361b11"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.9361572555980658,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.9361572555980658,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.9361572555980658
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          606,
+          105,
+          205,
+          249
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.936 >= threshold 0.363 (best reference 0)",
+        "face_px": 205,
+        "enlarged": null
+      },
+      "transform_1": {
+        "status": "pass",
+        "score": 0.8946488041550082,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8946488041550082
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          612,
+          105,
+          189,
+          240
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.895 >= threshold 0.363 (best reference 0)",
+        "face_px": 189,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.8895595699937832,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8895595699937832
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          577,
+          83,
+          189,
+          240
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.890 >= threshold 0.363 (best reference 0)",
+        "face_px": 189,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "c72adff8-ab77-41be-a4ed-a6583a41144e,76fd8ecc-47db-4c78-aaa7-b0cfe2281464,82ba5a4c-7ed8-4812-85ef-6734a9361b11",
+    "timings": {
+      "total_s": 138.5
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "99d13a6712b21252e2584cd4a20d797a34919cba68dae11dece5087438e79197",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "597fcb12776b47e42260ba03b7a0e570f32d3fedff2cacaa2eefbe3c39c71090"
+  }
+}

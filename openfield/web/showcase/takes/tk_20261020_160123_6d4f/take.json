@@ -1,0 +1,113 @@
+{
+  "id": "tk_20261020_160123_6d4f",
+  "kind": "direct",
+  "label": "track right: Ines walks along a canal bridge playing a small ",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-20T16:01:23Z",
+  "updated_at": "2026-10-20T16:03:03Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines walks along a canal bridge playing a small accordion, autumn leaves on the stones",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "vintage_anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "track_right",
+      "duration_seconds": 5,
+      "speed": "steady"
+    },
+    "audio": "a gentle accordion melody, footsteps on stone",
+    "seed": 31,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "b05c0f1073b9a30e85e5a34fc8a27a444fa5f6f3f2d2f023f75ecb34f503b1d6",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.7955284424896538,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7955284424896538
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        581,
+        116,
+        99,
+        133
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.796 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.7049752765622841,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7049752765622841
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        550,
+        96,
+        98,
+        128
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.705 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "ines-canal-track",
+  "showcase_sha": "d1e38c7778e20832"
+}

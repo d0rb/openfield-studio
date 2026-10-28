@@ -1,0 +1,115 @@
+{
+  "id": "tk_20261021_130556_5b2d",
+  "kind": "direct",
+  "label": "static: Ines walks along a canal at dusk under old lamps",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-21T13:05:56Z",
+  "updated_at": "2026-10-21T13:08:50Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Ines walks along a canal at dusk under old lamps, autumn leaves on the water",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "vintage_anamorphic",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "rain"
+    },
+    "audio": "water lapping, footsteps on stone, rain",
+    "seed": 81,
+    "orientation": "landscape",
+    "cast_refs": [
+      "3b9a39d7f237548e9f2cf946a5cc867a2f35499a236cf5cf17025973a42b978b"
+    ],
+    "prompt_only": true,
+    "cast_name": "Ines",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [],
+  "replay": false,
+  "recipe_hash": "0777d020d0a442d852024e3f6824c62b68423badca9d89aa4fa4569418069ccc",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.9278479095671263,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.9278479095671263
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        531,
+        101,
+        226,
+        294
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.928 >= threshold 0.363 (best reference 0)"
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.8855272069455355,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8855272069455355
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        507,
+        84,
+        214,
+        275
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.886 >= threshold 0.363 (best reference 0)",
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "fx-rain",
+  "showcase_sha": "fddba261813bc72a"
+}

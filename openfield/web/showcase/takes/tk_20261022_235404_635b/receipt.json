@@ -1,0 +1,124 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_235404_635b",
+    "kind": "edit",
+    "created_at": "2026-10-22T23:54:40Z",
+    "label": "swap the face: Tomas in black samurai armour stands in "
+  },
+  "inputs": {
+    "preset": "face_swap",
+    "detail": "",
+    "final_prompt": "Replace the face of the person in the first image with the face of the person in the other images: the same face shape, eyes, nose, mouth, skin tone and age. Keep the hair, the expression, the head angle, the clothes, the light and everything else in the first image exactly as it is.",
+    "seed": 530,
+    "before": "inputs/source.png",
+    "after": "runs/01_edit/image.png",
+    "cast": {
+      "name": "Mara",
+      "refs": [
+        "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+      ]
+    },
+    "identity_reference": "cast",
+    "recipe_hash": "062ad812b30e3bad43b27307e1de9950db244d89b8abf42292e660da1acf9194"
+  },
+  "workflow": {
+    "template": "qwen21_edit",
+    "sha256": "0b260af5c842fdb8be2ab66cb2e9a9fa8177d6df2625ce45694e0a32763a0a88",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "edit",
+        "template": "qwen21_edit",
+        "workflow_sha256": "19a798d895d7da06e441731216e8738cfa91e75a82cb6cf8e4a4484bd2d2876b",
+        "job_id": "4f8de246-863f-4df1-ba3d-d24d5e3c7dcc"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8343159778087896,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "edit": {
+        "status": "pass",
+        "score": 0.8343159778087896,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8343159778087896
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          597,
+          110,
+          140,
+          190
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.834 >= threshold 0.363 (best reference 0)",
+        "face_px": 140,
+        "enlarged": null
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "4f8de246-863f-4df1-ba3d-d24d5e3c7dcc",
+    "timings": {
+      "total_s": 36.0
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "33184a68f9d2c1fa69af996ed7ef66690f61ecbe99b5e4eb84a75a913c59b4ff",
+      "seconds": 2.4
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "9df4445d85fe9a8d39e7c69a098f2f58ffef05943526bf10a053a4f3964f3958"
+  }
+}

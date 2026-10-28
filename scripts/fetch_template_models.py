@@ -37,6 +37,20 @@ GROUPS: dict[str, list[str]] = {
     "ltx": ["video_ltx2_5_flf2v", "video_ltx2_5_i2v"],
     "qwen": ["image_qwen_image_2_1_image_edit", "image_qwen_image_2_1_t2i"],
     "wan": ["video_wan_animate2"],
+    "esrgan": ["utility-gan_upscaler"],  # Video Upscale: Real-ESRGAN (one 67 MB file, not gated)
+}
+# Core node classes one of our workflows adds to an official template, by template name. They join the allowlist and are
+# recorded under the template's `added_node_types` in the manifest, so an addition is stated, never silent.
+# utility-gan_upscaler: its own note says to resize the x4 result to the target with "a resize node"; ImageScale (nodes.py)
+# is that node, and official templates such as video_wanmove_480p use it.
+ADDED_NODE_TYPES: dict[str, tuple[str, ...]] = {"utility-gan_upscaler": ("ImageScale",)}
+# What a template does not say about a file, recorded once from the Hugging Face tree API on 2026-10-23: its size and its
+# LFS sha256. gen_manifest.py copies these into the manifest, so a regenerated manifest keeps them.
+KNOWN_FILES: dict[str, dict[str, Any]] = {
+    "RealESRGAN_x4plus.safetensors": {
+        "bytes": 66857836,
+        "sha256": "37f9a931c215f040aa6d50f711f2cb115f713c46df1d0d6469a8bd7bfe9a60bb",
+    },
 }
 # Files the templates list but our workflows never need (prompt enhancers, T2V-only upscaler).
 OPTIONAL_PATTERNS = ("gemma4_e2b_it", "_pe_i2i", "_pe_t2i", "latent-spatial-upscaler")
@@ -165,6 +179,13 @@ def destination(comfy_dir: Path, row: dict[str, Any]) -> Path:
     return comfy_dir / "models" / row["directory"] / row["name"]
 
 
+def download_root(comfy_dir: Path, row: dict[str, Any]) -> Path:
+    """The folder hf_hub_download writes under: it appends the file's path in the repository, and the file must land in
+    models/<directory>/<name>. Most repositories keep the directory in that path (diffusion_models/x.safetensors); the
+    Real-ESRGAN one keeps its file at the repository's root, so there the folder is models/upscale_models itself."""
+    return destination(comfy_dir, row).parents[len(Path(row["path"]).parts) - 1]
+
+
 def download(row: dict[str, Any], comfy_dir: Path, token: str | None) -> str:
     from huggingface_hub import hf_hub_download  # imported late: dry runs need no extras
     from huggingface_hub.errors import GatedRepoError, HfHubHTTPError
@@ -177,7 +198,7 @@ def download(row: dict[str, Any], comfy_dir: Path, token: str | None) -> str:
             repo_id=row["repo"],
             filename=row["path"],
             revision=row["revision"],
-            local_dir=str(comfy_dir / "models"),
+            local_dir=str(download_root(comfy_dir, row)),
             token=token,
         )
     except GatedRepoError:

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import socket
 import subprocess
@@ -56,9 +57,11 @@ def _stop(proc: subprocess.Popen[bytes] | None) -> None:
 def fake_stack(data: Path, delay: float = 0.15):
     """The app on the offline fake of the Comfy API, as scripts/dev_fake_stack.py runs it. Yields its base URL."""
     port = free_port()
+    # the Chat room's stand-in agent, on the Claude lane (a real OpenCode on the PATH would otherwise be the default)
+    env = {**os.environ, "OPENFIELD_CHAT_CLAUDE": str(ROOT / "tests" / "fake_chat_agent.py"), "OPENFIELD_CHAT_AGENT": "claude"}
     proc = subprocess.Popen(
         [sys.executable, "scripts/dev_fake_stack.py", "--delay", str(delay), "--port", str(port), "--data-dir", str(data)],
-        cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        cwd=ROOT, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
         wait_for(f"http://127.0.0.1:{port}/api/status")
         yield f"http://127.0.0.1:{port}"

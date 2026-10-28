@@ -5,6 +5,7 @@
   "slots": {
     "prompt": {"node": "459:484", "input": "on_false", "kind": "text"},
     "seed": {"node": "459:458", "input": "seed", "kind": "seed"},
+    "steps": {"node": "459:458", "input": "steps", "kind": "int", "min": 1, "max": 100, "default": 25},
     "base_image": {"node": "470", "input": "image", "kind": "image"},
     "refs": {"node": "459:474", "kind": "image_list", "required": false, "loader": "475",
              "pattern": "images.image_{i}", "start": 2, "limit": 9},

@@ -1,0 +1,344 @@
+{
+  "id": "tk_20261022_234713_9c93",
+  "kind": "shots",
+  "label": "shots: Tomas in black samurai armour stands in the pour",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T23:47:13Z",
+  "updated_at": "2026-10-22T23:50:38Z",
+  "recipe": {
+    "kind": "shots",
+    "source_sha256": "1417bf8f8a70747f44795d706fcef8ab6d33bb1f32cece47411e37ffbf868973",
+    "board": [
+      "front/eye/wide",
+      "front_left/eye/medium",
+      "front_right/eye/medium",
+      "front/eye/close",
+      "left/eye/medium",
+      "right/eye/medium",
+      "front/low/medium",
+      "front/high/medium",
+      "back/eye/medium"
+    ],
+    "seed": 511,
+    "cast_refs": [
+      "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+    ],
+    "take": "tk_20261022_230538_8a28",
+    "cast_name": "Tomas"
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "Nine Qwen-Image 2.1 edits of one still, one per camera position; each was checked against the cast. The take plays the nine stills in order, 0.6 s each: no video model ran."
+  ],
+  "replay": false,
+  "recipe_hash": "049bba9012840129c56188368327b133cb3200bb2d44077bbc02310169ff03d2",
+  "shots": [
+    {
+      "index": 1,
+      "angle": "front/eye/wide",
+      "label": "Wide",
+      "file": "runs/01_shot_1/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.5132046621472681
+      }
+    },
+    {
+      "index": 2,
+      "angle": "front_left/eye/medium",
+      "label": "Three-quarter left",
+      "file": "runs/02_shot_2/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.8045228265403154
+      }
+    },
+    {
+      "index": 3,
+      "angle": "front_right/eye/medium",
+      "label": "Three-quarter right",
+      "file": "runs/03_shot_3/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.8290699617666776
+      }
+    },
+    {
+      "index": 4,
+      "angle": "front/eye/close",
+      "label": "Close-up",
+      "file": "runs/04_shot_4/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.8170516599216153
+      }
+    },
+    {
+      "index": 5,
+      "angle": "left/eye/medium",
+      "label": "Profile left",
+      "file": "runs/05_shot_5/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.5245928610777962
+      }
+    },
+    {
+      "index": 6,
+      "angle": "right/eye/medium",
+      "label": "Profile right",
+      "file": "runs/06_shot_6/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.48057947051423844
+      }
+    },
+    {
+      "index": 7,
+      "angle": "front/low/medium",
+      "label": "Low angle",
+      "file": "runs/07_shot_7/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.7556493245962805
+      }
+    },
+    {
+      "index": 8,
+      "angle": "front/high/medium",
+      "label": "High angle",
+      "file": "runs/08_shot_8/image.png",
+      "identity": {
+        "status": "pass",
+        "score": 0.7614742804805651
+      }
+    },
+    {
+      "index": 9,
+      "angle": "back/eye/medium",
+      "label": "From behind",
+      "file": "runs/09_shot_9/image.png",
+      "identity": {
+        "status": "n/a",
+        "score": null
+      }
+    }
+  ],
+  "board": "board.jpg",
+  "identity": {
+    "shot_1": {
+      "status": "pass",
+      "score": 0.5132046621472681,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.5132046621472681
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        652,
+        229,
+        45,
+        59
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.513 >= threshold 0.363 (best reference 0)",
+      "face_px": 45,
+      "enlarged": 3.56
+    },
+    "shot_2": {
+      "status": "pass",
+      "score": 0.8045228265403154,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8045228265403154
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        588,
+        100,
+        146,
+        198
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.805 >= threshold 0.363 (best reference 0)",
+      "face_px": 146,
+      "enlarged": null
+    },
+    "shot_3": {
+      "status": "pass",
+      "score": 0.8290699617666776,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8290699617666776
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        580,
+        101,
+        147,
+        198
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.829 >= threshold 0.363 (best reference 0)",
+      "face_px": 147,
+      "enlarged": null
+    },
+    "shot_4": {
+      "status": "pass",
+      "score": 0.8170516599216153,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8170516599216153
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        577,
+        102,
+        170,
+        242
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.817 >= threshold 0.363 (best reference 0)",
+      "face_px": 170,
+      "enlarged": null
+    },
+    "shot_5": {
+      "status": "pass",
+      "score": 0.5245928610777962,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.5245928610777962
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        689,
+        105,
+        120,
+        185
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.525 >= threshold 0.363 (best reference 0)",
+      "face_px": 120,
+      "enlarged": null
+    },
+    "shot_6": {
+      "status": "pass",
+      "score": 0.48057947051423844,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.48057947051423844
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        583,
+        93,
+        123,
+        179
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.481 >= threshold 0.363 (best reference 0)",
+      "face_px": 123,
+      "enlarged": null
+    },
+    "shot_7": {
+      "status": "pass",
+      "score": 0.7556493245962805,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7556493245962805
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        602,
+        96,
+        134,
+        177
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.756 >= threshold 0.363 (best reference 0)",
+      "face_px": 134,
+      "enlarged": null
+    },
+    "shot_8": {
+      "status": "pass",
+      "score": 0.7614742804805651,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.7614742804805651
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        619,
+        156,
+        114,
+        157
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.761 >= threshold 0.363 (best reference 0)",
+      "face_px": 114,
+      "enlarged": null
+    },
+    "shot_9": {
+      "status": "n/a",
+      "score": null,
+      "threshold": 0.363,
+      "best_ref": null,
+      "per_ref": [
+        null
+      ],
+      "faces_in_candidate": 0,
+      "candidate_box": null,
+      "refs_used": 0,
+      "reason": "no face detected in the candidate",
+      "face_px": null,
+      "enlarged": null
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.4,
+  "size": [
+    1344,
+    768
+  ],
+  "showcase_name": "v1-shots-tomas-samurai",
+  "showcase_sha": "431bfd7e4e7d9498"
+}

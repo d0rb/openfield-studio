@@ -1,9 +1,61 @@
-/* Design tokens and the browser defaults the design takes over. One neutral dark ground, one accent. */
+/* Design tokens and the browser defaults the design takes over.
+   The world: a cinema lobby at night and the screening room behind it. Lacquer-black ground, poster cases
+   trimmed with a hairline of brass, marquee white only on the lit letter board, ticket orange for the one
+   action under the eye. Barlow Condensed for marquee letters, poster titles and billing; Barlow for words;
+   Overpass Mono for every figure. Colour comes from the pictures, all rendered on our own GPU. */
 
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/inter-latin-wght-normal.woff2") format("woff2-variations"), url("../fonts/inter-latin-wght-normal.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "Barlow";
+  src: url("../fonts/barlow-latin-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("../fonts/barlow-latin-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow";
+  src: url("../fonts/barlow-latin-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("../fonts/barlow-condensed-latin-300.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("../fonts/barlow-condensed-latin-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("../fonts/barlow-condensed-latin-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Overpass Mono";
+  src: url("../fonts/overpass-mono-latin-wght.woff2") format("woff2-variations"), url("../fonts/overpass-mono-latin-wght.woff2") format("woff2");
+  font-weight: 300 700;
   font-style: normal;
   font-display: swap;
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
@@ -12,53 +64,83 @@
 :root {
   color-scheme: dark;
 
-  /* surfaces, darkest to lightest; the footage is the only saturated thing on screen */
-  --ground: #0f1115;
-  --panel: #14171c;
-  --raised: #1a1d23;
-  --hover: #21252d;
-  --pressed: #272c35;
-  --screen: #08090b;
+  /* surfaces, darkest to lightest: the stage floor, the flight cases, the wall when it is dark */
+  --ground: #0d0c0b;
+  --panel: #121110;
+  --raised: #1b1917;
+  --hover: #232020;
+  --pressed: #2b2824;
+  --screen: #050504;
+  --surface-tint: rgb(255 255 255 / 0.04);
 
-  /* lines: hairlines divide regions; a control's own edge must read at 3:1 */
-  --line: #262b34;
-  --line-strong: #323844;
-  --control-line: #667080;
-  --control-line-hover: #7a8494;
+  /* lines: gaffer-tape hairlines divide regions; a control's own edge must read at 3:1 */
+  --line: #211f1c;
+  --line-strong: #2e2b27;
+  --control-line: #6f6962;
+  --control-line-hover: #887f76;
+  --grid-line: rgb(235 232 227 / 0.07);
+  --on-media-line: rgb(235 232 227 / 0.32);
 
-  /* text */
-  --text: #e6e8eb;
-  --text-2: #a6adb9;
-  --text-3: #8d95a3;
+  /* text: tape white and its quieter steps */
+  --text: #ebe8e3;
+  --text-2: #aba59d;
+  --text-3: #908a82;
+  --on-media: #f4f1ec;
 
-  /* the one accent: ring and selection (--accent), fills with white text (--accent-fill), links (--accent-text) */
-  --accent: #6d7cff;
-  --accent-fill: #5667f0;
-  --accent-fill-hover: #4f5fe8;
-  --accent-fill-press: #4a5ae0;
-  --accent-text: #8e9bff;
-  --accent-soft: rgb(109 124 255 / 0.14);
+  /* the one accent, safety orange: ring, selection and the path (--accent), fills with dark marks on them
+     (--accent-fill + --on-accent), links (--accent-text), washes (--accent-soft) */
+  --accent: #ff7a1a;
+  --accent-fill: #ff7a1a;
+  --accent-fill-hover: #ff8c3c;
+  --accent-fill-press: #ee6c0e;
+  --accent-text: #ffa35f;
+  --accent-soft: rgb(255 122 26 / 0.16);
+  --on-accent: #141311;
 
-  /* state */
-  --green: #4cc38a;
-  --amber: #e0a63c;
-  --red: #f2727b;
-  --danger-fill: #c73e49;
-  --danger-fill-hover: #b5353f;
-  --on-fill: #ffffff; /* text and marks on an accent or danger fill, and the thumb of a switch that is on */
-  --green-soft: rgb(76 195 138 / 0.14);
-  --amber-soft: rgb(224 166 60 / 0.14);
-  --red-soft: rgb(242 114 123 / 0.14);
+  /* state: a pass is brass (the lobby has no green: colour comes from the pictures), amber is waiting, drift or
+     replay, red is failed; each always says so in words too */
+  --green: #cdb07a;
+  --amber: #e9c43a;
+  --red: #f0625f;
+  --danger-fill: #b8373a;
+  --danger-fill-hover: #a52f32;
+  --on-fill: #ffffff; /* marks on a danger fill and the thumb of a switch that is on */
+  --green-soft: rgb(205 176 122 / 0.13);
+  --amber-soft: rgb(233 196 58 / 0.14);
+  --red-soft: rgb(240 98 95 / 0.14);
 
-  /* type: one family; mono only for seeds, hashes and timecodes */
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  /* the lobby: brass trim on the poster cases, the ink of letters hung on a lit board, the card stock of a lobby card */
+  --brass: #a8895a;
+  --brass-hi: #d6b77f;
+  --marquee-ink: #1a1511;
+  --card-stock: #ebe3d2;
+  --card-ink: #221c16;
+  --card-ink-2: #5a5045;
+  --mat: #050403;
+  --case-shadow: 0 22px 38px -14px rgb(0 0 0 / 0.75), 0 6px 12px -6px rgb(0 0 0 / 0.6);
+  --lobby-gutter: clamp(16px, 4vw, 56px);
+
+  /* overlays on footage */
+  --scrim: rgb(5 5 4 / 0.78);
+  --scrim-strong: rgb(5 5 4 / 0.92);
+
+  /* type: Barlow for words, Overpass Mono for every figure (timecode, coordinates, seeds, hashes, counts) */
+  --font: "Barlow", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --display: "Barlow Condensed", "Barlow", system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Overpass Mono", ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
   --fs-xs: 0.75rem;
   --fs-sm: 0.8125rem;
-  --fs-md: 0.875rem;
-  --fs-lg: 1rem;
-  --fs-xl: 1.125rem;
-  --fs-2xl: 1.375rem;
+  --fs-md: 0.9375rem;
+  --fs-lg: 1.0625rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 2rem;
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-strong: 600;
+  --lh-tight: 1.2;
+  --lh-body: 1.45;
+  --track-caps: 0.08em;
 
   /* space: an 8 point grid with a 4 point half step */
   --s1: 4px;
@@ -69,20 +151,49 @@
   --s6: 32px;
   --s7: 48px;
 
-  --radius-s: 6px;
-  --radius-m: 10px;
-  --radius-pill: 999px;
+  /* equipment edges: small radii, tape chips instead of pills */
+  --radius-s: 3px;
+  --radius-m: 4px;
+  --radius-pill: 3px;
   --control-h: 32px;
 
-  --shadow-float: 0 6px 16px rgb(0 0 0 / 0.5), 0 1px 3px rgb(0 0 0 / 0.4);
+  --shadow-float: 0 12px 28px rgb(0 0 0 / 0.55), 0 2px 6px rgb(0 0 0 / 0.4);
 
   --rail-w: 64px;
-  --topbar-h: 52px;
-  --dock-w: 360px;
+  --topbar-h: 48px;
+  --dock-w: 340px;
+
+  --z-dock: 20;
+  --z-float: 30;
+  --z-menu: 40;
+  --z-skip: 60;
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --t-fast: 120ms;
   --t-base: 180ms;
+
+  /* -- the stock -------------------------------------------------------------------------------
+     Three materials, kept apart and never blended. Lacquer is furniture (the ramp above); emulsion is
+     footage; card stock is the one light surface and carries anything that asserts a fact. The grain
+     is a rendered plate laid over every room, so the whole app sits in one projector's light rather
+     than on a flat field. */
+  /* until the GPU session renders ov-grain.webp this is drawn noise; the plate replaces this one line */
+  --plate-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 1 1 0 -1.15 1 1 1 0 -1.15 1 1 1 0 -1.15 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+  --grain-size: 160px;
+  --grain-opacity: 0.045;
+
+  /* keykode: the micro-type film stock carries along its sprocket edge. Every frame in the app prints
+     its own serial, seed and hash in this, so a picture here is never separable from its proof. */
+  --fs-keykode: 8px;
+  --track-keykode: 0.1em;
+  --keykode-ink: rgb(235 232 227 / 0.46);
+  --keykode-tick: rgb(255 122 26 / 0.62);
+  --keykode-gutter: 15px;
+
+  /* perforation: the one divider. A printed object's edge is die-cut, not a 1px border. The mask is a
+     row of holes punched out of the edge; --perf-pitch is the distance between their centres. */
+  --perf-pitch: 13px;
+  --perf-r: 3.5px;
 }
 
 *,
@@ -102,8 +213,7 @@ body {
   height: 100%;
   background: var(--ground);
   color: var(--text);
-  font: 400 var(--fs-md) / 1.4286 var(--font);
-  font-optical-sizing: auto;
+  font: var(--w-regular) var(--fs-md) / var(--lh-body) var(--font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
@@ -154,7 +264,8 @@ svg {
 a {
   color: var(--accent-text);
   text-decoration: underline;
-  text-decoration-color: rgb(142 155 255 / 0.4);
+  text-decoration-color: var(--accent-soft);
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
 }
 a:hover {
@@ -167,8 +278,8 @@ a:hover {
 
 /* The parts the browser draws take the palette too. */
 ::selection {
-  background: rgb(109 124 255 / 0.4);
-  color: var(--on-fill);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 input,
 textarea {
@@ -189,7 +300,7 @@ input[type="range"] {
 }
 ::-webkit-scrollbar-thumb {
   background: var(--line-strong);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
   border: 3px solid transparent;
   background-clip: content-box;
 }
@@ -214,13 +325,22 @@ input[type="range"] {
   outline-offset: 2px;
 }
 
+/* figures: every number on the stage is tabular mono, so readouts never jitter */
 .num {
+  font-family: var(--mono);
   font-variant-numeric: tabular-nums;
 }
 .mono {
   font-family: var(--mono);
   font-size: max(var(--fs-xs), 0.92em);
   font-variant-numeric: tabular-nums;
+}
+/* a camera-report label: small, tracked capitals */
+.caps {
+  font-size: var(--fs-xs);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
 }
 .sr-only {
   position: absolute;
@@ -253,13 +373,34 @@ input[type="range"] {
   height: 14px;
 }
 
+/* motion held: reduced motion by its media query, and data saver (which has none) by :root.hold-still, which main.js sets
+   from holdStill() for both. Every animation and transition collapses to its end state, with no delay */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
+}
+:root.hold-still *,
+:root.hold-still *::before,
+:root.hold-still *::after {
+  animation-duration: 0.001ms !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+/* a view transition, should one start while held; its own rule, so a browser without them keeps the rules above */
+:root.hold-still::view-transition-group(*),
+:root.hold-still::view-transition-old(*),
+:root.hold-still::view-transition-new(*) {
+  animation-duration: 0.001ms !important;
+  animation-delay: 0s !important;
 }

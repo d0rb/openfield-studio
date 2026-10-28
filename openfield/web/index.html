@@ -4,18 +4,60 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#14171c">
-  <meta name="description" content="OpenField Studio: direct shots with a virtual camera, re-shoot a clip with a new character, and keep every take with a verifiable receipt. Open-weights models only.">
+  <meta name="theme-color" content="#121110">
+  <meta name="description" content="A film studio on open weights. Pick a camera move, approve the stills, shoot. Every take keeps its receipt.">
   <title>OpenField Studio</title>
   <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/barlow-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/barlow-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/overpass-mono-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/barlow-condensed-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="art/trailer.webp" fetchpriority="high">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/stations.css">
+  <link rel="stylesheet" href="css/lobby.css">
 </head>
 <body>
   <noscript>OpenField Studio needs JavaScript to run.</noscript>
+  <script>
+    // If the studio has not started a few seconds after load (a script failed to load, or this browser cannot run it),
+    // say so instead of leaving an empty page. Plain old JavaScript on purpose: it has to run where the app cannot.
+    (function () {
+      var seen = [];
+      window.addEventListener("error", function (e) {
+        var file = (e.target && e.target.src) || e.filename || "";
+        seen.push((e.message || "could not load") + (file ? " (" + String(file).split("/").slice(-2).join("/") + ")" : ""));
+      }, true);
+      setTimeout(function () {
+        if (window.openfield || window.openfieldBooting || document.getElementById("boot-fail")) return; // a slow start is not a failed one
+        var box = document.createElement("div");
+        box.id = "boot-fail";
+        box.setAttribute("role", "alert");
+        box.style.cssText = "max-width:560px;margin:15vh auto;padding:24px;font:15px/1.5 Barlow,system-ui,sans-serif;color:var(--text,#ebe8e3)";
+        var title = document.createElement("h1");
+        title.style.cssText = "font-size:20px;margin:0 0 8px";
+        title.textContent = "OpenField Studio did not start in this browser";
+        var text = document.createElement("p");
+        text.style.cssText = "margin:0 0 12px;color:var(--text-2,#aba59d)";
+        text.textContent = "Try a current Chrome, Edge, Firefox or Safari, or reload the page.";
+        var detail = document.createElement("pre");
+        detail.style.cssText = "white-space:pre-wrap;font:12px/1.5 ui-monospace,monospace;color:var(--text-3,#908a82)";
+        detail.textContent = seen.slice(0, 4).join("\n");
+        var again = document.createElement("button");
+        again.type = "button";
+        again.className = "btn secondary";
+        again.textContent = "Reload";
+        again.onclick = function () { location.reload(); };
+        box.appendChild(title);
+        box.appendChild(text);
+        if (seen.length) box.appendChild(detail);
+        box.appendChild(again);
+        document.body.appendChild(box);
+      }, 6000);
+    })();
+  </script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

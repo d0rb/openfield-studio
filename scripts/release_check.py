@@ -30,12 +30,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 MAX_FILE_BYTES = 95 * 1024 * 1024
+MAX_EXPORT_BYTES = 950_000_000  # GitHub Pages: "Published GitHub Pages sites may be no larger than 1 GB"; 50 MB of room
 WEIGHT_SUFFIXES = {".safetensors", ".ckpt", ".pt", ".pth", ".gguf", ".onnx", ".bin"}
 KEY_NAMES = {".env", "id_rsa", "id_ed25519", "credentials.json", "secrets.json"}
 KEY_SUFFIXES = {".pem", ".key", ".p12", ".pfx"}
 BINARY_SUFFIXES = {".mp4", ".webm", ".mov", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".zip", ".woff", ".woff2",
                    ".ttf", ".otf", ".ico", ".pdf", ".onnx", ".safetensors"}
-PROSE_UNFINISHED = re.compile(r"TODO\(|FIXME|\bTBD\b|lorem ipsum", re.IGNORECASE)
+PROSE_UNFINISHED = re.compile(r"TODO\(|FIXME|\bTBD\b|lorem ipsum|"
+                              r"\[(?:TESTED\?|UI\?|UPSCALE\?|TAKE\?|FILL[^\]]*|GPU|COST|N(?: [a-z]+)?)\]",  # draft placeholders
+                              re.IGNORECASE)
+PLACEHOLDER_LINK = re.compile(r"<[a-z][a-z -]* link>")  # "(<try-it link>)": a link still to be filled in
 
 SECRET_PATTERNS = {
     "Hugging Face token": re.compile(r"\bhf_[A-Za-z0-9]{30,}"),
@@ -160,7 +164,7 @@ def check_files(root: Path, files: list[Path]) -> Result:
             problems.append(f"{rel}: looks like a secret file")
     if problems:
         return Result("files", "FAIL", f"{len(problems)} problem(s)", problems)
-    return Result("files", "ok", f"{len(files)} files, {total / 1_048_576:.1f} MB")
+    return Result("files", "ok", f"{len(files)} files, {total / 1_000_000:.1f} MB")
 
 
 def check_content(root: Path, files: list[Path]) -> list[Result]:
@@ -190,13 +194,19 @@ def check_content(root: Path, files: list[Path]) -> list[Result]:
 
 def check_unfinished(root: Path, files: list[Path]) -> Result:
     docs = [p for p in files if p.suffix.lower() == ".md"
-            and (p.parent == root and p.name in {"README.md", "SUBMISSION.md"}
+            and (p.parent == root and p.name in {"README.md", "SUBMISSION.md", "PRODUCT.md"}
+                 or p.relative_to(root).as_posix() in {"showcase/README.md", "openfield/workflows/README.md"}
                  or "docs" in p.relative_to(root).parts)]
     hits = []
+    prose = False
     for path in docs:
         for number, line in enumerate((read_text(path) or "").splitlines(), start=1):
-            if PROSE_UNFINISHED.search(line):
+            if PROSE_UNFINISHED.search(line) or PLACEHOLDER_LINK.search(line):
                 hits.append(f"{path.relative_to(root).as_posix()}:{number}: {line.strip()[:90]}")
+                prose = prose or bool(PROSE_UNFINISHED.search(line))
+    if hits and not prose:  # only the links that exist once the project is published
+        return Result("unfinished", "FAIL", f"{len(hits)} link(s) to fill at publish time: "
+                      "python scripts/fill_links.py --repo <url> --site <url> --video <url>", hits)
     if hits:
         return Result("unfinished", "FAIL", f"{len(hits)} marker(s)", hits)
     return Result("unfinished", "ok", f"{len(docs)} documents checked")
@@ -228,7 +238,58 @@ def fake_stack_evidence(folder: Path, receipt: dict) -> list[str]:
     return problems
 
 
-def check_product(root: Path, min_takes: int) -> list[Result]:
+def check_export_size(folder: Path, limit: int | None = None) -> Result:
+    """The hosted export must fit GitHub Pages: its published sites may be no larger than 1 GB."""
+    limit = MAX_EXPORT_BYTES if limit is None else limit
+    total = sum(path.stat().st_size for path in Path(folder).rglob("*") if path.is_file())
+    megabytes = total / 1_000_000
+    if total > limit:
+        return Result("static export size", "FAIL",
+                      f"{megabytes:.1f} MB is over the {limit / 1_000_000:.0f} MB limit "
+                      "(GitHub Pages allows up to 1 GB)")
+    return Result("static export size", "ok", f"{megabytes:.1f} MB (GitHub Pages allows up to 1 GB)")
+
+
+def hosted_smoke(root: Path, site: Path) -> Result:
+    """The hosted copy's browser smoke test on the full export. The test suite runs it on a small fixture set, which cannot show
+    what only the whole bundle shows: on October 26 two of the five Cast members were missing from the bundle, so the hero's
+    Recreate read "Needs a backend" on the hosted copy, and only a full export caught it."""
+    import shutil
+    import socket
+    import time
+    import urllib.request
+    node = shutil.which("node")
+    if not node:
+        return Result("hosted smoke", "warn", "node is not on PATH, so the browser check did not run")
+    with socket.socket() as probe:
+        probe.bind(("127.0.0.1", 0))
+        port = probe.getsockname()[1]
+    server = subprocess.Popen([sys.executable, "-m", "http.server", str(port), "--directory", str(site), "--bind", "127.0.0.1"],
+                              cwd=root, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    url = f"http://127.0.0.1:{port}/"
+    try:
+        for _ in range(100):
+            try:
+                urllib.request.urlopen(url + "static/manifest.json", timeout=1).read(1)
+                break
+            except OSError:
+                time.sleep(0.1)
+        done = subprocess.run([node, str(root / "tests" / "ui" / "smoke.mjs"), "static", url],
+                              capture_output=True, text=True, cwd=root, check=False, timeout=900)
+    except subprocess.TimeoutExpired:
+        return Result("hosted smoke", "FAIL", "the browser check did not finish in 15 minutes")
+    finally:
+        server.terminate()
+        server.wait(timeout=10)
+    lines = (done.stdout + done.stderr).splitlines()
+    passed = sum(1 for line in lines if line.startswith("PASS"))
+    failed = [line for line in lines if line.startswith("FAIL")]
+    if done.returncode == 0 and not failed:
+        return Result("hosted smoke", "ok", f"{passed} checks pass on the full export")
+    return Result("hosted smoke", "FAIL", f"{len(failed)} check(s) failed on the full export", failed[:8] or lines[-5:])
+
+
+def check_product(root: Path, min_takes: int, browser: bool = True) -> list[Result]:
     from openfield.engine import receipt as receipts
     from openfield.engine.contract import CONTRACTS, check_contract
     from openfield.engine.workflows import load_template
@@ -273,10 +334,14 @@ def check_product(root: Path, min_takes: int) -> list[Result]:
     if folders and (web / "index.html").is_file():
         from openfield.config import get_settings
         with tempfile.TemporaryDirectory() as tmp:
+            site = Path(tmp) / "site"
             try:
-                summary = export_static(get_settings(), Path(tmp) / "site", takes_root=takes_root, web_dir=web)
+                summary = export_static(get_settings(), site, takes_root=takes_root, web_dir=web)
                 results.append(Result("static export", "ok",
                                       f"{summary['takes']} takes, {summary['media_bytes'] / 1_048_576:.0f} MB"))
+                results.append(check_export_size(site))
+                if browser:
+                    results.append(hosted_smoke(root, site))
             except StaticExportError as exc:
                 results.append(Result("static export", "FAIL", str(exc)))
     return results
@@ -319,12 +384,12 @@ def check_git(root: Path) -> list[Result]:
     return results
 
 
-def run(root: Path, min_takes: int) -> list[Result]:
+def run(root: Path, min_takes: int, browser: bool = True) -> list[Result]:
     files = addable_files(root)
     results = [check_files(root, files)]
     results += check_content(root, files)
     results.append(check_unfinished(root, files))
-    results += check_product(root, min_takes)
+    results += check_product(root, min_takes, browser)
     results += check_licences(root)
     results += check_git(root)
     return results
@@ -335,8 +400,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--root", default=str(ROOT))
     parser.add_argument("--min-takes", type=int, default=6)
     parser.add_argument("--json", action="store_true")
+    parser.add_argument("--no-browser", action="store_true", help="skip the hosted copy's browser smoke test on the full export")
     args = parser.parse_args(argv)
-    results = run(Path(args.root).resolve(), args.min_takes)
+    results = run(Path(args.root).resolve(), args.min_takes, browser=not args.no_browser)
     if args.json:
         print(json.dumps([r.__dict__ for r in results], indent=2))
     else:

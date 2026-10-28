@@ -1,8 +1,9 @@
-// The Re-shoot station: keep the movement of a clip, swap in a new character (Wan Animate 2).
+// The Re-shoot station: keep the movement of a clip, swap in a new character (Wan Animate 2), or only a Cast's face.
 
 import { CLIP_TYPES, IMAGE_TYPES, LIMITS, toForm, validate } from "../lib/reshoot.js";
-import { bytes, h, icon, setText } from "./dom.js";
-import { field, section, selectField, switchRow, textField } from "./controls.js";
+import { h, icon, setText } from "./dom.js";
+import { dropZone, field, fileChip, section, selectField, switchRow, textField } from "./controls.js";
+import { quietWhileBusy } from "./direct.js";
 
 export const setReshoot = (forms, patch) => forms.set((s) => ({ reshoot: { ...s.reshoot, ...patch } }));
 
@@ -10,23 +11,12 @@ export const setReshoot = (forms, patch) => forms.set((s) => ({ reshoot: { ...s.
 export function reshootEmpty({ forms }) {
   const { clip, referenceFile, preview } = forms.get().reshoot;
   if (!clip) {
-    return h("div", { class: "empty" }, icon("repeat-2", "lg"), h("h2", null, "Re-shoot a clip with a new character"),
-      h("p", null, "Add a clip in Settings and a reference image of the new character, describe them, then press Re-shoot. The movement stays; the character changes."));
+    return h("div", { class: "empty" }, h("img", { class: "empty-art", src: "art/art-reshoot.webp", alt: "", loading: "lazy", decoding: "async" }), h("h2", null, "Re-shoot a clip with a new character"),
+      h("p", null, "Add a clip and a reference image in Settings, then Re-shoot."));
   }
   return h("div", { class: "staging" },
     h("figure", null, h("video", { src: preview?.clip, muted: true, controls: true, playsinline: true, preload: "metadata" }), h("figcaption", null, "Your clip")),
     h("figure", null, preview?.reference ? h("img", { src: preview.reference, alt: "Reference" }) : h("div", { class: "empty" }, h("p", null, "Add a reference image.")), h("figcaption", null, "Reference")));
-}
-
-function dropZone({ accept, label, hint, onFile }) {
-  const input = h("input", { type: "file", accept, class: "sr-only", tabindex: "-1", "aria-label": label });
-  const zone = h("button", { type: "button", class: "drop" }, icon("upload"), h("span", { class: "drop-text" }, h("b", null, label), h("span", { class: "hint" }, hint)));
-  zone.addEventListener("click", () => input.click());
-  input.addEventListener("change", () => input.files[0] && (onFile(input.files[0]), (input.value = "")));
-  for (const type of ["dragenter", "dragover"]) zone.addEventListener(type, (e) => { e.preventDefault(); zone.classList.add("over"); });
-  for (const type of ["dragleave", "drop"]) zone.addEventListener(type, () => zone.classList.remove("over"));
-  zone.addEventListener("drop", (e) => { e.preventDefault(); const file = e.dataTransfer.files[0]; if (file) onFile(file); });
-  return h("div", null, zone, input);
 }
 
 export function createReshootPrompt({ forms, store, controller }) {
@@ -60,16 +50,18 @@ export function createReshootPrompt({ forms, store, controller }) {
     const problems = validate(state);
     prompt.set(state.prompt);
     const first = problems[0];
+    const face = state.faceOnly;
     plan.replaceChildren(locked
-      ? h("span", { class: "plan-note" }, icon("lock", "sm"), "Replay cannot re-shoot your own clip. Watch the recorded take, or connect a backend to render.")
+      ? h("span", { class: "plan-note" }, icon("lock", "sm"), "Recorded takes only. Connect a backend to render.")
       : first ? h("span", { class: "plan-note quiet" }, first.message)
-        : h("span", null, h("b", null, "Wan Animate 2"), h("span", { class: "sep" }, "·"), "keeps the clip's movement, swaps in the character", h("span", { class: "sep" }, "·"), "1 render"));
+        : h("span", null, h("b", null, face ? "Qwen-Image 2.1 + Wan Animate 2" : "Wan Animate 2"), h("span", { class: "sep" }, "·"), face ? "2 renders" : "1 render"));
     go.disabled = locked || problems.length > 0 || busy;
     go.setAttribute("aria-busy", String(busy));
     go.replaceChildren(icon(locked ? "lock" : "repeat-2"), h("span", null, busy ? "Starting…" : locked ? "Needs a backend" : "Re-shoot"));
   }
   forms.subscribe(paint);
   store.subscribe((_, changed) => changed.includes("status") && paint());
+  store.subscribe((state, changed) => changed.some((k) => ["takes", "selected", "recorded"].includes(k)) && quietWhileBusy(go, state, ["reshoot"]));
   paint();
   return { el };
 }
@@ -92,9 +84,9 @@ export function createReshootDock({ api, forms, store }) {
 
   // source clip
   const clipSlot = h("div", { class: "slot" });
-  const clipBody = h("div", { class: "stack" }, clipSlot, h("p", { class: "hint" }, "Use footage you filmed or have the right to use. If real people appear, they should have agreed."));
+  const clipBody = h("div", { class: "stack" }, clipSlot, h("p", { class: "hint" }, "Footage you have the right to use. Everyone in it agreed."));
   errors.clip = field("", clipBody, {});
-  const clipZone = dropZone({ accept: CLIP_TYPES.join(","), label: "Add a clip", hint: `${CLIP_TYPES.join(", ")} up to ${LIMITS.clipMB} MB. Full body, framed like the character, works best.`, onFile: pick("clip", "clip") });
+  const clipZone = dropZone({ accept: CLIP_TYPES.join(","), label: "Add a clip", hint: `${CLIP_TYPES.join(", ")} up to ${LIMITS.clipMB} MB. Full body works best.`, onFile: pick("clip", "clip") });
 
   // reference
   const modes = [{ value: "upload", label: "Upload image" }, { value: "cast", label: "From Cast" }];
@@ -102,7 +94,14 @@ export function createReshootDock({ api, forms, store }) {
   const castSelect = selectField({ id: "re-cast", options: [{ value: "", label: "Pick a character" }], value: "", onChange: (v) => setReshoot(forms, { castId: v || null, referenceFile: null, refIndex: 1 }) });
   const refIndex = selectField({ id: "re-ref", options: [{ value: "1", label: "Photo 1" }], value: "1", onChange: (v) => setReshoot(forms, { refIndex: Number(v) }) });
   const castPreview = h("img", { class: "ref-thumb", alt: "", hidden: true });
-  const castPane = h("div", { class: "stack" }, field("Character", castSelect.el, { id: "re-cast" }).el, field("Photo", refIndex.el, { id: "re-ref" }).el, castPreview);
+  const photo = field("Photo", refIndex.el, { id: "re-ref" });
+  const castPane = h("div", { class: "stack" }, field("Character", castSelect.el, { id: "re-cast" }).el, photo.el, castPreview);
+  // turning it on drops an uploaded reference, so none is sent unseen
+  const faceOnly = switchRow({
+    title: "Swap only the face",
+    hint: "Clothes and set stay. Only the face changes.",
+    onChange: (on) => { if (on) drop("referenceFile", "reference")(); setReshoot(forms, on ? { faceOnly: true, refMode: "cast" } : { faceOnly: false }); },
+  });
   const modeSeg = h("div", { class: "seg", role: "radiogroup", "aria-label": "Reference source" });
   const modeButtons = modes.map((m) => h("button", { type: "button", role: "radio", "data-value": m.value, "aria-checked": "false" }, m.label));
   modeSeg.append(...modeButtons);
@@ -113,8 +112,8 @@ export function createReshootDock({ api, forms, store }) {
     revoke(previous.reference);
     setReshoot(forms, { refMode: b.dataset.value, referenceFile: null, castId: null, preview: { ...previous, reference: null } });
   });
-  const refZone = dropZone({ accept: IMAGE_TYPES.join(","), label: "Add a reference image", hint: `${IMAGE_TYPES.join(", ")} up to ${LIMITS.imageMB} MB. One clear photo of the new character.`, onFile: pick("referenceFile", "reference") });
-  const refBody = h("div", { class: "stack" }, modeSeg, refSlot, castPane);
+  const refZone = dropZone({ accept: IMAGE_TYPES.join(","), label: "Add a reference image", hint: `${IMAGE_TYPES.join(", ")} up to ${LIMITS.imageMB} MB. One clear photo.`, onFile: pick("referenceFile", "reference") });
+  const refBody = h("div", { class: "stack" }, faceOnly.el, modeSeg, refSlot, castPane);
   errors.reference = field("", refBody, {});
 
   const background = textField({ id: "re-bg", maxlength: LIMITS.text, placeholder: "Optional: where they are", onInput: (v) => setReshoot(forms, { background: v }) });
@@ -122,19 +121,14 @@ export function createReshootDock({ api, forms, store }) {
   const seed = textField({ id: "re-seed", type: "number", inputmode: "numeric", placeholder: "Random", onInput: (v) => setReshoot(forms, { seed: v }) });
   errors.background = field("Background", background.el, { id: "re-bg" });
   errors.motion = field("Movement note", motion.el, { id: "re-motion", hint: "Only if the clip's movement is hard to read." });
-  errors.seed = field("Seed", seed.el, { id: "re-seed", hint: "Leave empty for a random seed. It is saved in the receipt." });
+  errors.seed = field("Seed", seed.el, { id: "re-seed", hint: "Empty for random. Saved in the receipt." });
 
   el.append(
     section("Source clip", errors.clip.el).el,
     section("Reference", errors.reference.el).el,
     section("Options", h("div", { class: "stack" }, errors.background.el, errors.motion.el, errors.seed.el), { open: false }).el,
   );
-  const clipChip = (file, url, kind, onRemove) => {
-    const remove = h("button", { type: "button", class: "btn ghost sm icon-only", "aria-label": "Remove" }, icon("x", "sm"));
-    remove.addEventListener("click", onRemove);
-    return h("div", { class: "file" }, kind === "video" ? h("video", { src: `${url}#t=0.1`, muted: true, preload: "metadata", playsinline: true }) : h("img", { src: url, alt: "" }),
-      h("div", { class: "file-text" }, h("b", null, file.name), h("span", { class: "hint" }, bytes(file.size))), remove);
-  };
+  const clipChip = fileChip;
 
   let castKey = "";
   function update() {
@@ -144,7 +138,11 @@ export function createReshootDock({ api, forms, store }) {
     const preview = s.preview ?? {};
     clipSlot.replaceChildren(s.clip ? clipChip(s.clip, preview.clip, "video", drop("clip", "clip")) : clipZone);
     errors.clip.setError(show("clip"));
-    const mode = s.refMode ?? "upload";
+    const face = Boolean(s.faceOnly);
+    faceOnly.set(face);
+    const mode = face ? "cast" : s.refMode ?? "upload";
+    modeSeg.hidden = face; // a face only from a Cast, every photo of it
+    photo.el.hidden = face;
     modeButtons.forEach((b) => b.setAttribute("aria-checked", String(b.dataset.value === mode)));
     refSlot.hidden = mode !== "upload";
     castPane.hidden = mode !== "cast";

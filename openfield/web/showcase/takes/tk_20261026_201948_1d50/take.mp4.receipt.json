@@ -1,0 +1,216 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261026_201948_1d50",
+    "kind": "direct",
+    "created_at": "2026-10-26T20:20:45Z",
+    "label": "bullet time: Tomas in black samurai armour, katana raised mid"
+  },
+  "inputs": {
+    "subject": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "practicals",
+      "movement": "bullet_time",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "bullet_time",
+    "mode": "prompt_only",
+    "final_prompt": "Tomas in black samurai armour, katana raised mid-strike, sparks and raindrops frozen in the air around the blade, on a neon-lit Tokyo street at night. The camera orbits 90 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The camera circles a quarter turn at the same distance and height and ends with the subject seen from the side, still centred. The world slows and freezes mid-motion while the camera keeps moving. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; practical lights in the scene making warm pools of light. We hear a deep slowed-down whoosh, then the hush of frozen rain.",
+    "seed": 1167,
+    "orientation": "landscape",
+    "audio": "a deep slowed-down whoosh, then the hush of frozen rain",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "inputs/hero.png"
+      }
+    ],
+    "cast": {
+      "name": "Tomas",
+      "refs": [
+        "facc3bcb20665cf66dc33dae52341d4019cb4059d034c734c1ab57460e83d2bb"
+      ]
+    },
+    "source": {
+      "sha256": "b12ae64f32fbca2c6ca1baac3a2e2c52a2f26fa77f79363c29630d1ce7f55e5a",
+      "original_size": [
+        1344,
+        768
+      ],
+      "crop": [
+        0,
+        0,
+        1344,
+        768
+      ],
+      "size": [
+        1344,
+        768
+      ],
+      "identity_reference": "cast"
+    },
+    "recipe_hash": "3bf53267c2c1f0e9541f4647f9ffc0371786e26606d3e43baa2376ffca18c241"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "005bc7b2b69fabba9bd4fb3d7ddd80953547ceb85870939328a05e2e0ca29b2d",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "686fbb8a2c34e3b17d6a5a078f20e3b348267c05c3a37ff4f8fa4e062ca6362f",
+        "job_id": "72546831-caec-4e6e-b14d-f73f99551cbe"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.8283653075402286,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.8283653075402286,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8283653075402286
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          588,
+          96,
+          187,
+          251
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.828 >= threshold 0.363 (best reference 0)",
+        "face_px": 187,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.8244944433371666,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8244944433371666
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          556,
+          73,
+          181,
+          240
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.824 >= threshold 0.363 (best reference 0)",
+        "face_px": 181,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "72546831-caec-4e6e-b14d-f73f99551cbe",
+    "timings": {
+      "total_s": 57.2
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "d9ebe4c920b2341aa7590f1ff7759d210c2d7863e1b015a78f505c4d60879403",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "729f03bf962e5aa0fe454b4b81f439789ee11ab1da6386c157e5bd89f37c0668"
+  }
+}

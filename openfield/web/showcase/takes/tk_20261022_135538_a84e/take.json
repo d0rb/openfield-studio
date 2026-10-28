@@ -1,0 +1,140 @@
+{
+  "id": "tk_20261022_135538_a84e",
+  "kind": "direct",
+  "label": "static: Oskar mends a fishing net on a harbour pier at g",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-22T13:55:38Z",
+  "updated_at": "2026-10-22T13:57:39Z",
+  "recipe": {
+    "kind": "direct",
+    "subject": "Oskar mends a fishing net on a harbour pier at golden hour",
+    "rig": {
+      "sensor": "35mm_film",
+      "lens": "halation_vintage",
+      "focal_length_mm": 50,
+      "aperture": "f1.4",
+      "lighting": "contre_jour",
+      "movement": "static",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "angle": "front_right/eye/medium"
+    },
+    "audio": "water lapping against wood, creaking boats, gulls",
+    "seed": 120,
+    "orientation": "landscape",
+    "cast_refs": [
+      "af3cc814a31e5b869f2da54c33235a120376b29ca75e8fd1aef8c7884a5349f1"
+    ],
+    "cast_name": "Oskar",
+    "auto_approve": true
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "angled: the hero is re-shot from front-right quarter · eye level · medium before the move"
+  ],
+  "replay": false,
+  "recipe_hash": "4536be8024cbbff412f0e540c377f32d191f9cc1fe1a30d80cdf507701ee82e0",
+  "identity": {
+    "hero": {
+      "status": "pass",
+      "score": 0.8215723483649987,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.8215723483649987
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        594,
+        130,
+        197,
+        266
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.822 >= threshold 0.363 (best reference 0)",
+      "face_px": 197,
+      "enlarged": null
+    },
+    "angle": {
+      "status": "pass",
+      "score": 0.6438435916976045,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6438435916976045
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        533,
+        141,
+        169,
+        241
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.644 >= threshold 0.363 (best reference 0)",
+      "face_px": 169,
+      "enlarged": null
+    },
+    "shoot_1": {
+      "status": "pass",
+      "score": 0.6126262472734127,
+      "threshold": 0.363,
+      "best_ref": 0,
+      "per_ref": [
+        0.6126262472734127
+      ],
+      "faces_in_candidate": 1,
+      "candidate_box": [
+        512,
+        123,
+        159,
+        214
+      ],
+      "refs_used": 1,
+      "reason": "cosine 0.613 >= threshold 0.363 (best reference 0)",
+      "face_px": 159,
+      "enlarged": null,
+      "frame": "first",
+      "frames_checked": 3
+    }
+  },
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 5.04,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "angle-oskar-front-right-eye-medium",
+  "showcase_sha": "e1865c992f2b09c8"
+}

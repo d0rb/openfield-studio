@@ -1,0 +1,122 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_235532_eafb",
+    "kind": "edit",
+    "created_at": "2026-10-22T23:55:56Z",
+    "label": "change the outfit: Noor in a white spacesuit with the helme"
+  },
+  "inputs": {
+    "preset": "outfit",
+    "detail": "a flowing red evening gown",
+    "final_prompt": "Dress the person in a flowing red evening gown. Keep the face, hair, pose, framing, light and setting exactly as they are.",
+    "seed": 533,
+    "before": "inputs/source.png",
+    "after": "runs/01_edit/image.png",
+    "cast": {
+      "name": null,
+      "refs": []
+    },
+    "identity_reference": "picture",
+    "recipe_hash": "12e8a05816dea8955592cbdbbe9e876e506dccc967096ab5d642a67b50a01b7f"
+  },
+  "workflow": {
+    "template": "qwen21_edit",
+    "sha256": "4d54f389c78b172d22cc2d39b931be3d8acd439c3df0286b3ef4867eddc531e9",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "edit",
+        "template": "qwen21_edit",
+        "workflow_sha256": "9847bac27651c09f7cf98df05d2191c2288e6118163204cf0a1896c3ce853124",
+        "job_id": "4b9ac323-4fff-417f-85f1-4e14e4766eb8"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.9143735679561639,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "edit": {
+        "status": "pass",
+        "score": 0.9143735679561639,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.9143735679561639
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          622,
+          159,
+          129,
+          167
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.914 >= threshold 0.363 (best reference 0)",
+        "face_px": 129,
+        "enlarged": null
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "4b9ac323-4fff-417f-85f1-4e14e4766eb8",
+    "timings": {
+      "total_s": 23.4
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "601a10e577dd50c1ab7b572564cc96f9eb6fe7881becb67c949f1bcd6da69350",
+      "seconds": 2.4
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "1b7238937a0dd0631624d741581cf748b58c88e9e55c1d4674eef74b1a59dc85"
+  }
+}

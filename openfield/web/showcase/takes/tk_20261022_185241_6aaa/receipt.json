@@ -1,0 +1,246 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261022_185241_6aaa",
+    "kind": "direct",
+    "created_at": "2026-10-22T18:58:53Z",
+    "label": "dolly in: Noor stands under the open dome of a mountain ob"
+  },
+  "inputs": {
+    "subject": "Noor stands under the open dome of a mountain observatory at night, the telescope behind her, starlight on her glasses",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f1.4",
+      "lighting": "practicals",
+      "movement": "dolly_in",
+      "duration_seconds": 5,
+      "speed": "slow",
+      "effect": "none",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "dolly_in",
+    "mode": "keyframed",
+    "final_prompt": "Noor stands under the open dome of a mountain observatory at night, the telescope behind her, starlight on her glasses. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), wide open at f/1.4 with very shallow depth of field; practical lights in the scene making warm pools of light. The camera dollies in toward the subject on a smooth track, parallax shifting in the background, moving slowly. Constraint: physical camera travel, fixed focal length, no zoom, constant lens height. Sound: wind through the dome slit, a slow motor hum.",
+    "seed": 170,
+    "orientation": "landscape",
+    "audio": "wind through the dome slit, a slow motor hum",
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_flf2v",
+        "seconds": 5,
+        "first": 0,
+        "last": 1,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/01_hero/image.png"
+      },
+      {
+        "index": 1,
+        "file": "runs/02_anchor_1/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Noor",
+      "refs": [
+        "4129b4f836874b5987eaca90d68fcd8e07d1dfcfb102fe5e871646ce15c3cb28"
+      ]
+    },
+    "recipe_hash": "a256ef839d97287bf335b15141768e4f17977f6e04f6eb8f1c52f4c819f92b36"
+  },
+  "workflow": {
+    "template": "ltx25_flf2v",
+    "sha256": "ff1f126ecd2ec79bb4effc2ee70613a4f0d0c6133213efabf4ce60010c7dd513",
+    "snapped": {},
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "842cc9dfc0b059998dbdad8db87121cf27849180bb6e2fc6348df65f5e85f82b",
+        "job_id": "8e616406-dc17-42fd-afa5-38f935e8775e"
+      },
+      {
+        "stage": "anchor_1",
+        "template": "qwen21_edit",
+        "workflow_sha256": "8a4722d57f725b83b76713ff42a1b46f34d61b854cc3cfbc6f911451f998dea0",
+        "job_id": "7f816678-05ec-45e9-bb86-15bbf1fc8dcd"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_flf2v",
+        "workflow_sha256": "899f0a20dc5885b104a8175b2db895aae5f3d2740ae0d1f12124ef648e39ba27",
+        "job_id": "0abc47e1-4125-42b5-a9a0-68636a7bc48f"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.915130591633633,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.915130591633633,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.915130591633633
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          548,
+          165,
+          215,
+          291
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.915 >= threshold 0.363 (best reference 0)",
+        "face_px": 215,
+        "enlarged": null
+      },
+      "anchor_1": {
+        "status": "pass",
+        "score": 0.888739165899579,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.888739165899579
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          512,
+          130,
+          255,
+          341
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.889 >= threshold 0.363 (best reference 0)",
+        "face_px": 255,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.8671980027202583,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.8671980027202583
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          520,
+          150,
+          209,
+          269
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.867 >= threshold 0.363 (best reference 0)",
+        "face_px": 209,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "8e616406-dc17-42fd-afa5-38f935e8775e,7f816678-05ec-45e9-bb86-15bbf1fc8dcd,0abc47e1-4125-42b5-a9a0-68636a7bc48f",
+    "timings": {
+      "total_s": 372.2
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "25ded83bc810ebcc2645d6a9ca7a74fef8168763cb310c85e2f72adaa8346a23",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "3498403c2ac4207839d1bd13e55b3f51ebd4d6c925c15998993a4ee6182ea8bc"
+  }
+}

@@ -17,6 +17,7 @@ with the real choices, then run `python scripts/validate_workflows.py`.
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import sys
 from pathlib import Path
@@ -31,6 +32,7 @@ OFFICIAL = {
     "qwen21_t2i": "image_qwen_image_2_1_t2i",
     "qwen21_edit": "image_qwen_image_2_1_image_edit",
     "wan_animate2": "video_wan_animate2",
+    "esrgan_upscale": "utility-gan_upscaler",  # plus one ImageScale: see AFTER_EXPORT
 }
 CONVERT_JS = """
 async (workflow) => {
@@ -42,6 +44,29 @@ async (workflow) => {
 }
 """
 OUTPUT_CLASSES = ("SaveVideo", "SaveImage", "SaveImageAdvanced")
+
+
+def add_image_scale(graph: dict[str, Any]) -> dict[str, Any]:
+    """esrgan_upscale: the official graph plus one core ImageScale between ImageUpscaleWithModel and CreateVideo.
+
+    The model always enlarges 4x, so this is the one node that lands the result on the size the slot map asks for (its
+    width and height are slots; 3840 x 2160 is only the value the committed graph shows). Everything else stays as the
+    frontend exported it. Refuses a template where CreateVideo no longer reads the model directly.
+    """
+    graph = copy.deepcopy(graph)
+    model = next(k for k, node in graph.items() if node["class_type"] == "ImageUpscaleWithModel")
+    create = next(k for k, node in graph.items() if node["class_type"] == "CreateVideo")
+    if graph[create]["inputs"].get("images") != [model, 0]:
+        raise ValueError("CreateVideo does not read ImageUpscaleWithModel directly: the official template changed")
+    new_id = str(max(int(k) for k in graph if k.isdigit()) + 1)
+    graph[new_id] = {
+        "inputs": {"upscale_method": "area", "width": 3840, "height": 2160, "crop": "disabled", "image": [model, 0]},
+        "class_type": "ImageScale", "_meta": {"title": "Upscale Image"}}
+    graph[create]["inputs"]["images"] = [new_id, 0]
+    return graph
+
+
+AFTER_EXPORT = {"esrgan_upscale": add_image_scale}  # edits made to a graph right after the frontend exports it
 
 
 def title_of(node: dict[str, Any]) -> str:
@@ -113,7 +138,7 @@ def export(base_url: str, ref: str, out_dir: Path, names: list[str], headless: b
             official = OFFICIAL[name]
             try:
                 template, digest, _ = ftm.fetch_template(official, ref)
-                graph = page.evaluate(CONVERT_JS, template)
+                graph = AFTER_EXPORT.get(name, lambda g: g)(page.evaluate(CONVERT_JS, template))
             except Exception as exc:  # noqa: BLE001
                 print(f"[FAIL] {name} ({official}): {str(exc).splitlines()[0]}")
                 failures += 1

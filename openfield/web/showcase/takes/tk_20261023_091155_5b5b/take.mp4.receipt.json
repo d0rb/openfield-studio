@@ -1,0 +1,255 @@
+{
+  "schema": "openfield.receipt/1",
+  "app": {
+    "name": "OpenField Studio",
+    "version": "0.2.0"
+  },
+  "take": {
+    "id": "tk_20261023_091155_5b5b",
+    "kind": "direct",
+    "created_at": "2026-10-23T09:15:30Z",
+    "label": "orbit 90: Mara throws a glass of water into the air on a b"
+  },
+  "inputs": {
+    "subject": "Mara throws a glass of water into the air on a beach at sunset",
+    "rig": {
+      "sensor": "modern_digital",
+      "lens": "clean_sharp",
+      "focal_length_mm": 35,
+      "aperture": "f4",
+      "lighting": "soft_cross",
+      "movement": "orbit_90",
+      "duration_seconds": 5,
+      "speed": "steady",
+      "effect": "time_freeze",
+      "grade": "none",
+      "score": "none",
+      "soundscape": "none",
+      "angle": "front/eye/medium"
+    },
+    "move": "orbit_90",
+    "mode": "prompt_only",
+    "final_prompt": "Mara throws a glass of water into the air on a beach at sunset. Shot on a clean modern digital cinema camera with a clean, sharp spherical lens, 35mm (natural), at f/4 with moderate depth of field; soft cross lighting that sculpts the subject. The camera orbits 90 degrees around the subject at constant distance, the subject staying centred while the background rotates behind it, moving at a steady pace. The world slows and freezes mid-motion while the camera keeps moving. Constraint: constant radius, constant height, subject remains centred, no subject spin.",
+    "seed": 580,
+    "orientation": "landscape",
+    "audio": null,
+    "quality": "standard",
+    "segments": [
+      {
+        "index": 0,
+        "template": "ltx25_i2v",
+        "seconds": 5,
+        "first": 0,
+        "last": null,
+        "guides": []
+      }
+    ],
+    "anchors": [
+      {
+        "index": 0,
+        "file": "runs/02_hero_retry/image.png"
+      }
+    ],
+    "cast": {
+      "name": "Mara",
+      "refs": [
+        "80d0a54bfb5550593d004e9616d46889447262bfd7cc511fce056d2c447f61f4"
+      ]
+    },
+    "recipe_hash": "2c8cb529aa8dfa3e33ef4fc5da76145e685cace5930b6645764e378e9bca7cc8"
+  },
+  "workflow": {
+    "template": "ltx25_i2v",
+    "sha256": "81b25d9890024764a8ec75b3b7d007480d1143846edc7c96c0d05488fe05038f",
+    "snapped": {
+      "shoot_1": {
+        "height": 704
+      }
+    },
+    "runs": [
+      {
+        "stage": "hero",
+        "template": "qwen21_edit",
+        "workflow_sha256": "bcc43a4dddd883b566b1407350435fe3e585466d7a5ee3797956c992fecb2862",
+        "job_id": "3829c3f2-6fd4-456a-9144-445e597e9875"
+      },
+      {
+        "stage": "hero_retry",
+        "template": "qwen21_edit",
+        "workflow_sha256": "79b7121aca04bad0747aa2fd5481f16231cea76e8c5e666c74cad310418c2701",
+        "job_id": "286237ad-3f8c-40c7-9536-d32cdb4a3036"
+      },
+      {
+        "stage": "shoot_1",
+        "template": "ltx25_i2v",
+        "workflow_sha256": "63aa1181a80ed2a26a00597f82c68d1f090edcffdd677eb327bf8c25246ef1fa",
+        "job_id": "0494dc5b-3141-4683-97b4-20f4235afe3b"
+      }
+    ]
+  },
+  "models": [
+    {
+      "role": "image:qwen-image-2.1",
+      "file": "qwen_image_2.1_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "text_encoder",
+      "file": "qwen3vl_8b_int8_convrot.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "vae",
+      "file": "qwen_image_2.1_vae_bf16.safetensors",
+      "license": "Qwen Research License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "attribution": "Built with Qwen"
+    },
+    {
+      "role": "video:ltx-2.5",
+      "file": "ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/diffusion_models/ltx-2.5-22b-distilled-transformer-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "vae",
+      "file": "ltx-2.5-video-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-video-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "audio_vae",
+      "file": "ltx-2.5-audio-vae-bf16.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/vae/ltx-2.5-audio-vae-bf16.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "text_encoder",
+      "file": "gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/text_encoders/gemma4-12b-with-proj-ltx-2.5-comfy-int8-convrot.safetensors",
+      "attribution": null
+    },
+    {
+      "role": "upscaler",
+      "file": "ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "license": "LTX-2.x Community License Agreement",
+      "open_weights": true,
+      "source": "https://huggingface.co/Lightricks/LTX-2.5/resolve/main/latent_upscale_models/ltx-2.5-latent-spatial-upscaler-x2-bf16-1.0.safetensors",
+      "attribution": null
+    }
+  ],
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "identity": {
+    "status": "pass",
+    "score": 0.757343467674565,
+    "threshold": 0.363,
+    "refs_used": 1,
+    "reports": {
+      "hero": {
+        "status": "pass",
+        "score": 0.757343467674565,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.757343467674565
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          349,
+          199,
+          224,
+          299
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.757 >= threshold 0.363 (best reference 0)",
+        "face_px": 224,
+        "enlarged": null,
+        "retried": true
+      },
+      "hero_retry": {
+        "status": "pass",
+        "score": 0.757343467674565,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.757343467674565
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          349,
+          199,
+          224,
+          299
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.757 >= threshold 0.363 (best reference 0)",
+        "face_px": 224,
+        "enlarged": null
+      },
+      "shoot_1": {
+        "status": "pass",
+        "score": 0.7517542826553038,
+        "threshold": 0.363,
+        "best_ref": 0,
+        "per_ref": [
+          0.7517542826553038
+        ],
+        "faces_in_candidate": 1,
+        "candidate_box": [
+          332,
+          172,
+          212,
+          282
+        ],
+        "refs_used": 1,
+        "reason": "cosine 0.752 >= threshold 0.363 (best reference 0)",
+        "face_px": 212,
+        "enlarged": null,
+        "frame": "first",
+        "frames_checked": 3
+      }
+    }
+  },
+  "backend": {
+    "kind": "pod",
+    "job_id": "3829c3f2-6fd4-456a-9144-445e597e9875,286237ad-3f8c-40c7-9536-d32cdb4a3036,0494dc5b-3141-4683-97b4-20f4235afe3b",
+    "timings": {
+      "total_s": 215.3
+    },
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "node_id": "",
+      "content_type": "video/mp4",
+      "sha256_before_receipt": "ca94664a7eb0a0def246069a7eae4d0480b1a87d4e38244a4fc13b64285b73c4",
+      "seconds": 5.04
+    }
+  ],
+  "disclosure": "AI-generated content. Made with OpenField Studio using open-weights models; see models and audit for the exact files.",
+  "integrity": {
+    "alg": "sha256",
+    "digest": "6cbf6e9aa57234f0292f7743f671fee7c659fdb5c232ee030121f7823cbd0313"
+  }
+}

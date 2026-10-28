@@ -593,6 +593,20 @@ def test_embed_metadata_roundtrips_a_long_value(av_clip, tmp_path, probe_tool):
     assert_faststart(out)
 
 
+def test_long_tags_travel_in_a_metadata_file_and_behave_like_short_ones(av_clip, tmp_path, probe_tool):
+    # longer than a Windows command line allows (32,767 characters): the tags go to ffmpeg in an FFMETADATA1 file
+    first = video.embed_metadata(av_clip, tmp_path / "one.mp4", {"kept": "yes", "gone": "soon", "title": "Old"})
+    long_value = AWKWARD_VALUE + "x" * 40_000
+    second = video.embed_metadata(first, tmp_path / "two.mp4", {"openfield_receipt": long_value, "gone": "", "Title": "Take 1"})
+    tags = video.read_metadata(second)
+    assert tags["openfield_receipt"] == long_value
+    assert (tags["kept"], tags["title"]) == ("yes", "Take 1") and "gone" not in tags
+    assert "major_brand" in tags
+    assert_faststart(second)
+    assert video.probe(second).has_audio
+    assert sorted(p.name for p in tmp_path.iterdir()) == ["one.mp4", "two.mp4"], "the metadata file is removed"
+
+
 def test_embed_metadata_copies_streams_untouched(av_clip, tmp_path):
     out = video.embed_metadata(av_clip, tmp_path / "tagged.mp4", {"note": "x"})
     info = video.probe(out)
@@ -695,3 +709,229 @@ def test_missing_ffmpeg_binary_is_a_video_error(tmp_path, monkeypatch, ramp_clip
     monkeypatch.setenv("OPENFIELD_FFMPEG", str(tmp_path / "no-such-ffmpeg.exe"))
     with pytest.raises(video.VideoError, match="cannot run"):
         video.extract_frame(ramp_clip, tmp_path / "x.png", "first")
+
+
+def test_stills_clip_holds_each_image_and_carries_a_silent_track(tmp_path):
+    images = []
+    for i, color in enumerate(("red", "green", "blue")):
+        path = tmp_path / f"{i}.png"
+        Image.new("RGB", (320, 180), color).save(path)
+        images.append(path)
+    info = video.stills_clip(images, tmp_path / "board.mp4", size=(320, 180), seconds_each=0.5)
+    assert info.duration_s == pytest.approx(1.5, abs=0.1)
+    assert (info.width, info.height) == (320, 180) and info.has_audio
+    with pytest.raises(ValueError):
+        video.stills_clip([], tmp_path / "none.mp4", size=(320, 180))
+
+
+def test_a_rolled_video_is_turned_counter_clockwise_and_cropped_with_no_empty_corner(tmp_path):
+    src = tmp_path / "level.mp4"
+    graph = ("color=c=0xC87828:s=640x360:d=1:r=24,drawbox=x=0:y=176:w=640:h=8:color=white:t=fill[v];"
+             "sine=frequency=440:duration=1[a]")
+    subprocess.run([video.ffmpeg_exe(), "-y", "-v", "error", "-filter_complex", graph, "-map", "[v]", "-map", "[a]",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", str(src)], check=True)
+    out = tmp_path / "rolled.mp4"
+    info = video.roll(src, out, 15.0, (448, 256))
+    assert info["degrees"] == 15.0 and info["rendered"] == [640, 360] and info["size"] == [448, 256]
+    probed = video.probe(out)
+    assert (probed.width, probed.height) == (448, 256) and probed.has_audio, "the frame's size, the sound kept"
+    frame = tmp_path / "f.png"
+    video.extract_frame(out, frame, 0.5)
+    with Image.open(frame) as img:
+        rgb = img.convert("RGB")
+        for xy in ((1, 1), (446, 1), (1, 254), (446, 254)):
+            r, g, b = rgb.getpixel(xy)
+            assert r > 150 and 80 < g < 160 and b < 90, f"corner {xy} is picture, not an empty black wedge"
+        def line_row(x):
+            column = [sum(rgb.getpixel((x, y))) for y in range(256)]
+            return column.index(max(column))
+        assert line_row(60) - line_row(388) > 40, "counter-clockwise: the level line now rises to the right"
+    assert video.roll_render_size((1280, 704), 15.0, cap=(1920, 1088)) == (1856, 1024)
+    assert video.roll_render_size((1920, 1088), 15.0, cap=(1920, 1088)) == (1920, 1088), "capped at the fine size"
+    assert video.roll_render_size((896, 512), 15.0, cap=(1920, 1088), multiple=64) == (1280, 768), "the template's 64 grid"
+
+
+def test_a_roll_that_could_not_render_larger_says_how_much_it_scaled_up(tmp_path):
+    # the Fine tier: the template renders at most 1920 wide, so the turned frame is cropped and scaled back up
+    src = tmp_path / "level.mp4"
+    subprocess.run([video.ffmpeg_exe(), "-y", "-v", "error", "-f", "lavfi", "-i", "color=c=0x808080:s=448x256:d=0.5:r=24",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", str(src)], check=True)
+    info = video.roll(src, tmp_path / "rolled.mp4", 15.0, (448, 256))
+    assert 1.4 < info["scaled"] < 1.5 and "scaled up 1.4" in info["how"], info
+    roomy = tmp_path / "roomy.mp4"
+    subprocess.run([video.ffmpeg_exe(), "-y", "-v", "error", "-f", "lavfi", "-i", "color=c=0x808080:s=704x384:d=0.5:r=24",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", str(roomy)], check=True)
+    info = video.roll(roomy, tmp_path / "roomy-rolled.mp4", 15.0, (448, 256))
+    assert info["scaled"] <= 1.01 and info["how"].startswith("rendered level and larger"), info
+
+
+def test_a_mirrored_video_is_flipped_left_to_right_and_keeps_its_sound(tmp_path):
+    src = tmp_path / "plain.mp4"
+    graph = ("color=c=0x303030:s=320x180:d=1:r=24,drawbox=x=10:y=40:w=60:h=100:color=white:t=fill[v];"
+             "sine=frequency=440:duration=1[a]")
+    subprocess.run([video.ffmpeg_exe(), "-y", "-v", "error", "-filter_complex", graph, "-map", "[v]", "-map", "[a]",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", str(src)], check=True)
+    out = tmp_path / "flipped.mp4"
+    info = video.mirror(src, out)
+    assert info["flipped"] == "left to right"
+    probed = video.probe(out)
+    assert (probed.width, probed.height) == (320, 180) and probed.has_audio, "same frame, the sound kept"
+    frame = tmp_path / "f.png"
+    video.extract_frame(out, frame, 0.5)
+    with Image.open(frame) as img:
+        rgb = img.convert("L")
+        assert rgb.getpixel((280, 90)) > 200 and rgb.getpixel((40, 90)) < 80, "the box moved to the right"
+
+
+def test_a_zoom_closes_in_on_the_centre_until_the_last_frame(tmp_path):
+    src = tmp_path / "wide.mp4"
+    subprocess.run([video.ffmpeg_exe(), "-y", "-v", "error", "-f", "lavfi", "-i",
+                    "color=c=0x303030:s=640x360:d=2:r=24,drawbox=x=288:y=162:w=64:h=36:color=white:t=fill",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", str(src)], check=True)
+    out = tmp_path / "zoomed.mp4"
+    info = video.reframe(src, out, (320, 180), zoom=(1.0, 2.0), how="a test zoom")
+    assert info["zoom"] == [1.0, 2.0] and info["rendered"] == [640, 360] and info["size"] == [320, 180]
+    assert info["how"] == "a test zoom" and info["upscaled_at_most"] == 1.0
+
+    def box_width(at):
+        frame = tmp_path / f"z{at}.png"
+        video.extract_frame(out, frame, at)
+        with Image.open(frame) as img:
+            row = [img.convert("L").getpixel((x, 90)) for x in range(320)]
+        return sum(1 for v in row if v > 160)
+    first, last = box_width(0.0), box_width(1.95)
+    assert 24 <= first <= 40, f"the whole frame at the start: the box is about 32 px wide ({first})"
+    assert last > 1.7 * first, f"zoomed in about 2x by the end ({first} -> {last})"
+
+
+
+def audio_codec(path: Path) -> str:
+    return re.search(r"Audio: (\w+)", run_ffmpeg("-i", str(path), check=False).stderr)[1]
+
+
+def audio_md5(path: Path) -> str:
+    """A hash of the audio packets as stored: equal only when the stream was copied untouched."""
+    return run_ffmpeg("-loglevel", "error", "-i", str(path), "-map", "0:a:0", "-c", "copy", "-f", "md5", "-").stdout.strip()
+
+
+def test_a_reversed_video_plays_its_frames_backwards_and_copies_its_sound(tmp_path):
+    # a frame counter without drawtext (which can crash this ffmpeg): every frame is one step brighter than the last
+    counter = "color=black:s=64x48:r=24:d=1,format=yuv420p,geq=lum='16+219*N/23':cb=128:cr=128"
+    src = generate(tmp_path / "counter.mp4", counter, sine(1))
+    out = tmp_path / "reversed.mp4"
+    assert video.reverse(src, out) == {"picture": "reversed in code", "sound": "kept as rendered"}
+
+    def grey(clip: Path, at: str) -> int:
+        frame = tmp_path / f"{clip.stem}-{at}.png"
+        video.extract_frame(clip, frame, at)
+        return gray_at(frame, (32, 24))
+
+    assert abs(grey(out, "first") - grey(src, "last")) <= 4, "the first frame is the source's last"
+    assert abs(grey(out, "last") - grey(src, "first")) <= 4, "and the last frame its first"
+    assert grey(out, "first") - grey(out, "last") > 150, "so the picture darkens as it plays"
+    assert audio_codec(out) == audio_codec(src) == "aac", "the sound keeps its codec"
+    assert audio_md5(out) == audio_md5(src), "the sound is copied as rendered, not reversed or re-encoded"
+    probed = video.probe(out)
+    assert (probed.width, probed.height) == (64, 48) and probed.duration_s == pytest.approx(1.0, abs=0.1)
+    video.reverse(out, out)  # in place: back the right way round
+    assert abs(grey(out, "first") - grey(src, "first")) <= 4
+
+
+def test_frames_are_sampled_from_the_first_at_a_steady_rate(ramp_clip, tmp_path):
+    frames = video.sample_frames(ramp_clip, tmp_path / "frames", 4)
+    assert [t for t, _ in frames] == [i / 4 for i in range(8)], "two seconds, four frames a second"
+    assert all(path.is_file() and path.parent == tmp_path / "frames" for _, path in frames)
+    greys = [gray_at(path) for _, path in frames]
+    assert greys == sorted(greys) and greys[0] < 30 and greys[-1] > 200, "in order, from the first frame"
+    with pytest.raises(ValueError):
+        video.sample_frames(ramp_clip, tmp_path / "none", 0)
+
+
+def face(t: float, h: float, cx: float = 960, cy: float = 400) -> tuple[float, tuple[float, float, float, float]]:
+    """A face box h pixels tall centred on (cx, cy), at t seconds."""
+    return t, (cx - 0.4 * h, cy - h / 2, 0.8 * h, h)
+
+
+def test_a_face_zoom_path_holds_the_first_face_height_and_only_ever_closes_in():
+    heights = [400, 380, 390, 340, 320, 300, 280, 250]  # the camera backs away; one frame read the face larger
+    path = video.face_zoom_path([face(i / 4, h) for i, h in enumerate(heights)], (1920, 1080))
+    assert [t for t, *_ in path] == [i / 4 for i in range(8)]
+    zooms = [z for _, z, _, _ in path]
+    assert zooms[0] == 1.0 and zooms == sorted(zooms), "the zoom never falls: a dolly-out only shrinks the face"
+    assert zooms[-1] == pytest.approx(400 / 250, abs=1e-3), "the face ends at its first height"
+    assert path[0][2:] == (0.5, 0.5), "the first window is the whole frame"
+    for _, z, cx, cy in path:
+        assert cx == 0.5, "the face stays centred left to right"
+        top = cy - 0.5 / z  # the window's top edge, as a fraction of the frame
+        assert (400 / 1080 - top) * z == pytest.approx(400 / 1080, abs=1e-3), "the face keeps its place in the picture"
+
+
+def test_a_face_zoom_path_stops_at_the_cap_and_keeps_the_window_inside_the_picture():
+    samples = [face(i / 4, 300 / (1 + 0.1 * i), cx=250 + 40 * i, cy=200) for i in range(25)]  # shrinks to under a third over six seconds, drifting right
+    path = video.face_zoom_path(samples, (1280, 720))
+    assert path[-1][1] == 2.2 and max(z for _, z, _, _ in path) == 2.2, "capped at 2.2 by default"
+    assert video.face_zoom_path(samples, (1280, 720), cap=3.0)[-1][1] == 3.0
+    for _, z, cx, cy in path:
+        half = 0.5 / z
+        assert half - 1e-4 <= cx <= 1 - half + 1e-4 and half - 1e-4 <= cy <= 1 - half + 1e-4, (z, cx, cy)
+    with pytest.raises(ValueError):
+        video.face_zoom_path(samples, (1280, 720), cap=0.5)
+
+
+def test_one_misread_frame_cannot_jerk_the_zoom():
+    heights = [300, 296, 292, 90, 284, 280]  # the fourth frame caught a small face in the background
+    path = video.face_zoom_path([face(i / 4, h, cx=640, cy=360) for i, h in enumerate(heights)], (1280, 720))
+    zooms = [z for _, z, _, _ in path]
+    assert max(zooms) < 1.1, f"the running median of three keeps the misread out ({zooms})"
+    assert zooms[3] == pytest.approx(300 / 284, abs=1e-3), "the misread frame takes its neighbours' middle height"
+
+
+def test_a_misread_first_or_last_frame_cannot_set_the_reference_or_drag_the_window():
+    """Oct 26 (from a review of the tracked dolly zoom): the running median covers the ends too, so a stray face in the
+    first frame is not the height every zoom is measured against, and one in the last frame does not pull the window."""
+    assert video._median3([90, 300, 290, 280, 270]) == [290, 290, 290, 280, 270], "a stray first value takes the median of the first three"
+    assert video._median3([300, 290, 280, 270, 90]) == [300, 290, 280, 270, 270], "a stray last value takes the median of the last three"
+    assert video._median3([300, 290, 280, 270, 260]) == [300, 290, 280, 270, 260], "a face that keeps shrinking keeps its ends"
+    assert video._median3([300, 90]) == [300, 90], "too few to smooth"
+    first = video.face_zoom_path([face(i / 4, h, cx=640, cy=360) for i, h in enumerate([90, 300, 290, 280, 270])], (1280, 720))
+    assert first[0][1] == 1.0 and first[-1][1] == pytest.approx(290 / 270, abs=1e-3), [z for _, z, _, _ in first]
+    last = video.face_zoom_path([face(i / 4, h, cx=640 if i < 4 else 200, cy=360) for i, h in enumerate([300, 290, 280, 270, 90])], (1280, 720))
+    assert last[-1][1] == pytest.approx(300 / 270, abs=1e-3) and last[-1][2] == pytest.approx(0.5, abs=0.02), last[-1]
+
+
+def test_a_face_zoom_path_needs_a_face_in_most_frames():
+    def path(found: int):
+        return video.face_zoom_path([face(i / 4, 200) if i < found else (i / 4, None) for i in range(10)], (1280, 720))
+    assert path(5) is None and path(0) is None, "under 60% of the frames found a face"
+    assert video.face_zoom_path([], (1280, 720)) is None
+    assert [t for t, *_ in path(6)] == [i / 4 for i in range(6)], "six of ten is enough; the frames with a face are the keyframes"
+    assert video.face_zoom_path([face(0, 200), (0.25, None)], (1280, 720), min_found=0.5) is not None
+
+
+def test_a_keyframed_window_follows_its_path(tmp_path):
+    src = tmp_path / "wide.mp4"
+    graph = ("color=c=0x303030:s=640x360:d=1:r=24,drawbox=x=448:y=162:w=64:h=36:color=white:t=fill[v];"
+             "sine=frequency=440:duration=1[a]")
+    subprocess.run([video.ffmpeg_exe(), "-y", "-v", "error", "-filter_complex", graph, "-map", "[v]", "-map", "[a]",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", str(src)], check=True)
+    out = tmp_path / "followed.mp4"
+    path = [(0.0, 1.0, 0.5, 0.5), (0.5, 1.5, 0.6, 0.5), (0.9, 2.0, 0.75, 0.5)]  # closes in on the box and slides to it
+    info = video.reframe(src, out, (320, 180), path=path, how="a test path")
+    assert info["zoom"] == [1.0, 2.0] and info["keyframes"] == 3 and "height" not in info and info["how"] == "a test path"
+    assert info["rendered"] == [640, 360] and info["size"] == [320, 180] and info["upscaled_at_most"] == 1.0
+    probed = video.probe(out)
+    assert (probed.width, probed.height) == (320, 180) and probed.has_audio
+    assert probed.duration_s == pytest.approx(video.probe(src).duration_s, abs=0.05)
+
+    def box(at) -> tuple[float, int]:
+        frame = tmp_path / f"p{at}.png"
+        video.extract_frame(out, frame, at)
+        with Image.open(frame) as img:
+            row = [img.convert("L").getpixel((x, 90)) for x in range(320)]
+        lit = [x for x, v in enumerate(row) if v > 160]
+        return (lit[0] + lit[-1]) / 2, len(lit)
+
+    centre, width = box("first")
+    assert 232 <= centre <= 248 and 26 <= width <= 38, f"the whole frame first: the box sits right of centre ({centre}, {width})"
+    centre, width = box("last")
+    assert 152 <= centre <= 168 and 56 <= width <= 72, f"zoomed 2x and slid across: the box is centred ({centre}, {width})"

@@ -1,0 +1,60 @@
+{
+  "id": "tk_20261023_093828_fbda",
+  "kind": "extend",
+  "label": "extend: A surfer rides a glowing wave of molten lava und",
+  "status": "succeeded",
+  "stage": "finish",
+  "progress": 1.0,
+  "created_at": "2026-10-23T09:38:28Z",
+  "updated_at": "2026-10-23T09:39:14Z",
+  "recipe": {
+    "kind": "extend",
+    "take": "tk_20261022_232205_71d1",
+    "seconds": 3,
+    "seed": 650
+  },
+  "parent": null,
+  "backend": {
+    "kind": "pod",
+    "label": "GPU box"
+  },
+  "outputs": [
+    {
+      "role": "video",
+      "file": "take.mp4",
+      "kind": "video",
+      "content_type": "video/mp4"
+    },
+    {
+      "role": "poster",
+      "file": "poster.png",
+      "kind": "image",
+      "content_type": "image/png"
+    },
+    {
+      "role": "receipt",
+      "file": "receipt.json",
+      "kind": "json",
+      "content_type": "application/json"
+    }
+  ],
+  "error": null,
+  "notes": [
+    "The extension is one LTX 2.5 image-to-video render from the take's last frame, adding 3 seconds; the take plays the original take then the extension, joined."
+  ],
+  "replay": false,
+  "recipe_hash": "ab16b4e3703d59774e4d804baf64d76a705b257b9e606278381c2b1ae6f919aa",
+  "identity": {},
+  "audit": {
+    "policy": "open-weights-only",
+    "result": "pass",
+    "disallowed": []
+  },
+  "seconds": 7.96,
+  "size": [
+    1280,
+    704
+  ],
+  "showcase_name": "v5-extend-lava",
+  "showcase_sha": "f00819b9f13ce275"
+}
