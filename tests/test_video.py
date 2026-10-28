@@ -74,7 +74,23 @@ def sine(seconds: float = 2) -> str:
 
 
 def stream_stat(path: Path, stream: str) -> tuple[int | None, float]:
-    """Packet count and duration of one stream, read from ffmpeg's own copy-to-null report."""
+    """Packet count and duration of one stream, read from ffmpeg's own copy-to-null report.
+
+    The count comes from ffprobe when it is there, because ffmpeg's `frame=` line is a progress display meant for a
+    person: whether it is written at all, and in what shape, varies between builds. A Linux CI runner printed none
+    of it and every count here came back None while the same code passed on Windows.
+    """
+    probe = video.ffprobe_exe()
+    if probe and stream == "v":
+        counted = subprocess.run(  # noqa: S603
+            [probe, "-v", "error", "-select_streams", "v:0", "-count_packets",
+             "-show_entries", "stream=nb_read_packets", "-of", "csv=p=0", str(path)],
+            capture_output=True, text=True, check=False)
+        packets = counted.stdout.strip()
+        if packets.isdigit():
+            proc = run_ffmpeg("-i", str(path), "-map", f"0:{stream}:0", "-c", "copy", "-f", "null", "-")
+            hours, minutes, seconds = re.findall(r"time=(\d+):(\d+):(\d+\.\d+)", proc.stderr)[-1]
+            return int(packets), int(hours) * 3600 + int(minutes) * 60 + float(seconds)
     proc = run_ffmpeg("-i", str(path), "-map", f"0:{stream}:0", "-c", "copy", "-f", "null", "-")
     frames = re.findall(r"frame=\s*(\d+)", proc.stderr)
     hours, minutes, seconds = re.findall(r"time=(\d+):(\d+):(\d+\.\d+)", proc.stderr)[-1]
