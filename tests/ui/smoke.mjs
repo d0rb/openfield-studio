@@ -211,7 +211,9 @@ try {
   check("the room's light shows on the Takes room", await ev("getComputedStyle(document.querySelector('.ambient')).display === 'block'"));
   const centre = await ev("(() => { const r = document.querySelector('.stage').getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2) }; })()");
   await b.send("Input.dispatchMouseEvent", { type: "mouseMoved", ...centre });
-  check("the house light comes up under the mouse within 300 ms", await within(`(() => { const r = document.querySelector('.house-light').getBoundingClientRect(); return Math.hypot(r.x + r.width / 2 - ${centre.x}, r.y + r.height / 2 - ${centre.y}) <= 40; })()`, 300));
+  // the light glides 0.18 of the way each frame, so how long it takes to arrive is a frame rate, not a behaviour:
+  // a headless runner with no compositor paints far slower than this machine and was still short of the mouse at 300 ms
+  check("the house light comes up under the mouse", await within(`(() => { const r = document.querySelector('.house-light').getBoundingClientRect(); return Math.hypot(r.x + r.width / 2 - ${centre.x}, r.y + r.height / 2 - ${centre.y}) <= 40; })()`, 4000));
   await b.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: 2, y: 2 }); // off the stage again
   // the room crossfade: named only while it runs, and the arriving room's prop clicks in
   check("a room change crossfades: room-swap is on the page at once", await ev("(() => { window.openfield.ui.go('lobby'); return document.documentElement.classList.contains('room-swap'); })()"));
@@ -532,7 +534,7 @@ try {
     check("and Use is enabled only now", !(await ev("document.querySelector('.sheet-connect .btn.primary').disabled")));
     check("the sheet is accessible", (await ev(AUDIT)).length === 0, (await ev(AUDIT)).join("; "));
     await b.key("Escape");
-    check("Escape closes the sheet", await ev("document.querySelector('.sheet-connect') === null"));
+    check("Escape closes the sheet", await within("document.querySelector('.sheet-connect') === null", 2000));  // a sheet leaves on a transition, so give it the time that takes
     check("and nothing switched", !(await ev("window.openfield.store.get().status.backend.locked")));
 
     // -- keyboard and the dock -------------------------------------------------------------------------------
