@@ -91,6 +91,9 @@ def stream_stat(path: Path, stream: str) -> tuple[int | None, float]:
             proc = run_ffmpeg("-i", str(path), "-map", f"0:{stream}:0", "-c", "copy", "-f", "null", "-")
             hours, minutes, seconds = re.findall(r"time=(\d+):(\d+):(\d+\.\d+)", proc.stderr)[-1]
             return int(packets), int(hours) * 3600 + int(minutes) * 60 + float(seconds)
+        raise AssertionError(  # say why rather than hand back None and fail later as `assert None == <frames>`
+            f"ffprobe at {probe} did not count packets for {path.name}: "
+            f"stdout={packets!r} stderr={counted.stderr.strip()[-300:]!r}")
     proc = run_ffmpeg("-i", str(path), "-map", f"0:{stream}:0", "-c", "copy", "-f", "null", "-")
     frames = re.findall(r"frame=\s*(\d+)", proc.stderr)
     hours, minutes, seconds = re.findall(r"time=(\d+):(\d+):(\d+\.\d+)", proc.stderr)[-1]

@@ -141,6 +141,19 @@ def test_invalid_rigs_are_rejected(bad):
         CameraRig(**bad).validate()
 
 
+def _blunt(value):
+    """The same data with every float rounded to 12 decimals, so a last-bit difference in libm is not a change."""
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, float):
+        return round(value, 12)
+    if isinstance(value, dict):
+        return {k: _blunt(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_blunt(v) for v in value]
+    return value
+
+
 def test_the_javascript_fixtures_match_what_the_server_produces():
     """tests/js/*.test.mjs read snapshots of the catalog and plans; they must not go stale."""
     import importlib.util
@@ -159,7 +172,11 @@ def test_the_javascript_fixtures_match_what_the_server_produces():
             assert stored["recipe"] == data["recipe"]
             assert receipts.parse_recipe_link(stored["link"]) == data["recipe"]
             continue
-        fresh = module.render(data)
+        # The camera paths are built from sin and cos, and libm's last bit differs between platforms: Linux produced
+        # x=0.7071067811865475 where Windows wrote ...76. A fixture of raw trig output can never match everywhere, so
+        # both sides are compared at a precision far beyond anything a camera path means.
+        fresh = module.render(_blunt(json.loads(module.render(data))))
+        on_disk = module.render(_blunt(json.loads(on_disk)))
         if on_disk != fresh:  # say which line moved: "it is stale" alone sends you hunting through 4000 of them
             import difflib
 
