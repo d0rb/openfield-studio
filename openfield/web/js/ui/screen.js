@@ -40,7 +40,11 @@ export function createScreen(ui, { billing }) {
   };
   paintSound();
   const reelList = h("ol", { class: "screen-reel", "aria-label": "In this trailer" });
-  const frame = h("div", { class: "screen-frame" }, clip, chip, sound);
+  // The studio's one claim, over the footage. It was burnt into the trailer until round 17, which is why the page had
+  // to stay quiet around it; cut from the trailer it can be type again -- it reflows on a phone, it can be selected and
+  // read aloud, and it is not baked at one size into a video.
+  const line = h("p", { class: "screen-line" }, "Nothing here ", h("b", null, "was filmed."));
+  const frame = h("div", { class: "screen-frame" }, clip, chip, sound, line);
   const el = h("figure", { class: "lobby-screen" }, frame, reelList, h("figcaption", { class: "screen-billing billing" }, billing));
 
   let reel = [];

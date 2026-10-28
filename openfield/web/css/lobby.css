@@ -426,6 +426,7 @@
 .screen-frame {
   grid-area: screen;
   position: relative;
+  container-type: inline-size; /* the claim on its floor is sized by the screen, not by the window */
   width: var(--hero-w);
   justify-self: center;
   margin-top: clamp(0px, calc((100svh - 620px) * 0.04), 16px); /* the room's head, above the masking */
@@ -480,6 +481,39 @@
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+}
+/* The claim, standing on the screen's floor beside the actions. Type, not pixels: it was burnt into the trailer until
+   round 17 and the page had to keep clear of it. It sits inside the keykode's gutter and stops where the actions
+   begin, so the two never meet; under 720px the actions wrap and it steps back to a single column above them. */
+.screen-line {
+  position: absolute;
+  left: calc(var(--keykode-gutter) + var(--s4));
+  right: 42%;
+  bottom: clamp(14px, 2.6cqw, 30px);
+  z-index: 3;
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(22px, 5.4cqw, 62px);
+  line-height: 0.94;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--text);
+  text-shadow: 0 2px 18px rgb(5 5 4 / 0.72); /* the footage under it moves: the shadow is legibility, not decoration */
+  pointer-events: none;
+}
+.screen-line > b {
+  display: block;
+  font-weight: inherit;
+  color: var(--accent-text);
+}
+/* on a phone the actions sit under the screen, not on it, so the claim keeps the floor and takes the whole width;
+   the head of the frame belongs to the take's chip and the sound switch, which it must never cross */
+@media (max-width: 719px) {
+  .screen-line {
+    right: var(--s4);
+  }
 }
 /* the first visit of a session: the black masking parts from the middle, the way a screen is set for a picture */
 .screen-mask {

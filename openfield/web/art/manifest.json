@@ -1534,12 +1534,40 @@
    }
   },
   {
+   "file": "trailer.mp4",
+   "kind": "cut",
+   "width": 1024,
+   "height": 564,
+   "bytes": 4408113,
+   "sha256": "933dc75a72f4a1838464014b15d1cdfd74ce83ede9f136d9383aa1a1588ba500",
+   "cropped": "the takes' own frame",
+   "made_from": {
+    "kind": "cut",
+    "how": "scripts/make_trailer.py from recorded takes (art/trailer.json)",
+    "takes": [
+     "tk_20261026_202643_8fbb",
+     "tk_20261026_201948_1d50",
+     "tk_20261023_094205_8a11",
+     "tk_20261022_231725_3dee",
+     "tk_20261023_095051_b57e",
+     "tk_20261023_094522_51f5",
+     "tk_20261025_140558_8a2f",
+     "tk_20261023_081319_fada",
+     "tk_20261022_134358_a709",
+     "tk_20261022_134831_3ffc",
+     "tk_20261022_180938_a0b7",
+     "tk_20261024_232528_8944",
+     "tk_20261025_140001_1069"
+    ]
+   }
+  },
+  {
    "file": "trailer-640.mp4",
    "kind": "cut",
    "width": 640,
    "height": 352,
-   "bytes": 1818288,
-   "sha256": "56e0df24e19e796df94269f0515930e5f1611da4c3535d8798e9b066f9faf5d7",
+   "bytes": 1864411,
+   "sha256": "a1121f7b68b9b6ef2eb450019656f8b90257d3e76813fc5bad6ebaab8cce048c",
    "cropped": "the takes' own frame",
    "made_from": {
     "kind": "cut",
@@ -1566,36 +1594,8 @@
    "kind": "cut",
    "width": 1280,
    "height": 704,
-   "bytes": 6535593,
-   "sha256": "f450258ba7bc35853b3b200217188c4e888e8b7c91a806b64be2bbe9db8a94b0",
-   "cropped": "the takes' own frame",
-   "made_from": {
-    "kind": "cut",
-    "how": "scripts/make_trailer.py from recorded takes (art/trailer.json)",
-    "takes": [
-     "tk_20261026_202643_8fbb",
-     "tk_20261026_201948_1d50",
-     "tk_20261023_094205_8a11",
-     "tk_20261022_231725_3dee",
-     "tk_20261023_095051_b57e",
-     "tk_20261023_094522_51f5",
-     "tk_20261025_140558_8a2f",
-     "tk_20261023_081319_fada",
-     "tk_20261022_134358_a709",
-     "tk_20261022_134831_3ffc",
-     "tk_20261022_180938_a0b7",
-     "tk_20261024_232528_8944",
-     "tk_20261025_140001_1069"
-    ]
-   }
-  },
-  {
-   "file": "trailer.mp4",
-   "kind": "cut",
-   "width": 1024,
-   "height": 564,
-   "bytes": 4259242,
-   "sha256": "bb73415cdb4f02118103b2416cf3ed9ab02df73a9d70b6b27d0d45164172a582",
+   "bytes": 6753403,
+   "sha256": "a8b3a1b0bd701f7b1cd6ccf7b309b7972dee176580c857ed7021efd83a846573",
    "cropped": "the takes' own frame",
    "made_from": {
     "kind": "cut",
@@ -1622,8 +1622,8 @@
    "kind": "still",
    "width": 1024,
    "height": 564,
-   "bytes": 27198,
-   "sha256": "c19843b0e80c7927661c3acc7d0df4442ba27c687f2323077ded5828e69065ee",
+   "bytes": 27560,
+   "sha256": "01984ec807458bad1599c1bd6fef96a9c65ea37b455f12f18cd913299bbc98ed",
    "cropped": "the takes' own frame",
    "made_from": {
     "kind": "cut",

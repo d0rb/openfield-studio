@@ -1,95 +1,91 @@
 {
- "_comment": "The Lobby's trailer (scripts/make_trailer.py): recorded takes only, each segment with its own sound. Re-cut after GPU session 9 (Oct 25): bullet time joins, the old orbit segment (a subject turning in front of a still camera) is replaced by a measured orbit, and two labels now name what the camera does.",
- "segments": [
-  {
-   "take": "r13-a4-draw-up-624",
-   "start": 0.9,
-   "seconds": 2.7,
-   "label": "Dolly in · Tomas",
-   "title": "Nothing here / was filmed."
+  "_comment": "The Lobby's trailer (scripts/make_trailer.py): recorded takes only, each segment with its own sound. Re-cut after GPU session 9 (Oct 25): bullet time joins, the old orbit segment (a subject turning in front of a still camera) is replaced by a measured orbit, and two labels now name what the camera does.",
+  "segments": [
+    {
+      "take": "r13-a4-draw-up-624",
+      "start": 0.9,
+      "seconds": 2.7,
+      "label": "Dolly in · Tomas"
+    },
+    {
+      "take": "r13-b3-bt-from44ee-1167",
+      "start": 0.3,
+      "seconds": 3.4,
+      "label": "Bullet time · Tomas"
+    },
+    {
+      "take": "v1c-oskar-skate-dolly",
+      "start": 0.8,
+      "seconds": 2.2,
+      "label": "Dolly out · Oskar"
+    },
+    {
+      "take": "v1-mara-skydive",
+      "start": 1.0,
+      "seconds": 2.2,
+      "label": "Crash zoom in · Mara"
+    },
+    {
+      "take": "v1c-tr-rooftop-dragon-push",
+      "start": 4.4,
+      "seconds": 3.0,
+      "label": "Push through · a transition"
+    },
+    {
+      "take": "v1c-dragon-glide-wide",
+      "start": 1.0,
+      "seconds": 2.0,
+      "label": "The dragon glides"
+    },
+    {
+      "take": "r11-mv-fpv-drone",
+      "start": 1.0,
+      "seconds": 2.4,
+      "label": "FPV drone · a kayak"
+    },
+    {
+      "take": "v1b-cat-dj-zoom",
+      "start": 1.4,
+      "seconds": 2.0,
+      "label": "Crash zoom · the cat DJ"
+    },
+    {
+      "take": "fx-ignite",
+      "start": 2.4,
+      "seconds": 2.2,
+      "label": "Ignite · Ines"
+    },
+    {
+      "take": "fx-gold",
+      "start": 2.6,
+      "seconds": 2.0,
+      "label": "Gold · Ines"
+    },
+    {
+      "take": "dlg-oskar-gruff",
+      "start": 0.4,
+      "seconds": 3.0,
+      "label": "A spoken line · Oskar"
+    },
+    {
+      "take": "v9b-dutch-angle-noir",
+      "start": 1.0,
+      "seconds": 2.0,
+      "label": "Dutch angle"
+    },
+    {
+      "take": "r11-orb-180",
+      "start": 0.4,
+      "seconds": 4.4,
+      "label": "Orbit 180 · Oskar"
+    }
+  ],
+  "card": {
+    "title": "OpenField Studio",
+    "tagline": "A film studio on open weights",
+    "statement": "Open weights only. / Every take keeps its receipt.",
+    "mono": "LTX 2.5 · Qwen-Image 2.1 · Wan Animate 2",
+    "seconds": 1.6
   },
-  {
-   "take": "r13-b3-bt-from44ee-1167",
-   "start": 0.3,
-   "seconds": 3.4,
-   "label": "Bullet time · Tomas",
-   "title": "Pick the / camera move."
-  },
-  {
-   "take": "v1c-oskar-skate-dolly",
-   "start": 0.8,
-   "seconds": 2.2,
-   "label": "Dolly out · Oskar"
-  },
-  {
-   "take": "v1-mara-skydive",
-   "start": 1.0,
-   "seconds": 2.2,
-   "label": "Crash zoom in · Mara"
-  },
-  {
-   "take": "v1c-tr-rooftop-dragon-push",
-   "start": 4.4,
-   "seconds": 3.0,
-   "label": "Push through · a transition",
-   "title": "One take flies / into the next."
-  },
-  {
-   "take": "v1c-dragon-glide-wide",
-   "start": 1.0,
-   "seconds": 2.0,
-   "label": "The dragon glides"
-  },
-  {
-   "take": "r11-mv-fpv-drone",
-   "start": 1.0,
-   "seconds": 2.4,
-   "label": "FPV drone · a kayak"
-  },
-  {
-   "take": "v1b-cat-dj-zoom",
-   "start": 1.4,
-   "seconds": 2.0,
-   "label": "Crash zoom · the cat DJ"
-  },
-  {
-   "take": "fx-ignite",
-   "start": 2.4,
-   "seconds": 2.2,
-   "label": "Ignite · Ines",
-   "title": "Made with / open weights."
-  },
-  {
-   "take": "fx-gold",
-   "start": 2.6,
-   "seconds": 2.0,
-   "label": "Gold · Ines"
-  },
-  {
-   "take": "dlg-oskar-gruff",
-   "start": 0.4,
-   "seconds": 3.0,
-   "label": "A spoken line · Oskar"
-  },
-  {
-   "take": "v9b-dutch-angle-noir",
-   "start": 1.0,
-   "seconds": 2.0,
-   "label": "Dutch angle"
-  },
-  {
-   "take": "r11-orb-180",
-   "start": 0.4,
-   "seconds": 4.4,
-   "label": "Orbit 180 · Oskar",
-   "title": "Every take / keeps a receipt."
-  }
- ],
- "card": {
-  "title": "OpenField Studio",
-  "tagline": "A film studio on open weights",
-  "statement": "Open weights only. / Every take keeps its receipt.",
-  "mono": "LTX 2.5 · Qwen-Image 2.1 · Wan Animate 2",
-  "seconds": 1.6
- }
+  "_why_no_titles": "Round 17 cut the burnt-in headlines. They were pixels in a video: they could not reflow on a phone, could not be selected or read aloud, and were baked at one size, and while they were there the page had to keep clear of them. The studio's claim is now type on the screen's floor (ui/screen.js, .screen-line). The lines that were here: Nothing here / was filmed.; Pick the / camera move.; One take flies / into the next.; Made with / open weights.; Every take / keeps a receipt."
 }
