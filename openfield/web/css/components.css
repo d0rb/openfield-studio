@@ -17,6 +17,7 @@
   color: var(--text);
   text-decoration: none;
   transition: background-color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  -webkit-user-select: none; /* Safari before 17 knows only the prefixed property */
   user-select: none;
 }
 .btn.lg {
@@ -785,6 +786,8 @@ div.empty-art {
    head of its receipt hash, with an orange tick between the fields the way a stock's foot mark reads.
    It is HTML, never baked into the render, and it is read out to a screen reader as the take's id. */
 .keykode {
+  -webkit-user-select: none;
+  user-select: none;
   position: absolute;
   left: 0;
   top: 0;

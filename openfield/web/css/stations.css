@@ -4077,3 +4077,17 @@ button.shots-tile:hover:not([aria-pressed="true"]) {
 :root.hold-still .tour-slot {
   transition: none;
 }
+
+/* -- what is furniture, not copy -------------------------------------------------------------------------------
+   Three surfaces drag or are chrome, and a drag that starts on them used to highlight whatever text it passed: the
+   move pad's angle drag highlighted the move list behind it, and a double-click on a control reached past it to the
+   wordmark. The whole top bar goes with them: a browser that cannot select the control under the pointer reaches for
+   the nearest text it can, which is the breadcrumb, and the bar holds nothing but the mark, the room's name and the
+   actions. Anything that states a fact stays selectable, because a receipt's hash, a prompt and a command are all
+   things to copy. */
+.movepad,
+.split-handle,
+.topbar {
+  -webkit-user-select: none; /* Safari before 17 knows only the prefixed property */
+  user-select: none;
+}
