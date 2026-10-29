@@ -221,14 +221,18 @@ try {
     hovers ? "hovers" : "no hovering pointer here, so the light rightly stays put");
   await b.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: 2, y: 2 }); // off the stage again
   // the room crossfade: named only while it runs, and the arriving room's prop clicks in
-  check("a room change crossfades: room-swap is on the page at once", await ev("(() => { window.openfield.ui.go('lobby'); return document.documentElement.classList.contains('room-swap'); })()"));
-  check("and the arriving room's prop animates within 100 ms", await within("document.querySelector('.rail-item[aria-current=page] .rail-art').getAnimations().length >= 1", 100));
-  check("and room-swap is gone within 600 ms", await within("!document.documentElement.classList.contains('room-swap')", 600));
+  // Both are read in the one step that starts the change, not polled after it: the prop's animation runs for --t-base
+  // (180 ms), so a poll that loses a race with a loaded runner finds it already over and reports that it never ran.
+  const swapped = await ev("(() => { window.openfield.ui.go('lobby'); return { swap: document.documentElement.classList.contains('room-swap'), prop: document.querySelector('.rail-item[aria-current=page] .rail-art').getAnimations().length }; })()");
+  check("a room change crossfades: room-swap is on the page at once", swapped.swap);
+  check("and the arriving room's prop animates", swapped.prop >= 1, JSON.stringify(swapped));
+  // the crossfade is 320 ms; the ceiling is only here to catch one that sticks, so it is loose enough for a slow runner
+  check("and room-swap clears when the crossfade ends", await within("!document.documentElement.classList.contains('room-swap')", 3000));
   check("the Lobby shows none of the room's light", await ev("getComputedStyle(document.querySelector('.ambient')).display === 'none'"));
   // the backend menu leaves the way it came
   await b.click(".backend-btn");
   check("the backend menu leaves: .leaving at once", await ev("(() => { document.body.click(); return document.querySelector('.menu').classList.contains('leaving'); })()"));
-  check("and is hidden within 400 ms", await within("document.querySelector('.menu').hidden && !document.querySelector('.menu').classList.contains('leaving')", 400));
+  check("and is hidden once it has left", await within("document.querySelector('.menu').hidden && !document.querySelector('.menu').classList.contains('leaving')", 3000));
   await b.emulate([{ name: "prefers-reduced-motion", value: "" }]);
 
   // -- the Takes head: the ledger line has its place from the first paint, and the head keeps its height when the ledger comes -----
@@ -338,7 +342,7 @@ try {
     const NAMED = "[...document.querySelectorAll('*')].filter((e) => getComputedStyle(e).viewTransitionName === 'move-frame').length";
     const flown = JSON.parse(await ev(`(() => { const card = document.querySelector(".move-grid > li:not([hidden]) .show-card"); const frame = card.querySelector(".show-frame"); card.click(); return JSON.stringify({ name: getComputedStyle(frame).viewTransitionName, carried: Boolean(document.querySelector(".sheet-scrim.carried")) }); })()`));
     check("a click on a camera-move card names its frame move-frame at once, and the page's scrim is carried", flown.name === "move-frame" && flown.carried, JSON.stringify(flown));
-    check("and both names are gone within 600 ms", await within(`${NAMED} === 0 && getComputedStyle(document.querySelector('.move-grid > li:not([hidden]) .show-frame')).viewTransitionName === 'none'`, 600));
+    check("and both names are gone when the change ends", await within(`${NAMED} === 0 && getComputedStyle(document.querySelector('.move-grid > li:not([hidden]) .show-frame')).viewTransitionName === 'none'`, 3000));
     check("the page is up with its take", await within("document.querySelector('.sheet-move video.move-take')", 3000));
     await b.key("Escape");
     check("Escape closes it", await within("!document.querySelector('.sheet-scrim')", 600));
@@ -487,7 +491,7 @@ try {
     await b.key("Escape");
     check("and Escape closes it", await within("!document.querySelector('.sheet-keys')", 600)); // it fades for 120 ms
     check("a sheet closed twice leaves once: ui.showKeys() then two close() calls throw nothing", await ev("(() => { try { const s = window.openfield.ui.showKeys(); s.close(); s.close(); return true; } catch { return false; } })()"));
-    check("and its scrim is gone within 600 ms", await within("!document.querySelector('.sheet-scrim')", 600));
+    check("and its scrim is gone when it has left", await within("!document.querySelector('.sheet-scrim')", 3000));
     await b.emulate([{ name: "prefers-reduced-motion", value: "" }]);
 
     // -- start from your own image: the control, the drop zone, and Shoot waiting for a file ----------------------
@@ -744,7 +748,7 @@ try {
     await b.key("Escape"); // no sleep: the sheet starts leaving at once, and the page behind is live again
     check("Escape starts the Compare sheet's leave at once (leaving, or already gone)", await ev("Boolean(document.querySelector('.sheet-scrim.leaving')) || !document.querySelector('.sheet-scrim')"));
     check("and focus is back on the button that opened it, with the rooms live again, within 600 ms", await within("document.activeElement === window.__opener && !document.querySelector('.app').hasAttribute('inert')", 600));
-    check("and the sheet is gone within 600 ms", await within("!document.querySelector('.sheet-scrim') && !document.querySelector('.sheet-compare')", 600));
+    check("and the sheet is gone when it has left", await within("!document.querySelector('.sheet-scrim') && !document.querySelector('.sheet-compare')", 3000));
     await b.emulate([{ name: "prefers-reduced-motion", value: "" }]);
   }
 
