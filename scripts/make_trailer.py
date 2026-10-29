@@ -30,6 +30,7 @@ SPEC = ROOT / "showcase" / "trailer.spec.json"
 TAKES = ROOT / "openfield" / "web" / "showcase" / "takes"
 ART = ROOT / "openfield" / "web" / "art"
 SIZES = {"trailer.mp4": (1024, 564, 28), "trailer-640.mp4": (640, 352, 30), "trailer-hd.mp4": (1280, 704, 27)}  # file -> (width, height, crf)
+FPS = 24  # every segment is conformed to this, so a length that is not a whole number of frames cannot be cut
 TITLE_IN, TITLE_HOLD, TITLE_FADE = 0.3, 2.6, 0.3  # a title comes 0.3 s into its segment, stays at most 2.6 s, fades 0.3 s
 STALE = {"trailer-360.mp4"}  # the square cut of the old feature one-sheet
 FADE = 0.08  # seconds of sound fade at each cut, so no cut clicks
@@ -41,6 +42,14 @@ def sha256(path: Path) -> str:
         for block in iter(lambda: handle.read(1 << 20), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def whole_frames(seconds: float) -> float:
+    """A length ffmpeg can actually cut: `fps=24` keeps whole frames and drops the remainder, so a spec asking for
+    2.2 s gets 52 frames, not 52.8. Planning in the same grid is what keeps art/trailer.json, the burnt-in end card
+    and the real video on one clock; planning in raw seconds drifted them 0.28 s apart over thirteen cuts, which
+    laid the closing card late and let the end of the file clip its hold."""
+    return int(seconds * FPS + 1e-6) / FPS
 
 
 def resolve(take: str, takes: Path) -> Path:
@@ -57,19 +66,35 @@ def resolve(take: str, takes: Path) -> Path:
 
 def cut_segment(src: Path, start: float, seconds: float, size: tuple[int, int], out: Path) -> None:
     """One segment: trimmed, scaled to fill the frame (a take of another shape is centre-cropped), 24 fps, with its sound
-    faded in and out (or silence)."""
+    faded in and out (or silence).
+
+    `seconds` must be a whole number of frames, and exactly that many come out. Trimming with `-t` alone does not give
+    them: `-t` is exclusive, so a request landing on a frame boundary loses the frame sitting on it, and because `-ss`
+    seeks to a time that need not be a frame boundary itself, how many frames survive depends on the start offset too.
+    So the cut over-reads by two frames and `-frames:v` pins the count, with `atrim` holding the sound to the same
+    length. Guessing instead of pinning is what drifted art/trailer.json and the burnt-in end card 0.28 s off the real
+    video over thirteen cuts, laying the closing card late and letting the end of the file clip its hold.
+    """
     info = video.probe(src)
+    frames = round(seconds * FPS)
+    if abs(seconds * FPS - frames) > 1e-6:
+        raise SystemExit(f"{out.name}: {seconds} s is not a whole number of frames at {FPS} fps")
+    have = info.duration_s - start
+    if have < seconds:
+        raise SystemExit(f"{src.name}: {have:.3f} s left after {start:.3f} s, but the cut wants {seconds:.3f} s")
+    grab = seconds + 2.0 / FPS  # over-read, then pin: see above
     fade_out = max(0.0, seconds - FADE)
     w, h = size
-    vf = f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,crop={w}:{h},fps=24,setsar=1,format=yuv420p"
+    vf = f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,crop={w}:{h},fps={FPS},setsar=1,format=yuv420p"
+    af = (f"aresample=48000,aformat=channel_layouts=stereo,afade=t=in:d={FADE},"
+          f"afade=t=out:st={fade_out:.3f}:d={FADE},atrim=0:{seconds:.4f}")
     if info.has_audio:
-        args = ["-ss", f"{start:.3f}", "-t", f"{seconds:.3f}", "-i", str(src), "-vf", vf,
-                "-af", f"aresample=48000,aformat=channel_layouts=stereo,afade=t=in:d={FADE},afade=t=out:st={fade_out:.3f}:d={FADE}"]
+        args = ["-ss", f"{start:.3f}", "-t", f"{grab:.4f}", "-i", str(src), "-vf", vf, "-af", af]
     else:  # a silent take gets silence of its own length, so every segment has the same streams
-        args = ["-ss", f"{start:.3f}", "-t", f"{seconds:.3f}", "-i", str(src), "-f", "lavfi", "-t", f"{seconds:.3f}",
-                "-i", "anullsrc=r=48000:cl=stereo", "-map", "0:v", "-map", "1:a", "-vf", vf]
-    cmd = [video.ffmpeg_exe(), "-y", "-v", "error", *args, "-c:v", "libx264", "-preset", "medium", "-crf", "16",
-           "-c:a", "aac", "-b:a", "160k", "-shortest", str(out)]
+        args = ["-ss", f"{start:.3f}", "-t", f"{grab:.4f}", "-i", str(src), "-f", "lavfi", "-t", f"{grab:.4f}",
+                "-i", "anullsrc=r=48000:cl=stereo", "-map", "0:v", "-map", "1:a", "-vf", vf, "-af", f"atrim=0:{seconds:.4f}"]
+    cmd = [video.ffmpeg_exe(), "-y", "-v", "error", *args, "-frames:v", str(frames),
+           "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-c:a", "aac", "-b:a", "160k", str(out)]
     subprocess.run(cmd, check=True)
 
 
@@ -85,11 +110,17 @@ def finish(level: Path, final: Path, size: tuple[int, int], crf: int, overlays: 
     cmd = [video.ffmpeg_exe(), "-y", "-v", "error", "-i", str(level)]
     chain, last = [], "0:v"
     for i, o in enumerate(overlays, start=1):
-        cmd += ["-loop", "1", "-t", f"{o['seconds']:.3f}", "-i", str(o["png"])]
+        # The end card holds to the last frame instead of to a computed time. Concatenating the segments leaves the tail
+        # timestamps a little irregular, so the `t` an enable window reads runs ahead of the frames there and a window
+        # closing at the card's arithmetic end lifted it off the final frames: the film ended on bare footage.
+        card = o.get("card", False)
+        hold = o["seconds"] + 1.0 if card else o["seconds"]
+        cmd += ["-loop", "1", "-t", f"{hold:.3f}", "-i", str(o["png"])]
         fade_out = f",fade=t=out:st={o['seconds'] - TITLE_FADE:.3f}:d={TITLE_FADE}:alpha=1" if o.get("fade_out", True) else ""
+        enable = f"gte(t,{o['at']:.3f})" if card else f"between(t,{o['at']:.3f},{o['at'] + o['seconds']:.3f})"
         chain.append(f"[{i}:v]scale={w}:{h}:flags=lanczos,format=rgba,fade=t=in:st=0:d={TITLE_FADE}:alpha=1{fade_out},"
                      f"setpts=PTS-STARTPTS+{o['at']:.3f}/TB[t{i}]")
-        chain.append(f"[{last}][t{i}]overlay=0:0:eof_action=pass:enable='between(t,{o['at']:.3f},{o['at'] + o['seconds']:.3f})'[v{i}]")
+        chain.append(f"[{last}][t{i}]overlay=0:0:eof_action=pass:enable='{enable}'[v{i}]")
         last = f"v{i}"
     if chain:
         cmd += ["-filter_complex", ";".join(chain), "-map", f"[{last}]", "-map", "0:a"]
@@ -104,9 +135,9 @@ def build(spec_path: Path, takes: Path, art: Path, check: bool = False) -> dict:
     for i, item in enumerate(spec["segments"]):
         folder = resolve(item["take"], takes)
         take = json.loads((folder / "take.json").read_text(encoding="utf-8"))
-        seconds = float(item["seconds"])
+        seconds = whole_frames(float(item["seconds"]))
         segments.append({"start": round(t, 3), "end": round(t + seconds, 3), "take": take["id"], "label": item["label"],
-                         "from": float(item.get("start", 0.0)), "source": folder / "take.mp4"})
+                         "from": float(item.get("start", 0.0)), "source": folder / "take.mp4", "seconds": seconds})
         if item.get("title"):
             hold = min(TITLE_HOLD, max(1.0, seconds - TITLE_IN - 0.3))
             titles.append({"at": round(t + TITLE_IN, 3), "seconds": round(hold, 3), "text": item["title"], "png": f"title-{i:02d}.png"})
@@ -139,7 +170,7 @@ def build(spec_path: Path, takes: Path, art: Path, check: bool = False) -> dict:
             parts = []
             for i, s in enumerate(segments):
                 part = work / f"{side}-{i:02d}.mp4"
-                cut_segment(s["source"], s["from"], s["end"] - s["start"], (width, height), part)
+                cut_segment(s["source"], s["from"], s["seconds"], (width, height), part)
                 parts.append(part)
             listing = work / f"{side}.txt"
             listing.write_text("".join(f"file '{p.as_posix()}'\n" for p in parts), encoding="utf-8")
@@ -166,7 +197,7 @@ def build(spec_path: Path, takes: Path, art: Path, check: bool = False) -> dict:
         "files": {"video": "trailer.mp4", "small": "trailer-640.mp4", "hd": "trailer-hd.mp4", "poster": "trailer.webp"},
         "titles": [{"at": o["at"], "seconds": o["seconds"], "text": o["text"], **({"card": True} if o.get("card") else {})}
                    for o in titles],
-        "segments": [{k: v for k, v in s.items() if k != "source"} for s in segments],
+        "segments": [{k: v for k, v in s.items() if k not in {"source", "seconds"}} for s in segments],
         "made_from": [{"take": s["take"], "take_mp4_sha256": sha256(s["source"])} for s in segments],
     }
     (art / "trailer.json").write_text(json.dumps(index, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")

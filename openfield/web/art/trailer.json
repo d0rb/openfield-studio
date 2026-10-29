@@ -1,7 +1,7 @@
 {
  "version": 2,
  "what": "The Lobby's trailer: hard cuts of recorded takes, each with its own sound, levelled to -16 LUFS, with title cards in the site's type over some cuts. Every segment names its take; the Lobby opens it on a click.",
- "seconds": 33.5,
+ "seconds": 33.292,
  "files": {
   "video": "trailer.mp4",
   "small": "trailer-640.mp4",
@@ -10,7 +10,7 @@
  },
  "titles": [
   {
-   "at": 31.9,
+   "at": 31.692,
    "seconds": 1.6,
    "text": "Open weights only. / Every take keeps its receipt.",
    "card": true
@@ -19,91 +19,91 @@
  "segments": [
   {
    "start": 0.0,
-   "end": 2.7,
+   "end": 2.667,
    "take": "tk_20261026_202643_8fbb",
    "label": "Dolly in · Tomas",
    "from": 0.9
   },
   {
-   "start": 2.7,
-   "end": 6.1,
+   "start": 2.667,
+   "end": 6.042,
    "take": "tk_20261026_201948_1d50",
    "label": "Bullet time · Tomas",
    "from": 0.3
   },
   {
-   "start": 6.1,
-   "end": 8.3,
+   "start": 6.042,
+   "end": 8.208,
    "take": "tk_20261023_094205_8a11",
    "label": "Dolly out · Oskar",
    "from": 0.8
   },
   {
-   "start": 8.3,
-   "end": 10.5,
+   "start": 8.208,
+   "end": 10.375,
    "take": "tk_20261022_231725_3dee",
    "label": "Crash zoom in · Mara",
    "from": 1.0
   },
   {
-   "start": 10.5,
-   "end": 13.5,
+   "start": 10.375,
+   "end": 13.375,
    "take": "tk_20261023_095051_b57e",
    "label": "Push through · a transition",
    "from": 4.4
   },
   {
-   "start": 13.5,
-   "end": 15.5,
+   "start": 13.375,
+   "end": 15.375,
    "take": "tk_20261023_094522_51f5",
    "label": "The dragon glides",
    "from": 1.0
   },
   {
-   "start": 15.5,
-   "end": 17.9,
+   "start": 15.375,
+   "end": 17.75,
    "take": "tk_20261025_140558_8a2f",
    "label": "FPV drone · a kayak",
    "from": 1.0
   },
   {
-   "start": 17.9,
-   "end": 19.9,
+   "start": 17.75,
+   "end": 19.75,
    "take": "tk_20261023_081319_fada",
    "label": "Crash zoom · the cat DJ",
    "from": 1.4
   },
   {
-   "start": 19.9,
-   "end": 22.1,
+   "start": 19.75,
+   "end": 21.917,
    "take": "tk_20261022_134358_a709",
    "label": "Ignite · Ines",
    "from": 2.4
   },
   {
-   "start": 22.1,
-   "end": 24.1,
+   "start": 21.917,
+   "end": 23.917,
    "take": "tk_20261022_134831_3ffc",
    "label": "Gold · Ines",
    "from": 2.6
   },
   {
-   "start": 24.1,
-   "end": 27.1,
+   "start": 23.917,
+   "end": 26.917,
    "take": "tk_20261022_180938_a0b7",
    "label": "A spoken line · Oskar",
    "from": 0.4
   },
   {
-   "start": 27.1,
-   "end": 29.1,
+   "start": 26.917,
+   "end": 28.917,
    "take": "tk_20261024_232528_8944",
    "label": "Dutch angle",
    "from": 1.0
   },
   {
-   "start": 29.1,
-   "end": 33.5,
+   "start": 28.917,
+   "end": 33.292,
    "take": "tk_20261025_140001_1069",
    "label": "Orbit 180 · Oskar",
    "from": 0.4

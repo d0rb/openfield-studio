@@ -1538,8 +1538,8 @@
    "kind": "cut",
    "width": 1024,
    "height": 564,
-   "bytes": 4408113,
-   "sha256": "933dc75a72f4a1838464014b15d1cdfd74ce83ede9f136d9383aa1a1588ba500",
+   "bytes": 4412809,
+   "sha256": "b65744b0c76a3841d9d828112c5632aa812b0f60836a709100411abd0e76f297",
    "cropped": "the takes' own frame",
    "made_from": {
     "kind": "cut",
@@ -1566,8 +1566,8 @@
    "kind": "cut",
    "width": 640,
    "height": 352,
-   "bytes": 1864411,
-   "sha256": "a1121f7b68b9b6ef2eb450019656f8b90257d3e76813fc5bad6ebaab8cce048c",
+   "bytes": 1863055,
+   "sha256": "d005948e1efb2600cc5a3ca7be14f8962f3ae617fc96136603e9bb8de8ec9d99",
    "cropped": "the takes' own frame",
    "made_from": {
     "kind": "cut",
@@ -1594,8 +1594,8 @@
    "kind": "cut",
    "width": 1280,
    "height": 704,
-   "bytes": 6753403,
-   "sha256": "a8b3a1b0bd701f7b1cd6ccf7b309b7972dee176580c857ed7021efd83a846573",
+   "bytes": 6770547,
+   "sha256": "215a5bb1a4d4ded415a66d3ede69d0b527dc09c2b21423b79b07fbe3d82a3f3d",
    "cropped": "the takes' own frame",
    "made_from": {
     "kind": "cut",
@@ -1622,8 +1622,8 @@
    "kind": "still",
    "width": 1024,
    "height": 564,
-   "bytes": 27560,
-   "sha256": "01984ec807458bad1599c1bd6fef96a9c65ea37b455f12f18cd913299bbc98ed",
+   "bytes": 26806,
+   "sha256": "32ebf4a9ea42f50fbbc52ff5eba012d4e73acbd3c63d4be45aaa70b8ccf861a6",
    "cropped": "the takes' own frame",
    "made_from": {
     "kind": "cut",
