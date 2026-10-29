@@ -2,7 +2,7 @@
 
 A film studio that runs on open-weights models, with LTX 2.5 for video and sound. Every take keeps a receipt of how it was made.
 
-**[Try it in your browser](<try-it link>)** · **[Watch the two-minute demo](<video link>)**
+**[Try it in your browser](https://d0rb.github.io/openfield-studio/)** · **[Watch the two-minute demo](https://d0rb.github.io/openfield-studio/demo.mp4)**
 
 Entered in Comfy's Open Source Higgsfield contest, in Open Weights Only, with the LTX VFX bonus.
 
@@ -34,7 +34,7 @@ Renders go through the Comfy Developer Platform (`comfy-sdk`) on the official Co
 ## Run it
 
 ```bash
-git clone <repo link> && cd openfield-studio
+git clone https://github.com/d0rb/openfield-studio && cd openfield-studio
 pip install -e .
 openfield demo
 ```
