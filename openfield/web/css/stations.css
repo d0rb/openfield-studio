@@ -3965,3 +3965,115 @@ button.shots-tile:hover:not([aria-pressed="true"]) {
   letter-spacing: var(--track-caps);
   text-transform: uppercase;
 }
+
+/* -- the first card, and the tour -------------------------------------------------------------------------------
+   The welcome is an ordinary sheet; only its actions and the block of commands are its own. The tour is not a sheet:
+   it never covers the room it is talking about, so it has no scrim, and its card is card stock like anything else
+   here that asserts a fact. */
+.sheet-welcome {
+  max-width: 44rem;
+}
+.welcome {
+  padding: var(--s4) var(--s5) var(--s5);
+}
+.welcome-lede {
+  margin: 0;
+  font-size: var(--fs-lg);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+.welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+.welcome-render {
+  display: grid;
+  gap: var(--s3);
+  padding-top: var(--s2);
+  border-top: 1px solid var(--line);
+}
+.welcome-render[hidden] {
+  display: none;
+}
+
+.tour {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-menu);
+  pointer-events: none; /* the room underneath stays live: the tour points, it does not trap */
+}
+.tour-spot {
+  position: fixed;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-m);
+  box-shadow: 0 0 0 9999px rgb(5 5 4 / 0.58);
+  transition: left var(--t-base) var(--ease), top var(--t-base) var(--ease),
+    width var(--t-base) var(--ease), height var(--t-base) var(--ease);
+}
+.tour-spot[hidden] {
+  display: none;
+}
+.tour-slot {
+  position: fixed;
+  width: min(23rem, calc(100vw - 2 * var(--s4)));
+  pointer-events: auto;
+  transition: left var(--t-base) var(--ease), top var(--t-base) var(--ease);
+}
+/* with nothing to point at the card simply stands in the middle, and the room keeps its own light */
+.tour-slot[data-free] {
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+.tour-card {
+  display: grid;
+  gap: var(--s3);
+  padding: var(--s4);
+  border-radius: var(--radius-m);
+  /* paper lifted off the room: a printed drop shadow, not the float a panel gets */
+  box-shadow: 0 26px 38px -18px rgb(0 0 0 / 0.82), 0 6px 12px -6px rgb(0 0 0 / 0.55);
+}
+.tour-card > * {
+  position: relative;
+  z-index: 1; /* over the stock's own grain */
+}
+.tour-card h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: var(--fs-xl);
+  line-height: 1.1;
+}
+.tour-card p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.tour-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+.tour-count {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+}
+.tour-card-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s2);
+}
+@media (prefers-reduced-motion: reduce) {
+  .tour-spot,
+  .tour-slot {
+    transition: none;
+  }
+}
+:root.hold-still .tour-spot,
+:root.hold-still .tour-slot {
+  transition: none;
+}

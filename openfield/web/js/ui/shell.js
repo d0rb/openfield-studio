@@ -22,6 +22,7 @@ import { createFilmstrip, stripItems } from "./filmstrip.js";
 import { createDetails } from "./details.js";
 import { openConnectSheet } from "./connect.js";
 import { openSheet } from "./sheet.js";
+import { maybeWelcome, startTour } from "./welcome.js";
 
 const KEYS = [
   ["Space, K", "Play or pause the take on the wall"],
@@ -37,10 +38,18 @@ const KEYS = [
   ["Esc", "Close a sheet or a menu, leave cinema"],
   ["?", "This list"],
 ];
-/** The keyboard shortcuts, one sheet: what each key does where the pointer would otherwise go. */
-export function showKeys() {
+/** The keyboard shortcuts, one sheet: what each key does where the pointer would otherwise go. With the app's context
+ *  it also carries the way back into the tour, which is otherwise only offered the first time anyone arrives. */
+export function showKeys(ctx = null) {
   const list = h("dl", { class: "kv keys-list" }, KEYS.flatMap(([keys, what]) => [h("dt", null, ...keys.split(", ").map((k) => h("kbd", { class: "kbd" }, k))), h("dd", null, what)]));
-  return openSheet({ title: "Keyboard", body: h("div", { class: "keys-body" }, list), className: "sheet-keys", focusSheet: true });
+  const actions = [];
+  if (ctx) {
+    const tour = h("button", { type: "button", class: "btn secondary sm" }, icon("chevrons-right", "sm"), "Take the tour");
+    tour.addEventListener("click", () => { sheet.close(); window.setTimeout(() => startTour(ctx), 220); });
+    actions.push(tour);
+  }
+  const sheet = openSheet({ title: "Keyboard", body: h("div", { class: "keys-body" }, list), actions, className: "sheet-keys", focusSheet: true });
+  return sheet;
 }
 
 export const STATIONS = [
@@ -240,7 +249,8 @@ export function mountShell(ctx) {
     store.set({ route });
   };
   ui.openDock = (tab) => { ui.set({ dockOpen: true, dockTab: tab }); };
-  ui.showKeys = showKeys;
+  ui.showKeys = () => showKeys(ctx);
+  ui.tour = () => startTour(ctx);
   /** A take link: select the take, show the station that plays it, and open its receipt. */
   ui.openTake = (id) => {
     const s = store.get();
@@ -276,7 +286,7 @@ export function mountShell(ctx) {
     if (e.key === "[" && !e.target.closest?.("input,textarea,select,[contenteditable]")) ui.set({ dockOpen: !ui.get().dockOpen });
     if (e.key === "Escape" && compact() && ui.get().dockOpen && !e.defaultPrevented) ui.set({ dockOpen: false });
     const typing = e.target.closest?.("input,textarea,select,[contenteditable]");
-    if (e.key === "?" && !typing && !document.querySelector(".sheet-scrim:not(.leaving)")) { e.preventDefault(); showKeys(); }
+    if (e.key === "?" && !typing && !document.querySelector(".sheet-scrim:not(.leaving)")) { e.preventDefault(); showKeys(ctx); }
     // cinema: the take alone, full window; C again or Escape returns
     if ((e.key === "c" || e.key === "C") && !typing && !e.ctrlKey && !e.metaKey && !e.altKey && ["direct", "reshoot"].includes(store.get().route)) ui.set({ cinema: !ui.get().cinema });
     if (e.key === "Escape" && ui.get().cinema && !document.querySelector(".sheet-scrim:not(.leaving)")) ui.set({ cinema: false });
@@ -382,6 +392,13 @@ export function mountShell(ctx) {
     if (id === (chosen?.replay_of ?? s.selected)) return;
     ui.selectTake(id);
   }
+  // a first visitor gets one card, after the app has loaded so the tour has rooms to point at
+  let greeted = false;
+  function greet() {
+    if (greeted || !store.get().loaded) return;
+    greeted = true;
+    maybeWelcome(ctx);
+  }
   // the hosted copy and the demo open on the showcase's hero take, not merely the newest recording
   let heroShown = false;
   function showHero() {
@@ -396,6 +413,7 @@ export function mountShell(ctx) {
     if (changed.some((k) => ["moves", "recorded", "status", "cast"].includes(k))) seedForms();
     if (changed.includes("selected")) followSelection();
     if (changed.some((k) => ["loaded", "status", "recorded"].includes(k))) showHero();
+    if (changed.includes("loaded")) greet();
   });
   forms.subscribe((_, changed) => changed.includes("direct") && followMove());
   seedForms();

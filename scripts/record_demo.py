@@ -3,6 +3,10 @@
 
     python scripts/record_demo.py --url http://127.0.0.1:8080/ --scenario scripts/ui/demo.scenario.json --out data-dev/demo
 
+The url is opened with `#/lobby` if it carries no room of its own: an address that names a room is a link someone was
+sent, and the app greets a first visitor only when it has none, so the recording opens on the Lobby rather than on the
+welcome card.
+
 The scenario (see scripts/ui/record.mjs for the steps) says what to click, type and wait for, and where the narration
 cues fall. A wait marked with a `speed` plays that many times faster with an "N x time-lapse" badge on screen, so a
 two-minute render is cut honestly. Needs Node and a Chrome or Edge (OPENFIELD_BROWSER points at one).
@@ -104,6 +108,12 @@ def caption_line(cue: dict) -> str:
     """A caption as `captions.txt` lists it: the time, then `TAG | line` when the caption has a tag."""
     tag = f"{cue['tag']} | " if cue.get("tag") else ""
     return f"{clock(cue['video_s'])}  {tag}{cue['caption']}"
+
+
+def opening_url(url: str) -> str:
+    """The address to record from. An address with no room of its own gets `#/lobby`: the app greets a first visitor
+    only when nothing says where to go, and that card belongs in the product, not over the first frame of the demo."""
+    return url if "#" in url else url.rstrip("/") + "/#/lobby"
 
 
 def main(argv: list[str] | None = None) -> int:

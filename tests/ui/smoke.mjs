@@ -201,6 +201,23 @@ try {
   await b.emulate([{ name: "prefers-reduced-motion", value: "no-preference" }]);
   await b.goto(url);
   await b.waitFor("window.openfield?.store.get().loaded", { label: "the app loads with motion allowed" });
+  // -- what a first visitor meets: one card, and the tour it offers ---------------------------------------------
+  // The card writes a flag as it opens, so a browser that has been here before gets no card and these checks stand
+  // down. On a clean profile it must be there, the tour must walk rooms, and Escape must end it.
+  const greeted = await within("Boolean(document.querySelector('.sheet-welcome'))", 3000);
+  if (greeted) {
+    check("a first visitor gets one card, offering the tour", await ev("Boolean(document.querySelector('.sheet-welcome .welcome-actions .btn.primary'))"));
+    await b.click(".sheet-welcome .welcome-actions .btn.primary");
+    check("taking the tour opens its first stop on the Lobby", await within("document.querySelector('.tour-card') && location.hash.includes('lobby')", 4000));
+    const first = await ev("document.querySelector('.tour-card h3').textContent");
+    await b.click(".tour-card-foot .btn.primary");
+    check("Next moves the tour on to another stop", await within(`document.querySelector('.tour-card h3') && document.querySelector('.tour-card h3').textContent !== ${JSON.stringify(first)}`, 4000), first);
+    check("the tour points at something in the room and never covers it with a scrim", await ev("(() => { const s = document.querySelector('.tour-spot'); const t = document.querySelector('.tour'); return Boolean(s) && !s.hidden && getComputedStyle(t).pointerEvents === 'none'; })()"));
+    await b.send("Input.dispatchKeyEvent", { type: "keyDown", key: "Escape", code: "Escape", windowsVirtualKeyCode: 27 });
+    await b.send("Input.dispatchKeyEvent", { type: "keyUp", key: "Escape", code: "Escape", windowsVirtualKeyCode: 27 });
+    check("Escape ends the tour and leaves the room as it was", await within("!document.querySelector('.tour') && !document.documentElement.classList.contains('touring')", 2000));
+    await ev("location.hash = ''");
+  }
   check("with motion allowed the Lobby arms its wall to rise as it comes into view", await ev("!document.documentElement.classList.contains('hold-still') && Boolean(document.querySelector('.poster-wall.armed'))"));
   check("one element carries the rail mark's transition name, and the page itself carries none", await ev(`${MARKS}.length === 1 && getComputedStyle(document.documentElement).viewTransitionName === 'none'`), await ev(`${MARKS}.length + " marks, page: " + getComputedStyle(document.documentElement).viewTransitionName`));
   await ev("location.hash = '#/takes'");
