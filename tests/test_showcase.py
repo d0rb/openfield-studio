@@ -1,3 +1,4 @@
+"""Showcase: the recorded takes that ship with the app and play without a backend."""
 from __future__ import annotations
 
 import json
