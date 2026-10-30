@@ -1,5 +1,3 @@
-# OpenField Studio
-
 ![OpenField Studio — Direct the shot. Keep the receipt.](docs/media/banner.png)
 
 **[Try it in your browser](https://d0rb.github.io/openfield-studio/)** · **[Watch the demo](https://d0rb.github.io/openfield-studio/demo.mp4)** · **[36-second promo](https://d0rb.github.io/openfield-studio/promo.mp4)**
