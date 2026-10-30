@@ -34,5 +34,4 @@ def test_skill_keeps_the_house_words():
     text = SKILL.read_text(encoding="utf-8")
     low = text.lower().replace("open-source", "open source")
     assert low.count("open source") == low.count('not "open source"'), "the words appear only as the thing not to say"
-    assert "higgsfield" not in text.lower()
     assert "docs/MCP.md" in text

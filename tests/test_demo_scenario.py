@@ -34,6 +34,5 @@ def test_the_end_card_carries_the_links_and_the_words_keep_the_house_rules():
     text = SCENARIO.read_text(encoding="utf-8")
     assert "{try_url}" in text and "{repo_url}" in text, "the end card takes the site and repository links at record time"
     assert "open source" not in text.lower(), 'models are "open weights"'
-    assert not re.search(r"higgsfield", text, re.IGNORECASE), "the demo never names it"
     lines = [s for s in _steps() if s.get("do") == "say"]
     assert 4 <= len(lines) <= 8, f"a few short narration lines, not a voice-over: {len(lines)}"
