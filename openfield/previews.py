@@ -1,4 +1,8 @@
-"""Cut short muted preview loops from recorded takes and keep their index."""
+"""Cut short muted preview loops from recorded takes and keep their index.
+
+The static export runs this to build the previews that play on hover: a 2.5-second
+loop at three widths (384, 768, 1280), plus a thumbnail strip of each take's stills.
+"""
 
 from __future__ import annotations
 
