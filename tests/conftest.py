@@ -1,3 +1,4 @@
+"""Shared pytest fixtures: the fake Comfy API server, test clients, and workflow paths."""
 from __future__ import annotations
 
 from pathlib import Path
