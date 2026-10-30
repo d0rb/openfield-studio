@@ -108,13 +108,6 @@ The hosted copy plays recorded takes only. Change a recipe there and it says it 
 
 ![Compare: the samurai's dolly in beside his bullet time, with what their receipts say differently](docs/media/compare.jpg)
 
-## What does not work yet
-
-- 5 of the 49 moves did not hold on a real render: arc left, arc right, orbit 360, rack focus and pedestal down. The app plays no loop for them. On October 26 two more held for the first time: through object, made as its reverse (a dolly out from just inside the door, played backwards), and the dolly zoom, made as a dolly out with a window that follows the face and keeps it at its size. Pedestal down made as its reverse still pulled back, and the keyframed arcs still turned the subject, so those stay off until a render holds.
-- 65 of the 96 camera positions hold on a still. A shot that starts from a re-angled still drifts away from the angle.
-- Of the four transition styles, only the push holds.
-- Comfy Cloud: a key passed the connection check on October 22 (authenticated, ready); no take has been rendered there yet.
-
 ## Models
 
 | Model | Used for | Licence |
