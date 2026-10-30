@@ -22,7 +22,8 @@ def _serve(host: str, port: int, open_browser: bool) -> int:
 
     from .app import create_app
 
-    url = f"http://{'localhost' if host in {'127.0.0.1', '0.0.0.0'} else host}:{port}/"  # noqa: S104
+    # S104: the literal is only checked, not bound; uvicorn binds the actual host below
+    url = f"http://{'localhost' if host in {'127.0.0.1', '0.0.0.0'} else host}:{port}/"
     print(f"OpenField Studio {__version__} on {url}")
     if open_browser:
         threading.Timer(1.2, webbrowser.open, args=(url,)).start()
