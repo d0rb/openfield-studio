@@ -1,6 +1,6 @@
 {
   "title": "OpenField Studio: a real render, recorded live",
-  "_comment": "The demo's time-lapse beat, recorded against a live GPU backend (never the FAKE stack): python scripts/record_demo.py --url http://127.0.0.1:8890/ --scenario scripts/ui/live.scenario.json --out G:/openfield-tmp/live-timelapse. The waits run at 8x with the recorder's time-lapse badge on screen, so the cut is honest about the minutes it skips. Spliced into the main cut after the Moves beat.",
+  "_comment": "The demo's time-lapse beat, recorded against a live GPU backend (never the FAKE stack): python scripts/record_demo.py --url http://127.0.0.1:8890/ --scenario scripts/ui/live.scenario.json --out out/live-timelapse. The waits run at 8x with the recorder's time-lapse badge on screen, so the cut is honest about the minutes it skips. Spliced into the main cut after the Moves beat.",
   "steps": [
     { "do": "goto", "route": "cast" },
     { "do": "say", "text": "This part is live: a rented GPU, a real render, cut at eight times speed.", "caption": "Recorded live on a rented RTX 5090." },

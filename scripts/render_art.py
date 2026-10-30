@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render the interface's own pictures on a GPU box, through the app's own audited template.
 
-    python scripts/render_art.py --jobs docs/art-jobs-r16.json --comfy http://127.0.0.1:9188 --out C:/openfield-scratch/r16/art
+    python scripts/render_art.py --jobs docs/art-jobs-r16.json --comfy http://127.0.0.1:9188 --out out/art
 
 Every picture in the interface is made the way a take is: the same `qwen21_t2i` workflow, open weights only, with the
 prompt, seed, size and the patched graph's hash recorded beside the file so the art carries provenance like the

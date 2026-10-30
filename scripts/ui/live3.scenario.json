@@ -1,6 +1,6 @@
 {
   "title": "OpenField Studio: connect a box and render, recorded live",
-  "_comment": "Cut 6's live beats, recorded against a real GPU box reached through the Connect sheet (never the FAKE stack): start the app on Replay (openfield serve --port 8890 --backend replay) with the tunnel up (9189 = comfy-api-proxy, 9188 = ComfyUI), then python scripts/record_demo.py --url http://127.0.0.1:8890/ --scenario scripts/ui/live3.scenario.json --out G:/openfield-tmp/live3. The waits run at 8x with the time-lapse badge on screen. Spliced into the main cut at the Connect beat and the Quality beat.",
+  "_comment": "Cut 6's live beats, recorded against a real GPU box reached through the Connect sheet (never the FAKE stack): start the app on Replay (openfield serve --port 8890 --backend replay) with the tunnel up (9189 = comfy-api-proxy, 9188 = ComfyUI), then python scripts/record_demo.py --url http://127.0.0.1:8890/ --scenario scripts/ui/live3.scenario.json --out out/live3. The waits run at 8x with the time-lapse badge on screen. Spliced into the main cut at the Connect beat and the Quality beat.",
   "steps": [
     {"do": "say", "text": "This part is live. A rented box, connected from the header.", "caption": "Recorded live: a rented RTX 5090, connected from the app."},
     {"do": "click", "selector": ".backend-btn"},

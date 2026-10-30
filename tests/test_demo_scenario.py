@@ -3,7 +3,6 @@ bundle, every film it plays is beside it, the end card carries the publish-time 
 (Oct 26: the old scenario named two takes that had left the bundle and showed a verify card from an earlier week.)"""
 
 import json
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]

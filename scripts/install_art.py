@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Put rendered pictures into openfield/web/art with their provenance.
 
-    python scripts/install_art.py --from C:/openfield-scratch/r16/art --jobs docs/art-jobs-r16.json
+    python scripts/install_art.py --from out/art --jobs docs/art-jobs-r16.json
 
 For each job whose PNG was rendered, this writes the web copy as webp, its sidecar (the prompt and when it was made)
 and its manifest entry (size, bytes, sha256 and what it was made from), so every shipping raster carries the same

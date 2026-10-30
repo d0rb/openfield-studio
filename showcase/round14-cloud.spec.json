@@ -1,5 +1,5 @@
 {
-  "_comment": "Round 14 (Oct 27): one Standard take rendered on Comfy Cloud through the same comfy-sdk call the GPU box uses, with the open-weights check on, so the documents can say Comfy Cloud was tested. No cast member (nothing is generated before the take), a prompt-only dolly in, seed 901. Run: COMFY_API_KEY set in the environment, `python -m openfield showcase --spec showcase/round14-cloud.spec.json --out C:/openfield-scratch/r14/cloud-takes --work-dir C:/openfield-scratch/r14/cloud-work`; then land10.py --from that folder.",
+  "_comment": "Round 14 (Oct 27): one Standard take rendered on Comfy Cloud through the same comfy-sdk call the GPU box uses, with the open-weights check on, so the documents can say Comfy Cloud was tested. No cast member (nothing is generated before the take), a prompt-only dolly in, seed 901. Run: COMFY_API_KEY set in the environment, `python -m openfield showcase --spec showcase/round14-cloud.spec.json --out out/cloud-takes --work-dir out/cloud-work`; then land10.py --from that folder.",
   "casts": [],
   "takes": [
     {
