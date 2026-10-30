@@ -785,7 +785,7 @@
       "lines": [
         "A film studio on open-weights models"
       ],
-      "mono": "LTX 2.5 · Qwen-Image 2.1 · Wan Animate 2 · Built with Qwen · MIT licence · voice: Kokoro-82M\nTry it in your browser: {try_url}\n{repo_url}\n#OpenSourceHiggsfield",
+      "mono": "LTX 2.5 · Qwen-Image 2.1 · Wan Animate 2 · Built with Qwen · MIT licence · voice: Kokoro-82M\nTry it in your browser: {try_url}\n{repo_url}\n#ComfyUI",
       "dim": 0.62,
       "hold": true,
       "statement": "Open weights only. / Every take keeps its receipt."

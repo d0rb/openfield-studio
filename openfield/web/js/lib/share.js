@@ -47,7 +47,7 @@ function labelsOf(takes, catalog) {
  * @param {string} [options.hashtag] the tag that ends the caption
  * @returns {string} the caption, ready to paste
  */
-export function captionFor({ takes = [], url = "", moves = null, hashtag = "#OpenSourceHiggsfield" } = {}) {
+export function captionFor({ takes = [], url = "", moves = null, hashtag = "#ComfyUI" } = {}) {
   const list = (Array.isArray(takes) ? takes : []).filter(Boolean);
   const qwen = list.some((take) => QWEN_KINDS.includes(take.kind));
   const tag = clean(hashtag);

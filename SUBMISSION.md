@@ -1,6 +1,6 @@
 # Submission pack
 
-For Comfy's Open Source Higgsfield contest: https://comfy.org/open-source-higgsfield. Deadline Fri Oct 30 2026, 09:00 PT. One submission per person.
+Deadline Fri Oct 30 2026, 09:00 PT. One submission per person.
 
 ## Category
 
@@ -30,7 +30,7 @@ The counts above are checked against `openfield verify` and [docs/EVIDENCE.md](d
 - Repository: `https://github.com/d0rb/openfield-studio`
 - Demo video (2:00 maximum): `https://d0rb.github.io/openfield-studio/demo.mp4`
 - Try it in your browser: `https://d0rb.github.io/openfield-studio/`
-- Social post: posted with `#OpenSourceHiggsfield`. The drafts are below.
+- Social post: the drafts are below.
 
 ## Description
 
@@ -69,11 +69,11 @@ Under two minutes, recorded from the real app with `python scripts/record_demo.p
 
 **Short (X, under 280 characters with the link)**
 
-> I built a film studio that runs on open-weights models in ComfyUI. Pick a camera move, check the stills, and LTX 2.5 shoots it with sound. Every take keeps a receipt you can check in your browser. https://d0rb.github.io/openfield-studio/demo.mp4 #OpenSourceHiggsfield
+> I built a film studio that runs on open-weights models in ComfyUI. Pick a camera move, check the stills, and LTX 2.5 shoots it with sound. Every take keeps a receipt you can check in your browser. https://d0rb.github.io/openfield-studio/demo.mp4 #ComfyUI
 
 **Long**
 
-> OpenField Studio is a film studio that runs on open-weights models in ComfyUI. You pick one of 49 camera moves and watch the planned camera ride a small set. Two stills come first, and LTX 2.5 renders the shot with its own sound once you approve them. A 5-second shot costs 2 to 3 cents of rented GPU time. Every take keeps a receipt with the prompts, the seed, the workflows and every model file, and you can check it in your browser. The hosted copy plays 137 recorded takes with no GPU and no key. MIT, workflows included. Demo: https://d0rb.github.io/openfield-studio/demo.mp4 Code: https://github.com/d0rb/openfield-studio #OpenSourceHiggsfield
+> OpenField Studio is a film studio that runs on open-weights models in ComfyUI. You pick one of 49 camera moves and watch the planned camera ride a small set. Two stills come first, and LTX 2.5 renders the shot with its own sound once you approve them. A 5-second shot costs 2 to 3 cents of rented GPU time. Every take keeps a receipt with the prompts, the seed, the workflows and every model file, and you can check it in your browser. The hosted copy plays 137 recorded takes with no GPU and no key. MIT, workflows included. Demo: https://d0rb.github.io/openfield-studio/demo.mp4 Code: https://github.com/d0rb/openfield-studio #ComfyUI
 
 ## What does not work yet
 

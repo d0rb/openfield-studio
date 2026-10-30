@@ -4,8 +4,6 @@ A film studio that runs on open-weights models, with LTX 2.5 for video and sound
 
 **[Try it in your browser](https://d0rb.github.io/openfield-studio/)** · **[Watch the two-minute demo](https://d0rb.github.io/openfield-studio/demo.mp4)**
 
-Entered in Comfy's Open Source Higgsfield contest, in Open Weights Only, with the LTX VFX bonus.
-
 ![The Lobby, the app's first screen: the trailer playing across the room with the Start directing ticket on it, then the headline and the marquee with the counts under it](docs/media/lobby.png)
 
 ## What you can make

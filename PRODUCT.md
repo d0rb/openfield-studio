@@ -32,7 +32,7 @@ What the studio keeps and checks:
 
 ## Operating Context
 
-Long sessions on a dim screen, reviewing footage: the interface stays colour-neutral around the footage: colour comes only from pictures, the takes and the interface art rendered on our own GPU. Renders take minutes, so waiting, progress, queue and failure states are core, not edge cases. Three backends: Comfy Cloud, a GPU box behind comfy-api-proxy (reached over an SSH tunnel), and Replay (recorded takes, no key and no GPU). Contest: Comfy's Open Source Higgsfield, deadline Fri Oct 30 2026, 09:00 PT.
+Long sessions on a dim screen, reviewing footage: the interface stays colour-neutral around the footage: colour comes only from pictures, the takes and the interface art rendered on our own GPU. Renders take minutes, so waiting, progress, queue and failure states are core, not edge cases. Three backends: Comfy Cloud, a GPU box behind comfy-api-proxy (reached over an SSH tunnel), and Replay (recorded takes, no key and no GPU).
 
 ## Capabilities and Constraints
 

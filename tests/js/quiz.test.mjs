@@ -85,8 +85,8 @@ test("distractors come from the answer's own group first", () => {
 
 test("the score, the share line and the X intent", () => {
   assert.equal(scoreLine(8, 10), "8/10");
-  assert.equal(shareText(8, 10), "I named 8/10 camera moves in the OpenField Studio quiz. Your turn. #OpenSourceHiggsfield");
-  const text = "I named 8/10 & more? #OpenSourceHiggsfield";
+  assert.equal(shareText(8, 10), "I named 8/10 camera moves in the OpenField Studio quiz. Your turn. #ComfyUI");
+  const text = "I named 8/10 & more? #ComfyUI";
   const url = "https://example.com/a b";
   const href = xIntent(text, url);
   assert.equal(href, `https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
@@ -127,7 +127,7 @@ test("the day's line and the streak", async () => {
   const { squares, dailyShareText, nextRecord } = await import("../../openfield/web/js/lib/quiz.js");
   const results = [true, true, false, true, true].map((right, i) => ({ label: `Move ${i}`, right }));
   assert.equal(squares(results), "■■□■■");
-  assert.equal(dailyShareText(26, results), "Name the move, Oct 26: 4/5 ■■□■■. The same five clips for everyone today. #OpenSourceHiggsfield");
+  assert.equal(dailyShareText(26, results), "Name the move, Oct 26: 4/5 ■■□■■. The same five clips for everyone today. #ComfyUI");
   const first = nextRecord(null, 26, results);
   assert.deepEqual([first.day, first.correct, first.total, first.streak, first.best], [26, 4, 5, 1, 1]);
   assert.equal(nextRecord(first, 26, []), first, "a day counts once");

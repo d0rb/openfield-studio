@@ -673,7 +673,7 @@ try {
   await ev("[...document.querySelectorAll('.dock-actions .btn')].find((x) => x.textContent.includes('Share')).click()");
   await b.waitFor("document.querySelector('.sheet-share') !== null", { label: "the Share sheet opens" });
   check("the Share sheet offers X, Reddit, LinkedIn, WhatsApp and Telegram", (await ev("[...document.querySelectorAll('.sheet-share .share-links a')].map((a) => new URL(a.href).hostname).join()")) === "x.com,www.reddit.com,www.linkedin.com,wa.me,t.me");
-  check("its caption carries the take's link and the contest tag", /#OpenSourceHiggsfield/.test(await ev("document.querySelector('.sheet-share pre').textContent")) && (mode === "static" ? /\/t\/tk_\w+\.html/ : /#\/takes\/tk_/).test(await ev("document.querySelector('.sheet-share pre').textContent")), await ev("document.querySelector('.sheet-share pre').textContent"));
+  check("its caption carries the take's link and the share tag", /#ComfyUI/.test(await ev("document.querySelector('.sheet-share pre').textContent")) && (mode === "static" ? /\/t\/tk_\w+\.html/ : /#\/takes\/tk_/).test(await ev("document.querySelector('.sheet-share pre').textContent")), await ev("document.querySelector('.sheet-share pre').textContent"));
   check("and a download of the video itself", await ev("Boolean(document.querySelector('.sheet-share a[download]'))"));
   // a Direct take's shot sheet: its frames, the camera's path, the words and the receipt, drawn in the page as a PNG
   if (await ev("Boolean(document.querySelector('.sheet-share .save-sheet'))")) {

@@ -39,7 +39,7 @@ export function buildQuiz({ moves = [], previews, seed = 0, rounds = 10 } = {}) 
 
 export const scoreLine = (correct, total) => `${correct}/${total}`;
 
-export const shareText = (correct, total) => `I named ${scoreLine(correct, total)} camera moves in the OpenField Studio quiz. Your turn. #OpenSourceHiggsfield`;
+export const shareText = (correct, total) => `I named ${scoreLine(correct, total)} camera moves in the OpenField Studio quiz. Your turn. #ComfyUI`;
 
 export const xIntent = (text, url) => `https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
 
@@ -62,7 +62,7 @@ export const squares = (results) => results.map((r) => (r.right ? "■" : "□")
 
 /** The day's line to post. */
 export const dailyShareText = (day, results) =>
-  `Name the move, ${dayLabel(day)}: ${scoreLine(results.filter((r) => r.right).length, results.length)} ${squares(results)}. The same five clips for everyone today. #OpenSourceHiggsfield`;
+  `Name the move, ${dayLabel(day)}: ${scoreLine(results.filter((r) => r.right).length, results.length)} ${squares(results)}. The same five clips for everyone today. #ComfyUI`;
 
 /** The record after a finished day: the streak grows when the day before was played too, else it starts again at one. A day
  * counts once. `day` is the day the five were dealt (ui/quiz.js keeps it from start()): finished after midnight, it still counts for that day. */
