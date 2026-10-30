@@ -41,7 +41,7 @@ openfield demo
 
 To render new takes, connect a backend from the app's header. That can be a GPU box you rent (one script sets up an RTX 5090, see [docs/CONNECT.md](docs/CONNECT.md)) or Comfy Cloud with an API key. Every take here was made on rented RTX 5090s. Comfy Cloud uses the same call; a key passed the connection check on October 22, and no take has been rendered there yet.
 
-A 5-second shot costs 2 to 3 cents of GPU time, and a take renders in about two minutes. Each take's receipt records its own GPU time, except the MCP film (tk_20261024_192756_a60e), whose receipt has none. The app shows what a take cost. The 136 takes whose receipts record GPU time took 5.6 GPU hours between them, about $3.97. Failed tries and idle time are not in that figure; one take rendered on October 26 on a box shared with other work, and its receipt counts all 770 seconds of its three runs, including the time the first one spent in the queue.
+A 5-second shot costs 2 to 3 cents of GPU time, and a take renders in about two minutes. Each take's receipt records its own GPU time, except the MCP film (tk_20261024_192756_a60e), whose receipt has none. The app shows what a take cost. Of the 137 takes, the 136 whose receipts record GPU time took 5.6 GPU hours between them, about $3.97. Failed tries and idle time are not in that figure; one take rendered on October 26 on a box shared with other work, and its receipt counts all 770 seconds of its three runs, including the time the first one spent in the queue.
 
 ## Make your own
 

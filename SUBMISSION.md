@@ -42,7 +42,7 @@ The counts above are checked against `openfield verify` and [docs/EVIDENCE.md](d
 
 > OpenField Studio is a film studio for short clips, built on the Comfy Developer Platform with open-weights models only: LTX 2.5 for video and sound, Qwen-Image 2.1 for stills and edits, Wan Animate 2 for motion transfer and Real-ESRGAN to upscale.
 >
-> You describe a shot and pick a camera move. A planned camera rides a small set so you see the move first. Qwen-Image renders the stills the move needs, you approve them, and LTX 2.5 renders the video from them. A 5-second shot costs 2 to 3 cents of rented GPU time, and the 136 takes whose receipts record GPU time took 5.6 GPU hours in all, about $3.97.
+> You describe a shot and pick a camera move. A planned camera rides a small set so you see the move first. Qwen-Image renders the stills the move needs, you approve them, and LTX 2.5 renders the video from them. A 5-second shot costs 2 to 3 cents of rented GPU time; of the 137 takes, the 136 whose receipts record GPU time took 5.6 GPU hours in all, about $3.97.
 >
 > Around that: a Cast that keeps a face in every shot, nine setups from one still, a re-shoot that puts a new dancer in your dance, edits with words, effects, transitions, dubs and a Chat room where an agent directs the studio for you.
 >
