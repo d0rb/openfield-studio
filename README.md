@@ -2,7 +2,9 @@
 
 A film studio that runs on open-weights models, with LTX 2.5 for video and sound. Every take keeps a receipt of how it was made.
 
-**[Try it in your browser](https://d0rb.github.io/openfield-studio/)** · **[Watch the two-minute demo](https://d0rb.github.io/openfield-studio/demo.mp4)**
+**[Try it in your browser](https://d0rb.github.io/openfield-studio/)** · **[Watch the two-minute demo](https://d0rb.github.io/openfield-studio/demo.mp4)** · **[Watch the 36-second promo](https://d0rb.github.io/openfield-studio/promo.mp4)**
+
+<a href="https://d0rb.github.io/openfield-studio/promo.mp4"><img src="docs/media/promo-poster.jpg" width="300" alt="The 36-second vertical promo, opening on its title card: OpenField Studio, a film studio on open-weights models. Open weights only. Every take keeps its receipt. Click to play."></a>
 
 ![The Lobby, the app's first screen: the trailer playing across the room with the Start directing ticket on it, then the headline and the marquee with the counts under it](docs/media/lobby.png)
 
