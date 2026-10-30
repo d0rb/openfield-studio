@@ -44,7 +44,7 @@ openfield = ["web/**/*", "workflows/*.json", "workflows/LICENSE*", "workflows/RE
 testpaths = ["tests"]
 asyncio_mode = "auto"
 addopts = "-q"
-# the tests render real media: do not keep a finished run's folders around (a full run is about 100 MB)
+# Keep only failed runs: the suite renders real media and a full run writes ~100 MB of temp files.
 tmp_path_retention_policy = "failed"
 tmp_path_retention_count = 1
 
